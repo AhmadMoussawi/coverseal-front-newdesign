@@ -107,6 +107,7 @@ const useStyles = makeStyles({
                   name={name}
                     className={classes.root}
                     label={label}
+                    InputLabelProps={{shrink:true}}
                     fullWidth
                     type={"text"}
                     onChange={handleInput}

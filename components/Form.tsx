@@ -8,6 +8,7 @@ import {
   withStyles,
   FormControlLabel,
   InputLabel,
+  Box,
 } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
@@ -31,6 +32,9 @@ import { postcodeValidator, postcodeValidatorExistsForCountry } from 'postcode-v
 import {PlacesAutocomplete} from "./PlacesAutocomplete";
 import disposable from "@ip1sms/is-disposable-phone-number"
 import http from "https";
+import { styled } from '@mui/material/styles';
+
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 export const MuiPhoneNumber = dynamic<any>(
   () => import("material-ui-phone-number"),
   {
@@ -73,6 +77,11 @@ interface Props {
   fields: any[];
   content: AfterSaleSectionContent | PriceRequestSectionContent;
   apiPath: string;
+  next_btn_title:string;
+  setStep:any;
+  showsteps:boolean;
+  step_one_title:string;
+  step_two_title:string;
 }
 
 export function Form({
@@ -83,9 +92,14 @@ export function Form({
   fields,
   content,
   apiPath,
+  next_btn_title,
+  showsteps,
+  step_one_title,
+  step_two_title
 }: Props) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [formstep, setFormStep] = useState(1);
   const generateInitialState = () => {
     return {
       ...fields.reduce((acc, item) => {
@@ -589,14 +603,25 @@ const handlePlaceChange = (postalcode)=>{
     },
     [state]
   );
-
+  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    height: 10,
+    border:"1px solid var(--color-terra-cotta)",
+    borderRadius: 5,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: "transparent",
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 0,
+      backgroundColor: "var(--color-terra-cotta)",
+    },
+  }));
   const inputs = useMemo(
     () =>
       fields.map(
-        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle }) => {
+        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle, step }) => {
           let field;
           const label = content[`${id}_label`];
-          
+          var showfield = (!step || !formstep) || (step == formstep);
           switch (true) {
             case type === "places":
               field = (
@@ -661,7 +686,7 @@ const handlePlaceChange = (postalcode)=>{
               break;
             case type === "file":
               field = (
-                <>
+                <div >
                   <InputLabel htmlFor={id}>
                     <input
                       name={id}
@@ -682,7 +707,7 @@ const handlePlaceChange = (postalcode)=>{
                     <InsertDriveFileIcon />
                   </InputLabel>
                   <div className="border-bottom" />
-                </>
+                </div>
               );
               break;
             default:
@@ -704,6 +729,7 @@ const handlePlaceChange = (postalcode)=>{
                     className={classes.root}
                     label={required ? <>{label}<sup>*</sup></>:<>{label}</>}
                     fullWidth
+                    
                     multiline={textarea}
                     /*required={required}*/
                     id={id}
@@ -728,22 +754,22 @@ const handlePlaceChange = (postalcode)=>{
                 </NoSsr>
               );
               break;
-          }
+            }
           return (
-            <div
+            showfield && <div
               key={id}
               className={classNames({
                 "field-group": true,
                 "demand-field": id === "demand",
               })}
-              data-field={id} style={additionalstyle}
+              data-field={id} style={!showsteps?additionalstyle:{}}
             >
               {field}
             </div>
           );
         }
       ),
-    [state, fields, numberOfFilesUploaded, router.locale]
+    [state, fields, numberOfFilesUploaded, router.locale, formstep]
   );
 
   if (isFormSuccess) {
@@ -784,8 +810,14 @@ const handlePlaceChange = (postalcode)=>{
       </div>
     );
   }
-
+  
   return (
+    <>
+    {showsteps && <Box style={{ width: '100%' }}>
+    <br />
+    <table style={{width:"100%", color:"var(--color-terra-cotta)"}}><tr><td style={{textAlign:"center", cursor:"pointer"}} onClick={()=>{setFormStep(1)}}>{step_one_title}</td><td onClick={()=>{setFormStep(2)}} style={{textAlign:"center", cursor:"pointer"}}>{step_two_title}</td></tr></table>
+    <BorderLinearProgress variant="determinate" value={formstep==1?50:100} />
+  </Box>}
     <form onSubmit={handleSubmit}>
       {isPriceRequest && (
         <NoSsr>
@@ -820,14 +852,20 @@ const handlePlaceChange = (postalcode)=>{
           <Loader />
         </div>
       ) : (
-        <button
+        (!showsteps || (!formstep || formstep == 2)?  <button
           className={color?("link-before-translate link-before-translate--"+color+" submit"):"link-before-translate link-before-translate--anthracite submit"}
           type="submit"
         >
           {submit_text}
-        </button>
+        </button>:<button
+          className={color?("link-before-translate link-before-translate--"+color+" submit"):"link-before-translate link-before-translate--anthracite submit"}
+          onClick={()=>{setFormStep(2);}}
+        >
+          {next_btn_title}
+        </button>)
       )}
     </form>
+    </>
   );
 }
 declare global {
