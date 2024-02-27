@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/Work/Web/Coverseal/coverseal-front'
+rsync -avhpz . web-host-coverseal:~/coverseal_website/front --include-from "./.syncinclude" --exclude "*" --delete
+make: Leaving directory 'd:/Work/Web/Coverseal/coverseal-front'
+ 

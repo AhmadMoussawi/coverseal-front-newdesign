@@ -1,0 +1,16 @@
+FROM node:16.13.0
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+# COPY package*.json /usr/src/app/
+COPY . .
+
+#RUN yarn install --frozen-lockfile
+RUN npm install
+# ENV CMS_INTERNAL_URL http://directus:8055
+
+# RUN yarn run build
+
+CMD ["yarn", "start"]

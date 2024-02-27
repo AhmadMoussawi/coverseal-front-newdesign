@@ -1,0 +1,32 @@
+.documents-list {
+  li {
+    margin: 20px 0;
+    display: flex;
+  }
+
+  svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  span {
+    color: var(--color-anthracite);
+    margin-top: 10px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &::before {
+      left: 0;
+    }
+  }
+
+  @media (max-width: 580px) {
+    a {
+      font-size: 0.8rem;
+    }
+  }
+}

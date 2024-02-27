@@ -1,0 +1,1 @@
+{"buildTargets":["build_front_image","deploy","dry-deploy","push_front_image"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

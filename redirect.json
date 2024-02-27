@@ -1,0 +1,70 @@
+[
+    {
+        "Ancienne URL": "/modele-manuel",
+        "Nouvelle URL": "/models/3/manuel"
+    },
+    {
+        "Ancienne URL": "/modele-semi-automatique",
+        "Nouvelle URL": "/models/2/semi-automatique"
+    },
+    {
+        "Ancienne URL": "/modele-automatique",
+        "Nouvelle URL": "/models/1/automatique"
+    },
+    {
+        "Ancienne URL": "/technologie",
+        "Nouvelle URL": "/the-coverseal"
+    },
+    {
+        "Ancienne URL": "/couvertures-de-securite",
+        "Nouvelle URL": "/the-coverseal"
+    },
+    {
+        "Ancienne URL": "/couvertures-coulissantes",
+        "Nouvelle URL": "/the-coverseal"
+    },
+    {
+        "Ancienne URL": "/couvertures-thermiques",
+        "Nouvelle URL": "/the-coverseal"
+    },
+    {
+        "Ancienne URL": "/securite",
+        "Nouvelle URL": "/benefits"
+    },
+    {
+        "Ancienne URL": "/design",
+        "Nouvelle URL": "/models/1/automatique"
+    },
+    {
+        "Ancienne URL": "/ecofriendly",
+        "Nouvelle URL": "/benefits"
+    },
+    {
+        "Ancienne URL": "/qui-sommes-nous",
+        "Nouvelle URL": "/about-us"
+    },
+    {
+        "Ancienne URL": "/galerie-photos",
+        "Nouvelle URL": "/achievements/2/inspirations"
+    },
+    {
+        "Ancienne URL": "/contacts",
+        "Nouvelle URL": "/contact"
+    },
+    {
+        "Ancienne URL": "/support",
+        "Nouvelle URL": "/after-sale"
+    },
+    {
+        "Ancienne URL": "/mentions-legales",
+        "Nouvelle URL": "/terms-and-conditions"
+    },
+    {
+        "Ancienne URL": "/politique-vie-privee",
+        "Nouvelle URL": "/privacy-policy"
+    },
+    {
+        "Ancienne URL": "/professionnels",
+        "Nouvelle URL": "/partnerships"
+    }
+]

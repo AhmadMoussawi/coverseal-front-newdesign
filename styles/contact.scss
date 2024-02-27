@@ -1,0 +1,12 @@
+.contact-template {
+  background: var(--color-beige);
+
+  .link-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .circle-link {
+    transform: translateX(-35%);
+  }
+}

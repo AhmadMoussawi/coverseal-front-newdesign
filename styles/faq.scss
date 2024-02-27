@@ -1,0 +1,131 @@
+.faq-template {
+  background: var(--color-beige);
+
+  h1 {
+    cursor: pointer;
+  }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .input-container {
+      width: 500px;
+      position: relative;
+
+      .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        border-radius: 100px;
+        border: solid 1px transparent;
+        padding: 10px;
+        transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        cursor: pointer;
+
+        &:hover {
+          border: solid 1px var(--color-anthracite);
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .input {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 580px) {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .input {
+        width: 100%;
+      }
+    }
+  }
+
+  .questions {
+    padding: 50px 0;
+
+    > li {
+      border-top: solid 1px var(--color-terra-cotta);
+      padding: 30px 0;
+    }
+
+    > li:last-child {
+      border-bottom: solid 1px var(--color-terra-cotta);
+    }
+
+    h4 {
+      font-size: 2rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+
+      svg {
+        min-width: 30px;
+        width: 30px;
+        margin-right: 50px;
+        transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      &:hover {
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+
+      @media (max-width: 768px), (max-height: 500px) {
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 580px) {
+        font-size: 1.25rem;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .content {
+      transition: 0.3s ease-out;
+    }
+
+    .question-item {
+      overflow: hidden;
+
+      &.is-open {
+        .content {
+          transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        h4 svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .models-link-section {
+    display: flex;
+    justify-content: flex-end;
+
+    .circle-link {
+      transform: translate(40%);
+    }
+  }
+
+  .loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

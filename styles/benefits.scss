@@ -1,0 +1,94 @@
+.benefits-template {
+  .block {
+    margin: 100px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 580px), (max-height: 500px) {
+      margin: 50px 0;
+    }
+  }
+
+  .block-text-image {
+    margin-top: 0;
+    align-items: center;
+
+    .image-container,
+    .text-container {
+      width: 50%;
+    }
+
+    @media (max-width: 768px), (max-height: 500px) {
+      .image-container,
+      .text-container {
+        width: 100%;
+      }
+    }
+  }
+
+  #isolation {
+    margin-bottom: -150px;
+  }
+
+  .block-water-quality {
+    .text-container {
+      order: 2;
+      padding-right: 0;
+      padding-left: 10%;
+    }
+    .image-container {
+      order: 1;
+    }
+  }
+
+  .line {
+    width: 70vw;
+    height: 1px;
+    background: var(--color-terra-cotta);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .circle-section-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .circle-link-container {
+    position: relative;
+    width: 60%;
+    transform: translateX(30%);
+
+    .text-container {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .circle-link-container {
+      width: 50%;
+      transform: translateX(0%);
+    }
+  }
+
+  @media (max-width: 768px), (max-height: 500px) {
+    .circle-link-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .line {
+      display: none;
+    }
+
+    .block-water-quality .text-container {
+      order: 1;
+      padding: 0;
+    }
+  }
+}
