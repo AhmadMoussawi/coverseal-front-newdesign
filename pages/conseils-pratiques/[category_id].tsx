@@ -328,13 +328,16 @@ export default function BlogsPage({
               )}
               </div>*/}
           </div>
+          </div>
+          </section>
            {/* </div>
 
           </section>           
             <section className="section second-section" data-color={Color.BEIGE}> 
            <div className="section-container">
           { */}
-            <>
+            <section className="section first-section" data-color={Color.BEIGE}>
+            <div className="section-container">
               {!queryResponse ? (
                 <>
                 <Tabs
@@ -424,7 +427,7 @@ export default function BlogsPage({
                 </h2>
               )}
               
-      <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects" data-color={Color.BEIGE}> 
+      <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects"> 
         
         {questionsDom}
         
@@ -434,9 +437,7 @@ export default function BlogsPage({
               <ul className="link-list categories pagescats">
               {pagesDom}
               </ul>
-            </>
-}
-        </div>
+              </div>
       </section>
       
 

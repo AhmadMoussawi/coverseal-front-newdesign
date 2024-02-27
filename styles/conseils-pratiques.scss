@@ -213,9 +213,20 @@ h6{
 }
 .link-list {
   display: flex;
-  margin-top: 40px;
+  margin-top: -104px;
   background-color: white; /* Add this line to set the background color */
-  padding: 10px; /* Add this line to set the padding */
+  padding: 0px; /* Add this line to set the padding */
+  position:absolute;
+  a{
+    padding:10px;
+  }
+  a::before{
+    background:unset;
+  }
+  .is-selected{
+    background-color:var(--color-beige);
+    font-weight:bold;
+  }
 }
 
 .pagescats{
@@ -254,7 +265,7 @@ h6{
   .link-list a {
     color: var(--color-terra-cotta);
     background-color:var(--color-white);
-    padding-left: 30px;
+    
     
     .link-list a.is-selected{
       background-color:var(--color-beige);
