@@ -1,10 +1,15 @@
 .blogs-category-template {
   background: var(--color-beige);
+  color: var(--color-terra-cotta);
   .first-section {
     padding-top: 60px;
 }
+.second-section {
+  padding-top: 60px;
+}
 .link-before-translate--terra-cotta:hover {
   color: var(--color-terra-cotta);
+  background-color: var(--color-beige);
   font-weight:bold;
 }
 .link-before-translate--terra-cotta:hover::before {
@@ -17,7 +22,12 @@
            line-clamp: 1; 
    -webkit-box-orient: vertical;
 }
+
+h6{  
+  font-size: medium;
+}
 .subtext{
+  background-color: var(--color-beige);
   overflow: hidden;
    display: -webkit-box;
    -webkit-line-clamp: 2; /* number of lines to show */
@@ -31,7 +41,7 @@
     font-weight:normal;
   }
   .link-before-translate--terra-cotta:hover::before {
-    background: var(--color-terra-cott);
+    background: var(--color-terra-cotta);
   }
 }
 .cattab{
@@ -204,13 +214,26 @@
 .link-list {
   display: flex;
   margin-top: 40px;
+  background-color: white; /* Add this line to set the background color */
+  padding: 10px; /* Add this line to set the padding */
 }
+
 .pagescats{
   display:block;
   li{
-    float:left
+    float:left;
+    background-color: var(--color-beige);
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    a {
+      color: var(--color-terra-cotta); /* Set the text color to terra-cotta */
+      text-decoration: none; /* Remove underline from the link */
+    }
   }
 }
+
+
 .subtitle-poppins {
   font-size: 1.0rem;
   letter-spacing: 1.5px;
@@ -219,7 +242,35 @@
 .link-list li {
   margin: 0 10px;
   display: block;
+  color: var(--color-terra-cotta); /* Set the text color to terra-cotta */
+  background-color: var(--color-white); /* Set the background color to white */
+  padding: 10px; /* Add padding for better user experience */
+  border-radius: 5px; /* Add rounded corners for better aesthetics */
+  text-decoration: none; /* Remove underline from the link */
+  transition: background-color 0.3s ease;
 }
+
+  
+  .link-list a {
+    color: var(--color-terra-cotta);
+    background-color:var(--color-white);
+    padding-left: 30px;
+    
+    .link-list a.is-selected{
+      background-color:var(--color-beige);
+    }
+}
+
+
+.link-list a:hover {
+  background-color:var(--color-beige);
+}
+
+// .link-list li:hover {
+//   background-color: var(--color-beige); /* Set the background color to beige on hover */
+// }
+
+
 .header-title{
   font-size: 4.5rem;
 }
@@ -265,9 +316,23 @@
   height:350px;
 }
 
+.MuiTabs-scrollButtons {
+  color: var(--color-terra-cotta);
+  background-color: red;
+}
+
+.MuiButtonBase-root {
+  color: var(--color-terra-cotta); 
+  background-color: blue;
+}
+
+
+
 .blogs-category-template .projects {
-  margin-top: 100px;
- 
+  padding-top: 100px;
+  background-color: var(--color-beige);
+
+
   .image-container {
     width: 100%;
     min-height: 300px;
@@ -283,16 +348,18 @@
     }
   }
 
+
   li {
+   
     a {
       display: flex;
       justify-content: space-between;
       padding: 0;
       padding-bottom: 50px;
       border-top: solid 1px var(--color-anthracite);
-
+      
       &::before {
-        width: 0;
+        
         transition: 1s cubic-bezier(0.22, 1, 0.36, 1);
       }
 

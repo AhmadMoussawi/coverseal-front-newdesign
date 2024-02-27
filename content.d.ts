@@ -150,6 +150,7 @@ interface AllPageContent {
   seo_description: string;
   opengraph_description: string;
   main_title: string;
+  main_description: string;
   image:DirectusImage;
   opengraph_image: string;
 }
