@@ -1,9 +1,9 @@
 $size: auto;
 
 .side-nav {
-  position: fixed;// fixed;
+  position: absolute;// fixed;
   left: 50%;
-  top: 5%; /* Updated: Set top to 0 */
+  top: 0%; /* Updated: Set top to 0 */
   transform: translateX(-50%); /* Updated: Center horizontally */
   z-index: 90;
   //right: 1%;
@@ -27,8 +27,9 @@ $size: auto;
   }
 
   a {
-    display: flex;
+    display: block;
     width: 200px;
+    height:100px;
     align-items: center;
    // justify-content: flex-end;
     padding: 15px;
@@ -65,11 +66,13 @@ $size: auto;
 
 
   .logo{
+    margin-top:0px;
     svg{
-      width:100px;
+      height:70px;
       margin-left:0px;
       margin-right: auto;
-      
+      stroke: var(--color-terra-cotta);
+      fill:var(--color-terra-cotta);
     }
   }
 
@@ -103,16 +106,15 @@ $size: auto;
       }
 
       svg {
-        //fill: var(--color-white);
+        fill: var(--color-white);
         stroke: var(--color-white);
-        fill:none;
           stroke-width:1.5px
       }
 
       &:hover {
         
         svg {
-          fill: var(--color-terra-cotta);
+          fill: var(--color-white);
         }
       }
     }
@@ -131,10 +133,10 @@ $size: auto;
         &:hover {
           .cls-1,
           .cls-2 {
-            fill: var(--color-terra-cotta);
+            fill: var(--color-white);
           }
           .cls-2 {
-            stroke: var(--color-terra-cotta);
+            stroke: var(--color-white);
           }
         }
       }
@@ -170,14 +172,14 @@ $size: auto;
 
       svg {
         stroke: var(--color-terra-cotta);
-        fill:none;
+        fill: var(--color-terra-cotta);
           stroke-width:1.5px
       }
 
       &:hover {
 
         svg {
-          stroke: var(--color-white);
+          stroke: var(--color-terra-cotta);
           fill:none;
           stroke-width:1.5px
         }
@@ -239,7 +241,7 @@ $size: auto;
         svg{
           width:60px;
           margin-left: 0;
-         
+          stroke: var(--color-terra-cotta);
         }
       }
   }
