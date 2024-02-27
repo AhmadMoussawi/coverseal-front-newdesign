@@ -164,7 +164,13 @@ interface AllTranslation {
 }
 
 interface AfterSaleContent extends AllPageContent {}
-interface PriceRequestContent extends AllPageContent {}
+interface PriceRequestContent extends AllPageContent {
+  main_description:string;
+  form_title:string;
+  step_one_title:string;
+  step_two_title:string;
+  next_btn_title:string;
+}
 interface CatalogRequestContent extends AllPageContent {
   image:DirectusImage;
   form_title:string;
