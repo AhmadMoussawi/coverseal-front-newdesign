@@ -5,6 +5,7 @@ import { Fetcher, getAllPagePropsOnly } from "../utils/fetchers";
 import { translateInFromRightToLeft } from "../animations/appearing/shared";
 import { CMS_PUBLIC_URL } from "../utils/constants";
 import { getLocale } from "../utils/locale";
+import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -12,10 +13,11 @@ function appearingAnimations() {
 }
 
 export default function DocumentsPage({
+  globalSection,
   pageProps,
   layoutProps,
 }: PageProps<DocumentsTemplateDirectus>) {
-  const { main_title, main_paragraph, files } = pageProps.translations[0];
+  const { main_title, main_paragraph, files , locale} = pageProps.translations[0];
 
   useEffect(() => {
     appearingAnimations();
@@ -25,11 +27,8 @@ export default function DocumentsPage({
     <main className="contact-template">
       <section className="section first-section" data-color="beige">
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
-          <div
-            className="main-paragraph wysiwyg"
-            dangerouslySetInnerHTML={{ __html: main_paragraph }}
-          />
+          <h1 className="main-title main-title--terra-cotta" dangerouslySetInnerHTML={{ __html: main_paragraph }}/>
+        
 
           <ul className="documents-list">
             {files.map(({ directus_files_id }) => {
@@ -53,6 +52,12 @@ export default function DocumentsPage({
           </ul>
         </div>
       </section>
+
+      <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+      />
     </main>
   );
 }
