@@ -38,6 +38,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { ItemSelection } from "@aws-sdk/client-cloudfront";
 import { redirect } from "next/dist/server/api-utils";
+import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
+
+
 const Label = styled(Paper)(({ theme }) => ({
   backgroundColor: 'transparent',
   //...theme.typography.body2,
@@ -113,6 +116,7 @@ export default function BlogsPage({
 }: BlogsProps) {
   const { locale, asPath } = useRouter();
   const {
+    main_description,
     main_title,
     search_placeholder,
     result_text,
@@ -221,7 +225,7 @@ export default function BlogsPage({
     () =>
       (queryResponse || blogs || dblogs).map((question, i) => {
         const id = `question-${question.id}`;
-        const { main_title, description } = question.translations[0];
+        const { main_title, description, main_description } = question.translations[0];
         const category_id = question.category as number;
         return (
           <div key={i}>
@@ -240,7 +244,9 @@ export default function BlogsPage({
               
               isBackgroundCss
             />
-            <Label><h5 className="subtitle" style={{fontWeight:"500"}}>{main_title}</h5><span className="subtext">{description}</span><Date style={{fontSize:"12px",marginTop:"5px", display:"block"}} dateString={question.date_created.toString()} language={language} /><a className="back-button next-button" href={"/" + locale + generateBlogPath(
+            <Label><h5 className="subtitle" style={{fontWeight:"500"}}>{main_title}</h5>
+            <span className="subtext">{description}</span>
+            <Date style={{fontSize:"12px",marginTop:"5px", display:"block"}} dateString={question.date_created.toString()} language={language} /><a className="back-button next-button" href={"/" + locale + generateBlogPath(
             category_id,
             main_title, question.id
           )} style={{fontSize:"12px", marginTop:"10px"}}>{readmore}
@@ -288,7 +294,7 @@ export default function BlogsPage({
   }, []);
   return (
     <main className="blogs-category-template">
-      <section className="section first-section" data-color={Color.BEIGE}>
+      <section className="section first-section" data-color={Color.WHITE}>
         <div className="section-container">
         {/*<HeaderImage
                       id={header_image.id}
@@ -296,14 +302,18 @@ export default function BlogsPage({
                       main_title={main_title + (currentCategory && currentCategory.translations && currentCategory.translations.length>0?": " + currentCategory.translations[0].name:"")}
                       direction={AnimationDirection.LEFT_TO_RIGHT}
   />*/}
-          <div className="title-container">
-            {<a href={`/${locale}/conseils-pratiques/all`}><h1
-              onClick={handleClearSearch}
+          <div className="title-container" style={{paddingTop:"50px", paddingBottom:"50px"}}>
+            
+              <a href={`/${locale}/conseils-pratiques/all`}>
+                <h1  onClick={handleClearSearch}
               className="main-title main-title--terra-cotta  header-title"
             >
               {main_title}
+              <span className="text-container"><h6>{main_description}</h6></span>
+              
             </h1></a>
-            /*<div className="input-container">
+            
+            {/*<div className="input-container">
               <input
                 className="input"
                 type="text"
@@ -318,8 +328,12 @@ export default function BlogsPage({
               )}
               </div>*/}
           </div>
+           {/* </div>
 
-          {
+          </section>           
+            <section className="section second-section" data-color={Color.BEIGE}> 
+           <div className="section-container">
+          { */}
             <>
               {!queryResponse ? (
                 <>
@@ -331,10 +345,11 @@ export default function BlogsPage({
                 aria-label="scrollable auto tabs example"
                 value={(currentCategoryId?currentCategoryId:"all")}
               >
-                <Tab value={"all"} label={all} className={classnames({
+                <Tab value={"all"} label={all} className={
+                  classnames({
                         "subtitle-poppins": true,
                         "link-before-translate": true,
-                        "link-before-translate--terra-cotta": true,
+                        "link-before-translate--TERRA_COTTA": true,
                         "is-selected": !currentCategoryId,
                       })} href={`/${locale}/conseils-pratiques/all`} key="allcategories" />
                 {categories.filter(x=>x.hasblogs==true).map(({ id, translations, hasblogs }) => {
@@ -409,7 +424,7 @@ export default function BlogsPage({
                 </h2>
               )}
               
-      <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects">
+      <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects" data-color={Color.BEIGE}> 
         
         {questionsDom}
         
@@ -420,10 +435,16 @@ export default function BlogsPage({
               {pagesDom}
               </ul>
             </>
-          }
+}
         </div>
       </section>
       
+
+      <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+      />
     </main>
   );
 }
