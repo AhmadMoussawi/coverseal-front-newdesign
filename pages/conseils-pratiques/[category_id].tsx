@@ -302,7 +302,7 @@ export default function BlogsPage({
                       main_title={main_title + (currentCategory && currentCategory.translations && currentCategory.translations.length>0?": " + currentCategory.translations[0].name:"")}
                       direction={AnimationDirection.LEFT_TO_RIGHT}
   />*/}
-          <div className="title-container" style={{paddingTop:"50px", paddingBottom:"50px"}}>
+          <div className="title-container" style={{paddingTop:"50px"}}>
             
               <a href={`/${locale}/conseils-pratiques/all`}>
                 <h1  onClick={handleClearSearch}

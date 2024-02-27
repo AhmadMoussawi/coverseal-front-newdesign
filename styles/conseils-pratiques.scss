@@ -34,8 +34,24 @@ h6{
            line-clamp: 2; 
    -webkit-box-orient: vertical;
 }
-@media(max-width:575px)
+
+
+@media(min-width:580px),(max-width:768px){
+  .first-section {
+   
+    padding-bottom: 50px;
+   
+  }
+
+ 
+}
+@media(max-width:580px)
 {
+
+  .link-list {
+    background-color: var(--color-beige) !important;
+  }
+
   .link-before-translate--terra-cotta:hover {
     color: var(--color-beige);
     font-weight:normal;
@@ -43,7 +59,28 @@ h6{
   .link-before-translate--terra-cotta:hover::before {
     background: var(--color-terra-cotta);
   }
+  .first-section {
+    background-color: var(--color-beige);
+    padding-bottom: 0px;
+    //padding-top:0px;
+    
+  }
+
+  .title-container{
+    padding-bottom: 0px;
+  }
+
+  .catlink{
+    display:-webkit-box !important;
+  }
+
+
+  .title-container{
+    padding-bottom:0px;
+  }
 }
+
+
 .cattab{
   display:block;
 }
@@ -214,8 +251,9 @@ h6{
 .link-list {
   display: flex;
   margin-top: -104px;
-  background-color: white; /* Add this line to set the background color */
-  padding: 0px; /* Add this line to set the padding */
+  background-color: white; 
+  
+  padding: 0px; 
   position:absolute;
   a{
     padding:10px;
@@ -295,32 +333,32 @@ h6{
   fill: var(--color-terra-cotta);
 }
 
-@media(max-width:776px)
-{
+// @media(max-width:776px)
+// {
   
-  .header-shape{
-    display:none
-  }
-  .header-title{
-    font-size: 1.6rem !important;
-  }
-  .header-title-container{
-    
-    left:10px
-  }
-  .categories{
-    margin-top:10px;
-  }
-}
-@media(max-width:575px)
-{
-  .cattab{
-    display:none;
-  }
-  .catlink{
-    display:flex !important ;
-  }
-}
+//   .header-shape{
+//     display:none
+//   }
+//   .header-title{
+//     font-size: 1.6rem !important;
+//   }
+//   .header-title-container{
+//     padding-bottom: 0px;
+//     left:10px
+//   }
+//   .categories{
+//     margin-top:10px;
+//   }
+// }
+// @media(max-width:575px)
+// {
+//   .cattab{
+//     display:-webkit-inline-box;
+//   }
+//   // .catlink{
+//   //   display:flex !important ;
+//   // }
+// }
 }
 .MuiMasonry-root .css-image{
   width:100%;
@@ -340,7 +378,7 @@ h6{
 
 
 .blogs-category-template .projects {
-  padding-top: 100px;
+  padding-top: 15px;
   background-color: var(--color-beige);
 
 
@@ -366,7 +404,7 @@ h6{
       display: flex;
       justify-content: space-between;
       padding: 0;
-      padding-bottom: 50px;
+      //padding-bottom: 50px;
       border-top: solid 1px var(--color-anthracite);
       
       &::before {
