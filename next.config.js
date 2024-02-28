@@ -39,6 +39,9 @@ const securityHeaders = [
 ];
 // next.config.js
 module.exports = {
+  experimental: {
+    optimizePackageImports: ['@mui/material'],
+  },
   async headers() {
     return [
       {
