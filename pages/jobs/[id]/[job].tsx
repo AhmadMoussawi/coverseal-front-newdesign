@@ -13,6 +13,8 @@ import { Color } from "../../../utils/constants";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
+// import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
+// import { useRouter } from "next/router";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -24,13 +26,14 @@ interface SingleJobProps extends PageProps<PartialItem<SingleJobDirectus>> {
 }
 
 export default function SingleJobPage({
+  // globalSection,
   pageProps,
   globalJobsContent,
 }: SingleJobProps) {
   const { translations } = pageProps;
   const { back_to_jobs_text, interested_text, send_your_cv_text } =
     globalJobsContent;
-
+    // const { locale } = useRouter();
   useEffect(() => {
     appearingAnimations();
   }, []);
@@ -66,6 +69,8 @@ export default function SingleJobPage({
           </div>
         </div>
       </section>
+
+     
     </main>
   );
 }

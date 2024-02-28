@@ -14,6 +14,7 @@ import { translateInFromRightToLeft } from "../../animations/appearing/shared";
 import { Color } from "../../utils/constants";
 import { useCallback } from "react";
 import { getLocale } from "../../utils/locale";
+import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
 
 const terraCotta = "#7f351b";
 
@@ -63,7 +64,7 @@ interface JobsProps extends PageProps<JobsContent> {
   countries: CountriesDirectus[];
 }
 
-export default function JobsPage({ pageProps, jobs, countries }: JobsProps) {
+export default function JobsPage({ pageProps, jobs, countries, globalSection }: JobsProps) {
   const { main_title, main_paragraph, all_filter_text, country_label_text } =
     pageProps;
     const { locale } = useRouter();
@@ -147,7 +148,13 @@ export default function JobsPage({ pageProps, jobs, countries }: JobsProps) {
           </div>
         </div>
       </section>
+      <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+      />
     </main>
+     
   );
 }
 
