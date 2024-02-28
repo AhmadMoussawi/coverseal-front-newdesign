@@ -19,15 +19,16 @@ export function AfterSaleSection(props: Props) {
   const fields = useMemo(
     () => [
       {
-        id: "first_name",
-        type: "text",
-        required: true,
-      },
-      {
         id: "last_name",
         type: "text",
         required: true,
       },
+      {
+        id: "first_name",
+        type: "text",
+        required: true,
+      },
+      
       {
         id: "mail",
         type: "text",
@@ -38,17 +39,37 @@ export function AfterSaleSection(props: Props) {
         type: "email",
         required: true,
       },
-      {
-        id: "address",
-        type: "places",
-        required: true,
-        additionalstyle:{width:"100%", padding:"0px"}
-      },
+      // {
+      //   id: "address",
+      //   type: "places",
+      //   required: true,
+      //   additionalstyle:{width:"100%", padding:"0px"}
+      // },
       {
         id: "phone",
         type: "tel",
         required: true,
         additionalstyle:{paddingLeft:"0px", paddingRight:"30px"} 
+      },
+      {
+        id: "coverseal_reference_number",
+        textarea: true,
+        rows: 2,
+        maxRows: 2,
+        required: true,
+        // additionalstyle:{paddingLeft:"0px", marginRight:"50%", paddingRight:"30px"}
+      },
+      {
+        id: "zip_code",
+        type: "text",
+        required: true,
+        help: (
+          <span  style={{color:"red"}}
+            className="Mui-error"
+            id="zip_code_validation"
+          />
+        ),
+        additionalstyle:{paddingLeft:"0px"}
       },
       {
         id: "country",
@@ -72,46 +93,28 @@ export function AfterSaleSection(props: Props) {
       
       
       
-      {
-        id: "zip_code",
-        type: "text",
-        required: true,
-        help: (
-          <span  style={{color:"red"}}
-            className="Mui-error"
-            id="zip_code_validation"
-          />
-        ),
-        additionalstyle:{paddingLeft:"0px"}
-      },
-      { id: "city", type: "text", required: true, 
-      additionalstyle:{paddingLeft:"30px", paddingRight:"0px"} },
-      {
-        id: "coverseal_reference_number",
-        textarea: true,
-        rows: 2,
-        maxRows: 2,
-        required: true,
-        additionalstyle:{paddingLeft:"0px", marginRight:"50%", paddingRight:"30px"}
-      },
+      
+      // { id: "city", type: "text", required: true, 
+      // additionalstyle:{paddingLeft:"30px", paddingRight:"0px"} },
+     
       
       {
         id: "problem_description",
         type: "text",
         required: true,
       },
-      {
-        id: "add_photos",
-        type: "file",
-        required: false,
-      },
-      {
-        id: "message",
-        required: true,
-        textarea: true,
-        rows: 4,
-        maxRows: 10,
-      },
+      // {
+      //   id: "add_photos",
+      //   type: "file",
+      //   required: false,
+      // },
+      // {
+      //   id: "message",
+      //   required: true,
+      //   textarea: true,
+      //   rows: 4,
+      //   maxRows: 10,
+      // },
     ],
     [countries]
   );
@@ -135,7 +138,7 @@ export function AfterSaleSection(props: Props) {
   return (
     <section
       className="section price-request-section after-sale-section"
-      data-color={Color.BEIGE}
+      data-color={Color.SAND} 
     >
       <div className="section-container">
         {title}

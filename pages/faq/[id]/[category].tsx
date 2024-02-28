@@ -28,6 +28,7 @@ import { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
 import StructuredData from "../../../components/StructuredData";
+import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
 
 function QuestionItem({ translations }: PartialItem<FAQQuestionDirectus>) {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +73,7 @@ export default function FAQPage({
   const { locale, asPath } = useRouter();
   const {
     main_title,
+    main_description,
     search_placeholder,
     result_text,
     no_result_text,
@@ -184,7 +186,7 @@ export default function FAQPage({
     <>
     <StructuredData data={structuredData}  id="faqs-data" />
     <main className="faq-template">
-      <section className="section first-section" data-color={Color.BEIGE}>
+      <section className="section first-section" data-color={Color.WHITE}>
         <div className="section-container">
           <div className="title-container">
             <h1
@@ -193,6 +195,7 @@ export default function FAQPage({
             >
               {main_title}
             </h1>
+            
             <div className="input-container">
               <input
                 className="input"
@@ -207,8 +210,16 @@ export default function FAQPage({
                 </div>
               )}
             </div>
+            <div>
+            <span className="text-container"><h6>
+              {main_description}
+            </h6></span>
+            </div>
           </div>
-
+</div>
+                </section>
+                <section className="section first-section" data-color={Color.BEIGE}>
+                <div className="section-container">
           {isLoading ? (
             <div className="loader-container">
               <Loader />
@@ -252,20 +263,27 @@ export default function FAQPage({
           )}
         </div>
       </section>
-      <section className="models-link-section">
+      {/* <section className="models-link-section">
         <CircleLink
           mainLink={{
             text: models_link_text,
             href: modelsLink,
           }}
         />
-      </section>
+      </section> */}
       {layoutProps.hasSAV && (
         <AfterSaleSection
           {...globalSection.afterSale}
           formsMessages={globalSection.formsMessages}
         />
       )}
+
+
+      <CatalogueRequestHomeSection 
+          {...globalSection.priceRequest}
+          formsMessages={globalSection.formsMessages}
+          locale={locale}
+      />
     </main>
     </>
   );
