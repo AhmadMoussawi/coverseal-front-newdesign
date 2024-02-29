@@ -456,7 +456,9 @@ h6{
 
   .benefits-section {
     overflow: initial;
-
+.MuiPaper-root{
+  height:auto !important
+}
     a {
       display: inline-block;
     }
@@ -503,9 +505,6 @@ h6{
         font-size: 2.75rem;
       }
 
-      .image-container {
-        width: 50%;
-      }
     }
 
     @media (max-width: 768px) {

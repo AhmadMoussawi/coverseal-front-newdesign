@@ -45,7 +45,7 @@ export default function CatalogRequestPage({
 
           <div className="text-container">
               
-            <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: description }} />
+            <div className="paragraph wysiwyg" dangerouslySetInnerHTML={{ __html: description }} />
             {/* <Link href="/the-coverseal" passHref>
               <a className="link-before-translate link-before-translate--anthracite">
                 abc

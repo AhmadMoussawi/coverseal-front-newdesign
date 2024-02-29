@@ -37,6 +37,7 @@ import Date from '../components/date';
 import { PartialItem } from "@directus/sdk";
 import Models from '../components/ImageTextAuto';
 import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import { Grid } from "@material-ui/core";
 
 
 const Label = styled(Paper)(({ theme }) => ({
@@ -328,7 +329,7 @@ partenair_link_text,
 
 
         <section className="section benefits-section" data-color={Color.BEIGE}>
-          <div className="content">
+          
                 <div style={{ width:"80%", margin:"auto"}}>
                   <div className="title-container">
                   <Link href="/benefits" passHref>
@@ -340,17 +341,15 @@ partenair_link_text,
             </Link>
                   </div>
                 
-                  <div>
-              <Masonry columns={{xs:1, sm:1, md:3}} spacing={2} className="projects">
-                  
-              <div className="item-container" style={{marginTop:"20px"}}>
-                      
-                      <Image
+                  <Grid container spacing={2}>
+                  <Grid item xs={12} lg={4}>
+
+                  <Image
                         id={benefits_section.security_image}
                         title="Blog image"
                         quality="50"
                         
-                        isBackgroundCss
+                        
                       />
 
 
@@ -362,16 +361,14 @@ partenair_link_text,
                           dangerouslySetInnerHTML={{ __html: benefits_section.security_home_description }}
                         />
                       </Label>
-                      
-                    </div>
-                    <div className="item-container" style={{marginTop:"20px"}}>
-                      
-                      <Image
+                    </Grid>
+                    <Grid item xs={12} lg={4}>
+                    <Image
                         id={benefits_section.water_quality_image.id}
                         title="Blog image"
                         quality="50"
                         
-                        isBackgroundCss
+                        
                       />
                       <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.water_quality_title}</h5>
                       <div
@@ -379,16 +376,14 @@ partenair_link_text,
                           dangerouslySetInnerHTML={{ __html: benefits_section.water_quality_home_description }}
                         />
                       </Label>
-                      
-                    </div>
-                    <div className="item-container" style={{marginTop:"20px"}}>
-                      
-                      <Image
+                    </Grid>
+                    <Grid item xs={12} lg={4}>
+                    <Image
                         id={benefits_section.isolation_image}
                         title="Blog image"
                         quality="50"
                         
-                        isBackgroundCss
+                        
                       />
                       <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.isolation_title}</h5>
                       <div
@@ -396,16 +391,20 @@ partenair_link_text,
                           dangerouslySetInnerHTML={{ __html: benefits_section.isolation_home_description }}
                         />
                       </Label>
-                      
-                    </div>
-             </Masonry></div> 
-             <div style={{marginTop:"50px"}}>
-             <Link href="/benefits" passHref>
+                    </Grid>
+                    </Grid>
+                    <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <div style={{marginTop:"20px"}}>
+                    <Link href="/benefits" passHref>
                           <a className="link-before-translate link-before-translate--anthracite">
                             {coverseal_link_text}
                           </a>
             </Link></div>
-          </div>
+                    </Grid>
+                    </Grid>
+                    <div style={{height:"50px"}}></div>
+             
           </div>
         </section>
 

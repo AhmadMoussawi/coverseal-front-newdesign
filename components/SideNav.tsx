@@ -33,7 +33,7 @@ export function SideNav({
   return (
     <div className="side-nav">
       <ul>
-      <li>
+      <li >
           <Link href="/" passHref> 
           <a className="logo">         
                 <LogoSymbol color={Color.WHITE} />              
@@ -66,7 +66,7 @@ export function SideNav({
         {hasConfigurator && (
           <li>
             <Link href="/before-configurator" passHref>
-            <a style={{ fontSize: '16px' }}><div className="text">{configurator_side_nav_link_text}</div></a>
+            <a><div className="text">{configurator_side_nav_link_text}</div></a>
               {/* <a>
                 
                 <Configurator color={Color.TERRA_COTTA} />
