@@ -2,6 +2,136 @@
   .first-section {
     padding-bottom: 50px;
   }
+//added
+.second-section {
+  padding-top: 60px;
+}
+.link-before-translate--terra-cotta:hover {
+  color: var(--color-terra-cotta);
+  background-color: var(--color-beige);
+  font-weight:bold;
+}
+.link-before-translate--terra-cotta:hover::before {
+  background: var(--color-beige);
+}
+.subtitle{
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1; 
+   -webkit-box-orient: vertical;
+}
+h6{  
+  font-size: medium;
+}
+.subtext{
+  background-color: var(--color-beige);
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.link-list {
+  display: flex;
+  margin-top: 0px;
+  background-color: white; 
+  flex-direction: row;
+
+  padding: 0px; 
+  position:absolute;
+  a{
+    padding:10px;
+  }
+  a::before{
+    background:unset;
+  }
+  .is-selected{
+    background-color:var(--color-beige);
+    font-weight:bold;
+  }
+}
+
+.link-list a:hover {
+  background-color:var(--color-beige);
+}
+
+.subtitle-poppins {
+  font-size: 1.0rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.link-list li {
+  margin: 0 0px;
+  display: block;
+  color: var(--color-terra-cotta); /* Set the text color to terra-cotta */
+  background-color: var(--color-beige); /* Set the background color to white */
+ // padding: 10px; /* Add padding for better user experience */
+  border-radius: 5px; /* Add rounded corners for better aesthetics */
+  text-decoration: none; /* Remove underline from the link */
+  transition: background-color 0.3s ease;
+}
+
+  
+  .link-list a {
+    color: var(--color-terra-cotta);
+    background-color:var(--color-white);
+    
+    
+    .link-list a.is-selected{
+      background-color:var(--color-beige);
+    }
+}
+////
+
+// tedting
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  margin: 8px;
+}
+
+.order1 {
+  order: 1;
+}
+
+.order2 {
+  order: 2;
+}
+
+.order3 {
+  order: 3;
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+  
+  .order1 {
+    order: 1;
+  }
+
+  .order2 {
+    order: 2;
+  }
+
+  .order3 {
+    order: 3;
+  }
+}
+//end testing
+
 
   .section-model-content {
     position: relative;

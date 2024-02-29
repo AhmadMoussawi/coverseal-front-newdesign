@@ -217,7 +217,7 @@ export default function FAQPage({
             </div>
           </div>
 </div>
-                </section>
+      </section>
                 <section className="section first-section" data-color={Color.BEIGE}>
                 <div className="section-container">
           {isLoading ? (

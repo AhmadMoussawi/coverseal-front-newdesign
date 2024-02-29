@@ -153,7 +153,26 @@ interface AllPageContent {
   main_description: String;
   main_description: string;
   image:DirectusImage;
+  certificate_image_2:string;
+security_image:string
+security_image_2:string;
+economy_image:string;
+economy_image_2:string;
+water_quality_image:string;
+water_quality_image_2:string;
   opengraph_image: string;
+  water_quality_title: string;
+water_quality_paragraph: string;
+security_title: string;
+security_paragraph: string;
+economy_title: string;
+economy_paragraph: string;
+water_quality_button_text: string;
+security_button_text: string;
+economy_button_text: string;
+discretion_button_text: string;
+certificate_button_text: string;
+comfort_button_text: string;
 }
 
 interface AllPageContentNonTranslated {

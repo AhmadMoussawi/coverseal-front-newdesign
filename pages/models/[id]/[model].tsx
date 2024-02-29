@@ -38,6 +38,8 @@ import { useRouter } from "next/router";
 import { OptionItem } from "../../../components/model/OptionItem";
 import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
+import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
+import Masonry from "@mui/lab/Masonry";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -117,6 +119,7 @@ interface ModelProps extends PageProps<ModelsContent> {
 
 // TODO: add missing line at the end
 export default function ModelPage({
+  globalSection,
   pageProps,
   models,
   currentModel,
@@ -202,12 +205,19 @@ var filteredmodels = models.filter(x=>x.translations.filter(
     <main className="model-template">
       <section className="section first-section" data-color={Color.WHITE}>
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
-          <div
+          {/* <h1 className="main-title main-title--terra-cotta">{main_title}</h1> */}
+          <div className="title-container">
+          <h1 className="main-title main-title--terra-cotta">{main_title}</h1> 
+          {/* <div
             className="main-paragraph wysiwyg"
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
-          />
-
+          /> */}
+          <div>
+            <span className="text-container"><h6>
+              {main_paragraph}
+            </h6></span>
+            </div>
+            </div>
           <ul className="link-list categories">
             {filteredmodels.length>1 && filteredmodels.map(({ id, translations }) => {
               const translation = translations.find(
@@ -242,6 +252,112 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           </ul>
         </div>
       </section>
+      {/* <section className="section first-section" data-color={Color.BEIGE}>
+                <div className="section-container">
+          {isLoading ? (
+            <div className="loader-container">
+              <Loader />
+            </div>
+          ) : (
+            <>
+              {!queryResponse ? (
+                <ul className="link-list categories">
+                  {categories.map(({ id, translations }) => {
+                    return (
+                      <li key={id}>
+                        <Link
+                          passHref
+                          href={`/faq/${id}/${slugify(translations[0].name, {
+                            lower: true,
+                          })}`}
+                        >
+                          <a
+                            className={classnames({
+                              "subtitle-poppins": true,
+                              "link-before-translate": true,
+                              "link-before-translate--terra-cotta": true,
+                              "is-selected": id === currentCategoryId,
+                            })}
+                          >
+                            {translations[0].name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <h2 className="subtitle-argesta subtitle-argesta--anthracite">
+                  {queryResponse.length === 0 ? no_result_text : result_text}
+                </h2>
+              )}
+
+              <ul className="questions">{questionsDom}</ul>
+            </>
+          )}
+        </div>
+      </section> */}
+
+      {/* <section className="section first-section" data-color={Color.WHITE}>
+        <div className="section-container">
+          <div className="title-container">
+            <h1
+              onClick={handleClearSearch}
+              className="main-title main-title--terra-cotta link-underline"
+            >
+              {main_title}
+            </h1>
+            
+           
+            <div>
+            <span className="text-container"><h6>
+              {main_description}
+            </h6></span>
+            </div>
+          </div>
+</div>
+      </section> */}
+
+
+
+{/* start testing */}
+<section>
+    <div className="layout">
+      <div className="row" >
+        <div className="column order1">
+          <h1>test1</h1>
+        <div
+            className="product-description wysiwyg"
+            dangerouslySetInnerHTML={{
+              __html: translations[0].product_description,
+            }}            
+          />
+        </div>
+        <div className="column order2">
+        <h1>test2</h1>
+        <div
+            className="product-description wysiwyg"
+            dangerouslySetInnerHTML={{
+              __html: translations[0].product_description,
+            }}
+          />
+        </div>
+      </div>
+      <div className="row">
+        <div className="column order3">
+        <h1>test3</h1>
+        <div
+            className="product-description wysiwyg"
+            dangerouslySetInnerHTML={{
+              __html: translations[0].product_description,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+    </section>
+{/* end testing */}
+
       <section className="section-model-content" data-color={Color.BEIGE}>
         <div className="top">
           <div
@@ -266,14 +382,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             />
           </div>
         </div>
-        {layoutProps.hasConfigurator && (
+        {/* {layoutProps.hasConfigurator && (
           <div className="link-container">
             <CircleCenterLink
               href="/before-configurator"
               text={configurator_link_text}
             />
           </div>
-        )}
+        )} */}
         <div className="bottom">
           <div className="technical-information">
             <h3 className="subtitle-argesta subtitle-argesta--anthracite">
@@ -332,6 +448,10 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           target="section-customization"
         />
       </section>
+
+
+
+      
       <section
         id="section-customization"
         className="section section-customization"
@@ -418,6 +538,8 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </div>
       </section>
       {layoutProps.hasConfigurator && (
+        
+        
         <section className="section link-section" data-color="white">
           <div className="line" />
           <CircleLink
@@ -429,6 +551,55 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           />
         </section>
       )}
+
+
+
+
+<section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {/* {devis_title} */}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {devis_link_text} */}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="item-container">&nbsp;</div>
+            <div className="item-container">
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {/* {partenaire_title} */}
+              </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {partenair_link_text} */}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section>
+
+      <CatalogueRequestHomeSection 
+          {...globalSection.priceRequest}
+          formsMessages={globalSection.formsMessages}
+          locale={locale}
+      />
     </main>
   );
 }
