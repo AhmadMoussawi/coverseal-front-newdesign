@@ -216,7 +216,7 @@ export default function BeforeConfiguratorPage({
             {steps.map((stepId) => (
               <div key={stepId} data-step={stepId}>
                 {stepId === 5 && <div className="line" />}
-                <span className="number" >{`0${stepId}`}</span>
+                <span className="number" >{`0${stepId}.`}</span>
                 <div
                   className="wysiwyg" 
                   dangerouslySetInnerHTML={{

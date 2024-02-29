@@ -173,7 +173,7 @@ export function PriceRequestSection(props: Props) {
             {price_request_title}
           </h3>
         )}
-        {form_title && <div style={{fontWeight:"500", fontSize:"20px"}}>{form_title}</div>}
+        {form_title && <div style={{fontWeight:"500", fontSize:"19px", margin:"10px 0"}}>{form_title}</div>}
         
         <Form
           id="price_request"
