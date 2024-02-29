@@ -123,11 +123,11 @@ h6{
   }
 
   .order2 {
-    order: 2;
+    order: 3;
   }
 
   .order3 {
-    order: 3;
+    order: 2;
   }
 }
 //end testing
@@ -534,6 +534,7 @@ h6{
         margin-top: 50px;
         list-style: initial;
         padding-left: 20px;
+        white-space:nowrap;
 
         li {
           margin: 10px 0;
