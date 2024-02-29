@@ -14,7 +14,7 @@ export default function PriceRequestPage({
   pageProps,
   globalSection,
 }: PageProps<PriceRequestContent>) {
-  const { main_title, main_description, form_title, step_one_title, step_two_title, next_btn_title } = pageProps;
+  const { main_title, main_description, form_title, step_one_title, step_two_title, next_btn_title, mobile_step_one_title, mobile_step_two_title } = pageProps;
   const { locale } = useRouter();
   return (
     <main className="price-request-template">
@@ -32,6 +32,8 @@ export default function PriceRequestPage({
         form_title={form_title}
         step_one_title={step_one_title}
         step_two_title={step_two_title}
+        mobile_step_one_title={mobile_step_one_title}
+        mobile_step_two_title={mobile_step_two_title}
         next_btn_title={next_btn_title}
       />
       <CatalogueRequestHomeSection 

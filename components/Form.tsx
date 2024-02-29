@@ -71,6 +71,7 @@ const CustomCheckbox = withStyles({
 })(Checkbox);
 
 interface Props {
+  color:string | undefined;
   id: "partnerships" | "price_request" | "catalog_request" | "after_sale";
   formsMessages: FormMessagesContent;
   submit_text: string;
@@ -78,10 +79,12 @@ interface Props {
   content: AfterSaleSectionContent | PriceRequestSectionContent;
   apiPath: string;
   next_btn_title:string;
-  setStep:any;
+  setStep:any | undefined;
   showsteps:boolean;
   step_one_title:string;
   step_two_title:string;
+  mobile_step_one_title:string;
+  mobile_step_two_title:string;
 }
 
 export function Form({
@@ -95,7 +98,9 @@ export function Form({
   next_btn_title,
   showsteps,
   step_one_title,
-  step_two_title
+  step_two_title,
+  mobile_step_one_title,
+  mobile_step_two_title
 }: Props) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -815,7 +820,7 @@ const handlePlaceChange = (postalcode)=>{
     <>
     {showsteps && <Box style={{ width: '100%' }}>
     <br />
-    <table style={{width:"100%", color:"var(--color-terra-cotta)"}}><tr><td style={{textAlign:"center", cursor:"pointer"}} onClick={()=>{setFormStep(1)}}>{step_one_title}</td><td onClick={()=>{setFormStep(2)}} style={{textAlign:"center", cursor:"pointer"}}>{step_two_title}</td></tr></table>
+    <table style={{width:"100%", color:"var(--color-terra-cotta)"}}><tr><td style={{textAlign:"center", cursor:"pointer"}} onClick={()=>{setFormStep(1)}}><span className="desktopsteptitle">{step_one_title}</span><span className="mobilesteptitle">{mobile_step_one_title}</span></td><td onClick={()=>{setFormStep(2)}} style={{textAlign:"center", cursor:"pointer"}}><span className="desktopsteptitle">{step_two_title}</span><span className="mobilesteptitle">{mobile_step_two_title}</span></td></tr></table>
     <BorderLinearProgress variant="determinate" value={formstep==1?50:100} />
   </Box>}
     <form onSubmit={handleSubmit}>

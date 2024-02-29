@@ -1,10 +1,15 @@
-.price-request-section {
+  .price-request-section {
   border-style: solid;
   .subtitle-argesta,
   .wysiwyg {
     margin-bottom: 30px;
   }
-
+  .desktopsteptitle{
+    display:inline-block;
+  }
+  .mobilesteptitle{
+    display:none;
+  }
   .success-form {
     text-align: center;
   }
@@ -100,6 +105,7 @@ label + .MuiInput-formControl {
         &.demand-field {
           order: -1;
         }
+        
       }
     }
 
@@ -265,6 +271,15 @@ label + .MuiInput-formControl {
     {
       padding-left:0px !important;
       order:1 !important
+    }
+  }
+  @media(max-width:767px)
+  {
+    .desktopsteptitle{
+      display:none;
+    }
+    .mobilesteptitle{
+      display:inline-block;
     }
   }
   }

@@ -192,6 +192,8 @@ interface PriceRequestContent extends AllPageContent {
   step_one_title:string;
   step_two_title:string;
   next_btn_title:string;
+  mobile_step_one_title:string;
+  mobile_step_two_title:string;
 }
 interface CatalogRequestContent extends AllPageContent {
   image:DirectusImage;
@@ -334,7 +336,7 @@ interface BenefitsContent extends AllPageContent {
   isolation_title: string;
   isolation_paragraph: string;
   models_link_text: string;
-  security_image: string;
+  security_image: DirectusImage;
   water_quality_image: DirectusImage;
   isolation_image: string;
   distributor_title: string;

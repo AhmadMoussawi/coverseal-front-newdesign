@@ -210,12 +210,12 @@ export default function FAQPage({
                 </div>
               )}
             </div>
-            <div>
-            <span className="text-container"><h6>
+          </div>
+          <div >
+            <span className="text-container" style={{color:"black"}}><h6>
               {main_description}
             </h6></span>
             </div>
-          </div>
 </div>
       </section>
                 <section className="section first-section" data-color={Color.BEIGE}>

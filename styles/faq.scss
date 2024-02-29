@@ -110,7 +110,7 @@ h6{
       svg {
         min-width: 30px;
         width: 30px;
-        margin-right: 50px;
+        margin-right: 0px;
         transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -139,7 +139,7 @@ h6{
 
     .question-item {
       overflow: hidden;
-
+      color:black;
       &.is-open {
         .content {
           transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -196,7 +196,7 @@ h6{
   }
   .link-list {
     display: flex;
-    margin-top: -104px;
+    margin-top: -112px;
     background-color: white; 
     flex-direction: row;
 
@@ -211,6 +211,10 @@ h6{
     .is-selected{
       background-color:var(--color-beige);
       font-weight:bold;
+    }
+    @media(max-width:768px)
+    {
+      margin-top: -108px;
     }
   }
   

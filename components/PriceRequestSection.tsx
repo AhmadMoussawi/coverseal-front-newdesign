@@ -12,6 +12,8 @@ interface Props extends PriceRequestSectionContent {
   step_one_title:String;
   step_two_title:String;
   next_btn_title:String;
+  mobile_step_one_title:String;
+  mobile_step_two_title:String;
 }
 
 // TODO_2: global fallback for translation could be nice
@@ -27,7 +29,9 @@ export function PriceRequestSection(props: Props) {
     form_title,
     step_one_title,
     step_two_title,
-    next_btn_title
+    next_btn_title,
+    mobile_step_one_title,
+    mobile_step_two_title,
   } = props;
 
   const fields = useMemo(
@@ -176,6 +180,8 @@ export function PriceRequestSection(props: Props) {
         {form_title && <div style={{fontWeight:"500", fontSize:"19px", margin:"10px 0"}}>{form_title}</div>}
         
         <Form
+        color={undefined}
+        setStep={undefined}
           id="price_request"
           formsMessages={formsMessages}
           submit_text={submit_text}
@@ -186,6 +192,8 @@ export function PriceRequestSection(props: Props) {
           showsteps={true}
           step_one_title={step_one_title}
           step_two_title={step_two_title}
+          mobile_step_one_title={mobile_step_one_title}
+          mobile_step_two_title={mobile_step_two_title}
         />
       </div>
     </section>

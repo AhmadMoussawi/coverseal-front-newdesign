@@ -35,7 +35,6 @@ import { styled } from '@mui/material/styles';
 import Masonry from '@mui/lab/Masonry';
 import Date from '../components/date';
 import { PartialItem } from "@directus/sdk";
-import Models from '../components/ImageTextAuto';
 import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
 import { Grid } from "@material-ui/core";
 
@@ -103,7 +102,7 @@ interface Props extends PageProps<HomeContent> {
     security_home_description:string;
 water_quality_home_description:string;
 isolation_home_description:string;
-    security_image:string;
+    security_image:DirectusImage;
     water_quality_image:DirectusImage;
     water_quality_paragraph:string;
     isolation_image:string;
@@ -345,7 +344,7 @@ partenair_link_text,
                   <Grid item xs={12} lg={4}>
 
                   <Image
-                        id={benefits_section.security_image}
+                        id={benefits_section.security_image.id}
                         title="Blog image"
                         quality="50"
                         

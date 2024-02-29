@@ -350,15 +350,30 @@ h6{
 //     margin-top:10px;
 //   }
 // }
-// @media(max-width:575px)
-// {
-//   .cattab{
-//     display:-webkit-inline-box;
-//   }
-//   // .catlink{
-//   //   display:flex !important ;
-//   // }
-// }
+@media(max-width:575px)
+{
+   .cattab{
+     display:none !important;
+   }
+    .catlink{
+      display:block !important ;
+      padding:0px;
+      li{
+        background-color:transparent;
+        float:left;
+        padding:0px;
+        margin-left:0px;
+        a{
+          background-color:transparent;
+        }
+        .is-selected{
+          background-color:var(--color-terra-cotta);
+          color:white;
+        }
+      }
+    }
+ }
+
 }
 .MuiMasonry-root .css-image{
   width:100%;

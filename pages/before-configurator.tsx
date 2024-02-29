@@ -128,7 +128,6 @@ export default function BeforeConfiguratorPage({
   globalSection,
 }: PageProps<PartialItem<BeforeConfiguratorTranslation>>) {
   const {
-    locale,
     image,
     main_title,
     main_paragraph,
@@ -140,6 +139,7 @@ export default function BeforeConfiguratorPage({
     models_link_text,
   } = pageProps;
   const router = useRouter();
+
   const [_language, country] = router.locale.split("-");
   const theme = useTheme();
   const { modelsPath } = layoutProps.topBarProps.mainMenuProps;
@@ -303,7 +303,7 @@ export default function BeforeConfiguratorPage({
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
-        locale={locale}
+        locale={router.locale}
       />
     </main>
   );
