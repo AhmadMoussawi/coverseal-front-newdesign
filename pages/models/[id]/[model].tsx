@@ -321,7 +321,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
 
 
 {/* start testing */}
-<section>
+{/* <section>
     <div className="layout">
       <div className="row" >
         <div className="column order1">
@@ -355,8 +355,15 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </div>
       </div>
     </div>
-    </section>
+    </section> */}
 {/* end testing */}
+
+
+
+
+
+
+
 
       <section className="section-model-content" data-color={Color.BEIGE}>
         <div className="top">
@@ -382,6 +389,11 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             />
           </div>
         </div>
+        <Link href={`/before-configurator`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {configurator_link_text}
+                            </a>
+              </Link>
         {/* {layoutProps.hasConfigurator && (
           <div className="link-container">
             <CircleCenterLink
@@ -420,7 +432,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 </li>
               )}
             </ul>
-            <div className="icon-container">
+            {/* <div className="icon-container">
               {reference === "automatic" && (
                 <ModelAutomatic color={Color.TERRA_COTTA} />
               )}
@@ -430,7 +442,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               {reference === "manual" && (
                 <ModelManual color={Color.TERRA_COTTA} />
               )}
-            </div>
+            </div> */}
           </div>
           {achievementsPath && (
             <CircleLink
@@ -463,18 +475,26 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             className="main-paragraph wysiwyg"
             dangerouslySetInnerHTML={{ __html: customization_paragraph }}
           />
-          {layoutProps.hasConfigurator && (
+
+          <div className ="text-container" >                
+              <Link href={"/before-configurator"} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {customization_configurator_link_text}
+                            </a>
+              </Link>
+          </div>
+          {/* {layoutProps.hasConfigurator && (
             <LineCircleLink
               href="/before-configurator"
               color={Color.WHITE}
               text={customization_configurator_link_text}
             />
-          )}
+          )} */}
         </div>
 
         <div className="section-container">
           <div className="block block-colors">
-            <div className="left">A</div>
+            {/* <div className="left">A</div> */}
             <div className="content">
               <h3 className="subtitle-poppins">{membrane_title}</h3>
               <div
@@ -497,7 +517,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </div>
 
         <div className="block block-dressing">
-          <div className="left">B</div>
+          {/* <div className="left">B</div> */}
           <div className="text-container">
             <h3 className="subtitle-poppins">{dressing_title}</h3>
             <div
@@ -523,7 +543,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                   className="paragraph wysiwyg"
                   dangerouslySetInnerHTML={{ __html: options_paragraph }}
                 />
-                <ul className="options">
+                <ul className="options" >
                   {options_items.map(({ option_name, option_text }) => (
                     <OptionItem
                       key={option_name}
@@ -537,7 +557,9 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           </div>
         </div>
       </section>
-      {layoutProps.hasConfigurator && (
+
+      
+      {/* {layoutProps.hasConfigurator && (
         
         
         <section className="section link-section" data-color="white">
@@ -550,7 +572,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             textAlign="left"
           />
         </section>
-      )}
+      )} */}
 
 
 

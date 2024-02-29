@@ -34,6 +34,10 @@ export default function TheCoversealPage({
   layoutProps,
 }: PageProps<TheCoversealContent>) {
   const {
+    realisations_image,
+    realisations_title,
+    realisations_description,
+    realisations_link_text,
     water_quality_title,
 water_quality_paragraph,
 security_title,
@@ -53,6 +57,7 @@ comfort_button_text,
     economy_image_2,
     water_quality_image,
     water_quality_image_2,
+    models_title,
     main_title,
     main_paragraph,
     certificate_title,
@@ -92,31 +97,31 @@ comfort_button_text,
 
   <div className="image-row">
         <div className="image-container">
-        <Image
-                id={economy_image}
+             <Image
+                id={economy_image.id}
                 title={economy_title}
                 direction={AnimationDirection.LEFT_TO_RIGHT}
               />
               <div  className="item-container">
-              <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{fontSize:"1.5rem"}}>                   
-                  {economy_title}
-                </h4>
-                <Link href="#discretion">
-                              <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "1px", fontSize:"1rem"}}>
-                              {economy_button_text}
-                              </a>
-                </Link>
-              </div>
-            </div> 
+                <div className ="image-text" >
+                    <h4 className="subtitle-argesta subtitle-argesta--white" style={{fontSize:"1.5rem"}}>                   
+                    {economy_title}
+                  </h4>
+                  <Link href="#discretion">
+                                <a className="link-before-translate link-before-translate--white" 
+                                style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "1px", fontSize:"1rem"}}>
+                                {economy_button_text}
+                                </a>
+                  </Link>
+                </div>
+               </div> 
               {/* <div className="image-text">{economy_title}
               <a href="#economie" className="btn">en savoir plus</a>
               </div> */}
-        </div>      
+          </div>      
         <div className="image-container">
         <Image
-                id={security_image}
+                id={security_image.id}
                 title={security_title}
                 direction={AnimationDirection.LEFT_TO_RIGHT}
               />
@@ -139,7 +144,7 @@ comfort_button_text,
         </div>
         <div className="image-container">
         <Image
-                id={water_quality_image}
+                id={water_quality_image.id}
                 title={water_quality_title}
                 direction={AnimationDirection.LEFT_TO_RIGHT}
               />
@@ -237,7 +242,7 @@ comfort_button_text,
 
           <div className="block block-certificate" id="economie">
             <Image
-              id={economy_image}
+              id={economy_image.id}
               title="economy"
               direction={AnimationDirection.LEFT_TO_RIGHT}
             />
@@ -269,7 +274,7 @@ comfort_button_text,
               </Link> */}
             </div>
             <Image
-              id={security_image}
+              id={security_image.id}
               title="securite"
               direction={AnimationDirection.RIGHT_TO_LEFT}
             />
@@ -285,7 +290,7 @@ comfort_button_text,
         <div className="block block-comfort" id ="qualite">
           <div className="content">
             <Image
-              id={water_quality_image}
+              id={water_quality_image.id}
               title="quality image"
               containerClassName="image-first"
               direction={AnimationDirection.RIGHT_TO_LEFT}
@@ -405,11 +410,11 @@ comfort_button_text,
             <div  className="item-container">
               <div className ="text-container" >
                   <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                  {economy_title}
+                  {models_title}
                 </h4>
                 <Link href={`/price-request`} passHref>
                               <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                                {economy_title}
+                                {models_title}
                               </a>
                 </Link>
               </div>
@@ -435,6 +440,9 @@ comfort_button_text,
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
           /> */}
 
+
+
+
         <div className="block block-discretion"  id ="discretion">
           <div className="content">
             <Image
@@ -453,15 +461,15 @@ comfort_button_text,
               />
             </div>
           </div>
-          <div className="section-container">
-            <div className="images-container">
-              <div className="image-second">
+          {/* <div className="section-container">
+            <div className="images-container"> */}
+              {/* <div className="image-second">
                 <Image
                   id={discretion_image_2}
                   title="Discretion image 2"
                   direction={AnimationDirection.TOP_TO_BOTTOM}
                 />
-              </div>
+              </div> */}
               {/* <div className="circle-image-container">
                 <Image
                   id={discretion_image_3}
@@ -474,8 +482,8 @@ comfort_button_text,
                   text={gallery_link_text}
                 />
               </div> */}
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </div>
 
 
@@ -491,7 +499,7 @@ comfort_button_text,
               />
             </div>
             <Image
-              id={certificate_image_2}
+              id={certificate_image_2.id}
               title={certificate_title}
               direction={AnimationDirection.LEFT_TO_RIGHT}
             />
@@ -501,7 +509,7 @@ comfort_button_text,
         <div className="block block-comfort"  id ="comfort">
           <div className="content">
           <Image
-              id={comfort_image.filename_disk}
+              id={comfort_image.id}
               title={comfort_title}
               direction={AnimationDirection.RIGHT_TO_LEFT}
             />
@@ -527,7 +535,7 @@ comfort_button_text,
         
       </section>
       {/* to be added */}
-<section className="section six-section" data-color={Color.SAND}>
+{/* <section className="section six-section" data-color={Color.SAND}>
             <div className="content" style={{position:"relative"}}> 
         <Image
           id={comfort_image_2.id}
@@ -546,6 +554,34 @@ comfort_button_text,
                 <Link href="/the-coverseal" passHref >
                           <a className="link-before-translate link-before-translate--white">
                             {discretion_image}
+                          </a>
+                </Link>
+                </h6>
+              </div>       
+              </div>     
+        </section> */}
+
+        <section className="section six-section" data-color={Color.SAND}>
+            <div className="content" style={{position:"relative"}}>
+              
+
+                <Image
+                  id={realisations_image}
+                  title="coverseal image"
+                  direction={AnimationDirection.RIGHT_TO_LEFT}
+                />
+              <div className="text-container">
+              {/* <div className="tx-container"> */}
+                <h1 className="subtitle-argesta subtitle-argesta--white">
+                  {realisations_title}
+                </h1>
+                <h6 style={{ color: 'white' }}>
+                  {realisations_description}
+                </h6>
+                <h6 >
+                <Link href="/the-coverseal" passHref >
+                          <a className="link-before-translate link-before-translate--white">
+                            {realisations_link_text}
                           </a>
                 </Link>
                 </h6>

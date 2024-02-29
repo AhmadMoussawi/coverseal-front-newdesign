@@ -153,13 +153,14 @@ interface AllPageContent {
   main_description: String;
   main_description: string;
   image:DirectusImage;
-  certificate_image_2:string;
-security_image:string
-security_image_2:string;
-economy_image:string;
+  certificate_image_2:DirectusImage;
+security_image:DirectusImage;
+security_image_2:DirectusImage;
+economy_image:DirectusImage;
 economy_image_2:string;
-water_quality_image:string;
-water_quality_image_2:string;
+water_quality_image:DirectusImage;
+water_quality_image_2:DirectusImage;
+models_title:string;
   opengraph_image: string;
   water_quality_title: string;
 water_quality_paragraph: string;
@@ -173,6 +174,7 @@ economy_button_text: string;
 discretion_button_text: string;
 certificate_button_text: string;
 comfort_button_text: string;
+
 }
 
 interface AllPageContentNonTranslated {
@@ -315,6 +317,10 @@ interface TheCoversealContent extends AllPageContent {
   why_coverseal_title: string;
   benefits_link_text: string;
   faq_link_text: string;
+  realisations_image:string;
+  realisations_title:string;
+  realisations_description:string;
+  realisations_link_text:string;
 }
 
 interface BenefitsContent extends AllPageContent {
