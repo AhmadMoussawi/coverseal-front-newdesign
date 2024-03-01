@@ -448,8 +448,9 @@ interface SingleModelDirectus extends AllPageContentNonTranslated {
   id: number;
   reference: string;
   home_image: string;
-  product_image: DirectusImage;
-  product_image_2: DirectusImage;
+  product_image: string;
+  product_image_2: string;
+  product_image_3: DirectusImage;
   translations: SingleModelTranslation[];
   membrane_colors: { color_name: string; color_code: string }[];
   dressing_image: string;

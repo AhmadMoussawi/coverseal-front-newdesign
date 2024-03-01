@@ -115,6 +115,7 @@ interface ModelProps extends PageProps<ModelsContent> {
   models: PartialItem<SingleModelDirectus>[];
   currentModel: PartialItem<SingleModelDirectus>;
   achievementsPath: string | null;
+  home:HomeContent;
 }
 
 // TODO: add missing line at the end
@@ -125,6 +126,7 @@ export default function ModelPage({
   currentModel,
   achievementsPath,
   layoutProps,
+  home
 }: ModelProps) {
   const { locale } = useRouter();
 
@@ -140,6 +142,7 @@ export default function ModelPage({
     technical_info_file_text,
     scroll_down_link_text,
     user_manual_file_text,
+    
   } = pageProps;
 
   const {
@@ -148,6 +151,7 @@ export default function ModelPage({
     product_image,
     options_images,
     product_image_2,
+    product_image_3,
     reference,
     translations,
     id,
@@ -395,7 +399,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                   </div>
                   <div className="grid-item" id = "C">
                       <Image
-                        id={product_image.id}
+                        id={product_image}
                         title="product image"
                         containerClassName="main-image"
                      //   isBackgroundCss
@@ -403,14 +407,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                   </div>
                   <div className="grid-item" id="D">
                     <Image
-                      id={product_image_2.id}
+                      id={product_image_2}
                       title="product image 2"
                       containerClassName="image-on-top"
                       direction={AnimationDirection.TOP_TO_BOTTOM}
                     //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
                     />
                     <Image
-                      id={product_image_2.id}
+                      id={product_image_3.id}
                       title="product image 3"
                       containerClassName="image-on-top"
                       direction={AnimationDirection.TOP_TO_BOTTOM}
@@ -643,11 +647,11 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {/* {devis_title} */}
+                {home.devis_title}
               </h4>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {devis_link_text} */}
+                              {home.devis_link_text}
                             </a>
               </Link>
               </div></div>
@@ -661,11 +665,11 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             <div className="item-container">
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {/* {partenaire_title} */}
+                {home.partenaire_title}
               </h4>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {partenair_link_text} */}
+                              {home.partenair_link_text}
                             </a>
               </Link>
               </div>
@@ -696,7 +700,8 @@ export const getStaticProps: GetStaticProps<
     "models_template",
     locale
   );
-
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale)
+  
   // TODO: remove this shit
   const currentModel = await fetcher.directus
     .items<string, SingleModelDirectus>("models")
@@ -712,7 +717,7 @@ export const getStaticProps: GetStaticProps<
         } as any,
       },
     });
-
+    
   if (!currentModel) {
     return {
       props: null,
@@ -774,7 +779,6 @@ export const getStaticProps: GetStaticProps<
           fields: ["translations.main_title", "id"],
           deep: deepQuery,
         });
-
       return generateAchievementPath(
         category.id,
         category.translations[0].main_title,
@@ -795,6 +799,7 @@ export const getStaticProps: GetStaticProps<
       opengraph_description: currentModel.translations[0].opengraph_description,
       opengraph_image: currentModel.opengraph_image || null,
     },
+    home,
     models,
     currentModel,
     achievementsPath,

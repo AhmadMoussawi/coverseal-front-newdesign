@@ -37,12 +37,12 @@ interface LayoutProps {
 }
 
 interface AllPageProps {
-  layoutProps: LayoutProps;
+  layoutProps: LayoutProps | undefined;
   globalSection: {
     priceRequest: PriceRequestSectionContent;
     afterSale: AfterSaleSectionContent;
     formsMessages: FormMessagesContent;
-  };
+  } | undefined;
 }
 
 interface PagePropsOnly<T> {
