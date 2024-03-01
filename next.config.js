@@ -39,9 +39,6 @@ const securityHeaders = [
 ];
 // next.config.js
 module.exports = {
-  experimental: {
-    optimizePackageImports: ['@mui/material'],
-  },
   async headers() {
     return [
       {
@@ -149,11 +146,12 @@ module.exports = {
     // This is a list of locale domains and the default locale they
     // should handle (these are only required when setting up domain routing)
     // Note: subdomains must be included in the domain value to be matched e.g. "fr.example.com".
-    // domains: [
-    //   {
-    //     domain: "example.com",
-    //     defaultLocale: "en-US",
-    //   },
+     domains: [
+       {
+         domain: "localhost",
+         defaultLocale: "fr-FR",
+         localeDetection: false,
+       },
     //   {
     //     domain: "example.nl",
     //     defaultLocale: "nl-NL",
@@ -162,7 +160,7 @@ module.exports = {
     //     domain: "example.fr",
     //     defaultLocale: "fr",
     //   },
-    // ],
+     ],
   },
   env: {
     APP_VERSION: version,

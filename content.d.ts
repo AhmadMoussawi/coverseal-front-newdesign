@@ -530,7 +530,7 @@ interface SingleAchievementDirectus extends AllPageContentNonTranslated {
   list_image: string;
   sections: AchievementsSectionsDirectus[];
   model: ModelContent | number;
-  category: number | AchievementsCategoryDirectus;
+  category: AchievementsCategoryDirectus;
   translations: SingleAchievementTranslation[];
   orderindex:number;
 }

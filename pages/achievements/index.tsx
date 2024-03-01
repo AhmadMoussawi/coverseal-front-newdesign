@@ -1,74 +1,97 @@
-import { GetStaticProps } from "next";
-import Link from "next/link";
-import gsap from "gsap";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React, { useEffect } from "react";
-import slugify from "slugify";
-import { translateInFromRightToLeft } from "../../animations/appearing/shared";
 import {
   Fetcher,
-  getAllPagePropsOnly,
   getPageContentProps,
+  getAllPagePropsOnly,
 } from "../../utils/fetchers";
+import { ArrowCustom } from "../../components/icons";
+import { Image } from "../../components/Image";
+import slugify from "slugify";
+import Link from "next/link";
+import { AnimationDirection, Color } from "../../utils/constants";
+import { generateAchievementPath } from "../../utils/paths";
+import { translateInFromRightToLeft } from "../../animations/appearing/shared";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../utils/locale";
+import { COUNTRIES } from "../../utils/constants";
+import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
+import { useRouter } from "next/router";
 
 function appearingAnimations() {
-  translateInFromRightToLeft(".first-section .main-title");
+  // translateInFromRightToLeft(".first-section .main-title");
 }
 
-interface AchievementsProps extends PageProps<AchievementsContent> {
-  achievementsCategories: PartialItem<AchievementsCategoryDirectus>[];
+interface AchievementsProps
+  extends PageProps<AchievementsContent> {
+  projects: PartialItem<SingleAchievementDirectus>[];
 }
 
-export default function AchievementsListPage({
+export default function AchievementsCategoryPage({
   pageProps,
-  achievementsCategories,
+  projects,
+  globalSection
 }: AchievementsProps) {
-  const { main_title } = pageProps;
+  const {
+    // main_title, achievementsRootContent,
+    id,
+    main_title,
+    main_description
+  } = pageProps;
 
+  const { locale, asPath } = useRouter();
   useEffect(() => {
     appearingAnimations();
-
-    gsap.fromTo(
-      ".categories li",
-      {
-        y: "100%",
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: ".categories li",
-          start: "top bottom-=10%",
-        },
-        duration: 2,
-        y: 0,
-        opacity: 1,
-        stagger: 0.25,
-        ease: "power3.out",
-      }
-    );
   }, []);
 
   return (
-    <main className="achievements-template">
+    <main className="achievements-category-template">
       <section className="section first-section" data-color="beige">
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
-
-          <ul className="categories">
-            {achievementsCategories.map(({ translations, id }) => (
-              <li key={translations[0].main_title}>
+          <div className="title-container">
+            <h1 className="main-title main-title--terra-cotta">
+              {pageProps.main_title}
+            </h1>
+            {/*<Link href="/achievements" passHref>
+              <a className="back-button">
+                <ArrowCustom color={Color.TERRA_COTTA} />
+                {achievementsRootContent.back_to_achievements}
+              </a>
+  </Link>*/}
+          </div>
+          <div
+            className="main-paragraph wysiwyg"
+            dangerouslySetInnerHTML={{ __html: main_description }}
+          />
+          <ul className="projects">
+            {projects.map((project, i) => (
+              <li key={project.translations[0].main_title}>
                 <Link
-                  href={`/achievements/${id}/${slugify(
-                    translations[0].main_title,
-                    {
-                      lower: true,
-                    }
-                  )}`}
+                  href={generateAchievementPath(
+                    project.category.id,
+                    project.category.translations[0].main_title,
+                    project.id,
+                    project.translations[0].main_title
+                  )}
                   passHref
                 >
                   <a className="link-before-translate link-before-translate--anthracite">
-                    {translations[0].main_title}
+                    <Image
+                      id={project.list_image}
+                      title="Project image"
+                      direction={
+                        (i + 1) % 2 === 0
+                          ? AnimationDirection.LEFT_TO_RIGHT
+                          : AnimationDirection.RIGHT_TO_LEFT
+                      }
+                      isBackgroundCss
+                    />
+                    <div className="text-container">
+                      <h3 className="subtitle-poppins">
+                        <span>{project.translations[0].project_text}</span>{" "}
+                        {project.translations[0].main_title}
+                      </h3>
+                    </div>
                   </a>
                 </Link>
               </li>
@@ -76,13 +99,19 @@ export default function AchievementsListPage({
           </ul>
         </div>
       </section>
+      <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+      />
     </main>
   );
 }
 
-export const getStaticProps: GetStaticProps<AchievementsProps> = async ({
-  locale,
-}) => {
+export const getStaticProps: GetStaticProps<
+  AchievementsProps,
+  { category: string; category_id: string }
+> = async ({ locale, locales, params }) => {
   const fetcher = new Fetcher();
   const cmsLocale = getLocale(locale);
 
@@ -93,15 +122,12 @@ export const getStaticProps: GetStaticProps<AchievementsProps> = async ({
     locale
   );
 
-  const categories = await fetcher.directus
-    .items<string, AchievementsCategoryDirectus>("achievements_categories")
+
+  const achievements = await fetcher.directus
+    .items<string, SingleAchievementDirectus>("achievements")
     .readMany({
-      fields: ["translations.*", "id"],
-      filter: {
-        is_enabled: {
-          _eq: true,
-        },
-      },
+      fields: ["translations.*", "id", "list_image","orderindex", "category.*", "category.translations.*"],
+      sort: ["orderindex"],
       deep: {
         translations: {
           _filter: {
@@ -118,8 +144,10 @@ export const getStaticProps: GetStaticProps<AchievementsProps> = async ({
     props: {
       ...allPageProps,
       ...pageProps,
-      achievementsCategories: categories,
+      projects: achievements,
     },
-    revalidate: parseInt(process.env.REVALIDATION_TIME), // In seconds
+    revalidate: 1//parseInt(process.env.REVALIDATION_TIME), // In seconds
   };
 };
+
+
