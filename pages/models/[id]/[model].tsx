@@ -208,15 +208,15 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           {/* <h1 className="main-title main-title--terra-cotta">{main_title}</h1> */}
           <div className="title-container">
           <h1 className="main-title main-title--terra-cotta">{main_title}</h1> 
-          {/* <div
+          <div
             className="main-paragraph wysiwyg"
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
-          /> */}
-          <div>
+          />
+          {/* <div>
             <span className="text-container"><h6>
               {main_paragraph}
             </h6></span>
-            </div>
+            </div> */}
             </div>
           <ul className="link-list categories">
             {filteredmodels.length>1 && filteredmodels.map(({ id, translations }) => {
@@ -362,10 +362,67 @@ var filteredmodels = models.filter(x=>x.translations.filter(
 
 
 
+<section className="section-model-content" data-color={Color.BEIGE}>
+          <div className="top">
+                <div className="grid-container" >
+                  <div className="grid-item" id ="A">
+                    <div className="product-description wysiwyg" dangerouslySetInnerHTML={{__html: translations[0].product_description, }}/>
+                  </div>
+                  <div className="grid-item" id ="B">
+                    <div className="bottom">
+                        <div className="technical-information">
+                          <h3 className="subtitle-argesta subtitle-argesta--anthracite">
+                            {technical_information_title}
+                          </h3>
+                          <ul>
+                            {translations[0].technical_information.map(({ text }) => (
+                              <li key={text}>{text}</li>
+                            ))}
+                            {translations[0].technical_info_file && (
+                              <li className="technical-file-item">
+                                {technical_info_file_text}                              
+                              </li>
+                            )}
+                            {translations[0].user_manual_file && (
+                              <li className="technical-file-item">
+                                {user_manual_file_text}
+                                
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                    </div>
+                  </div>
+                  <div className="grid-item" id = "C">
+                      <Image
+                        id={product_image.id}
+                        title="product image"
+                        containerClassName="main-image"
+                     //   isBackgroundCss
+                      />
+                  </div>
+                  <div className="grid-item" id="D">
+                    <Image
+                      id={product_image_2.id}
+                      title="product image 2"
+                      containerClassName="image-on-top"
+                      direction={AnimationDirection.TOP_TO_BOTTOM}
+                    //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
+                    />
+                    <Image
+                      id={product_image_2.id}
+                      title="product image 3"
+                      containerClassName="image-on-top"
+                      direction={AnimationDirection.TOP_TO_BOTTOM}
+                    //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
+                    />
+                  </div>
+                </div>
+          </div>
+</section>
 
 
-
-      <section className="section-model-content" data-color={Color.BEIGE}>
+      {/* <section className="section-model-content" data-color={Color.BEIGE}>
         <div className="top">
           <div
             className="product-description wysiwyg"
@@ -394,14 +451,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                               {configurator_link_text}
                             </a>
               </Link>
-        {/* {layoutProps.hasConfigurator && (
+        {layoutProps.hasConfigurator && (
           <div className="link-container">
             <CircleCenterLink
               href="/before-configurator"
               text={configurator_link_text}
             />
           </div>
-        )} */}
+        )}
         <div className="bottom">
           <div className="technical-information">
             <h3 className="subtitle-argesta subtitle-argesta--anthracite">
@@ -432,7 +489,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 </li>
               )}
             </ul>
-            {/* <div className="icon-container">
+            <div className="icon-container">
               {reference === "automatic" && (
                 <ModelAutomatic color={Color.TERRA_COTTA} />
               )}
@@ -442,7 +499,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               {reference === "manual" && (
                 <ModelManual color={Color.TERRA_COTTA} />
               )}
-            </div> */}
+            </div>
           </div>
           {achievementsPath && (
             <CircleLink
@@ -459,7 +516,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           color={Color.TERRA_COTTA}
           target="section-customization"
         />
-      </section>
+      </section> */}
 
 
 
