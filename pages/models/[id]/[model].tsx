@@ -40,6 +40,8 @@ import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
 import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
 import Masonry from "@mui/lab/Masonry";
+import { Grid } from "@material-ui/core";
+import { Label } from "@material-ui/icons";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -421,6 +423,15 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                     //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
                     />
                   </div>
+                 
+                  <div className="grid-item" id="E">
+                       <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" 
+                            style={{fontFamily:"Poppins"}}>
+                              {home.partenair_link_text}
+                            </a>
+                       </Link>
+                  </div>
                 </div>
           </div>
 </section>
@@ -528,70 +539,201 @@ var filteredmodels = models.filter(x=>x.translations.filter(
       <section
         id="section-customization"
         className="section section-customization"
-        data-color={Color.ANTHRACITE}
-      >
-        <div className="section-container">
-          <h2 className="main-title main-title--sand">{customization_title}</h2>
-          <div
-            className="main-paragraph wysiwyg"
-            dangerouslySetInnerHTML={{ __html: customization_paragraph }}
-          />
-
-          <div className ="text-container" >                
-              <Link href={"/before-configurator"} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {customization_configurator_link_text}
-                            </a>
-              </Link>
-          </div>
-          {/* {layoutProps.hasConfigurator && (
-            <LineCircleLink
-              href="/before-configurator"
-              color={Color.WHITE}
-              text={customization_configurator_link_text}
-            />
-          )} */}
-        </div>
-
-        <div className="section-container">
-          <div className="block block-colors">
-            {/* <div className="left">A</div> */}
-            <div className="content">
-              <h3 className="subtitle-poppins">{membrane_title}</h3>
+            data-color={Color.ANTHRACITE}
+          >
+            <div className="section-container">
+              <h2 className="main-title main-title--sand">{customization_title}</h2>
               <div
-                className="paragraph wysiwyg"
-                dangerouslySetInnerHTML={{ __html: membrane_paragraph }}
+                className="main-paragraph wysiwyg"
+                dangerouslySetInnerHTML={{ __html: customization_paragraph }}
               />
-              <ul className="colors">
-                {membrane_colors.map(({ color_name, color_code }) => (
-                  <li
-                    key={color_name}
-                    className="square"
-                    style={{ background: color_code }}
-                  >
-                    <span>{color_name}</span>
-                  </li>
-                ))}
-              </ul>
+
+              {/* <div className ="text-container" >                
+                  <Link href={"/before-configurator"} passHref>
+                                <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                                  {customization_configurator_link_text}
+                                </a>
+                  </Link>
+              </div> */}
+              {/* {layoutProps.hasConfigurator && (
+                <LineCircleLink
+                  href="/before-configurator"
+                  color={Color.WHITE}
+                  text={customization_configurator_link_text}
+                />
+              )} */}
             </div>
-          </div>
-        </div>
 
-        <div className="block block-dressing">
-          {/* <div className="left">B</div> */}
-          <div className="text-container">
-            <h3 className="subtitle-poppins">{dressing_title}</h3>
-            <div
-              className="paragraph wysiwyg"
-              dangerouslySetInnerHTML={{ __html: dressing_paragraph }}
-            />
-          </div>
-          <Image id={dressing_image} title="Image container" />
-        </div>
+            <div className="section-container">
+              <div className="block block-colors">
+                {/* <div className="left">A</div> */}
+                <div className="content">
+                  <h3 className="subtitle-poppins">{membrane_title}</h3>
+                  <div
+                    className="paragraph wysiwyg"
+                    dangerouslySetInnerHTML={{ __html: membrane_paragraph }}
+                  />
+                  <ul className="colors">
+                    {membrane_colors.map(({ color_name, color_code }) => (
+                      <li
+                        key={color_name}
+                        className="square"
+                        style={{ background: color_code }}
+                      >
+                        <span>{color_name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+</section>
+            {/* <div className="block block-dressing">
+              <div className="left">B</div>
+              <div className="text-container">
+                <h3 className="subtitle-poppins">{dressing_title}</h3>
+                <div
+                  className="paragraph wysiwyg"
+                  dangerouslySetInnerHTML={{ __html: dressing_paragraph }}
+                />
+              </div>
+              <div className="image-container-right" style={{width:"100%"}}>
+                <Image id={dressing_image} title="Image container" />
+              </div>
+            </div> */}
 
-        <div className="section-container">
+
+
+{/* <section data-color={Color.ANTHRACITE}>
+<Grid container spacing={3} style={{paddingRight:"10%", paddingLeft:"10%"}}>
+  <Grid item xs={12} lg={12}>
+      <Grid container spacing={2} >
+                  <Grid item xs={12} lg={5} style={{ display: 'flex', alignItems: 'center' }}>
+                        <div className="block block-dressing">
+                          <div className="text-container">
+                            <h3 className="subtitle-poppins" style={{color:"white"}}>{dressing_title}</h3>
+                            <div
+                              className="paragraph wysiwyg" style={{color:"white"}}
+                              dangerouslySetInnerHTML={{ __html: dressing_paragraph }}
+                            />
+                          </div>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} lg={7} >
+                    
+                    <Image
+                            id={dressing_image}
+                            title="dressing image"
+                            direction={AnimationDirection.BOTTOM_TO_TOP}
+                            style={{ height: "300px" }}
+                          />
+                          
+                    </Grid>
+      </Grid>
+  </Grid>
+  <Grid item xs={12} lg={12}>
+      <Grid container spacing={2} >
+                  <Grid item xs={12} lg={5}>
+                    
+                  <Image
+                          id={options_images}
+                          title="option image"
+                          direction={AnimationDirection.RIGHT_TO_LEFT}
+                        />
+                        
+                    </Grid>
+                    <Grid item xs={12} lg={7}>
+                      <div className="text-container">
+                        <h3 className="subtitle-poppins" style={{color:"white"}}>{options_title}</h3>
+                        <div
+                          className="paragraph wysiwyg" style={{color:"white"}}
+                          dangerouslySetInnerHTML={{ __html: options_paragraph }}
+                        />
+                        <ul className="options" style={{color:"white"}}>
+                          {options_items.map(({ option_name, option_text }) => (
+                            <OptionItem
+                              key={option_name}
+                              name={option_name}
+                              popoverText={option_text}
+                            />
+                          ))}
+                        </ul>
+                      </div>
+                    </Grid>
+      </Grid>
+  </Grid>
+  </Grid>
+</section> */}
+      
+      
+      
+      <section className="section left-image-section" data-color={Color.ANTHRACITE}>
+       
+       <div className="content">
+         <div className="text-container">
+         <h3 className="subtitle-poppins"  style={{color:'white'}}>
+        {dressing_title}
+      </h3>
+      <div className="mobile-image">
+      <Image
+           id={dressing_image}
+           title="dressing image"
+           direction={AnimationDirection.BOTTOM_TO_TOP}
+         />
+      </div>
+           <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />          
+         </div>
+        <div className="desktop-image">
+         <Image
+           id={dressing_image}
+           title="dressing image"
+           direction={AnimationDirection.BOTTOM_TO_TOP}
+         />
+         </div>
+       </div>
+       
+     </section>
+
+
+     
+        <section className="section right-image-section" data-color={Color.ANTHRACITE} >
+                      <div className="content">
+                      <div className="desktop-image">
+                      <Image
+                          id={options_images}
+                          title="option image"
+                          direction={AnimationDirection.RIGHT_TO_LEFT}
+                        />
+                </div>
+                        <div className="text-container">
+                        <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"white"}}>
+                              {options_title}
+                            </h3>
+                            <div className="mobile-image">
+                            <Image
+                                id={options_images}
+                                title="option image"
+                                direction={AnimationDirection.RIGHT_TO_LEFT}
+                              />
+                </div>
+          <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
+          <ul className="options" style={{color:'white'}}>
+                  {options_items.map(({ option_name, option_text }) => (
+                    <OptionItem
+                      key={option_name}
+                      name={option_name}
+                      popoverText={option_text}
+                    />
+                  ))}
+                </ul>  
+        </div>        
+      </div>      
+    </section>
+
+
+        {/* <div className="section-container">
           <div className="block block-options">
-            <div className="left">+</div>
+           
             <div className="content">
               <Image
                 id={options_images}
@@ -617,7 +759,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       
       {/* {layoutProps.hasConfigurator && (
