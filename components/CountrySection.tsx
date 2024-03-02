@@ -60,7 +60,7 @@ export function CountrySection({
     const languages = COUNTRIES.find(
       (country) => country.code === e.target.value
     ).languages;
-    if(e.target.value!=="FR" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+    if(e.target.value.toLowerCase()!=="fr" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
     {
         window.location.href = "https://coverseal.com/" + languages[0]+"-" + e.target.value
      
