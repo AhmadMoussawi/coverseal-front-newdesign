@@ -12,17 +12,18 @@ export default function AfterSalePage({
   pageProps,
   globalSection,
 }: PageProps<AfterSaleContent>) {
-  const { main_title } = pageProps;
+  const { main_title, form_title } = pageProps;
   return (
     <main className="after-sale-template">
-      <section className="section first-section" data-color={Color.BEIGE}>
+      {<section className="section first-section" data-color={Color.BEIGE}>
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
+          <h1 className="main-title main-title--terra-cotta">{/*main_title*/}</h1>
         </div>
-      </section>
+      </section>}
       <AfterSaleSection
         {...globalSection.afterSale}
         formsMessages={globalSection.formsMessages}
+        form_title={form_title}
       />
     </main>
   );

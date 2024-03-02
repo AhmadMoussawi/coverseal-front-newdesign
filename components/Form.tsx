@@ -9,7 +9,9 @@ import {
   FormControlLabel,
   InputLabel,
   Box,
+  Tooltip,
 } from "@material-ui/core";
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 import { useRouter } from "next/router";
@@ -623,14 +625,22 @@ const handlePlaceChange = (postalcode)=>{
   const inputs = useMemo(
     () =>
       fields.map(
-        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle, step }) => {
+        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle, step, hastooltip }) => {
           let field;
           const label = content[`${id}_label`];
+          var tooltip = "";
+          if(hastooltip)
+          {
+            tooltip = content[`${id}_tooltip`];
+          }
           var showfield = (!step || !formstep) || (step == formstep);
           switch (true) {
             case type === "places":
               field = (
                 <NoSsr>
+                  {hastooltip && <Tooltip title={tooltip}>
+        <InputLabel htmlFor="my-textfield">{label} <InfoOutlinedIcon /></InputLabel>
+      </Tooltip>}
                   <PlacesAutocomplete
                   onChange={(postalcode,country, address, city)=>{
                     setState({ ...state, ["zip_code"]: postalcode, ["country"]: country, ["address"]:address, ["city"]:city });
@@ -638,7 +648,7 @@ const handlePlaceChange = (postalcode)=>{
                     //
                   }}
                   name={id}
-                  label={label}
+                  label={!hastooltip && label}
                     /*className={classes.root}
                     label={label}
                     fullWidth
@@ -661,6 +671,9 @@ const handlePlaceChange = (postalcode)=>{
             case type === "tel":
               field = (
                 <NoSsr>
+                  {hastooltip && <Tooltip title={tooltip}>
+        <InputLabel htmlFor="my-textfield">{label} <InfoOutlinedIcon /></InputLabel>
+      </Tooltip>}
                   <MuiPhoneNumber
                     defaultCountry={(() => {
                       const parts = router.locale.split("-");
@@ -673,7 +686,7 @@ const handlePlaceChange = (postalcode)=>{
                       return router.locale.toLowerCase();
                     })()}
                     className={classes.root}
-                    label={label}
+                    label={!hastooltip && label}
                     fullWidth
                     /*required={required}*/
                     id={id}
@@ -692,6 +705,7 @@ const handlePlaceChange = (postalcode)=>{
             case type === "file":
               field = (
                 <div >
+                  
                   <InputLabel htmlFor={id}>
                     <input
                       name={id}
@@ -730,9 +744,12 @@ const handlePlaceChange = (postalcode)=>{
               })();
               field = (
                 <NoSsr>
+                  {hastooltip && 
+        <InputLabel htmlFor="my-textfield">{required ? <>{label}<sup>*</sup></>:<>{label}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
+      }
                   <TextField
                     className={classes.root}
-                    label={required ? <>{label}<sup>*</sup></>:<>{label}</>}
+                    label={!hastooltip && (required ? <>{ label}<sup>*</sup></>:<>{label}</>)}
                     fullWidth
                     
                     multiline={textarea}

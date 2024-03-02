@@ -5,6 +5,7 @@ import { Color } from "../utils/constants";
 interface Props extends AfterSaleSectionContent {
   withH1?: boolean;
   formsMessages: FormMessagesContent;
+  form_title:String;
 }
 
 export function AfterSaleSection(props: Props) {
@@ -14,6 +15,7 @@ export function AfterSaleSection(props: Props) {
     formsMessages,
     after_sale_sentence,
     countries,
+    form_title
   } = props;
 
   const fields = useMemo(
@@ -57,6 +59,7 @@ export function AfterSaleSection(props: Props) {
         rows: 2,
         maxRows: 2,
         required: true,
+        hastooltip:true
         // additionalstyle:{paddingLeft:"0px", marginRight:"50%", paddingRight:"30px"}
       },
       {
@@ -122,13 +125,13 @@ export function AfterSaleSection(props: Props) {
   const title = useMemo(() => {
     if (props.withH1) {
       return (
-        <h1 className="subtitle-argesta subtitle-argesta--terra-cotta">
+        <h1 className="main-title main-title--terra-cotta">
           {after_sale_title}
         </h1>
       );
     } else {
       return (
-        <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
+        <h3 className="main-title main-title--terra-cotta">
           {after_sale_title}
         </h3>
       );
@@ -138,7 +141,7 @@ export function AfterSaleSection(props: Props) {
   return (
     <section
       className="section price-request-section after-sale-section"
-      data-color={Color.SAND} 
+      data-color={Color.BEIGE} 
     >
       <div className="section-container">
         {title}
@@ -146,9 +149,11 @@ export function AfterSaleSection(props: Props) {
           className="wysiwyg"
           dangerouslySetInnerHTML={{ __html: after_sale_sentence }}
         />
+        {form_title && <div style={{fontWeight:"500", fontSize:"19px", margin:"10px 0"}}>{form_title}</div>}
         <Form
           id="after_sale"
           submit_text={submit_text}
+          
           formsMessages={formsMessages}
           content={props}
           fields={fields}

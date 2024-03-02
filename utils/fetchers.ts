@@ -89,6 +89,7 @@ export async function getAllPagePropsOnly(
     full_name_label,
     first_name_label,
     coverseal_reference_number_label,
+    coverseal_reference_number_tooltip,
     last_name_label,
     phone_label,
     mail_label,
@@ -426,6 +427,7 @@ catch{}
         current_pool_specialist_label,
         pool_width_label,
         pool_length_label, coverseal_reference_number_label,
+        coverseal_reference_number_tooltip,
         company_name_label,
         contact_person_label
       },
@@ -437,6 +439,7 @@ catch{}
         full_name_label,
         first_name_label,
         coverseal_reference_number_label,
+        coverseal_reference_number_tooltip,
         last_name_label,
         phone_label,
         mail_label,

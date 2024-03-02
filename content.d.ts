@@ -70,6 +70,7 @@ interface GlobalFormContent {
   first_name_label:string;
   last_name_label:string;
   coverseal_reference_number_label:string;
+  coverseal_reference_number_tooltip:string;
   mail_label: string;
   mail_confirmation_label: string;
   phone_label: string;
@@ -185,7 +186,9 @@ interface AllTranslation {
   languages_code: string;
 }
 
-interface AfterSaleContent extends AllPageContent {}
+interface AfterSaleContent extends AllPageContent {
+  form_title:string;
+}
 interface PriceRequestContent extends AllPageContent {
   main_description:string;
   form_title:string;
@@ -475,6 +478,8 @@ interface AchievementsContent extends AllPageContent {
   back_to_achievements: string;
   next_coverseal: string;
   models_link_text: string;
+  configurator_title:string;
+configurator_link_text: string;
 }
 interface BlogsContent extends AllPageContent {
   back_to_blogs:string;
@@ -523,7 +528,8 @@ interface AchievementsSectionsDirectus {
   image: string;
   image_2: string;
   translations: { content: string }[];
-  type: "image_only" | "text_only" | "double_images" | "text_image";
+  gallery:{directus_files_id:string, image_sort:number}[];
+  type: "image_only" | "text_only" | "double_images" | "text_image" | "images_gallery" | "full_screen_image";
 }
 
 interface SingleAchievementDirectus extends AllPageContentNonTranslated {
