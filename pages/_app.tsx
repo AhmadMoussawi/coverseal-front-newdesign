@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     {
       console.log(document.cookie);
       var locale = getCookie("LOCALE");
+      
       window.location.href = "/" + locale;
       
       //router.push("/" + router.locale);
@@ -37,7 +38,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       //window.location.href = "/country";
       router.push("/country");
     }
-    
+    if(router.locale.includes("-"))
+      {
+        var c = router.locale.split('-')[1];
+        if(c!="FR" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+        {
+          window.location.href = "https://coverseal.com/" + router.locale;
+        }
+      }
     //end of implement middleware here
     if (document.cookie.includes("VISITED=true")) {
       loader.style.display = "none";

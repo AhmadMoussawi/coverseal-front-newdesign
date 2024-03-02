@@ -1,8 +1,9 @@
-import React, { useCallback, useState, FormEvent } from "react";
+import React, { useCallback, useState, FormEvent, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LogoFull, VideoLink } from "./icons";
 import { NoSsr, TextField, MenuItem, makeStyles } from "@material-ui/core";
 import { Color, CMS_PUBLIC_URL, COUNTRIES } from "../utils/constants";
+import { Value } from "sass";
 
 const white = "#FFF";
 
@@ -51,15 +52,25 @@ export function CountrySection({
   const [languageList, setLanguageList] = useState([]);
 
   const handleChangeCountry = useCallback((e) => {
+    
     if (e.target.value === "default") {
+      
       return;
     }
     const languages = COUNTRIES.find(
       (country) => country.code === e.target.value
     ).languages;
-    setLanguageList(languages);
-    setSelectedCountry(e.target.value);
-    setSelectedLanguage(languages[0]);
+    if(e.target.value!=="FR" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+    {
+        window.location.href = "https://coverseal.com/" + languages[0]+"-" + e.target.value
+     
+    }
+    else{
+      setLanguageList(languages);
+      setSelectedCountry(e.target.value);
+      setSelectedLanguage(languages[0]);
+    }
+    
   }, []);
 
   const handleChangeLanguage = useCallback((e) => {

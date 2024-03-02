@@ -152,6 +152,16 @@ module.exports = {
          defaultLocale: "fr-FR",
          localeDetection: false,
        },
+       {
+         domain: "coverseal-stage.fr",
+         defaultLocale: "fr-FR",
+         localeDetection: false,
+       },
+       {
+         domain: "coverseal.fr",
+         defaultLocale: "fr-FR",
+         localeDetection: false,
+       },
     //   {
     //     domain: "example.nl",
     //     defaultLocale: "nl-NL",

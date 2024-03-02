@@ -123,7 +123,12 @@ export function MainMenu(props: Props) {
       ).languages;
       const locale = `${languages[0].toLocaleLowerCase()}-${c}`;
       document.cookie = `LOCALE=${locale};`;
-      window.location.href="/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
+      if(c!=="FR" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+      {
+          window.location.href = "https://coverseal.com/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
+      }
+      else
+        window.location.href="/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
       /*router.push(asPath, undefined, {
         locale,
         shallow:false
