@@ -869,7 +869,6 @@ comfort_button_text,
                   direction={AnimationDirection.RIGHT_TO_LEFT}
                 />
               <div className="text-container">
-              {/* <div className="tx-container"> */}
                 <h1 className="subtitle-argesta subtitle-argesta--white">
                   {realisations_title}
                 </h1>
@@ -886,7 +885,34 @@ comfort_button_text,
               </div>       
               </div>     
         </section>
+{/* 
+<section>
+        <Grid container spacing={3} style={{paddingRight:"10%", paddingLeft:"10%"}}>
+        <Grid item xs={6} lg={5}>
+               <Image
+                  id={realisations_image}
+                  title="coverseal image"
+                  direction={AnimationDirection.RIGHT_TO_LEFT}
+                />
+        </Grid>
+        <Grid item xs={6} lg={7}>
+               <h1 className="subtitle-argesta subtitle-argesta--white">
+                  {realisations_title}
+                </h1>
+                <h6 style={{ color: 'white' }}>
+                  {realisations_description}
+                </h6>
+                <h6 >
+                <Link href="/the-coverseal" passHref >
+                          <a className="link-before-translate link-before-translate--white">
+                            {realisations_link_text}
+                          </a>
+                </Link>
+                </h6>
+        </Grid>
+        </Grid>
 
+      </section> */}
 
         {/* <section className="section first-section" data-color={Color.BEIGE}>
         <div className="section-container">

@@ -427,7 +427,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                   <div className="grid-item" id="E">
                        <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" 
-                            style={{fontFamily:"Poppins"}}>
+                            style={{fontFamily:"Poppins" , color:"var(--color-terra-cotta)"}}>
                               {home.partenair_link_text}
                             </a>
                        </Link>
@@ -667,13 +667,13 @@ var filteredmodels = models.filter(x=>x.translations.filter(
       
       
       
-      <section className="section left-image-section" data-color={Color.ANTHRACITE}>
+      {/* <section className="section left-image-section" data-color={Color.ANTHRACITE}>
        
        <div className="content">
          <div className="text-container">
          <h3 className="subtitle-poppins"  style={{color:'white'}}>
-        {dressing_title}
-      </h3>
+            {dressing_title}
+          </h3>
       <div className="mobile-image">
       <Image
            id={dressing_image}
@@ -692,7 +692,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
          </div>
        </div>
        
-     </section>
+        </section>
      
         <section className="section right-image-section" data-color={Color.ANTHRACITE} >
                       <div className="content">
@@ -726,7 +726,56 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 </ul>  
         </div>        
       </div>      
-    </section>
+          </section> */}
+
+    <section className="section-model-content" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
+    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>
+        
+        <Grid item xs={6} lg={5}>
+        <h3 className="subtitle-poppins"  style={{color:'white'}}>
+            {dressing_title}
+          </h3>
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />
+        </Grid>
+        <Grid item xs={6} lg={7}>
+        <Image
+           id={dressing_image}
+           title="dressing image"
+           direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                  />
+        </Grid>
+      </Grid>
+      </section>
+
+  
+    <section className="section-model-content" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
+    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-anthracite)"}}>
+        <Grid item xs={6} lg={5}>
+                  <Image
+                          id={options_images}
+                          title="option image"
+                          direction={AnimationDirection.RIGHT_TO_LEFT}
+                          style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                  />
+        </Grid>
+        <Grid item xs={6} lg={7}>
+                <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"white"}}>
+                              {options_title}
+                            </h3>
+           <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
+                <ul className="options" style={{color:'white'}}>
+                  {options_items.map(({ option_name, option_text }) => (
+                    <OptionItem
+                      key={option_name}
+                      name={option_name}
+                      popoverText={option_text}
+                    />
+                  ))}
+                </ul>  
+        </Grid>
+      </Grid>
+      </section>
 
 
         {/* <div className="section-container">

@@ -531,12 +531,17 @@ h6{
       .image-container {
         transform: none;
         margin-bottom: 50px;
-        width:80% !important;
+        width:100% !important;
+        margin-left: 0px;
+        padding-left:0px;
+        padding-right:0px;
       }
 
       .text-container {
         margin-bottom: 0;
         margin-left: 15%;
+        padding-left:0px;
+        padding-right:0px;
       }
 
       .image-container,
@@ -648,11 +653,44 @@ h6{
         
         width:80%  !important;
       }
+      //////
+      /// 
       .content {
         flex-direction: column;
-        left:5%;
-        margin:10px
+        margin-left: 0px;
+        margin-right: 50px;
       }
+
+      .image-container {
+        transform: none;
+        margin-bottom: 50px;
+        width:100% !important;
+        margin-left: 0px !important;
+        padding-left:0px;
+        padding-right:0px;
+      }
+
+      .text-container {
+        margin-bottom: 0;
+        margin-left: 15%;
+        padding-left:0px;
+        padding-right:0px;
+        text-align: left !important;
+        width :100% !important;
+      }
+
+      .image-container,
+      .text-container {
+        width: 100%;
+      }
+      /// 
+      /// 
+      /// //////
+      // .content {
+      //   flex-direction: column;
+      //   left:5%;
+      //   margin:10px
+      // }
       .title-container{
         order:1;
       }
@@ -661,23 +699,27 @@ h6{
         padding:10px 0px;
         text-align: left !important;
       }
-      .image-container {
-        transform: none;
-        margin-bottom: 20px;
-        order: 2;
-        //width:100% !important;
-      }
+      // .image-container {
+      //   transform: none;
+      //   margin-bottom: 20px;
+      //   order: 2;
+      //   margin-left: 0px;
+      //   padding-left:0px;
+      //   padding-right:0px;
+      // }
 
-      
-      .text-container {
-        
-        order: 3;
-        margin-bottom: 0;
-        left:5%;
-        text-align: left !important;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
+    
+      // .text-container {        
+      //   order: 3;
+      //   margin-bottom: 0;
+      //  // left:5%;
+      //   text-align: left !important;
+      //   // margin-left: 10px;
+      //   // margin-right: 10px;
+      //   margin-left: 15px;
+      //   padding-left:0px;
+      //   padding-right:0px;
+      // }
 
       .image-container,
       .text-container {

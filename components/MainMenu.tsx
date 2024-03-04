@@ -158,7 +158,7 @@ export function MainMenu(props: Props) {
 
     <div className="overlay-menu hidden">
       <div className="wrapper" ref={overlayRef}>
-        <div className="section-container">
+      <div className="section-container">
           <div className="top">
                 <div  className="icon-container" style={{marginRight:"70%"}}>
                         <Link href="/" passHref>
@@ -351,6 +351,124 @@ export function MainMenu(props: Props) {
           </div>
           <div className="bottom">
             <br/>
+          </div>
+        </div>
+
+        <div className="section-container-mobile">
+          <div className="top">
+                <div  className="icon-container">
+                        <Link href="/" passHref>
+                          <a className="logo">         
+                          <LogoSymbol color={Color.TERRA_COTTA} />              
+                          </a>
+                        </Link>
+                </div> 
+            <div>
+              <button className="close-menu-button" onClick={handleMenuClose}>
+                    <Cross color={Color.TERRA_COTTA} />
+                  </button>
+              </div>
+          </div>
+          <nav>
+            <div className="left" />
+           <Grid container spacing={2} >
+                <Grid className="not-decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
+                  <ul className="main-menu" >
+                        <li >
+                          <Link href="/catalog-request" passHref>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          </Link>
+                          <Link href="/price-request" passHref>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          </Link>
+                        </li>
+                        <li > 
+                          <Link href="/before-configurator" passHref>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/partnerships" passHref>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          </Link>
+                        </li>
+                      {hasSAV && <li>
+                          <Link href="/after-sale" passHref>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          </Link>
+                        </li>}
+                      
+                    </ul> 
+                          
+                </Grid>
+                <Grid className="decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >                   
+                  <ul className="main-menu">
+                    {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
+                      <li key={key}>
+                        <Link href={href} passHref>
+                          <a>{(props as any)[`${key}_main_nav_link_text`]}</a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>    
+                </Grid>
+           </Grid>  
+          </nav>
+          <div className="bottom">
+            <ul className="sub-menu" style={{marginLeft:"2%"}}>
+              {subMenuItems.map(({ key, href }) => {
+                if(key!="blogs")
+                {
+                return (
+                <li key={key} data-item={key}>
+                  <Link href={href} passHref>
+                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}> 
+                      {(props as any)[`${key}_main_nav_link_text`] ||
+                        (props as any)[`${key}_nav_link_text`]}                        
+                    </a>
+                  </Link>
+                  <span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", marginLeft:"-10px"}}> . </span>
+                </li>
+              )
+                }
+                else{
+                  return (
+                    <li key={key} data-item={key}>
+                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}>
+                          {(props as any)[`${key}_main_nav_link_text`] ||
+                            (props as any)[`${key}_nav_link_text`]}
+                        </a>
+                        <span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", marginLeft:"-10px"}} > . </span>
+                    </li>
+                  )
+                }
+            })}
+            </ul>
+            
+          </div>
+          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex"}}>
+          <div className="icon-container">
+                     <Globe color={Color.TERRA_COTTA} />
+            </div>               
+            <div style={{marginRight:"5px"}}>
+              <LanguageSwitcher
+                      list={COUNTRIES}
+                      currentValue={currentCountry}
+                      onChange={onCountryChange}
+                    />
+            </div>
+            <div>
+              <Link href="/after-sale" passHref>
+              <LanguageSwitcher
+                      list={currentLanguageList.map((language) => ({
+                        name: language,
+                        code: language,
+                      }))}
+                      currentValue={currentLanguage.toUpperCase()}
+                      onChange={onLanguageChange}
+                    />         
+              </Link>
+              </div>
           </div>
         </div>
       </div>
