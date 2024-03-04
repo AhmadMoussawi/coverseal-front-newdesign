@@ -9,6 +9,7 @@ import {
   getAllPagePropsOnly,
   getPageContentProps,
 } from "../utils/fetchers";
+import { Grid } from "@material-ui/core";
 interface Props extends MainMenuProps {
   hasSAV: boolean;
   overlayRef: React.RefObject<HTMLDivElement>;
@@ -48,10 +49,10 @@ export function MainMenu(props: Props) {
         key: "the_coverseal",
         href: "/the-coverseal",
       },
-      {
-        key: "benefits",
-        href: "/benefits",
-      },
+      // {
+      //   key: "benefits",
+      //   href: "/benefits",
+      // },
       {
         key: "models",
         href: modelsPath,
@@ -68,42 +69,45 @@ export function MainMenu(props: Props) {
     [modelsPath]
   );
 
+   
+
   const subMenuItems = useMemo(
     () => {
       
       return [
-      {
-        key: "contact",
-        href: "/contact",
-      },
+      // {
+      //   key: "contact",
+      //   href: "/contact",
+      // },
       {
         key: "jobs",
         href: "/jobs",
       },
-      {
-        key: "partnerships",
-        href: "/partnerships",
-      },
+      // {
+      //   key: "partnerships",
+      //   href: "/partnerships",
+      // },
+      ...(hasblogs
+        ? [
+            {
+              key: "blogs",
+      href: blogsPath,
+            },
+          ]
+        : []),
       {
         key: "faq",
         href: faqPath,
       },
-      ...(hasSAV
-        ? [
-            {
-              key: "after_sale",
-              href: "/after-sale",
-            },
-          ]
-        : []),
-        ...(hasblogs
-          ? [
-              {
-                key: "blogs",
-        href: blogsPath,
-              },
-            ]
-          : []),
+      // ...(hasSAV
+      //   ? [
+      //       {
+      //         key: "after_sale",
+      //         href: "/after-sale",
+      //       },
+      //     ]
+      //   : []),
+       
       {
         key: "documents",
         href: "/documents",
@@ -149,24 +153,145 @@ export function MainMenu(props: Props) {
   );
 
   return (
+
+   
+
     <div className="overlay-menu hidden">
       <div className="wrapper" ref={overlayRef}>
         <div className="section-container">
           <div className="top">
-            <div className="logo-container">
-              <Link href="/" passHref>
-                <a>
-                  <LogoSymbol color={Color.TERRA_COTTA} />
-                </a>
-              </Link>
+          <div  className="icon-container" style={{marginRight:"70%"}}>
+                      <Link href="/" passHref>
+                        <a className="logo">         
+                         <LogoSymbol color={Color.TERRA_COTTA} />              
+                        </a>
+                      </Link>
+             </div> 
+
+
+            <div className="icon-container">
+                     <Globe color={Color.TERRA_COTTA} />
+            </div>               
+          <div style={{width:"10%"}}>
+            <LanguageSwitcher
+                      list={COUNTRIES}
+                      currentValue={currentCountry}
+                      onChange={onCountryChange}
+                    />
+         </div>
+         <div>
+            <Link href="/after-sale" passHref>
+            <LanguageSwitcher
+                      list={currentLanguageList.map((language) => ({
+                        name: language,
+                        code: language,
+                      }))}
+                      currentValue={currentLanguage.toUpperCase()}
+                      onChange={onLanguageChange}
+                    />         
+            </Link>
             </div>
-            <button className="close-menu-button" onClick={handleMenuClose}>
-              <Cross color={Color.TERRA_COTTA} />
-            </button>
+            <div>
+        <button className="close-menu-button" onClick={handleMenuClose}>
+                    <Cross color={Color.TERRA_COTTA} />
+                  </button>
+                  </div>
+    
+
+
+
+
+
+
+          {/* <Grid container spacing={2} >
+                <Grid item xs={12} lg={7} style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className="logo-container">
+                      <Link href="/" passHref>
+                        <a>
+                          <LogoSymbol color={Color.TERRA_COTTA} />
+                        </a>
+                      </Link>
+                    </div>
+                </Grid>
+                <Grid item xs={12} lg={1} >                   
+                    <div className="icon-container">
+                     <Globe color={Color.TERRA_COTTA} />
+                    </div>
+                </Grid>
+                <Grid item xs={12} lg={1} >
+                    <LanguageSwitcher
+                      list={COUNTRIES}
+                      currentValue={currentCountry}
+                      onChange={onCountryChange}
+                    />
+                </Grid>
+                <Grid item xs={12} lg={1} >
+                    <LanguageSwitcher
+                      list={currentLanguageList.map((language) => ({
+                        name: language,
+                        code: language,
+                      }))}
+                      currentValue={currentLanguage.toUpperCase()}
+                      onChange={onLanguageChange}
+                    />
+                </Grid>
+                <Grid item xs={12} lg={2} >
+                  <button className="close-menu-button" onClick={handleMenuClose}>
+                    <Cross color={Color.TERRA_COTTA} />
+                  </button>
+                </Grid>
+          </Grid>  */}
+            
+            
           </div>
           <nav>
             <div className="left" />
-            <ul className="main-menu">
+            {/*  */}
+            
+           <Grid container spacing={2} >
+                <Grid item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center' }}>
+                  <ul className="main-menu">
+                    {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
+                      <li key={key}>
+                        <Link href={href} passHref>
+                          <a>{(props as any)[`${key}_main_nav_link_text`]}</a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>          
+                </Grid>
+                <Grid item xs={12} lg={6} >                   
+                  <ul className="main-menu">
+                  <li>
+                        <Link href="/catalog-request" passHref>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                        </Link>
+                        <Link href="/price-request" passHref>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/before-configurator" passHref>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/partnerships" passHref>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                        </Link>
+                      </li>
+                     {hasSAV && <li>
+                        <Link href="/after-sale" passHref>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                        </Link>
+                      </li>}
+                    
+                  </ul>         
+                </Grid>
+           </Grid>            
+                                  
+            {/*  */}
+            {/* <ul className="main-menu">
               {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
                 <li key={key}>
                   <Link href={href} passHref>
@@ -174,10 +299,10 @@ export function MainMenu(props: Props) {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </nav>
           <div className="bottom">
-            <div className="left">
+            {/* <div className="left">
               <div className="icon-container">
                 <Globe color={Color.TERRA_COTTA} />
               </div>
@@ -194,30 +319,31 @@ export function MainMenu(props: Props) {
                 currentValue={currentLanguage.toUpperCase()}
                 onChange={onLanguageChange}
               />
-            </div>
-            <ul className="sub-menu">
+            </div> */}
+            <ul className="sub-menu" style={{justifyContent:"space-between"}}>
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
                 return (
                 <li key={key} data-item={key}>
                   <Link href={href} passHref>
-                    <a className="link-underline">
+                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}>
                       {(props as any)[`${key}_main_nav_link_text`] ||
-                        (props as any)[`${key}_nav_link_text`]}
+                        (props as any)[`${key}_nav_link_text`]}                        
                     </a>
                   </Link>
+                  <span className="dots" style={{fontSize:"6rem", color:"var(--color-terra-cotta)"}}> . </span>
                 </li>
               )
                 }
                 else{
                   return (
                     <li key={key} data-item={key}>
-                        <a href={"/" + locale + href} className="link-underline">
+                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}>
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
-                      
+                        <span className="dots" style={{fontSize:"6rem", color:"var(--color-terra-cotta)"}} > . </span>
                     </li>
                   )
                 }

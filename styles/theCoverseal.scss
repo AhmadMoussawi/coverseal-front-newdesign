@@ -49,6 +49,15 @@
     
   }
 
+
+
+
+  .test-section-mobile{
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
   // .image-container img {
   //   width: 100%;
   //   margin-bottom: 16px;
@@ -507,7 +516,7 @@ h6{
 
     .content {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       //flex-direction: column;
     }
 
@@ -623,6 +632,7 @@ h6{
 
 
   .test-section{
+    display:block;
     padding-top:25px;
     padding-bottom:25px;
     padding-left:10%;
@@ -667,6 +677,7 @@ h6{
     }
     
     @media (max-width: 768px) {
+      display: none;
       .image-text {
         font-size: 0.4rem;
       }

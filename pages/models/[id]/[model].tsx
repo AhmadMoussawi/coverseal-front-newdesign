@@ -693,8 +693,6 @@ var filteredmodels = models.filter(x=>x.translations.filter(
        </div>
        
      </section>
-
-
      
         <section className="section right-image-section" data-color={Color.ANTHRACITE} >
                       <div className="content">

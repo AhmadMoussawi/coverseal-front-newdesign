@@ -5,6 +5,81 @@ header {
 .MuiPopover-root{
   z-index:1600 !important;
 }
+
+
+.top-navb {
+  position: absolute;// fixed;
+  left: 10%;
+  top: 0%; 
+  z-index: 90;
+  width:100%;
+  margin:auto;
+  &.padding-right {
+    padding-right: 15px;
+  }
+  ul {
+    width:100%;
+    display:block;
+  }
+  li {
+    margin: 0px;
+    display:inline-block;
+    width:20%;
+    text-align: left;
+  }
+  // a {
+  //   display: block;
+  //   width: 100%;
+  //   max-width:100%;
+  //   height:100px;
+  //   align-items: center;
+  //  // justify-content: flex-end;
+  //   padding-top: 15px;
+  //   padding-bottom: 15px;
+  //   font-family: "Poppins";
+  //   text-transform: uppercase;
+  //   font-size: 0.8vw;
+  //   position: relative;
+  //   overflow: hidden;
+
+  //   .text {
+  //     width: 180px;
+  //     max-width: 100%;
+  //     position: absolute;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+      
+  //   }
+
+  //   svg {
+  //     width: $size;
+  //     height: $size;
+  //     transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  //   }
+
+  //   &:hover {  
+  //     svg {
+  //       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  //     }
+  //   }
+  //   @media(max-width:1500px) {
+  //     font-size:16px;
+  //   }
+  //   @media(max-width:1200px) {
+  //     font-size:12px;
+  //   }
+  //   @media(max-width:1000px) {
+  //     font-size:11px;
+  //   }
+  // }
+}
+
+
+
+.MuiInputBase-root{
+  display:block;
+  font-size:rem;
+}
 .open-menu-button {
   align-items: center;
   position: fixed;
@@ -123,6 +198,7 @@ header {
 
       &:last-child {
         margin-bottom: 0;
+        
       }
     }
 
@@ -135,7 +211,7 @@ header {
         position: absolute;
         bottom: -20px;
         left: 0;
-        height: 2px;
+      //  height: 2px;
         width: 0vw;
         background: var(--color-terra-cotta);
         transition: 1.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -144,6 +220,7 @@ header {
       &:hover {
         &::before {
           width: 80vw;
+          
         }
       }
     }
@@ -188,7 +265,12 @@ header {
         margin-left: 0;
       }
     }
-
+    li:last-child{
+      .dots{
+        font-size: 6rem;
+        color:val(--color-beige) !important;
+      }
+    } 
     a {
       color: var(--color-terra-cotta);
       font-family: "argesta_hairlineRgIt";
@@ -290,9 +372,9 @@ header {
   }
 
   .icon-container {
-    width: 25px;
-    display: flex;
-    align-items: center;
+    width: 35px;
+    //display: flex;
+    //align-items: center;
   }
 
   nav {

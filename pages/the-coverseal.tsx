@@ -20,6 +20,7 @@ import { useRouter } from "next/router";
 import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
 import Masonry from "@mui/lab/Masonry";
 import { Label } from "@material-ui/icons";
+import { Grid } from "@material-ui/core";
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
   translateInFromRightToLeft(".first-section .main-paragraph");
@@ -34,6 +35,7 @@ export default function TheCoversealPage({
   layoutProps,
 }: PageProps<TheCoversealContent>) {
   const {
+    //step_one_title, step_two_title, next_btn_title, mobile_step_one_title, mobile_step_two_title,
     realisations_image,
     realisations_title,
     realisations_description,
@@ -116,7 +118,7 @@ comfort_button_text,
                       </h4>
                       <Link href="#economy">
                                     <a className="link-before-translate link-before-translate--white" 
-                                    style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                    style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
                                     {economy_button_text}
                                     </a>
                       </Link>
@@ -159,7 +161,7 @@ comfort_button_text,
                 </h4>
                 <Link href="#qualite">
                               <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px",  whiteSpace:"nowrap"}}>
+                              style={{fontFamily:"Poppins", letterSpacing: "2px",  whiteSpace:"nowrap"}}>
                               {water_quality_button_text}
                               </a>
                 </Link>
@@ -182,7 +184,7 @@ comfort_button_text,
                   </h4>
                   <Link href="#economy">
                                 <a className="link-before-translate link-before-translate--white" 
-                                style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
                                 {discretion_button_text}
                                 </a>
                   </Link>
@@ -205,7 +207,7 @@ comfort_button_text,
                 </h4>
                 <Link href="#securite">
                               <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
+                              style={{fontFamily:"Poppins",  letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
                               {certificate_button_text}
                               </a>
                 </Link>
@@ -228,7 +230,8 @@ comfort_button_text,
                 </h4>
                 <Link href="#qualite">
                               <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                              style={{fontFamily:"Poppins", 
+                               letterSpacing: "2px", whiteSpace:"nowrap"}}>
                               {water_quality_button_text}
                               </a>
                 </Link>
@@ -240,8 +243,48 @@ comfort_button_text,
         </div>
           </div>
     </section>
+    
+
+    {/* <section className="test-section-mobile" data-color="BEIGE">
+      <Grid container spacing={3} style={{paddingRight:"10%", paddingLeft:"10%"}}>
+        <Grid item xs={6} lg={12}>
+                  <Image
+                    id={economy_image.id}
+                    title={economy_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                   <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                        {economy_title}
+                      </h4>
+                      <Link href="#economy">
+                                    <a className="link-before-translate link-before-translate--white" 
+                                    style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                    {economy_button_text}
+                                    </a>
+                      </Link>
+        </Grid>
+        <Grid item xs={6} lg={12}>
+            <Image
+                    id={security_image.id}
+                    title={security_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+           <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                        {economy_title}
+                      </h4>
+                      <Link href="#economy">
+                                    <a className="link-before-translate link-before-translate--white" 
+                                    style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                    {economy_button_text}
+                                    </a>
+                      </Link>
+        </Grid>
+      </Grid>
 
        
+    </section> */}
+  
+    
             
         {/* <div className="block block-comfort" id="securite">
           <div className="content">
@@ -406,7 +449,7 @@ comfort_button_text,
        
        <div className="content">
          <div className="text-container">
-         <h2 className="subtitle-argesta subtitle-argesta--grey-blue">
+         <h2 className="subtitle-argesta subtitle-argesta--grey-blue" style={{textAlign:"right", width:"100%"}}>
         {security_title}
       </h2>
       <div className="mobile-image">
@@ -525,7 +568,7 @@ comfort_button_text,
        
        <div className="content">
          <div className="text-container">
-         <h2 className="subtitle-argesta subtitle-argesta--grey-blue">
+         <h2 className="subtitle-argesta subtitle-argesta--grey-blue" style={{textAlign:"right", width:"100%"}}>
         {certificate_title}
       </h2>
       <div className="mobile-image">
@@ -535,7 +578,7 @@ comfort_button_text,
            direction={AnimationDirection.BOTTOM_TO_TOP}
          />
       </div>
-           <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: certificate_paragraph }} />
+           <div className="paragraph wysiwyg"   dangerouslySetInnerHTML={{ __html: certificate_paragraph }} />
            {/* <Link href="/the-coverseal" passHref>
              <a className="link-before-translate link-before-translate--anthracite">
                {certificate_title}
@@ -638,11 +681,42 @@ comfort_button_text,
               </div>     
         </section>
 
+
+        {/* <section className="section first-section" data-color={Color.BEIGE}>
+        <div className="section-container">
+          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
+          <p>{main_description}</p>
+        </div>
+      </section>
       <PriceRequestSection
+        noTitle
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
         locale={locale}
-      />
+        form_title={form_title}
+        step_one_title={step_one_title}
+        step_two_title={step_two_title}
+        mobile_step_one_title={mobile_step_one_title}
+        mobile_step_two_title={mobile_step_two_title}
+        next_btn_title={next_btn_title}
+      /> */}
+      <PriceRequestSection
+      step_one_title="" step_two_title="" next_btn_title="" mobile_step_one_title="" mobile_step_two_title="" {...globalSection.priceRequest}
+      formsMessages={globalSection.formsMessages}
+      locale={locale}
+      form_title=""      />
+      {/* <PriceRequestSection
+        noTitle
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+        form_title="{form_title}"
+        step_one_title={step_one_title}
+        step_two_title={step_two_title}
+        mobile_step_one_title={mobile_step_one_title}
+        mobile_step_two_title={mobile_step_two_title}
+        next_btn_title={next_btn_title}
+      /> */}
   <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}

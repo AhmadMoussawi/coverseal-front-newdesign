@@ -134,6 +134,9 @@ export async function getAllPagePropsOnly(
     documents_nav_link_text,
     reviews_nav_link_text,
     blogs_nav_link_text,
+    catalogue_main_nav_link_text,
+    price_request_main_nav_link_text,
+    configurator_main_nav_link_text,
     // side nav
     catalog_side_nav_link_text,
     price_request_side_nav_link_text,
@@ -336,7 +339,10 @@ catch{}
           after_sale_main_nav_link_text,
           documents_nav_link_text,
           reviews_nav_link_text,
-          blogs_nav_link_text
+          blogs_nav_link_text,
+          catalogue_main_nav_link_text,
+          price_request_main_nav_link_text,
+          configurator_main_nav_link_text,
         },
       },
       footerProps: {

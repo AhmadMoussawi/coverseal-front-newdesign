@@ -149,19 +149,16 @@ module.exports = {
      domains: [
        {
          domain: "localhost",
-         defaultLocale: "fr-FR",
-         localeDetection: false,
+         defaultLocale: "fr-FR"
        },
-       {
+       /*{
          domain: "coverseal-stage.fr",
-         defaultLocale: "fr-FR",
-         localeDetection: false,
+         defaultLocale: "fr-FR"
        },
        {
          domain: "coverseal.fr",
-         defaultLocale: "fr-FR",
-         localeDetection: false,
-       },
+         defaultLocale: "fr-FR"
+       },*/
     //   {
     //     domain: "example.nl",
     //     defaultLocale: "nl-NL",

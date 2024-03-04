@@ -51,6 +51,9 @@ interface MainMenuContent {
   documents_nav_link_text: string;
   reviews_nav_link_text: string;
   blogs_nav_link_text:string;
+  catalogue_main_nav_link_text:string;
+  price_request_main_nav_link_text:string;
+  configurator_main_nav_link_text:string;
 }
 
 interface SideNavContent {
