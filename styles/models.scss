@@ -1,6 +1,14 @@
 .model-template {
   .first-section {
     padding-bottom: 50px;
+
+    .main-paragraph {
+      padding-bottom: 80px;
+    }
+    
+    .text-container{
+       padding-bottom: 80px !important;
+    }
   }
 //added
 .second-section {
@@ -36,7 +44,7 @@ h6{
 
 .link-list {
   display: flex;
-  margin-top: 0px;
+  margin-top: -33px;
   background-color: white; 
   flex-direction: row;
 
@@ -51,6 +59,9 @@ h6{
   .is-selected{
     background-color:var(--color-beige);
     font-weight:bold;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0px;
   }
 }
 

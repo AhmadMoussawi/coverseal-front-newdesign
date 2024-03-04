@@ -89,11 +89,11 @@ comfort_button_text,
   return (
     <main className="the-coverseal-template">
       <section className="section first-section" data-color="BEIGE">
-        <div className="section-container">
+        <div className="section-container" style={{paddingBottom:"80px"}}>
           <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
           
           <div
-            className="main-paragraph wysiwyg"
+            className="main-paragraph wysiwyg" 
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
           />
 
