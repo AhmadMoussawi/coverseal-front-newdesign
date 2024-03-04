@@ -160,28 +160,26 @@ export function MainMenu(props: Props) {
       <div className="wrapper" ref={overlayRef}>
         <div className="section-container">
           <div className="top">
-          <div  className="icon-container" style={{marginRight:"70%"}}>
-                      <Link href="/" passHref>
-                        <a className="logo">         
-                         <LogoSymbol color={Color.TERRA_COTTA} />              
-                        </a>
-                      </Link>
-             </div> 
-
-
+                <div  className="icon-container" style={{marginRight:"70%"}}>
+                        <Link href="/" passHref>
+                          <a className="logo">         
+                          <LogoSymbol color={Color.TERRA_COTTA} />              
+                          </a>
+                        </Link>
+                </div> 
             <div className="icon-container">
                      <Globe color={Color.TERRA_COTTA} />
             </div>               
-          <div style={{width:"10%"}}>
-            <LanguageSwitcher
+            <div style={{width:"10%"}}>
+              <LanguageSwitcher
                       list={COUNTRIES}
                       currentValue={currentCountry}
                       onChange={onCountryChange}
                     />
-         </div>
-         <div>
-            <Link href="/after-sale" passHref>
-            <LanguageSwitcher
+            </div>
+            <div>
+              <Link href="/after-sale" passHref>
+              <LanguageSwitcher
                       list={currentLanguageList.map((language) => ({
                         name: language,
                         code: language,
@@ -189,13 +187,13 @@ export function MainMenu(props: Props) {
                       currentValue={currentLanguage.toUpperCase()}
                       onChange={onLanguageChange}
                     />         
-            </Link>
-            </div>
+              </Link>
+              </div>
             <div>
-        <button className="close-menu-button" onClick={handleMenuClose}>
+              <button className="close-menu-button" onClick={handleMenuClose}>
                     <Cross color={Color.TERRA_COTTA} />
                   </button>
-                  </div>
+              </div>
     
 
 
@@ -249,7 +247,7 @@ export function MainMenu(props: Props) {
             {/*  */}
             
            <Grid container spacing={2} >
-                <Grid item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center' }}>
+                <Grid className="not-decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
                   <ul className="main-menu">
                     {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
                       <li key={key}>
@@ -260,9 +258,9 @@ export function MainMenu(props: Props) {
                     ))}
                   </ul>          
                 </Grid>
-                <Grid item xs={12} lg={6} >                   
-                  <ul className="main-menu">
-                  <li>
+                <Grid className="decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >                   
+                  <ul className="main-menu" >
+                      <li >
                         <Link href="/catalog-request" passHref>
                           <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
@@ -270,7 +268,7 @@ export function MainMenu(props: Props) {
                           <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
-                      <li>
+                      <li > 
                         <Link href="/before-configurator" passHref>
                           <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
@@ -327,7 +325,7 @@ export function MainMenu(props: Props) {
                 return (
                 <li key={key} data-item={key}>
                   <Link href={href} passHref>
-                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}>
+                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}> 
                       {(props as any)[`${key}_main_nav_link_text`] ||
                         (props as any)[`${key}_nav_link_text`]}                        
                     </a>

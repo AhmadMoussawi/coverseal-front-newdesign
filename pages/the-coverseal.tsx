@@ -89,161 +89,367 @@ comfort_button_text,
   return (
     <main className="the-coverseal-template">
       <section className="section first-section" data-color="BEIGE">
-        <div className="section-container" style={{paddingBottom:"80px"}}>
-          <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
-          
-          <div
-            className="main-paragraph wysiwyg" 
-            dangerouslySetInnerHTML={{ __html: main_paragraph }}
-          />
-
- 
+          <div className="section-container" style={{paddingBottom:"80px"}}>
+            <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
             
-            
-        </div>
-    </section>   
+            <div
+              className="main-paragraph wysiwyg" 
+              dangerouslySetInnerHTML={{ __html: main_paragraph }}
+            />
 
-    <section className="test-section" data-color="BEIGE">
-        <div className="image-gallery">
+  
+              
+              
+          </div>
+        </section>   
+
+      <section className="test-section" data-color="BEIGE">
+          <div className="image-gallery">
+            <div className="image-container">
+                    <Image
+                        id={economy_image.id}
+                        title={economy_title}
+                        direction={AnimationDirection.LEFT_TO_RIGHT}
+                      />
+                      <div  className="item-container">
+                        <div className ="image-text" >
+                            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >                   
+                            {economy_title}
+                          </h4>
+                          <Link href="#economy">
+                                        <a className="link-before-translate link-before-translate--white" 
+                                        style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                        {economy_button_text}
+                                        </a>
+                          </Link>
+                        </div>
+                      </div>              
+              </div>  
+            <div className="image-container">
+            <Image
+                    id={security_image.id}
+                    title={security_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {security_title}
+                    </h4>
+                    <Link href="#securite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                  {security_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+                  {/* <div className="image-text">{security_title}
+                  <a href="#securite" className="btn">en savoir plus</a>
+                  </div> */}
+              </div>
+            <div className="image-container">
+            <Image
+                    id={water_quality_image.id}
+                    title={water_quality_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {water_quality_title}
+                    </h4>
+                    <Link href="#qualite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins", letterSpacing: "2px",  whiteSpace:"nowrap"}}>
+                                  {water_quality_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+                  {/* <div className="image-text">{water_quality_title}
+                  <a href="#qualite" className="btn">en savoir plus</a></div> */}
+
+              </div>
             <div className="image-container">
                 <Image
-                    id={economy_image.id}
-                    title={economy_title}
+                    id={discretion_image}
+                    title={discretion_title}
                     direction={AnimationDirection.LEFT_TO_RIGHT}
                   />
                   <div  className="item-container">
                     <div className ="image-text" >
-                        <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >                   
-                        {economy_title}
+                        <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                        {discretion_title}
                       </h4>
                       <Link href="#economy">
                                     <a className="link-before-translate link-before-translate--white" 
                                     style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
-                                    {economy_button_text}
+                                    {discretion_button_text}
                                     </a>
                       </Link>
                     </div>
-                  </div>              
-              </div>  
-              <div className="image-container">
-        <Image
-                id={security_image.id}
-                title={security_title}
-                direction={AnimationDirection.LEFT_TO_RIGHT}
-              />
-              <div  className="item-container">
-              <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
-                  {security_title}
-                </h4>
-                <Link href="#securite">
-                              <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins",  letterSpacing: "2px", whiteSpace:"nowrap"}}>
-                              {security_button_text}
-                              </a>
-                </Link>
+                  </div> 
+                  {/* <div className="image-text">{economy_title}
+                  <a href="#economie" className="btn">en savoir plus</a>
+                  </div> */}
+              </div>      
+            <div className="image-container">
+            <Image
+                    id={certificate_image.id}
+                    title={security_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {certificate_title}
+                    </h4>
+                    <Link href="#securite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
+                                  {certificate_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+                  {/* <div className="image-text">{security_title}
+                  <a href="#securite" className="btn">en savoir plus</a>
+                  </div> */}
               </div>
-            </div> 
-              {/* <div className="image-text">{security_title}
-              <a href="#securite" className="btn">en savoir plus</a>
-              </div> */}
-        </div>
-        <div className="image-container">
-        <Image
-                id={water_quality_image.id}
-                title={water_quality_title}
-                direction={AnimationDirection.LEFT_TO_RIGHT}
-              />
-              <div  className="item-container">
-              <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
-                  {water_quality_title}
-                </h4>
-                <Link href="#qualite">
-                              <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", letterSpacing: "2px",  whiteSpace:"nowrap"}}>
-                              {water_quality_button_text}
-                              </a>
-                </Link>
-              </div>
-            </div> 
-              {/* <div className="image-text">{water_quality_title}
-              <a href="#qualite" className="btn">en savoir plus</a></div> */}
+            <div className="image-container">
+            <Image
+                    id={comfort_image.id}
+                    title={comfort_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {comfort_title}
+                    </h4>
+                    <Link href="#qualite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins", 
+                                  letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                  {comfort_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+                  {/* <div className="image-text">{water_quality_title}
+                  <a href="#qualite" className="btn">en savoir plus</a></div> */}
 
-        </div>
-        <div className="image-container">
-             <Image
-                id={discretion_image}
-                title={discretion_title}
-                direction={AnimationDirection.LEFT_TO_RIGHT}
-              />
-              <div  className="item-container">
-                <div className ="image-text" >
-                    <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
-                    {discretion_title}
-                  </h4>
-                  <Link href="#economy">
-                                <a className="link-before-translate link-before-translate--white" 
-                                style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
-                                {discretion_button_text}
-                                </a>
-                  </Link>
-                </div>
-               </div> 
-              {/* <div className="image-text">{economy_title}
-              <a href="#economie" className="btn">en savoir plus</a>
-              </div> */}
-          </div>      
-        <div className="image-container">
-        <Image
-                id={certificate_image.id}
-                title={security_title}
-                direction={AnimationDirection.LEFT_TO_RIGHT}
-              />
-              <div  className="item-container">
-              <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
-                  {certificate_title}
-                </h4>
-                <Link href="#securite">
-                              <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins",  letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
-                              {certificate_button_text}
-                              </a>
-                </Link>
               </div>
-            </div> 
-              {/* <div className="image-text">{security_title}
-              <a href="#securite" className="btn">en savoir plus</a>
-              </div> */}
-        </div>
-        <div className="image-container">
-        <Image
-                id={water_quality_image.id}
-                title={water_quality_title}
-                direction={AnimationDirection.LEFT_TO_RIGHT}
-              />
-              <div  className="item-container">
-              <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
-                  {water_quality_title}
-                </h4>
-                <Link href="#qualite">
-                              <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", 
-                               letterSpacing: "2px", whiteSpace:"nowrap"}}>
-                              {water_quality_button_text}
-                              </a>
-                </Link>
-              </div>
-            </div> 
-              {/* <div className="image-text">{water_quality_title}
-              <a href="#qualite" className="btn">en savoir plus</a></div> */}
+            </div>
+        </section>
+      
 
-        </div>
+
+{/* <section className="test-section-mobile" data-color="BEIGE">
+  <div className="image-gallery">
+    <div className="image-row">
+      <div className="image-container">
+        <Image id="{economy_image.id}" title="{economy_title}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{economy_title}</h4>
+            <Link href="#economy">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>{economy_button_text}</a>
+            </Link>
           </div>
-    </section>
-    
+        </div>
+      </div>
+      <div className="image-container">
+        <Image id="{security_image.id}" title="{security_title}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{security_title}</h4>
+            <Link href="#securite">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>{security_button_text}</a>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="image-row">
+      <div className="image-container">
+        <Image id="{water_quality_image.id}" title="{water_quality_title}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{water_quality_title}</h4>
+            <Link href="#qualite">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>{water_quality_button_text}</a>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="image-container">
+        <Image id="{certificate_image}" title="{certificate_title}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{certificate_title}</h4>
+            <Link href="#economy">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>{certificate_button_text}</a>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="image-row">
+      <div className="image-container">
+        <Image id="{certificate_image.id}" title="{certificate_title}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{certificate_title}</h4>
+            <Link href="#securite">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>{discretion_button_text}</a>
+            </Link>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div className="image-row">
+      <div className="image-container">
+        <Image id="{comfort_image.id}" title="{comfort_image}" direction={AnimationDirection.LEFT_TO_RIGHT} />
+        <div className="item-container">
+          <div className="image-text">
+            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >{comfort_title}</h4>
+            <Link href="#securite">
+              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>{comfort_button_text}</a>
+            </Link>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </section> */}
+
+      <section className="test-section-mobile" data-color="BEIGE">
+      <div className="image-gallery">
+            <div className="image-container">
+                    <Image
+                        id={economy_image.id}
+                        title={economy_title}
+                        direction={AnimationDirection.LEFT_TO_RIGHT}
+                      />
+                      <div  className="item-container">
+                        <div className ="image-text" >
+                            <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >                   
+                            {economy_title}
+                          </h4>
+                          <Link href="#economy">
+                                        <a className="link-before-translate link-before-translate--white" 
+                                        style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                        {economy_button_text}
+                                        </a>
+                          </Link>
+                        </div>
+                      </div>              
+              </div>  
+            <div className="image-container">
+            <Image
+                    id={security_image.id}
+                    title={security_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {security_title}
+                    </h4>
+                    <Link href="#securite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                  {security_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+              </div>
+            <div className="image-container">
+            <Image
+                    id={water_quality_image.id}
+                    title={water_quality_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {water_quality_title}
+                    </h4>
+                    <Link href="#qualite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins", letterSpacing: "2px",  whiteSpace:"nowrap"}}>
+                                  {water_quality_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+              </div>
+            <div className="image-container">
+                <Image
+                    id={discretion_image}
+                    title={discretion_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                    <div className ="image-text" >
+                        <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                        {discretion_title}
+                      </h4>
+                      <Link href="#economy">
+                                    <a className="link-before-translate link-before-translate--white" 
+                                    style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                    {discretion_button_text}
+                                    </a>
+                      </Link>
+                    </div>
+                  </div> 
+              </div>      
+            <div className="image-container">
+            <Image
+                    id={certificate_image.id}
+                    title={security_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {certificate_title}
+                    </h4>
+                    <Link href="#securite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
+                                  {certificate_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div> 
+              </div>
+            <div className="image-container">
+            <Image
+                    id={comfort_image.id}
+                    title={comfort_title}
+                    direction={AnimationDirection.LEFT_TO_RIGHT}
+                  />
+                  <div  className="item-container">
+                  <div className ="image-text" >
+                      <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
+                      {comfort_title}
+                    </h4>
+                    <Link href="#qualite">
+                                  <a className="link-before-translate link-before-translate--white" 
+                                  style={{fontFamily:"Poppins", 
+                                  letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                                  {comfort_button_text}
+                                  </a>
+                    </Link>
+                  </div>
+                </div>                   
+              </div>
+            </div>
+        </section>        
 
     {/* <section className="test-section-mobile" data-color="BEIGE">
       <Grid container spacing={3} style={{paddingRight:"10%", paddingLeft:"10%"}}>
@@ -448,32 +654,32 @@ comfort_button_text,
     <section className="section left-image-section" data-color={Color.BEIGE} id ="securite">
        
        <div className="content">
-         <div className="text-container">
-         <h2 className="subtitle-argesta subtitle-argesta--grey-blue" style={{textAlign:"right", width:"100%"}}>
-        {security_title}
-      </h2>
-      <div className="mobile-image">
-      <Image
-           id={security_image.id}
-           title="security image"
-           direction={AnimationDirection.BOTTOM_TO_TOP}
-         />
-      </div>
-           <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: security_paragraph }} />
-           {/* <Link href="/the-coverseal" passHref>
-             <a className="link-before-translate link-before-translate--anthracite">
-               {certificate_title}
-             </a>
-           </Link> */}
-         </div>
-<div className="desktop-image">
-         <Image
-           id={security_image.id}
-           title="security image"
-           direction={AnimationDirection.BOTTOM_TO_TOP}
-         />
-         </div>
-       </div>
+            <div className="text-container">
+                  <h2 className="subtitle-argesta subtitle-argesta--grey-blue" style={{textAlign:"right", width:"100%"}}>
+                  {security_title}
+                  </h2>
+                <div className="mobile-image">
+                  <Image
+                      id={security_image.id}
+                      title="security image"
+                      direction={AnimationDirection.BOTTOM_TO_TOP}
+                    />
+                </div>
+              <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: security_paragraph }} />
+                {/* <Link href="/the-coverseal" passHref>
+                  <a className="link-before-translate link-before-translate--anthracite">
+                    {certificate_title}
+                  </a>
+                </Link> */}
+          </div>
+            <div className="desktop-image">
+              <Image
+                id={security_image.id}
+                title="security image"
+                direction={AnimationDirection.BOTTOM_TO_TOP}
+              />
+            </div>
+        </div>
        
      </section>
 

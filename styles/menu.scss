@@ -171,17 +171,17 @@ header {
       display: none;
     }
 
-    @media (max-height: 700px) {
-      align-items: flex-start;
+    // @media (max-height: 700px) {
+    //   align-items: flex-start;
 
-      .section-container {
-        padding: 50px 0;
-      }
-    }
+    //   .section-container {
+    //     padding: 50px 0;
+    //   }
+    // }
 
-    @media (max-width: 580px) {
-      align-items: flex-start;
-    }
+    // @media (max-width: 580px) {
+    //   align-items: flex-start;
+    // }
   }
 
   .main-menu {
@@ -225,33 +225,52 @@ header {
       }
     }
 
-    @media (min-width: 2000px) {
-      font-size: 4rem;
-    }
-
-    @media (max-height: 950px) {
-      margin-bottom: 50px;
-    }
-
-    @media (max-height: 900px) {
-      font-size: 2.5rem;
-
-      li {
-        margin: 20px 0px;
+    @media (max-width: 768px) {
+      li{
+        text-align: center;
+      }
+      .decorated{
+        order:1 !important;
+      }
+      .not-decorated{
+        order:2 !important;
+      }
+      grid{
+        .not-decorated{
+          margin-top:10px;
+        }
+        .decorated{
+          margin-top: 160%;
+        }
       }
     }
+    // @media (min-width: 2000px) {
+    //   font-size: 4rem;
+    // }
 
-    @media (max-height: 700px) {
-      font-size: 2.25rem;
+    // @media (max-height: 950px) {
+    //   margin-bottom: 50px;
+    // }
 
-      li {
-        margin: 10px 0px;
-      }
-    }
+    // @media (max-height: 900px) {
+    //   font-size: 2.5rem;
 
-    @media (max-width: 580px) {
-      font-size: 1.75rem;
-    }
+    //   li {
+    //     margin: 20px 0px;
+    //   }
+    // }
+
+    // @media (max-height: 700px) {
+    //   font-size: 2.25rem;
+
+    //   li {
+    //     margin: 10px 0px;
+    //   }
+    // }
+
+    // @media (max-width: 580px) {
+    //   font-size: 1.75rem;
+    // }
   }
 
   .sub-menu {
@@ -267,6 +286,7 @@ header {
     }
     li:last-child{
       .dots{
+       // hide  : none;
         font-size: 6rem;
         color:val(--color-beige) !important;
       }
@@ -278,59 +298,69 @@ header {
       white-space: nowrap;
     }
 
-    @media (min-width: 2000px) {
-      a {
-        font-size: 2.5rem;
-      }
-    }
+    // @media (min-width: 2000px) {
+    //   a {
+    //     font-size: 2.5rem;
+    //   }
+    // }
 
-    @media (max-height: 900px) {
-      a {
-        font-size: 1.5rem;
-      }
-    }
+    // @media (max-height: 900px) {
+    //   a {
+    //     font-size: 1.5rem;
+    //   }
+    // }
 
-    @media (max-width: 1024px) {
-      li {
-        margin: 0 15px 0 0;
-      }
-    }
+    // @media (max-width: 1024px) {
+    //   li {
+    //     margin: 0 15px 0 0;
+    //   }
+    // }
 
     @media (max-width: 768px) {
       flex-wrap: wrap;
 
       li {
-        margin: 0 10px 0 0;
+        margin: 0 0 0 0;
 
         a {
-          font-size: 1.875rem;
+          margin-right: 0px !important;
+          font-size: 1.2rem !important;
         }
+        .dots{          
+           font-size: 3rem !important;
+         }
       }
+      li:last-child{
+        .dots{        
+          font-size: 6rem;
+          color:val(--color-beige) !important;
+        }
+      } 
     }
 
-    @media (max-width: 580px) {
-      li {
-        margin: 0;
-        padding: 10px;
-        box-sizing: border-box;
-        order: 1;
-      }
+    // @media (max-width: 580px) {
+    //   li {
+    //     margin: 0;
+    //     padding: 10px;
+    //     box-sizing: border-box;
+    //     order: 1;
+    //   }
 
-      [data-item="partnerships"],
-      [data-item="faq"],
-      [data-item="after_sale"],
-      [data-item="blogs"] {
-        width: 100%;
-      }
+    //   [data-item="partnerships"],
+    //   [data-item="faq"],
+    //   [data-item="after_sale"],
+    //   [data-item="blogs"] {
+    //     width: 100%;
+    //   }
 
-      [data-item="faq"] {
-        order: 2;
-      }
+    //   [data-item="faq"] {
+    //     order: 2;
+    //   }
 
-      [data-item="after_sale"] {
-        order: 3;
-      }
-    }
+    //   [data-item="after_sale"] {
+    //     order: 3;
+    //   }
+    // }
   }
 
   .close-menu-button {
@@ -379,8 +409,9 @@ header {
 
   nav {
     .left {
-      @media (max-width: 580px) {
+      @media (max-width: 768px) {
         display: none;
+        
       }
     }
   }
