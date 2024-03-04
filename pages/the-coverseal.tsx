@@ -113,7 +113,7 @@ comfort_button_text,
                   />
                   <div  className="item-container">
                     <div className ="image-text" >
-                        <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                        <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}} >                   
                         {economy_title}
                       </h4>
                       <Link href="#economy">
@@ -133,12 +133,12 @@ comfort_button_text,
               />
               <div  className="item-container">
               <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                   {security_title}
                 </h4>
                 <Link href="#securite">
                               <a className="link-before-translate link-before-translate--white" 
-                              style={{fontFamily:"Poppins", padding:"0px 0px", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                              style={{fontFamily:"Poppins",  letterSpacing: "2px", whiteSpace:"nowrap"}}>
                               {security_button_text}
                               </a>
                 </Link>
@@ -156,7 +156,7 @@ comfort_button_text,
               />
               <div  className="item-container">
               <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                   {water_quality_title}
                 </h4>
                 <Link href="#qualite">
@@ -179,7 +179,7 @@ comfort_button_text,
               />
               <div  className="item-container">
                 <div className ="image-text" >
-                    <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                    <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                     {discretion_title}
                   </h4>
                   <Link href="#economy">
@@ -202,7 +202,7 @@ comfort_button_text,
               />
               <div  className="item-container">
               <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white">                   
+                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                   {certificate_title}
                 </h4>
                 <Link href="#securite">
@@ -225,7 +225,7 @@ comfort_button_text,
               />
               <div  className="item-container">
               <div className ="image-text" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white">                   
+                  <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                   {water_quality_title}
                 </h4>
                 <Link href="#qualite">
