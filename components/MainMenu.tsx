@@ -160,7 +160,7 @@ export function MainMenu(props: Props) {
       <div className="wrapper" ref={overlayRef}>
       <div className="section-container">
           <div className="top">
-                <div  className="icon-container" style={{marginRight:"70%"}}>
+                <div  className="icon-container" style={{marginRight:"calc(60% - 80px)"}}>
                         <Link href="/" passHref>
                           <a className="logo">         
                           <LogoSymbol color={Color.TERRA_COTTA} />              
@@ -247,7 +247,7 @@ export function MainMenu(props: Props) {
             {/*  */}
             
            <Grid container spacing={2} >
-                <Grid className="not-decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
+                <Grid className="not-decorated" item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
                   <ul className="main-menu">
                     {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
                       <li key={key}>
@@ -258,29 +258,29 @@ export function MainMenu(props: Props) {
                     ))}
                   </ul>          
                 </Grid>
-                <Grid className="decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >                   
+                <Grid className="decorated" item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >                   
                   <ul className="main-menu" >
                       <li >
                         <Link href="/catalog-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                         <Link href="/price-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li > 
                         <Link href="/before-configurator" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/partnerships" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                      {hasSAV && <li>
                         <Link href="/after-sale" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>}
                     
@@ -323,26 +323,30 @@ export function MainMenu(props: Props) {
                 if(key!="blogs")
                 {
                 return (
-                <li key={key} data-item={key}>
+               <> <li key={key} data-item={key}>
                   <Link href={href} passHref>
-                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}> 
+                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}> 
                       {(props as any)[`${key}_main_nav_link_text`] ||
                         (props as any)[`${key}_nav_link_text`]}                        
                     </a>
                   </Link>
-                  <span className="dots" style={{fontSize:"6rem", color:"var(--color-terra-cotta)"}}> . </span>
+                  
                 </li>
+                <li><span className="dots" style={{fontSize:"4rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                </>
               )
                 }
                 else{
                   return (
-                    <li key={key} data-item={key}>
-                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap", marginRight:"100px"}}>
+                    <><li key={key} data-item={key}>
+                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
-                        <span className="dots" style={{fontSize:"6rem", color:"var(--color-terra-cotta)"}} > . </span>
+                        
                     </li>
+                    <li><span className="dots" style={{fontSize:"4rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}} > . </span></li>
+                    </>
                   )
                 }
             })}
@@ -356,7 +360,7 @@ export function MainMenu(props: Props) {
 
         <div className="section-container-mobile">
           <div className="top">
-                <div  className="icon-container">
+                <div  className="icon-container" style={{marginTop:"20px"}}>
                         <Link href="/" passHref>
                           <a className="logo">         
                           <LogoSymbol color={Color.TERRA_COTTA} />              
@@ -379,7 +383,7 @@ export function MainMenu(props: Props) {
                             <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                           <Link href="/price-request" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller", marginLeft:"10px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                         </li>
                         <li > 
@@ -414,39 +418,40 @@ export function MainMenu(props: Props) {
                 </Grid>
            </Grid>  
           </nav>
-          <div className="bottom">
+          <div className="bottom" style={{marginTop:"20px"}}>
             <ul className="sub-menu" style={{marginLeft:"2%"}}>
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
                 return (
-                <li key={key} data-item={key}>
+                <><li key={key} data-item={key}>
                   <Link href={href} passHref>
                     <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}> 
                       {(props as any)[`${key}_main_nav_link_text`] ||
                         (props as any)[`${key}_nav_link_text`]}                        
                     </a>
                   </Link>
-                  <span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", marginLeft:"-10px"}}> . </span>
+                  
                 </li>
+                <li><span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                </>
               )
                 }
                 else{
                   return (
-                    <li key={key} data-item={key}>
+                    <><li key={key} data-item={key}>
                         <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}>
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
-                        <span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", marginLeft:"-10px"}} > . </span>
-                    </li>
+                    </li><li><span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li></>
                   )
                 }
             })}
             </ul>
             
           </div>
-          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex"}}>
+          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex", marginTop:"20px"}}>
           <div className="icon-container">
                      <Globe color={Color.TERRA_COTTA} />
             </div>               

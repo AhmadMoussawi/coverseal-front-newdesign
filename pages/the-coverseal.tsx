@@ -28,18 +28,19 @@ function appearingAnimations() {
   translateInFromLeftToRight(".block-comfort .content .text-container");
   translateInFromRightToLeft(".block-discretion .text-container");
 }
-
+interface TheCoversealProps extends PageProps<TheCoversealContent> {
+  
+  home:HomeContent;
+  pricerequest:PriceRequestContent;
+}
 export default function TheCoversealPage({
   pageProps,
   globalSection,
   layoutProps,
-}: PageProps<TheCoversealContent>) {
+  home,
+  pricerequest
+}: TheCoversealProps) {
   const {
-    //step_one_title, step_two_title, next_btn_title, mobile_step_one_title, mobile_step_two_title,
-    realisations_image,
-    realisations_title,
-    realisations_description,
-    realisations_link_text,
     water_quality_title,
 water_quality_paragraph,
 security_title,
@@ -81,7 +82,7 @@ comfort_button_text,
     faq_link_text,
   } = pageProps;
   const { modelsPath, faqPath } = layoutProps.topBarProps.mainMenuProps;
-
+  const { form_title, step_one_title, step_two_title, next_btn_title, mobile_step_one_title, mobile_step_two_title } = pricerequest;
   useEffect(() => {
     appearingAnimations();
   }, []);
@@ -864,21 +865,21 @@ comfort_button_text,
               
 
                 <Image
-                  id={realisations_image}
+                  id={home.realisations_image.id}
                   title="coverseal image"
                   direction={AnimationDirection.RIGHT_TO_LEFT}
                 />
               <div className="text-container">
                 <h1 className="subtitle-argesta subtitle-argesta--white">
-                  {realisations_title}
+                  {home.realisations_title}
                 </h1>
                 <h6 style={{ color: 'white' }}>
-                  {realisations_description}
+                  {home.realisations_description}
                 </h6>
                 <h6 >
                 <Link href="/the-coverseal" passHref >
                           <a className="link-before-translate link-before-translate--white">
-                            {realisations_link_text}
+                            {home.realisations_link_text}
                           </a>
                 </Link>
                 </h6>
@@ -933,10 +934,17 @@ comfort_button_text,
         next_btn_title={next_btn_title}
       /> */}
       <PriceRequestSection
-      step_one_title="" step_two_title="" next_btn_title="" mobile_step_one_title="" mobile_step_two_title="" {...globalSection.priceRequest}
+      
+      {...globalSection.priceRequest}
       formsMessages={globalSection.formsMessages}
       locale={locale}
-      form_title=""      />
+      form_title={""}
+      step_one_title={step_one_title}
+      step_two_title={step_two_title}
+      mobile_step_one_title={mobile_step_one_title}
+      mobile_step_two_title={mobile_step_two_title}
+      next_btn_title={next_btn_title}
+    />
       {/* <PriceRequestSection
         noTitle
         {...globalSection.priceRequest}
@@ -970,11 +978,14 @@ export const getStaticProps: GetStaticProps<
     "the_coverseal_template",
     locale
   );
-
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale);
+  const pricerequest= await fetcher.fetchCollection<PriceRequestContent>("price_request_template", locale);
   return {
     props: {
       ...allPageProps,
       ...pageProps,
+      home,
+      pricerequest
     },
     revalidate: parseInt(process.env.REVALIDATION_TIME), // In seconds
   };
