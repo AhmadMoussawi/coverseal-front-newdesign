@@ -16,6 +16,11 @@ import {
   translateInFromLeftToRight,
   translateInFromRightToLeft,
 } from "../animations/appearing/shared";
+import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Masonry from "@mui/lab/Masonry";
+import { Grid } from "@material-ui/core";
 
 declare const YT: any;
 
@@ -28,10 +33,25 @@ function appearingAnimations() {
   translateInFromLeftToRight(".block-network .text-container");
 }
 
+
+
 export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
   const [isGenerated, setIsGenerated] = useState(false);
 
   const {
+    installation_effectue_number,
+    installation_effectue_title,
+    countries_number,
+    countries_title,
+    years_number,
+    years_title,
+    quality_title,
+    more_then,
+    collaborator_number,
+    advantages_title,
+    advantages_text,
+    jobs_title,
+    jobs_link_text,
     main_title,
     main_paragraph,
     company_title,
@@ -50,6 +70,8 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
     company_image_3,
     company_image_4
   } = pageProps;
+
+  const { locale } = useRouter();
 
   useEffect(() => {
     appearingAnimations();
@@ -125,14 +147,14 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
           />
           <div className="video-container">
-            <div className="video-poster" />
+            {/* <div className="video-poster" />
             <div className="button-container">
               <YoutubePlayButton color={Color.TERRA_COTTA} />
             </div>
-            <div id="video" />
+            <div id="video" /> */}
           </div>
 
-          <div className="block block-history">
+          {/* <div className="block block-history">
             <div className="text-container">
               <h2 className="subtitle-argesta subtitle-argesta--white">
                 {history_title}
@@ -156,9 +178,9 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
               containerClassName="image-behind"
               direction={AnimationDirection.TOP_TO_BOTTOM}
             />
-          </div>
+          </div> */}
 
-          <div className="block block-text-image image-left">
+          {/* <div className="block block-text-image image-left">
             <div className="text-container">
               <h2 className="subtitle-argesta subtitle-argesta--white">
                 {company_title}
@@ -175,9 +197,9 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
               title="company image"
               direction={AnimationDirection.RIGHT_TO_LEFT}
             />
-          </div>
+          </div> */}
 
-          <div className="block block-double-image">
+          {/* <div className="block block-double-image">
             <Image
               id={company_image_2}
               title="company image"
@@ -188,9 +210,9 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
               title="company image"
               direction={AnimationDirection.RIGHT_TO_LEFT}
             />
-          </div>
+          </div> */}
 
-          <div className="block block-network">
+          {/* <div className="block block-network">
             <div className="text-container">
               <h2 className="subtitle-argesta subtitle-argesta--white">
                 {network_title}
@@ -206,19 +228,16 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
               id={company_image_4.filename_disk}
               title="company image"
               direction={AnimationDirection.RIGHT_TO_LEFT}
-            />
-            {/*<div id="map">
-              <div className="tooltip" />
-              </div>*/}
-          </div>
+            />         
+          </div> */}
         </div>
-        <LineLink
+        {/* <LineLink
           href="/partnerships"
           text={partnership_link_text}
           color={Color.WHITE}
-        />
+        /> */}
       </section>
-      <section className="link-section" data-color={Color.WHITE}>
+      {/* <section className="link-section" data-color={Color.WHITE}>
         <CircleLink
           mainLink={{
             text: the_coverseal_link_text,
@@ -230,7 +249,179 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
           }}
           textAlign="right"
         />
+      </section> */}
+
+
+      <section  className="section image-box-two" data-color={Color.WHITE}>
+        <div>
+          <Image
+            src="/images/aboutbig.png" // Path relative to the public folder
+            alt="Example Image"
+            width={500} // Set the width of the image
+            height={300} // Set the height of the image
+          />
+        </div>
       </section>
+
+      <section className="section para-section-third" data-color={Color.WHITE}>
+      <div className="section-container">
+            <div className="title-container">
+              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {/* {related_blogs_text} */}
+              </h3>              
+            </div>
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            </div>
+      </section>
+      <section  className="section image-box-forth" data-color={Color.WHITE}>
+      <div>
+        {/* <Image
+              id= {dressing_image}
+              title="dressing image"
+              direction={AnimationDirection.BOTTOM_TO_TOP}
+              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+            /> */}
+      </div>
+    </section>
+      <section className="section para-section-fifth" data-color={Color.BEIGE}>
+      <div className="section-container">
+            <div className="title-container">
+              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {/* {related_blogs_text} */}
+              </h3>              
+            </div>
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            </div>
+      </section>
+      <section className="section para-section-six" data-color={Color.WHITE}>
+      <div className="section-container">
+            <div className="title-container">
+              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {/* {related_blogs_text} */}
+              </h3>              
+            </div>
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            </div>
+      </section>
+    <section  className="section image-box-seven" data-color={Color.WHITE}>
+      <div>
+        {/* <Image
+              id= {dressing_image}
+              title="dressing image"
+              direction={AnimationDirection.BOTTOM_TO_TOP}
+              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+            /> */}
+      </div>
+    </section>
+
+    <section className="section-model-content" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
+      <Grid container spacing={3}
+       style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>          
+          <Grid item xs={6} lg={4}>
+            {/* <Image
+              id= {dressing_image}
+              title="dressing image"
+              direction={AnimationDirection.BOTTOM_TO_TOP}
+              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+            /> */}
+          </Grid>
+          <Grid item xs={6} lg={4}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+          <Grid item xs={6} lg={4}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+        </Grid>
+      </section>
+
+      <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {/* {home.devis_title} */}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {home.devis_link_text} */}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>     
+        </div>
+    </section>
+
+
+      <section className="section tenth-section" data-color={Color.BEIGE}>
+      <div className="section-container">
+            <div className="title-container">
+              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {/* {related_blogs_text} */}
+              </h3>              
+            </div>
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            </div>
+      </section>
+
+      <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {/* {home.devis_title} */}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {home.devis_link_text} */}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="item-container">&nbsp;</div>
+            <div className="item-container">
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
+                {/* {home.partenaire_title} */}
+              </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {home.partenair_link_text} */}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section>
+      {/* <CatalogueRequestHomeSection 
+          {...globalSection.priceRequest}
+          formsMessages={globalSection.formsMessages}
+          locale={locale}/> */}
     </main>
   );
 }

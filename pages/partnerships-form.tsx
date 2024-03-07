@@ -8,6 +8,7 @@ import {
   getPageContentProps,
 } from "../utils/fetchers";
 import { useRouter } from "next/router";
+import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
 
 const partnership_types = ["distributor", "dealer", "lead"];
 
@@ -109,7 +110,7 @@ var countries = require(`../scripts/countries/${lang}/countries.json`);
           <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
         </div>
       </section>
-      <section
+      {/* <section
         className="section price-request-section after-sale-section"
         data-color={Color.BEIGE}
       >
@@ -126,7 +127,11 @@ var countries = require(`../scripts/countries/${lang}/countries.json`);
             apiPath="/api/partnerships-form"
           />
         </div>
-      </section>
+      </section> */}
+      <CatalogueRequestHomeSection 
+          {...globalSection.priceRequest}
+          formsMessages={globalSection.formsMessages}
+          locale={locale}/>
     </main>
   );
 }

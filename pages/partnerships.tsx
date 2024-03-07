@@ -18,6 +18,7 @@ import {
 import { AnimationDirection } from "../utils/constants";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../utils/locale";
+import { Grid } from "@material-ui/core";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -181,6 +182,60 @@ export default function PartnershipsPage({ pageProps, faqQuestions }: Props) {
           </Link>
         </div>
       </section>
+
+      <section className="section section-two" data-color="beige">
+      <Grid container spacing={2} >
+        {/* style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>           */}
+          <Grid item xs={6} lg={2}>
+            {/* <Image
+              id= {dressing_image}
+              title="dressing image"
+              direction={AnimationDirection.BOTTOM_TO_TOP}
+              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+            /> */}
+          </Grid>
+          <Grid item xs={6} lg={2}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+          <Grid item xs={6} lg={2}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+          <Grid item xs={6} lg={2}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+          <Grid item xs={6} lg={2}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+          <Grid item xs={6} lg={2}>
+          {/* <Image
+            id= {dressing_image}
+            title="dressing image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                    /> */}
+          </Grid>
+        </Grid>
+        </section>  
     </main>
   );
 }

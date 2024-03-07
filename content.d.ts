@@ -148,6 +148,19 @@ interface GlobalContent
 }
 
 interface AllPageContent {
+  installation_effectue_number:string;
+  installation_effectue_title:string;
+  countries_number:string;
+  countries_title:string;
+  years_number:string;
+  years_title:string;
+  quality_title:string;
+  more_then:string;
+  collaborator_number:string;
+  advantages_title:string;
+  advantages_text:string;
+  jobs_title:string;
+  jobs_link_text:string;
   id: number;
   languages_code: string;
   seo_title: string;
