@@ -21,6 +21,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Masonry from "@mui/lab/Masonry";
 import { Grid } from "@material-ui/core";
+import Box from "../components/Box";
+import VerticalBoxGroup from "../components/VerticalBoxGroup";
 
 declare const YT: any;
 
@@ -47,6 +49,7 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
     years_title,
     quality_title,
     more_then,
+    collaborator_title,
     collaborator_number,
     advantages_title,
     advantages_text,
@@ -71,6 +74,60 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
     company_image_4
   } = pageProps;
 
+   const boxData = [
+    { 
+      text1: countries_number,
+      text2: countries_title,
+      fontSize: "3rem",
+      color1: "red",
+      color2: "blue",
+      backgroundColor: "#FFC0CB"
+    },
+    { 
+      text1: years_number,
+      text2: years_title,
+      fontSize: "1rem",
+      color1: "green",
+      color2: "orange",
+      backgroundColor: "#98FB98"
+    },
+    { 
+      text1: quality_title,
+      text2: more_then,
+      fontSize: "2rem",
+      color1: "purple",
+      color2: "yellow",
+      backgroundColor: "#FFA07A"
+    },
+    { 
+      text1: quality_title,
+      text2: more_then,
+      fontSize: "2rem",
+      color1: "purple",
+      color2: "yellow",
+      backgroundColor: "#FFA07A"
+    },
+    { 
+      text1: quality_title,
+      text2: more_then,
+      fontSize: "2rem",
+      color1: "purple",
+      color2: "yellow",
+      backgroundColor: "#FFA07A"
+    },
+  ];
+
+  const groupedBoxData = [];
+for (let i = 0; i < boxData.length; i += 3) {
+  groupedBoxData.push(boxData.slice(i, i + 3));
+}
+
+
+  type BoxProps = {
+    text: string;
+    color: string;
+  };
+  
   const { locale } = useRouter();
 
   useEffect(() => {
@@ -129,6 +186,9 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
       videoContainer.removeEventListener("click", onVideoClick);
     };
 
+
+
+
     videoContainer.addEventListener("click", onVideoClick);
 
     if (!isGenerated) {
@@ -137,22 +197,23 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
     }
   }, [isGenerated]);
 
+
   return (
     <main className="about-us-template">
-      <section className="section first-section" data-color="terra-cotta">
+      <section className="section first-section" data-color="beige">
         <div className="section-container">
-          <h1 className="main-title main-title--white">{main_title}</h1>
+          <h1 className="main-title main-title--terra-cotta" >{main_title}</h1>
           <div
-            className="main-paragraph wysiwyg"
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
           />
-          <div className="video-container">
+          {/* <div className="video-container"> */}
             {/* <div className="video-poster" />
             <div className="button-container">
               <YoutubePlayButton color={Color.TERRA_COTTA} />
             </div>
             <div id="video" /> */}
-          </div>
+          {/* </div> */}
 
           {/* <div className="block block-history">
             <div className="text-container">
@@ -252,25 +313,313 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
       </section> */}
 
 
-      <section  className="section image-box-two" data-color={Color.WHITE}>
-        <div>
-          <Image
-            src="/images/aboutbig.png" // Path relative to the public folder
-            alt="Example Image"
-            width={500} // Set the width of the image
-            height={300} // Set the height of the image
+
+      <section className="section image-box-two-section" data-color={Color.BEIGE} >
+
+
+     
+        <div className="container" style={{paddingRight:"5%",  paddingLeft:"5%"}}>
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#FFFFFF"
+                fontSize="110px"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+          
+              />,
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F7F7F7"
+                fontSize="19px"
+                width="280px"
+                height="110px"
+                textPosition="top"
+               
+              />, // Empty Box
+              <Box key={2} />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>,
+              <Box
+                key={1}
+                content={<p>{countries_number}</p>}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="110px"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+              />, // Empty Box
+              <Box
+                key={1}
+                content={<p>{countries_title}</p>}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                width="280px"
+                height="110px"
+                textPosition="top"
+              />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              
+              <Box
+                key={1}
+                content={<p>{years_number}</p>}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="110px"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>{years_title}</p>}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="19px"
+                width="280px"
+                height="110px"
+                textPosition="top"
+              />,
+              <Box key={2} />, // Empty Box
+             
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>, // Empty Box
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="3rem"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>{quality_title}</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                width="280px"
+                height="110px"
+                textPosition="top"
+              />,
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="#98FB98"
+              //   textColor="green"
+              //   fontSize="1rem"
+              //   width="150px"
+              //   height="100px"
+              // />,
+              
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="3rem"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="1rem"
+                width="280px"
+                height="110px"
+                textPosition="bottom"
+              />,
+              <Box key={2} />, 
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="var(--color-beige)"
+              //   textColor="#343337"
+              //   fontSize="1rem"
+              //   width="280px"
+              //   height="110px"
+              //   textPosition="top"
+              // />,
+              <Box key={2} />, // Empty Box
+            ]}
+          />
+        </div>
+    
+      </section>
+
+      <section className="section first-section" data-color="beige">
+        <div className="section-container">
+          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <div
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
+            dangerouslySetInnerHTML={{ __html: advantages_text }}
+          />
+          <div className="video-container">
+            <div className="video-poster" />
+            <div className="button-container">
+              <YoutubePlayButton color={Color.TERRA_COTTA} />
+            </div>
+            <div id="video" />
+          </div>
+          </div>
+          </section>
+
+
+      <section  className="section image-box-two" data-color={Color.BEIGE}>
+        <div className="section-container">
+          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <div
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
+            dangerouslySetInnerHTML={{ __html: advantages_text }}
           />
         </div>
       </section>
+{/* section une entreprise */}
+      <section className="section first-section" data-color="white">
+        <div className="section-container">
+          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <div
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
+            dangerouslySetInnerHTML={{ __html: advantages_text }}
+          />
+          <div className="image-container">
+            <div>
+            <Image
+                  id= {history_image}
+                  title="dressing image"
+                  direction={AnimationDirection.BOTTOM_TO_TOP}
+                  style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                /> 
+          </div>
+          </div>
+          </div>
+          </section>
+{/* 3images section/ white background*/}
+<section className="section three-image" data-color="white">
+  </section>
 
+{/* section text and link  */}
+<section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {company_paragraph}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                            {company_title}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>     
+        </div>
+    </section>
+
+    {/*text image  */}
+    <section className="section first-section" data-color="white">
+        <div className="section-container">
+          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <div
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
+            dangerouslySetInnerHTML={{ __html: advantages_text }}
+          />
+          <div className="image-container">
+            <div>
+            <Image
+                  id= {history_image}
+                  title="dressing image"
+                  direction={AnimationDirection.BOTTOM_TO_TOP}
+                  style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
+                /> 
+          </div>
+          </div>
+          </div>
+          </section>
+
+          {/*  */}
+
+          <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {/* {home.devis_title} */}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {home.devis_link_text} */}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="item-container">&nbsp;</div>
+            <div className="item-container">
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
+                {/* {home.partenaire_title} */}
+              </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {/* {home.partenair_link_text} */}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section>
+
+    {/*  */}
       <section className="section para-section-third" data-color={Color.WHITE}>
       <div className="section-container">
             <div className="title-container">
               <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {/* {related_blogs_text} */}
+                {advantages_title}
               </h3>              
             </div>
-            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: advantages_text }} /> 
             </div>
       </section>
       <section  className="section image-box-forth" data-color={Color.WHITE}>

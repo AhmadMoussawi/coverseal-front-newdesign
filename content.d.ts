@@ -156,6 +156,7 @@ interface AllPageContent {
   years_title:string;
   quality_title:string;
   more_then:string;
+  collaborator_title:string;
   collaborator_number:string;
   advantages_title:string;
   advantages_text:string;
