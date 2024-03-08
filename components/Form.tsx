@@ -784,7 +784,7 @@ const handlePlaceChange = (postalcode)=>{
                 "field-group": true,
                 "demand-field": id === "demand",
               })}
-              data-field={id} style={!showsteps?additionalstyle:{}}
+              data-field={id} style={additionalstyle?additionalstyle:{}}
             >
               {field}
             </div>
@@ -879,12 +879,12 @@ const handlePlaceChange = (postalcode)=>{
           type="submit"
         >
           {submit_text}
-        </button>:<button
+        </button>:<a style={{cursor:"pointer"}}
           className={color?("link-before-translate link-before-translate--"+color+" submit"):"link-before-translate link-before-translate--anthracite submit"}
           onClick={()=>{setFormStep(2);}}
         >
           {next_btn_title}
-        </button>)
+        </a>)
       )}
     </form>
     </>

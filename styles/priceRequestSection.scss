@@ -116,15 +116,15 @@ label + .MuiInput-formControl {
       padding-right: 30px !important;
     }
 
-    [data-field="message"],[data-field="current_pool_specialist"] {
+    /*[data-field="message"],[data-field="current_pool_specialist"] {
       padding-left: 0px !important;
-    }
+    }*/
 
-    [data-field="add_documents"],
+    /*[data-field="add_documents"],
     [data-field="user_come_from"] {
       padding-right: 0px !important;
       padding-left: 30px !important;
-    }
+    }*/
 
     @media (max-width: 1024px) {
       [data-field="pool_width"],
@@ -352,15 +352,15 @@ label + .MuiInput-formControl {
       padding-right: 30px !important;
     }
 
-    [data-field="message"],[data-field="current_pool_specialist"] {
+    /*[data-field="message"],[data-field="current_pool_specialist"] {
       padding-left: 0px !important;
-    }
+    }*/
 
-    [data-field="add_documents"],
+    /*[data-field="add_documents"],
     [data-field="user_come_from"] {
       padding-right: 0px !important;
       padding-left: 30px !important;
-    }
+    }*/
 
     @media (max-width: 1024px) {
       [data-field="pool_width"],
@@ -417,9 +417,7 @@ label + .MuiInput-formControl {
     margin-top: 30px;
     margin-left: 0px;
 
-    &:hover {
-      color: var(--color-white);
-    }
+    
 
     @media (max-width: 768px) {
       margin-left: 0;
@@ -544,10 +542,10 @@ label + .MuiInput-formControl {
     [data-field="message"] {
       padding-left: 0px !important;
     }
-    [data-field="current_pool_specialist"] {
+    /*[data-field="current_pool_specialist"] {
       padding-left: 30px !important;
       padding-right:0px !important
-    }
+    }*/
     @media (max-width: 1024px) {
       [data-field="message"],[data-field="zip_code"] {
         padding-left: 0px !important;

@@ -61,7 +61,7 @@ export function PriceRequestSection(props: Props) {
         required: true,
         step:1
       },
-      {
+      /*{
         id: "address",
         type: "places",
         required: false,
@@ -74,7 +74,7 @@ export function PriceRequestSection(props: Props) {
         required: true,
         additionalstyle:{paddingLeft:"0px"},
         step:1
-      },
+      },*/
       {
         id: "country",
         type: "text",
@@ -84,15 +84,15 @@ export function PriceRequestSection(props: Props) {
           label: name,
           value: `${code}/${name}`,
         })),
-        help: (
+        /*help: (
           <span
             className="form-help-text wysiwyg"
             dangerouslySetInnerHTML={{
               __html: formsMessages.country_help_text,
             }}
           />
-        ),
-        additionalstyle:{paddingLeft:"30px", paddingRight:"0px"},
+        ),*/
+        additionalstyle:{width:"100%", paddingRight:"0px", paddingLeft:"0px"},
         step:2
       },
           
@@ -107,10 +107,10 @@ export function PriceRequestSection(props: Props) {
             id="zip_code_validation"
           />
         ),
-        additionalstyle:{paddingLeft:"0px"},
+        additionalstyle:{width:"100%", paddingRight:"0px", paddingLeft:"0px"},
         step:2
       },
-      { id: "city", type: "text", required: false, additionalstyle:{paddingLeft:"30px", paddingRight:"0px"},
+     /* { id: "city", type: "text", required: false, additionalstyle:{paddingLeft:"30px", paddingRight:"0px"},
       step:2 },
       {
         id: "pool_width",
@@ -130,7 +130,7 @@ export function PriceRequestSection(props: Props) {
         required: false,
         additionalstyle:{paddingLeft:"0px"},
         step:2
-      },
+      },*/
       {
         id: "user_come_from",
         required: false,
@@ -139,10 +139,10 @@ export function PriceRequestSection(props: Props) {
           label: name,
           value: code,
         })),
-        additionalstyle:{paddingLeft:"30px", paddingRight:"0px"},
+        additionalstyle:{width:"100%", paddingLeft:"0px", paddingRight:"0px"},
         step:2
       },
-      {
+      /*{
         id: "message",
         required: false,
         textarea: true,
@@ -150,7 +150,7 @@ export function PriceRequestSection(props: Props) {
         maxRows: 10,
         additionalstyle:{paddingLeft:"0px", width:"100%", paddingRight:"0px"},
         step:2
-      },
+      },*/
     ],
     [countries]
   );
@@ -162,7 +162,7 @@ export function PriceRequestSection(props: Props) {
     if(fields.filter(x=>x.id == "current_pool_specialist").length == 0)
     fields.splice(fields.length - 2,0,{
       id: "current_pool_specialist", type: "text", required: false,
-      additionalstyle: undefined,
+      additionalstyle: {width:"100%", paddingLeft:"0px", paddingRight:"0px"},
       step:2
     })
   }
