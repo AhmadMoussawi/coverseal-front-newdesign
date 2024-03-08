@@ -71,7 +71,7 @@ const CookieBanner = (props) => {
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0)', // Add a subtle box shadow
     }}
     */
-      sx={{ width: '100%', left:"0px", right:"0px",[theme.breakpoints.up('md')]: {width:"60%", left:"unset"},[theme.breakpoints.up('lg')]: {width:"50%", left:"unset"},[theme.breakpoints.up('xl')]: {width:"40%", left:"unset"} }}
+      sx={{ width: '100%',zIndex:"9999", left:"0px", right:"0px",[theme.breakpoints.up('md')]: {width:"60%", left:"unset"},[theme.breakpoints.up('lg')]: {width:"50%", left:"unset"},[theme.breakpoints.up('xl')]: {width:"40%", left:"unset"} }}
       autoHideDuration={null} 
       
       open={open}
@@ -104,7 +104,7 @@ const CookieBanner = (props) => {
         </Typography>
         <Typography style={{ color: 'white', margin: '0 auto', textAlign: 'center' }}>
         {props.cookies_banner_text}
-        <Link href="/cookies-policy" style={{textDecoration:"underline", color:"rgb(5,99,193)" , textAlign: "center"}}>{props.banner_cookies_policy_link_text}</Link>
+        {/*<Link href="/cookies-policy" style={{textDecoration:"underline", color:"rgb(5,99,193)" , textAlign: "center"}}>{props.banner_cookies_policy_link_text}</Link>*/}
 
         </Typography>
       {/*  <div style={{width:"100%", marginTop:"20px"}}>
@@ -116,7 +116,7 @@ const CookieBanner = (props) => {
           {props.rejectall_btn}
         </Button>
     */} <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
-        <Button onClick={handleCreateCookies} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px", width: "180px" }} sx={{ fontSize: "11px", [theme.breakpoints.up('md')]: { fontSize: "13px" } }}>
+        <Button onClick={handleOpenSettings} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px", width: "180px" }} sx={{ fontSize: "11px", [theme.breakpoints.up('md')]: { fontSize: "13px" } }}>
         {props.personalize_settings_btn}
         </Button>
         <Button onClick={handleAcceptAll} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", backgroundColor:"white", borderRadius:"0px", marginLeft:"10px" , width: "180px"}}  sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
