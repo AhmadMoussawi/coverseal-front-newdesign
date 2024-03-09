@@ -15,10 +15,14 @@ import {
   translateInFromLeftToRight,
   translateInFromRightToLeft,
 } from "../animations/appearing/shared";
-import { AnimationDirection } from "../utils/constants";
+import { AnimationDirection, Color } from "../utils/constants";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../utils/locale";
 import { Grid } from "@material-ui/core";
+import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import Masonry from "@mui/lab/Masonry";
+import Box from "../components/Box";
+import VerticalBoxGroup from "../components/VerticalBoxGroup";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -36,7 +40,7 @@ interface Props extends PageProps<PartnershipsContent> {
   faqQuestions: PartialItem<FAQQuestionDirectus>[];
 }
 
-export default function PartnershipsPage({ pageProps, faqQuestions }: Props) {
+export default function PartnershipsPage({ pageProps, globalSection, faqQuestions }: Props) {
   const { main_title, main_paragraph, partnerships_image, gallery_link_text,security_title,
     security_paragraph,
     water_quality_title,
@@ -44,7 +48,30 @@ export default function PartnershipsPage({ pageProps, faqQuestions }: Props) {
     isolation_title,
     isolation_paragraph,security_image,
     isolation_image,
-    water_quality_image } =
+    water_quality_image,
+    about_coverseal_title,
+    about_coverseal_text,
+    about_coverseal_texttwo,
+    coverseal_partners_title,
+    coverseal_partners_text,
+    coverseal_stregths_title,
+    strength1_title,
+    strength1_text,
+    strength2_title,
+    strength2_text,
+    strength3_title,
+    strength3_text,
+    strength4_title,
+    strength4_text,
+    strength5_title,
+    strength5_text,
+    partner_profile_title,
+    partner_profile_text,
+    becoming_partner_title,
+    becoming_partner_text,
+    coverseal_partners_image,
+    partner_profile_image,
+   } =
     pageProps;
   const { locale } = useRouter();
   const [_language, country] = locale.split("-");
@@ -86,7 +113,7 @@ export default function PartnershipsPage({ pageProps, faqQuestions }: Props) {
 
   return (
     <main className="partnerships-template">
-      <section className="section first-section" data-color="beige">
+      {/* <section className="section first-section" data-color="beige">
       
         <div className="section-container">
           <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
@@ -181,8 +208,601 @@ export default function PartnershipsPage({ pageProps, faqQuestions }: Props) {
             </a>
           </Link>
         </div>
+      </section> */}
+
+<section className="section only-title-1-section" data-color={Color.BEIGE} >
+      <div className="content">       
+        <div className="text-container">    
+        <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {main_title}
+              </h2>                          
+        </div>        
+      </div>      
+    </section>
+
+
+    <section className="section devenir-partenaire-section" data-color={Color.BEIGE} >
+      <div className="content">       
+        <div className="text-container">
+            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{textAlign:"left", width:"100%"}}>
+              {about_coverseal_title}
+            </h2>           
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />          
+        </div>        
+      </div>      
+    </section>
+
+{/* <section className="section image-box-two-section" data-color={Color.BEIGE} >
+        <div className="container"    style={{paddingRight:"5%",  paddingLeft:"5%"}}>
+        <div className="horizontal-box-groups">
+          <VerticalBoxGroup 
+            //width = "280px"
+            boxes={[
+              <Box
+                key={1}
+                content={strength1_title}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#FFFFFF"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength1_text}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F7F7F7"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+               
+              />, // Empty Box
+              <Box key={2} />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>,
+              <Box
+                key={1}
+                content={strength2_title}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />, // Empty Box
+              <Box
+                key={1}
+                content={strength2_text}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              
+              <Box
+                key={1}
+                content={strength3_title}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength3_text}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+              <Box key={2} />, // Empty Box
+             
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>, // Empty Box
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="3rem"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength4_text}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="#98FB98"
+              //   textColor="green"
+              //   fontSize="1rem"
+              //   width="150px"
+              //   height="100px"
+              // />,
+              
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={strength5_title}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="3rem"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength5_text}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="1rem"
+                // width="10%"
+                height="110px"
+                textPosition="bottom"
+              />,
+              <Box key={2} />, 
+            
+        
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="var(--color-beige)"
+              //   textColor="#343337"
+              //   fontSize="1rem"
+              //   width="280px"
+              //   height="110px"
+              //   textPosition="top"
+              // />,
+              <Box key={2} />, // Empty Box
+            ]}
+          />
+          </div>
+        </div>
+    
+      </section> */}
+      <section className="section image-box-two-section" data-color={Color.BEIGE} >
+        <div className="container">
+          <Grid container spacing={2}>
+            <Grid item sm={12} lg={2}  xs={12} spacing={2} >
+              <div className="boxpair">
+              <Image id="security_image.id" title="security_image" />
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+                <div style={{height:"40px"}}></div>
+                <Link href="/the-coverseal" passHref>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+                {gallery_link_text}
+              </a>
+            </Link>
+              </div>
+              </div>
+              
+            </Grid>
+            <Grid item spacing={2} lg={2} sm={12}  xs={12}>
+            <div className="boximpair">
+            <Image id="isolation_image.id" title="isolation_image" />
+            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+            <div style={{fontSize:"50px"}}>{isolation_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: isolation_paragraph }}></div></div>
+                <Link href="/the-coverseal" passHref>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+                {gallery_link_text}
+              </a>
+            </Link>
+              </div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+              <Image id="isolation_image" title="isolation_image" />
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+                <div style={{height:"40px"}}></div>
+                <Link href="/the-coverseal" passHref>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+                {gallery_link_text}
+              </a>
+            </Link>
+              </div>
+              </div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boximpair">
+            <Image id="water_quality_image.id" title="water_quality_image" />
+            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+            <div style={{fontSize:"50px"}}>{water_quality_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
+                <Link href="/the-coverseal" passHref>
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {gallery_link_text}
+              </a>
+            </Link>
+              </div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+              <Image id="isolation_image" title="isolation_image" />
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: security_title }}></div></div>
+                <div style={{height:"40px"}}></div>
+                <Link href="/the-coverseal" passHref>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+                {gallery_link_text}
+              </a>
+            </Link>
+              </div>
+              </div>
+            </Grid>
+          </Grid>
+        
+        </div>
+    
       </section>
 
+
+<section className="section only-text-section" data-color={Color.BEIGE} >
+      <div className="content">       
+        <div className="text-container">                 
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />          
+        </div>        
+      </div>      
+    </section>
+
+<section className="section background-image-section" data-color={Color.SAND}>
+            <div className="content" style={{position:"relative"}}>
+              
+
+        <Image
+          id={coverseal_partners_image.id}
+          title="coverseal image"
+          direction={AnimationDirection.RIGHT_TO_LEFT}
+        />
+              <div className="text-container">
+                <h1 className="subtitle-argesta subtitle-argesta--white">
+                  {coverseal_partners_title}
+                </h1>
+                <h6 style={{ color: '#ffffff', fontSize:'25px' }}>
+                  {coverseal_partners_text}
+                </h6>                
+              </div>       
+              </div>     
+        </section>
+
+    <section className="section only-title-section" data-color={Color.BEIGE} >
+      <div className="content">       
+        <div className="text-container">    
+        <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {coverseal_stregths_title}
+              </h2>                          
+        </div>        
+      </div>      
+    </section>
+
+    <section className="section image-box-two-section" data-color={Color.BEIGE} >
+        <div className="container">
+          <Grid container spacing={2}>
+            <Grid item sm={12} lg={2}  xs={12} spacing={2} >
+              <div className="boxpair">
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              </div>
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div>
+              </div>
+            </Grid>
+            <Grid item spacing={2} lg={2} sm={12}  xs={12}>
+            <div className="boximpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              </div></div>
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+              <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              </div>
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div>
+              </div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boximpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              </div></div>
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+              <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              </div>
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div>
+              </div>
+            </Grid>
+          </Grid>
+        
+        </div>
+    
+      </section>
+{/* <section className="section image-box-two-section" data-color={Color.BEIGE} >
+        <div className="container"    style={{paddingRight:"5%",  paddingLeft:"5%"}}>
+        <div className="horizontal-box-groups">
+          <VerticalBoxGroup 
+            //width = "280px"
+            boxes={[
+              <Box
+                key={1}
+                content={strength1_title}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#FFFFFF"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength1_text}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F7F7F7"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+               
+              />, // Empty Box
+              <Box key={2} />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>,
+              <Box
+                key={1}
+                content={strength2_title}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />, // Empty Box
+              <Box
+                key={1}
+                content={strength2_text}
+                backgroundColor="var(--color-anthracite)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              
+              <Box
+                key={1}
+                content={strength3_title}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="110px"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength3_text}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+              <Box key={2} />, // Empty Box
+             
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>, // Empty Box
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="3rem"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength4_text}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                // width="10%"
+                height="110px"
+                textPosition="top"
+              />,
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="#98FB98"
+              //   textColor="green"
+              //   fontSize="1rem"
+              //   width="150px"
+              //   height="100px"
+              // />,
+              
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={strength5_title}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="3rem"
+                // width="10%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={strength5_text}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="1rem"
+                // width="10%"
+                height="110px"
+                textPosition="bottom"
+              />,
+              <Box key={2} />, 
+              // <Box
+              //   key={3}
+              //   content={<img src="your-image-url.jpg" alt="Image" />}
+              //   backgroundColor="var(--color-beige)"
+              //   textColor="#343337"
+              //   fontSize="1rem"
+              //   width="280px"
+              //   height="110px"
+              //   textPosition="top"
+              // />,
+              <Box key={2} />, // Empty Box
+            ]}
+          />
+          </div>
+        </div>
+    
+      </section> */}
+
+<section className="section partenaire-ideal-section" data-color={Color.ANTHRACITE}>
+        <div className="content">
+          <div className="text-container">
+            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
+                {partner_profile_title}
+              </h2>
+          <div className="mobile-image">
+          <Image
+                id={partner_profile_image.id}
+                title="coverseal image"
+                direction={AnimationDirection.BOTTOM_TO_TOP}
+              />
+          </div>
+            <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: partner_profile_text }} />            
+          </div>
+        <div className="desktop-image">
+          <Image
+            id={partner_profile_image.id}
+            title="coverseal image"
+            direction={AnimationDirection.BOTTOM_TO_TOP}
+          />
+          </div>
+        </div>        
+      </section>
+
+
+<section className="section devenir-partenaire-section" data-color={Color.BEIGE} >
+      <div className="content">       
+        <div className="text-container">
+            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{textAlign:"left", width:"100%"}}>
+              {becoming_partner_title}
+            </h2>           
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: becoming_partner_text }} />          
+        </div>        
+      </div>      
+    </section>
+      
+    <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {becoming_partner_title}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {becoming_partner_title}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="item-container">&nbsp;</div>
+            <div className="item-container">
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {becoming_partner_title}
+              </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {becoming_partner_title}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section>
+
+    <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale}
+        />
       <section className="section section-two" data-color="beige">
       <Grid container spacing={2} >
         {/* style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>           */}

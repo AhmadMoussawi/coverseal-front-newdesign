@@ -400,6 +400,28 @@ interface PartnershipsContent extends AllPageContent {
   security_image: DirectusImage;
   water_quality_image: DirectusImage;
   isolation_image: DirectusImage;
+  about_coverseal_title: string;
+    about_coverseal_text: string;
+    about_coverseal_texttwo: string;
+    coverseal_partners_title: string;
+    coverseal_partners_text: string;
+    coverseal_stregths_title: string;
+    strength1_title: string;
+    strength1_text: string;
+    strength2_title: string;
+    strength2_text: string;
+    strength3_title: string;
+    strength3_text: string;
+    strength4_title: string;
+    strength4_text: string;
+    strength5_title: string;
+    strength5_text: string;
+    partner_profile_title: string;
+    partner_profile_text: string;
+    becoming_partner_title: string;
+    becoming_partner_text: string;
+    coverseal_partners_image: DirectusImage;
+    partner_profile_image:DirectusImage;
 }
 
 interface PartershipsFormContent extends AllPageContent {
