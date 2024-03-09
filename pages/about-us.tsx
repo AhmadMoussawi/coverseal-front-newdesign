@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { CircleLink } from "../components/CircleLink";
 import { LineLink } from "../components/LineLink";
-import { YoutubePlayButton } from "../components/icons";
+import { VideoLink, YoutubePlayButton } from "../components/icons";
 import { Image } from "../components/Image";
 import { AnimationDirection, Color } from "../utils/constants";
 import { generateMap } from "../utils/map";
@@ -20,7 +20,7 @@ import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeS
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Masonry from "@mui/lab/Masonry";
-import { Grid } from "@material-ui/core";
+import { Grid, useTheme } from "@material-ui/core";
 import Box from "../components/Box";
 import VerticalBoxGroup from "../components/VerticalBoxGroup";
 import { useWindowSize } from "../components/useWindowSize";
@@ -36,11 +36,14 @@ function appearingAnimations() {
   translateInFromLeftToRight(".block-network .text-container");
 }
 
+interface AboutUsProps extends PageProps<AboutUsContent> {
+  
+  home:HomeContent;
+}
 
-
-export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
+export default function AboutUsPage({ globalSection, pageProps, home }: AboutUsProps) {
   const [isGenerated, setIsGenerated] = useState(false);
-
+  const size = useWindowSize();
   const {
     installation_effectue_number,
     installation_effectue_title,
@@ -131,6 +134,7 @@ for (let i = 0; i < boxData.length; i += 3) {
   
   const { locale } = useRouter();
 
+  const theme = useTheme();
   useEffect(() => {
     appearingAnimations();
   }, []);
@@ -159,9 +163,9 @@ for (let i = 0; i < boxData.length; i += 3) {
 
     (window as any).onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 
-    const videoContainer = document.querySelector(".video-container");
+    //const videoContainer = document.querySelector(".video-container");
 
-    const onVideoClick = function () {
+    /*const onVideoClick = function () {
       if (player && player.playVideo) {
         player.playVideo();
       }
@@ -187,10 +191,10 @@ for (let i = 0; i < boxData.length; i += 3) {
       });
 
       videoContainer.removeEventListener("click", onVideoClick);
-    };
+    };*/
 
 
-    videoContainer.addEventListener("click", onVideoClick);
+   // videoContainer.addEventListener("click", onVideoClick);
 
     if (!isGenerated) {
       //generateMap();
@@ -316,324 +320,144 @@ for (let i = 0; i < boxData.length; i += 3) {
 
 
       <section className="section image-box-two-section" data-color={Color.BEIGE} >
-        <div className="container"    style={{paddingRight:"5%",  paddingLeft:"5%"}}>
-        <div className="horizontal-box-groups">
-          <VerticalBoxGroup 
-            //width = "280px"
-            boxes={[
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#FFFFFF"
-                fontSize="110px"
-                // width="10%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F7F7F7"
-                fontSize="19px"
-                // width="10%"
-                height="110px"
-                textPosition="top"
-               
-              />, // Empty Box
-              <Box key={2} />,
-            ]}
-          />
-          <VerticalBoxGroup
-            boxes={[
-              <Box key={2} height="80px"/>,
-              <Box
-                key={1}
-                content={<p>{countries_number}</p>}
-                backgroundColor="var(--color-anthracite)"
-                textColor="#F1E2D5"
-                fontSize="110px"
-                // width="10%"
-                height="170px"
-                textPosition="bottom"
-              />, // Empty Box
-              <Box
-                key={1}
-                content={<p>{countries_title}</p>}
-                backgroundColor="var(--color-anthracite)"
-                textColor="#F1E2D5"
-                fontSize="19px"
-                // width="10%"
-                height="110px"
-                textPosition="top"
-              />,
-            ]}
-          />
-          <VerticalBoxGroup
-            boxes={[
-              
-              <Box
-                key={1}
-                content={<p>{years_number}</p>}
-                backgroundColor="var(--color-white)"
-                textColor="#7F351B"
-                fontSize="110px"
-                // width="10%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>{years_title}</p>}
-                backgroundColor="var(--color-white)"
-                textColor="#7F351B"
-                fontSize="19px"
-                // width="10%"
-                height="110px"
-                textPosition="top"
-              />,
-              <Box key={2} />, // Empty Box
-             
-            ]}
-          />
-          <VerticalBoxGroup
-            boxes={[
-              <Box key={2} height="80px"/>, // Empty Box
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F1E2D5"
-                fontSize="3rem"
-                // width="10%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>{quality_title}</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F1E2D5"
-                fontSize="19px"
-                // width="10%"
-                height="110px"
-                textPosition="top"
-              />,
-              // <Box
-              //   key={3}
-              //   content={<img src="your-image-url.jpg" alt="Image" />}
-              //   backgroundColor="#98FB98"
-              //   textColor="green"
-              //   fontSize="1rem"
-              //   width="150px"
-              //   height="100px"
-              // />,
-              
-            ]}
-          />
-          <VerticalBoxGroup
-            boxes={[
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="#F1E2D5"
-                textColor="#343337"
-                fontSize="3rem"
-                // width="10%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="#F1E2D5"
-                textColor="#343337"
-                fontSize="1rem"
-                // width="10%"
-                height="110px"
-                textPosition="bottom"
-              />,
-              <Box key={2} />, 
-              // <Box
-              //   key={3}
-              //   content={<img src="your-image-url.jpg" alt="Image" />}
-              //   backgroundColor="var(--color-beige)"
-              //   textColor="#343337"
-              //   fontSize="1rem"
-              //   width="280px"
-              //   height="110px"
-              //   textPosition="top"
-              // />,
-              <Box key={2} />, // Empty Box
-            ]}
-          />
-          </div>
+        <div className="container">
+          <Grid container spacing={2}>
+            <Grid item sm={12} lg={2}  xs={12} spacing={2} >
+              <div className="boxpair">
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{installation_effectue_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{installation_effectue_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div>
+              </div>
+            </Grid>
+            <Grid item spacing={2} lg={2} sm={12}  xs={12}>
+            <div className="boximpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-anthracite)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{countries_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{countries_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-white)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}>{years_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{years_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boximpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div style={{fontSize:"12px", marginTop:"-30px"}}>{quality_title}</div></div>
+                
+              </div></div>
+            </Grid>
+            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <div className="boxpair">
+            <div style={{verticalAlign:"middle", textAlign:"center", padding:"40px 20px 30px 20px", backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
+            <div style={{fontSize:"12px"}}>{more_then}</div><div style={{fontSize:"60px", marginTop:"-30px"}}>{collaborator_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{collaborator_title}</div></div>
+                <div style={{height:"40px"}}></div>
+              </div>
+              </div>
+            </Grid>
+          </Grid>
+        
         </div>
     
       </section>
 
-      <section className="section image-box-two-section-mobile" data-color={Color.BEIGE} >
-        <div className="container" style={{paddingRight:"5%",  paddingLeft:"5%"}}>
-         <div>
-          <VerticalBoxGroup
-            boxes={[
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#FFFFFF"
-                fontSize="110px"
-                width="16%"
-                height="170px"
-                textPosition="bottom"
-          
-              />,
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F7F7F7"
-                fontSize="19px"
-                width="16%"
-                height="110px"
-                textPosition="top"
-              
-              />, // Empty Box
-              <Box key={2} />,
-            ]}
-          />
-          <VerticalBoxGroup
-            boxes={[
-              <Box key={2} height="80px"/>, // Empty Box
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F1E2D5"
-                fontSize="3rem"
-                width="16%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>{quality_title}</p>}
-                backgroundColor="var(--color-terra-cotta)"
-                textColor="#F1E2D5"
-                fontSize="19px"
-                width="16%"
-                height="110px"
-                textPosition="top"
-              />,   
-            ]}
-          />
-          </div>
-          <div>
-          <VerticalBoxGroup
-            boxes={[
-              
-              <Box
-                key={1}
-                content={<p>{years_number}</p>}
-                backgroundColor="var(--color-white)"
-                textColor="#7F351B"
-                fontSize="110px"
-                width="16%"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>{years_title}</p>}
-                backgroundColor="var(--color-white)"
-                textColor="#7F351B"
-                fontSize="19px"
-                width="16%"
-                height="110px"
-                textPosition="top"
-              />,
-              <Box key={2} />, // Empty Box
-            
-            ]}
-          />         
-          <VerticalBoxGroup
-            boxes={[
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="#F1E2D5"
-                textColor="#343337"
-                fontSize="3rem"
-                width="280px"
-                height="170px"
-                textPosition="bottom"
-              />,
-              <Box
-                key={1}
-                content={<p>Text 1</p>}
-                backgroundColor="#F1E2D5"
-                textColor="#343337"
-                fontSize="1rem"
-                width="280px"
-                height="110px"
-                textPosition="bottom"
-              />,
-              <Box key={2} />,    
-              <Box key={2} />, // Empty Box
-            ]}
-          />
-          </div>
-        </div>
-        </section>
-
-
+      
       <section className="section video-section" data-color="beige">
         <div className="section-container-full">
         <div className="section-container">
 
-          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{advantages_title}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: advantages_text }}
           />
           </div>
-         <div className="video-container">
+         {/*<div className="video-container">
          <div className="video-poster" />
          <div className="button-container">
            <YoutubePlayButton color={Color.TERRA_COTTA} />
          </div>
          <div id="video" />
-       </div>
+    </div>*/}
           </div>
           </section>
+          <main className="home-template">
+      <section className="section first-section" data-color={Color.ANTHRACITE}> 
+        {/*first image background*/}
+        <div className="background-overlay" />
+        {size.width > 580 ? (
+          <video autoPlay muted loop id="myVideo">
+            <source src="/showcase.webm" type="video/webm" />
+            <source src="/showcase.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            isBackgroundCss
+            id={home.video_mobile_placeholder.filename_disk}
+            title="Placeholder mobile"
+          />
+        )
+        }
 
 
-      <section  className="section image-box-two" data-color={Color.BEIGE}>
+        
+        <a
+          href="https://www.youtube.com/watch?v=MLJhLqqxUj0"
+          target="_blank"
+          className="video-icon-container"
+        >
+          <span>{home.video_link_text}</span>
+          <VideoLink color={Color.WHITE} />
+        </a>
+      </section>
+      </main>
+
+      <section  className="section image-box-two" data-color={Color.BEIGE} style={{paddingTop:"30px"}}>
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{history_title}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
-            dangerouslySetInnerHTML={{ __html: advantages_text }}
+            dangerouslySetInnerHTML={{ __html: history_paragraph }}
           />
         </div>
       </section>
 {/* section une entreprise */}
       <section className="section text-image-section" data-color="white">
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{company_title}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
-            dangerouslySetInnerHTML={{ __html: advantages_text }}
+            dangerouslySetInnerHTML={{ __html: company_paragraph }}
           />
           <div className="image-container">
             <div>
+              {/*history_image,
+    history_image_2,
+    company_image,
+    company_image_2,
+    company_image_3,
+    company_image_4,*/}
             <Image
-                  id= {history_image}
+                  id={company_image.id}
                   title="dressing image"
                   direction={AnimationDirection.BOTTOM_TO_TOP}
                   style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                 /> 
+                <Grid container spacing={2}>
+                        <Grid item xs={6} lg={4}>
+                          <Image id={company_image_2} title="image" />
+                          </Grid>
+                          <Grid item xs={6} lg={4}>
+                          <Image id={company_image_3} title="image" />
+                          </Grid>
+                          <Grid item xs={6} lg={4}>
+                          <Image id={company_image_4.id} title="image" />
+                          </Grid>
+                  </Grid>
           </div>
           </div>
           </div>
@@ -667,12 +491,12 @@ for (let i = 0; i < boxData.length; i += 3) {
     </section>
 
     {/*text image  */}
-    <section className="section first-section" data-color="white">
+    <section className="section first-section" data-color="white" style={{padding:"100px"}}>
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
+          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{network_title}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
-            dangerouslySetInnerHTML={{ __html: advantages_text }}
+            dangerouslySetInnerHTML={{ __html: network_paragraph }}
           />         
           </div>
           </section>
@@ -688,11 +512,11 @@ for (let i = 0; i < boxData.length; i += 3) {
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {/* {home.devis_title} */}
+                {home.devis_title}
               </h4>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {home.devis_link_text} */}
+                              {home.devis_link_text}
                             </a>
               </Link>
               </div></div>
@@ -706,11 +530,11 @@ for (let i = 0; i < boxData.length; i += 3) {
             <div className="item-container">
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
-                {/* {home.partenaire_title} */}
+                {home.partenaire_title}
               </h4>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {home.partenair_link_text} */}
+                              {home.partenair_link_text}
                             </a>
               </Link>
               </div>
@@ -789,10 +613,10 @@ for (let i = 0; i < boxData.length; i += 3) {
 
      
 
-      {/* <CatalogueRequestHomeSection 
+      <CatalogueRequestHomeSection 
           {...globalSection.priceRequest}
           formsMessages={globalSection.formsMessages}
-          locale={locale}/> */}
+          locale={locale}/>
     </main>
   );
 }
@@ -803,6 +627,7 @@ export const getStaticProps: GetStaticProps<
   const fetcher = new Fetcher();
 
   const allPageProps = await getAllPagePropsOnly(fetcher, locale);
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale);
   const pageProps = await getPageContentProps<AboutUsContent>(
     fetcher,
     "about_us_template",
@@ -813,6 +638,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       ...allPageProps,
       ...pageProps,
+      home
     },
     revalidate: parseInt(process.env.REVALIDATION_TIME), // In seconds
   };
