@@ -204,8 +204,8 @@ for (let i = 0; i < boxData.length; i += 3) {
 
 
   return (
-    <main className="about-us-template" style={{marginTop:"100px"}}>
-      <section className="section first-section" data-color="beige">
+    <main className="about-us-template">
+      <section className="section first-section" data-color="beige" style={{paddingTop:"150px"}}>
         <div className="section-container">
           <h1 className="main-title main-title--terra-cotta" >{main_title}</h1>
           <div
@@ -366,7 +366,7 @@ for (let i = 0; i < boxData.length; i += 3) {
       </section>
 
       
-      <section className="section video-section" data-color="beige">
+      <section className="section video-section" data-color="beige" style={{paddingTop:"50px"}}>
         <div className="section-container-full">
         <div className="section-container">
 
@@ -491,7 +491,7 @@ for (let i = 0; i < boxData.length; i += 3) {
     </section>
 
     {/*text image  */}
-    <section className="section first-section" data-color="white" style={{padding:"100px"}}>
+    <section className="section first-section" data-color={Color.BEIGE} style={{padding:"100px"}}>
         <div className="section-container">
           <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{network_title}</h1>
           <div
@@ -528,7 +528,7 @@ for (let i = 0; i < boxData.length; i += 3) {
               
          <div className="item-container">&nbsp;</div>
             <div className="item-container">
-            <div className ="text-container" >
+            <div className ="text-container" style={{textAlign:"right"}} >
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
                 {home.partenaire_title}
               </h4>
