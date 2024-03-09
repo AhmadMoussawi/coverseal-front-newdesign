@@ -204,7 +204,7 @@ for (let i = 0; i < boxData.length; i += 3) {
 
 
   return (
-    <main className="about-us-template">
+    <main className="about-us-template" style={{marginTop:"100px"}}>
       <section className="section first-section" data-color="beige">
         <div className="section-container">
           <h1 className="main-title main-title--terra-cotta" >{main_title}</h1>
