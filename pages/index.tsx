@@ -102,7 +102,7 @@ interface Props extends PageProps<HomeContent> {
     security_home_description:string;
 water_quality_home_description:string;
 isolation_home_description:string;
-    security_image:DirectusImage;
+    security_image:string;
     water_quality_image:DirectusImage;
     water_quality_paragraph:string;
     isolation_image:string;
@@ -344,7 +344,7 @@ partenair_link_text,
                   <Grid item xs={12} lg={4}>
 
                   <Image
-                        id={benefits_section.security_image.id}
+                        id={benefits_section.security_image}
                         title="Blog image"
                         quality="50"
                         
