@@ -1,5 +1,5 @@
 // Box.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface BoxProps {
   content?: React.ReactNode;
@@ -20,12 +20,40 @@ const Box: React.FC<BoxProps> = ({
   width,
   textPosition = "bottom", // Default to bottom
 }) => {
+  const [boxWidth, setBoxWidth] = useState(width || "280px"); // Default to provided width or 280px
+  //const [boxHeight, setBoxHeight] = useState(height || "100px"); // Default to provided height or 100px
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Update width based on screen size
+    //   setBoxWidth(window.innerWidth > 1200 ? "280px" : "200px");
+        if (window.innerWidth < 800) {
+            setBoxWidth("160px");
+        } else if (window.innerWidth < 1500) {
+            setBoxWidth("200px");
+        } else {
+            setBoxWidth("280px");
+        }
+    };
+
+    // Initial call to set width
+    handleResize();
+
+    // Attach resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const boxStyle: React.CSSProperties = {
     backgroundColor,
     color: textColor,
     fontSize,
     height,
-    width,
+    width: boxWidth,
     overflow: "hidden",
     position: "relative",
   };

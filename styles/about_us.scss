@@ -1,6 +1,22 @@
 .about-us-template {
   color: var(--color-white);
 
+  .image-box-two-section-mobile{
+    display: none;
+  }
+  // .image-box-two-section{
+  //   display: block;
+  // }
+  @media (max-width: 768px){
+    .image-box-two-section{
+      display:none;
+    }
+    .image-box-two-section-mobile{
+      display: block;
+    }
+  }
+
+
   .block {
     margin: 100px 0;
 
@@ -13,19 +29,34 @@
     z-index: initial !important;
   }
 
-  .image-box-two-section{
-    // .container {
+
+
+  // .container {
     //   display: flex;
     //   flex-wrap: wrap;
     //   justify-content: center;
     //   gap: 20px;
     // }
-    .container {
-      display: flex;
-      justify-content: space-between;  // Adjust the alignment as needed
-      gap: 20px;
+    // .container {
+    //   display: block;
+    //   justify-content: space-between;  // Adjust the alignment as needed
+    //   gap: 5px;
+    // }
+    .image-box-two-section {
+      .container {
+        display: block;
+        justify-content: center;
+      }
     }
-  }
+    /* YourPage.css or styles.css */
+.image-box-two-section .horizontal-box-groups {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%; /* or specify a fixed width */
+}
+
+
   .first-section {
     padding-bottom: 50px;
 
@@ -44,10 +75,14 @@
     }
   }
 
+.video-section{
+  .section-container-full{
+    width:100%;
+  }
   .video-container {
     position: relative;
     height: 600px;
-    margin: 100px 0;
+    margin: 100px 0 0 0;
 
     @media (max-width: 768px) {
       margin: 50px 0;
@@ -58,7 +93,18 @@
       height: 300px;
     }
   }
-
+}
+  /* Your CSS code */
+  .image-box-two{
+    padding-top:0px;
+    padding-bottom: 0px;
+  }
+  
+.text-image-section{
+  padding-top:10px;
+  height: 1200px;
+  // position: relative;
+}
   .video-container .video-poster {
     position: absolute;
     display: block;

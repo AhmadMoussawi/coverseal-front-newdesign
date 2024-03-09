@@ -23,6 +23,7 @@ import Masonry from "@mui/lab/Masonry";
 import { Grid } from "@material-ui/core";
 import Box from "../components/Box";
 import VerticalBoxGroup from "../components/VerticalBoxGroup";
+import { useWindowSize } from "../components/useWindowSize";
 
 declare const YT: any;
 
@@ -71,7 +72,7 @@ export default function AboutUsPage({ pageProps }: PageProps<AboutUsContent>) {
     company_image,
     company_image_2,
     company_image_3,
-    company_image_4
+    company_image_4,
   } = pageProps;
 
    const boxData = [
@@ -122,11 +123,11 @@ for (let i = 0; i < boxData.length; i += 3) {
   groupedBoxData.push(boxData.slice(i, i + 3));
 }
 
-
   type BoxProps = {
     text: string;
     color: string;
   };
+  
   
   const { locale } = useRouter();
 
@@ -143,6 +144,8 @@ for (let i = 0; i < boxData.length; i += 3) {
 
     let player: any;
 
+
+    
     function onYouTubeIframeAPIReady() {
       player = new YT.Player("video", {
         width: 600,
@@ -185,8 +188,6 @@ for (let i = 0; i < boxData.length; i += 3) {
 
       videoContainer.removeEventListener("click", onVideoClick);
     };
-
-
 
 
     videoContainer.addEventListener("click", onVideoClick);
@@ -315,11 +316,10 @@ for (let i = 0; i < boxData.length; i += 3) {
 
 
       <section className="section image-box-two-section" data-color={Color.BEIGE} >
-
-
-     
-        <div className="container" style={{paddingRight:"5%",  paddingLeft:"5%"}}>
-          <VerticalBoxGroup
+        <div className="container"    style={{paddingRight:"5%",  paddingLeft:"5%"}}>
+        <div className="horizontal-box-groups">
+          <VerticalBoxGroup 
+            //width = "280px"
             boxes={[
               <Box
                 key={1}
@@ -327,10 +327,9 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-terra-cotta)"
                 textColor="#FFFFFF"
                 fontSize="110px"
-                width="280px"
+                // width="10%"
                 height="170px"
                 textPosition="bottom"
-          
               />,
               <Box
                 key={1}
@@ -338,7 +337,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-terra-cotta)"
                 textColor="#F7F7F7"
                 fontSize="19px"
-                width="280px"
+                // width="10%"
                 height="110px"
                 textPosition="top"
                
@@ -355,7 +354,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-anthracite)"
                 textColor="#F1E2D5"
                 fontSize="110px"
-                width="280px"
+                // width="10%"
                 height="170px"
                 textPosition="bottom"
               />, // Empty Box
@@ -365,7 +364,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-anthracite)"
                 textColor="#F1E2D5"
                 fontSize="19px"
-                width="280px"
+                // width="10%"
                 height="110px"
                 textPosition="top"
               />,
@@ -380,7 +379,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-white)"
                 textColor="#7F351B"
                 fontSize="110px"
-                width="280px"
+                // width="10%"
                 height="170px"
                 textPosition="bottom"
               />,
@@ -390,7 +389,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-white)"
                 textColor="#7F351B"
                 fontSize="19px"
-                width="280px"
+                // width="10%"
                 height="110px"
                 textPosition="top"
               />,
@@ -407,7 +406,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-terra-cotta)"
                 textColor="#F1E2D5"
                 fontSize="3rem"
-                width="280px"
+                // width="10%"
                 height="170px"
                 textPosition="bottom"
               />,
@@ -417,7 +416,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="var(--color-terra-cotta)"
                 textColor="#F1E2D5"
                 fontSize="19px"
-                width="280px"
+                // width="10%"
                 height="110px"
                 textPosition="top"
               />,
@@ -441,7 +440,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="#F1E2D5"
                 textColor="#343337"
                 fontSize="3rem"
-                width="280px"
+                // width="10%"
                 height="170px"
                 textPosition="bottom"
               />,
@@ -451,7 +450,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 backgroundColor="#F1E2D5"
                 textColor="#343337"
                 fontSize="1rem"
-                width="280px"
+                // width="10%"
                 height="110px"
                 textPosition="bottom"
               />,
@@ -469,24 +468,143 @@ for (let i = 0; i < boxData.length; i += 3) {
               <Box key={2} />, // Empty Box
             ]}
           />
+          </div>
         </div>
     
       </section>
 
-      <section className="section first-section" data-color="beige">
+      <section className="section image-box-two-section-mobile" data-color={Color.BEIGE} >
+        <div className="container" style={{paddingRight:"5%",  paddingLeft:"5%"}}>
+         <div>
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#FFFFFF"
+                fontSize="110px"
+                width="16%"
+                height="170px"
+                textPosition="bottom"
+          
+              />,
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F7F7F7"
+                fontSize="19px"
+                width="16%"
+                height="110px"
+                textPosition="top"
+              
+              />, // Empty Box
+              <Box key={2} />,
+            ]}
+          />
+          <VerticalBoxGroup
+            boxes={[
+              <Box key={2} height="80px"/>, // Empty Box
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="3rem"
+                width="16%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>{quality_title}</p>}
+                backgroundColor="var(--color-terra-cotta)"
+                textColor="#F1E2D5"
+                fontSize="19px"
+                width="16%"
+                height="110px"
+                textPosition="top"
+              />,   
+            ]}
+          />
+          </div>
+          <div>
+          <VerticalBoxGroup
+            boxes={[
+              
+              <Box
+                key={1}
+                content={<p>{years_number}</p>}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="110px"
+                width="16%"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>{years_title}</p>}
+                backgroundColor="var(--color-white)"
+                textColor="#7F351B"
+                fontSize="19px"
+                width="16%"
+                height="110px"
+                textPosition="top"
+              />,
+              <Box key={2} />, // Empty Box
+            
+            ]}
+          />         
+          <VerticalBoxGroup
+            boxes={[
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="3rem"
+                width="280px"
+                height="170px"
+                textPosition="bottom"
+              />,
+              <Box
+                key={1}
+                content={<p>Text 1</p>}
+                backgroundColor="#F1E2D5"
+                textColor="#343337"
+                fontSize="1rem"
+                width="280px"
+                height="110px"
+                textPosition="bottom"
+              />,
+              <Box key={2} />,    
+              <Box key={2} />, // Empty Box
+            ]}
+          />
+          </div>
+        </div>
+        </section>
+
+
+      <section className="section video-section" data-color="beige">
+        <div className="section-container-full">
         <div className="section-container">
+
           <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: advantages_text }}
           />
-          <div className="video-container">
-            <div className="video-poster" />
-            <div className="button-container">
-              <YoutubePlayButton color={Color.TERRA_COTTA} />
-            </div>
-            <div id="video" />
           </div>
+         <div className="video-container">
+         <div className="video-poster" />
+         <div className="button-container">
+           <YoutubePlayButton color={Color.TERRA_COTTA} />
+         </div>
+         <div id="video" />
+       </div>
           </div>
           </section>
 
@@ -501,7 +619,7 @@ for (let i = 0; i < boxData.length; i += 3) {
         </div>
       </section>
 {/* section une entreprise */}
-      <section className="section first-section" data-color="white">
+      <section className="section text-image-section" data-color="white">
         <div className="section-container">
           <h1 className="main-title main-title--terra-cotta" >{advantages_title}</h1>
           <div
@@ -534,11 +652,11 @@ for (let i = 0; i < boxData.length; i += 3) {
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {company_paragraph}
+                {jobs_title}
               </h4>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                            {company_title}
+                            {jobs_link_text}
                             </a>
               </Link>
               </div></div>
@@ -555,17 +673,7 @@ for (let i = 0; i < boxData.length; i += 3) {
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: advantages_text }}
-          />
-          <div className="image-container">
-            <div>
-            <Image
-                  id= {history_image}
-                  title="dressing image"
-                  direction={AnimationDirection.BOTTOM_TO_TOP}
-                  style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                /> 
-          </div>
-          </div>
+          />         
           </div>
           </section>
 
@@ -612,7 +720,7 @@ for (let i = 0; i < boxData.length; i += 3) {
     </section>
 
     {/*  */}
-      <section className="section para-section-third" data-color={Color.WHITE}>
+      {/* <section className="section para-section-third" data-color={Color.WHITE}>
       <div className="section-container">
             <div className="title-container">
               <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
@@ -621,79 +729,41 @@ for (let i = 0; i < boxData.length; i += 3) {
             </div>
             <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: advantages_text }} /> 
             </div>
-      </section>
-      <section  className="section image-box-forth" data-color={Color.WHITE}>
+      </section> */}
+      {/* <section  className="section image-box-forth" data-color={Color.WHITE}>
       <div>
-        {/* <Image
-              id= {dressing_image}
-              title="dressing image"
-              direction={AnimationDirection.BOTTOM_TO_TOP}
-              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-            /> */}
+      
       </div>
-    </section>
-      <section className="section para-section-fifth" data-color={Color.BEIGE}>
+    </section> */}
+      {/* <section className="section para-section-fifth" data-color={Color.BEIGE}>
       <div className="section-container">
             <div className="title-container">
               <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {/* {related_blogs_text} */}
+               
               </h3>              
             </div>
-            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html:  }} /> 
             </div>
-      </section>
-      <section className="section para-section-six" data-color={Color.WHITE}>
+      </section> */}
+      {/* <section className="section para-section-six" data-color={Color.WHITE}>
       <div className="section-container">
             <div className="title-container">
               <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {/* {related_blogs_text} */}
+                
               </h3>              
             </div>
-            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
+            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html }} /> 
             </div>
-      </section>
-    <section  className="section image-box-seven" data-color={Color.WHITE}>
+      </section> */}
+    {/* <section  className="section image-box-seven" data-color={Color.WHITE}>
       <div>
-        {/* <Image
-              id= {dressing_image}
-              title="dressing image"
-              direction={AnimationDirection.BOTTOM_TO_TOP}
-              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-            /> */}
+       
       </div>
-    </section>
+    </section> */}
 
-    <section className="section-model-content" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
-      <Grid container spacing={3}
-       style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>          
-          <Grid item xs={6} lg={4}>
-            {/* <Image
-              id= {dressing_image}
-              title="dressing image"
-              direction={AnimationDirection.BOTTOM_TO_TOP}
-              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-            /> */}
-          </Grid>
-          <Grid item xs={6} lg={4}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-          <Grid item xs={6} lg={4}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-        </Grid>
-      </section>
+  
 
-      <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      {/* <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
       <div className="content" style={{margin:"auto", width:"90%"}}>
       
       <Masonry columns={{md:2, sm:1}}>
@@ -702,11 +772,11 @@ for (let i = 0; i < boxData.length; i += 3) {
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {/* {home.devis_title} */}
+                
               </h4>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {home.devis_link_text} */}
+                           
                             </a>
               </Link>
               </div></div>
@@ -714,59 +784,11 @@ for (let i = 0; i < boxData.length; i += 3) {
             <div></div>
           </Masonry>     
         </div>
-    </section>
+    </section> */}
 
 
-      <section className="section tenth-section" data-color={Color.BEIGE}>
-      <div className="section-container">
-            <div className="title-container">
-              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {/* {related_blogs_text} */}
-              </h3>              
-            </div>
-            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: {/*options_paragraph*/} }} /> 
-            </div>
-      </section>
+     
 
-      <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
-      
-      <Masonry columns={{md:2, sm:1}}>
-            <div
-              className="item-container"
-            >
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {/* {home.devis_title} */}
-              </h4>
-              <Link href={`/price-request`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {home.devis_link_text} */}
-                            </a>
-              </Link>
-              </div></div>
-            
-            <div></div>
-          </Masonry>
-          
-            <Masonry columns={{md:2, sm:1}}>
-              
-         <div className="item-container">&nbsp;</div>
-            <div className="item-container">
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
-                {/* {home.partenaire_title} */}
-              </h4>
-              <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {/* {home.partenair_link_text} */}
-                            </a>
-              </Link>
-              </div>
-              </div>
-          </Masonry>
-        </div>
-    </section>
       {/* <CatalogueRequestHomeSection 
           {...globalSection.priceRequest}
           formsMessages={globalSection.formsMessages}

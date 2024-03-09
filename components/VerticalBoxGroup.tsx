@@ -3,13 +3,14 @@ import React from "react";
 
 interface VerticalBoxGroupProps {
   boxes: React.ReactNode[];
+  width?: string;
 }
 
-const VerticalBoxGroup: React.FC<VerticalBoxGroupProps> = ({ boxes }) => {
+const VerticalBoxGroup: React.FC<VerticalBoxGroupProps> = ({ boxes, width = "100%" }) => {
   return (
-    <div className="vertical-box-group">
+    <div className="vertical-box-group" style={{ width }}>
       {boxes.map((box, index) => (
-        <div key={index} className="vertical-box-group-row">
+        <div key={index} className="vertical-box">
           {box}
         </div>
       ))}
