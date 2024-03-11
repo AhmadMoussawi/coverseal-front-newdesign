@@ -13,7 +13,12 @@
 }
 
 .image-box-two-section {
-  .container {
+  
+  .section{
+    padding-top:"0px" !important;
+    padding-bottom:"0px" !important;
+  }
+  .container {   
     display: block;
     justify-content: center;
     width:90%;
@@ -66,7 +71,7 @@ width: 100%; /* or specify a fixed width */
   .subtitle-argesta{
     font-size: 150px;
     color: #7f351b;
-    font-family: Lexend;
+   
   }
 }
 .only-title-section{
@@ -110,12 +115,12 @@ width: 100%; /* or specify a fixed width */
   }
   
   .paragraph {
-    font-size: 25px;
+    font-size: 1rem;
     color: #ffffff;
   }
 
   .subtitle-argesta {
-    font-size: 80px;
+    font-size: 3rem;
     color: #fbf6f1;
   }
 

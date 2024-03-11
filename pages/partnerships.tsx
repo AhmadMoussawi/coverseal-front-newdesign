@@ -213,8 +213,8 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
 <section className="section only-title-1-section" data-color={Color.BEIGE} >
       <div className="content">       
         <div className="text-container">    
-        <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {main_title}
+        
+        <h2 className="subtitle-poppins subtitle-poppins--terra-cotta">
               </h2>                          
         </div>        
       </div>      
@@ -398,10 +398,12 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
               <div className="boxpair">
               <Image id="security_image.id" title="security_image" />
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+                <div style={{fontSize:"3rem"}}>
+                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"1rem"}}>
                 {gallery_link_text}
               </a>
             </Link>
@@ -413,9 +415,11 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <div className="boximpair">
             <Image id="isolation_image.id" title="isolation_image" />
             <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-            <div style={{fontSize:"50px"}}>{isolation_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: isolation_paragraph }}></div></div>
+            <div style={{fontSize:"3rem"}}>
+            <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{isolation_title}</h4>
+            <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: isolation_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"1rem"}}>
                 {gallery_link_text}
               </a>
             </Link>
@@ -425,10 +429,11 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <div className="boxpair">
               <Image id="isolation_image" title="isolation_image" />
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+                <div style={{fontSize:"3rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"1rem"}}>
                 {gallery_link_text}
               </a>
             </Link>
@@ -439,9 +444,10 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <div className="boximpair">
             <Image id="water_quality_image.id" title="water_quality_image" />
             <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-            <div style={{fontSize:"50px"}}>{water_quality_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
+            <div style={{fontSize:"3rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{water_quality_title}</h4>
+            <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta">
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"1rem"}}>
                 {gallery_link_text}
               </a>
             </Link>
@@ -451,10 +457,12 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <div className="boxpair">
               <Image id="isolation_image" title="isolation_image" />
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"50px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}} dangerouslySetInnerHTML={{ __html: security_title }}></div></div>
+                <div style={{fontSize:"3rem"}}>
+                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: security_title }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"25px"}}>
+              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"1rem"}}>
                 {gallery_link_text}
               </a>
             </Link>
@@ -490,7 +498,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
                   {coverseal_partners_title}
                 </h1>
                 <h6 style={{ color: '#ffffff', fontSize:'25px' }}>
-                  {coverseal_partners_text}
+                <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: coverseal_partners_text }} />  
                 </h6>                
               </div>       
               </div>     
@@ -511,30 +519,36 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
           <Grid container spacing={2}>
             <Grid item sm={12} lg={2}  xs={12} spacing={2} >
               <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"3rem"}}><img src="/Picto_Partenaire-01.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
               </div>
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+              <div style={{verticalAlign:"left", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"3rem", fontFamily:"Poppins"}}>
+                  <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}
+                  </h4>
+                  <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"Poppins"}}>
+                    {security_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
             </Grid>
             <Grid item spacing={2} lg={2} sm={12}  xs={12}>
             <div className="boximpair">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-02.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
               </div></div>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div></div>
+              <div style={{fontSize:"3rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+              <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}}>{security_title}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-03.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
               </div>
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}}>{security_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
@@ -542,18 +556,20 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boximpair">
             <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+                <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-04.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
               </div></div>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div></div>
+              <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+              <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}}>{security_title}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
               <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
+                <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-05.png" style={{maxWidth:"90%", margin:"center"}}/></div>                
               </div>
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{security_title}<div style={{fontSize:"22px", marginTop:"-30px", color:"#343337"}}>{security_title}</div></div>
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-30px", color:"#343337", fontFamily:"poppins"}}>{security_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
@@ -724,7 +740,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
 <section className="section partenaire-ideal-section" data-color={Color.ANTHRACITE}>
         <div className="content">
           <div className="text-container">
-            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
+            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{fontSize:"3rem"}}>
                 {partner_profile_title}
               </h2>
           <div className="mobile-image">
@@ -734,7 +750,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
                 direction={AnimationDirection.BOTTOM_TO_TOP}
               />
           </div>
-            <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: partner_profile_text }} />            
+            <div className="paragraph wysiwyg" style={{fontSize:"1rem"}} dangerouslySetInnerHTML={{ __html: partner_profile_text }} />            
           </div>
         <div className="desktop-image">
           <Image
@@ -803,59 +819,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
         formsMessages={globalSection.formsMessages}
         locale={locale}
         />
-      <section className="section section-two" data-color="beige">
-      <Grid container spacing={2} >
-        {/* style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>           */}
-          <Grid item xs={6} lg={2}>
-            {/* <Image
-              id= {dressing_image}
-              title="dressing image"
-              direction={AnimationDirection.BOTTOM_TO_TOP}
-              style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-            /> */}
-          </Grid>
-          <Grid item xs={6} lg={2}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-          <Grid item xs={6} lg={2}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-          <Grid item xs={6} lg={2}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-          <Grid item xs={6} lg={2}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-          <Grid item xs={6} lg={2}>
-          {/* <Image
-            id= {dressing_image}
-            title="dressing image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                    /> */}
-          </Grid>
-        </Grid>
-        </section>  
+   
     </main>
   );
 }
