@@ -1,4 +1,15 @@
 .partnerships-template {
+
+  
+
+  .section {
+    overflow: hidden;
+    padding: 0 0 !important;
+  
+    @media (max-width: 580px) {
+      padding: 0 0;
+    }
+  }
 /*copied from benefits*/
 .block {
   margin: 100px 0;
@@ -14,16 +25,13 @@
 
 .image-box-two-section {
   
-  .section{
-    padding-top:"0px" !important;
-    padding-bottom:"0px" !important;
-  }
+
   .container {   
     display: block;
     justify-content: center;
-    width:90%;
+    width:110%;
     margin:auto;
-    margin-left:9%
+    margin-left:4%
   }
   .boxpair{
     padding:0 30px
@@ -64,7 +72,16 @@ width: 100%; /* or specify a fixed width */
 }
 
 .only-title-1-section{
-  padding-bottom:10px;
+  
+    overflow: hidden;
+    padding-top: 100px!important;
+  
+    @media (max-width: 580px) {
+      padding: 50 0;
+    }
+
+  
+  //padding-bottom:10px;
   .content{
     padding: 20px 5% 0px 5% !important;
   }
@@ -78,22 +95,14 @@ width: 100%; /* or specify a fixed width */
   .content{
     padding: 20px 5% 20px 5%;
   }
-  .subtitle-argesta{
-    font-size: 80px;
-    color: #803016;
-    font-family: ArgestaDisplayItalic;
-  }
+
 }
 .only-text-section{
   background-color: #fbf6f1;
   .content{
     padding: 20px 5% 20px 5%;
   }
-  .paragraph{
-    font-size: 25px;
-    color: #343337;
-    font-family: Lexend-Regular;
-  }
+  
 }
 
 
@@ -244,10 +253,10 @@ width: 100%; /* or specify a fixed width */
     height:100%;
   }
 
-  .subtitle-argesta{
-    color: #fbf6f1;
-    font-size: 80px;
-  }
+  // .subtitle-argesta{
+  //   color: #fbf6f1;
+  //   font-size: 80px;
+  // }
   .text-container{
     position: absolute;
   width: 80%;
