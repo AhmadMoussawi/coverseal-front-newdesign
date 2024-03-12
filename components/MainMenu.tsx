@@ -127,7 +127,7 @@ export function MainMenu(props: Props) {
       ).languages;
       const locale = `${languages[0].toLocaleLowerCase()}-${c}`;
       document.cookie = `LOCALE=${locale};`;
-      if(c.toLowerCase()!=="fr" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+      if(c.toLowerCase()!=="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
       {
           window.location.href = "https://coverseal.com/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
       }

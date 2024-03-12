@@ -421,7 +421,18 @@ interface PartnershipsContent extends AllPageContent {
     becoming_partner_title: string;
     becoming_partner_text: string;
     coverseal_partners_image: DirectusImage;
+    coverseal_partners_mobile_image:DirectusImage;
     partner_profile_image:DirectusImage;
+    water_economy_title:string;
+water_economy_paragraph:string;
+water_economy_image:DirectusImage;
+aesthetic_title:string;
+aesthetic_paragraph:string;
+aesthetic_image:DirectusImage;
+comfort_in_use_title:string;
+comfort_in_use_paragraph:string;
+comfort_in_use_image:DirectusImage;
+more_link_text:string;
 }
 
 interface PartershipsFormContent extends AllPageContent {

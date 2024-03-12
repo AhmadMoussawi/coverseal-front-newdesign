@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100.33 128.92">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #7F351B;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x=".81" y=".81" width="97.93" height="126"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_1586" data-name="Groupe 1586">
+    <g class="cls-3">
+      <g id="Groupe_1586-2" data-name="Groupe 1586-2">
+        <path id="Tracé_454" data-name="Tracé 454" class="cls-1" d="M53.8,114.09H3.5c-1.1,0-2-.9-2-2V3.5c0-1.1.9-2,2-2h81.85c1.1,0,2,.9,2,2v64.56"/>
+        <line id="Ligne_35" data-name="Ligne 35" class="cls-1" x1="18.82" y1="19.95" x2="70.03" y2="19.95"/>
+        <line id="Ligne_36" data-name="Ligne 36" class="cls-1" x1="18.82" y1="33.7" x2="70.03" y2="33.7"/>
+        <line id="Ligne_37" data-name="Ligne 37" class="cls-1" x1="18.82" y1="47.44" x2="70.03" y2="47.44"/>
+        <line id="Ligne_38" data-name="Ligne 38" class="cls-1" x1="18.82" y1="77.68" x2="43.5" y2="77.68"/>
+        <line id="Ligne_39" data-name="Ligne 39" class="cls-1" x1="18.82" y1="91.43" x2="43.5" y2="91.43"/>
+        <path id="Tracé_455" data-name="Tracé 455" class="cls-1" d="M88.5,100.47c8.72-7.86,9.42-21.29,1.56-30.01s-21.29-9.42-30.01-1.56c-8.72,7.86-9.42,21.29-1.56,30.01.49.54,1.01,1.06,1.55,1.55.07.06.14.12.21.18l-8.81,18.59,9.03-3.08,3.2,8.87,9.07-19.15c.51.04,1.02.06,1.54.06.61,0,1.21-.03,1.8-.08l9.15,18.83,3.24-8.97,8.92,3.06-8.9-18.29Z"/>
+        <path id="Tracé_456" data-name="Tracé 456" class="cls-1" d="M61.75,84.77c0-7.03,5.7-12.73,12.73-12.73s12.73,5.7,12.73,12.73c0,7.03-5.7,12.73-12.73,12.73"/>
+      </g>
+    </g>
+  </g>
+</svg>

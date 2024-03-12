@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     if(router.locale.includes("-"))
       {
         var c = router.locale.split('-')[1];
-        if(c.toLowerCase()!="fr" && (window.location.host.includes("localhost")||window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+        if(c.toLowerCase()!="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
         {
           window.location.href = "https://coverseal.com/" + router.locale;
         }

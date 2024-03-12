@@ -70,7 +70,22 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
     becoming_partner_title,
     becoming_partner_text,
     coverseal_partners_image,
+    coverseal_partners_mobile_image,
     partner_profile_image,
+    water_economy_title,
+water_economy_paragraph,
+water_economy_image,
+aesthetic_title,
+aesthetic_paragraph,
+aesthetic_image,
+comfort_in_use_title,
+comfort_in_use_paragraph,
+comfort_in_use_image,
+more_link_text,
+lead_title,
+lead_link_text,
+dealer_title,
+dealer_link_text
    } =
     pageProps;
   const { locale } = useRouter();
@@ -214,8 +229,11 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
       <div className="content">       
         <div className="text-container">    
         
-        <h2 className="subtitle-poppins subtitle-poppins--terra-cotta"style={{fontSize:"4rem"}}>{main_title}
-              </h2>                          
+        <h2 className="main-title main-title--terra-cotta">{main_title}
+              </h2>  
+              <h3 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{textAlign:"left", width:"100%"}}>
+              {about_coverseal_title}
+            </h3>                         
         </div>        
       </div>      
     </section>
@@ -224,10 +242,8 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
     <section className="section devenir-partenaire-section" data-color={Color.BEIGE} >
       <div className="content">       
         <div className="text-container">
-            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{textAlign:"left", width:"100%"}}>
-              {about_coverseal_title}
-            </h2>           
-          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />          
+                      
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />         
         </div>        
       </div>      
     </section>
@@ -397,14 +413,14 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <Grid item sm={12} lg={2}  xs={12} spacing={2} >
               <div className="boxpair">
               <Image id={security_image.id} title="security_image" />
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+             <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
                 <div style={{fontSize:"3rem"}}>
-                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
+                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{security_title}</h4>
                 <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"0.8rem"}}>
-                {gallery_link_text}
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {more_link_text}
               </a>
             </Link>
               </div>
@@ -413,28 +429,28 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item spacing={2} lg={2} sm={12}  xs={12}>
             <div className="boximpair">
-            <Image id={isolation_image.id} title="isolation_image" className="hidenimage"/>
-            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+            <Image id={water_economy_image.id} title="isolation_image" className="hidenimage"/>
+            <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
             <div style={{fontSize:"2.5rem"}}>
-            <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{isolation_title}</h4>
-            <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: isolation_paragraph }}></div></div>
+            <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{water_economy_title}</h4>
+            <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_economy_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"0.8rem"}}>
-                {gallery_link_text}
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {more_link_text}
               </a>
             </Link>
               </div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <Image id={isolation_image.id} title="isolation_image" className="hidenimage"/>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+              <Image id={aesthetic_image.id} title="isolation_image" className="hidenimage"/>
+              <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
+                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{aesthetic_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: aesthetic_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"0.8rem"}}>
-                {gallery_link_text}
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {more_link_text}
               </a>
             </Link>
               </div>
@@ -443,29 +459,29 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boximpair">
             <Image id={water_quality_image.id} title="water_quality_image" className="hidenimage"/>
-            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-            <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{water_quality_title}</h4>
+            <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
+            <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{water_quality_title}</h4>
             <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"0.8rem"}}>
-                {gallery_link_text}
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {more_link_text}
               </a>
             </Link>
               </div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <Image id={isolation_image.id
+              <Image id={comfort_in_use_image.id
               } title="isolation_image" className="hidenimage"/>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+              <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
                 <div style={{fontSize:"2.5rem"}}>
-                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div>
+                <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{comfort_in_use_title}</h4>
+                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: comfort_in_use_paragraph }}></div>
                 </div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--terra-cotta" style={{fontSize:"0.8rem"}}>
-                {gallery_link_text}
+              <a className="link-before-translate link-before-translate--terra-cotta">
+                {more_link_text}
               </a>
             </Link>
               </div>
@@ -478,10 +494,10 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
       </section>
 
 
-<section className="section only-text-section" data-color={Color.BEIGE} >
-      <div className="content">       
+<section className="section only-text-section" data-color={Color.BEIGE}>
+      <div className="content" style={{marginTop:"50px"}}>       
         <div className="text-container">                 
-          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />          
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_texttwo }} />          
         </div>        
       </div>      
     </section>
@@ -492,42 +508,49 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
 
         <Image
           id={coverseal_partners_image.id}
-          title="coverseal image"
+          title="coverseal image" className="desktopimage"
           direction={AnimationDirection.RIGHT_TO_LEFT}
         />
+        <Image
+          id={coverseal_partners_mobile_image.id}
+          title="coverseal image" className="mobileimage"
+          direction={AnimationDirection.RIGHT_TO_LEFT}
+        />
+        <div style={{position:"absolute", width:"100%", height:"100%", backgroundColor:"rgba(0,0,0,.5)", top:"0px", left:"0px"}}></div>
               <div className="text-container">
                 <h1 className="subtitle-argesta subtitle-argesta--white">
                   {coverseal_partners_title}
                 </h1>
-                <h6 style={{ color: '#ffffff', fontSize:'25px' }}>
-                <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: coverseal_partners_text }} />  
-                </h6>                
+                
+                <div className="paragraph wysiwyg" style={{color:"white"}}  dangerouslySetInnerHTML={{ __html: coverseal_partners_text }} />  
+                
               </div>       
               </div>     
         </section>
 
-    <section className="section only-title-section" data-color={Color.BEIGE} >
+    <section className="section only-title-section" data-color={Color.SAND} >
       <div className="content">       
         <div className="text-container">    
-        <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">
-                {coverseal_stregths_title}
+        <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" >
+        {coverseal_stregths_title}
               </h2>                          
         </div>        
       </div>      
     </section>
 
-    <section className="section image-box-two-section" data-color={Color.BEIGE} >
+    <section className="section image-box-two-section" data-color={Color.SAND} >
         <div className="container">
           <Grid container spacing={2}>
             <Grid item sm={12} lg={2}  xs={12} spacing={2} >
               <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+              <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"2.5rem"}}><img src="/Picto_Partenaire-01.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
               </div>        
           
-              <div style={{verticalAlign:"left", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
+              <div style={{verticalAlign:"left", textAlign:"left", paddingTop:"20px",flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"3rem", fontFamily:"Poppins"}}>
-                  <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{strength1_title}
+                  <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+                  <table><tr><td valign="top"><img src="/Picto_Partenaire-01-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength1_title}</td></tr></table>
                   </h4>
                   <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"Poppins"}}>
                     {strength1_text}</div></div>
@@ -537,20 +560,23 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item spacing={2} lg={2} sm={12}  xs={12}>
             <div className="boximpair">
-            <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+            <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"2.5rem"}}><img src="/Picto_Partenaire-02.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
               </div></div>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{strength2_title}</h4>
+              <div style={{verticalAlign:"middle", textAlign:"left", padding:"20px", flexDirection:"column", width:"100%"}}>
+              <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+              <table><tr><td valign="top"><img src="/Picto_Partenaire-02-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength2_title}</td></tr></table></h4>
               <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength2_text}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+              <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-03.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{strength3_title}</h4>
+              <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+                <table><tr><td valign="top"><img src="/Picto_Partenaire-03-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength3_title}</td></tr></table>
+                  </h4>
                 <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength3_text}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
@@ -558,20 +584,24 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boximpair">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+            <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-04.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div></div>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{strength4_title}</h4>
+              <div style={{verticalAlign:"middle", textAlign:"left", paddingLeft:"30px",paddingTop:"20px",flexDirection:"column", width:"100%"}}>
+              <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+              <table><tr><td valign="top"><img src="/Picto_Partenaire-04-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength4_title}</td></tr></table>
+                </h4>
               <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength4_text}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+              <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-white)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-05.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div>
-              <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{strength5_title}</h4>
+              <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}}>
+                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+                <table><tr><td valign="top"><img src="/Picto_Partenaire-05-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength5_title}</td></tr></table>
+                  </h4>
                 <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength5_text}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
@@ -778,7 +808,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
     </section>
       
     <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
+      <div className="content" style={{margin:"auto", width:"90%", marginTop:"30px", marginBottom:"30px"}}>
       
       <Masonry columns={{md:2, sm:1}}>
             <div
@@ -786,11 +816,11 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {becoming_partner_title}
+                {lead_title}
               </h4>
-              <Link href={`/price-request`} passHref>
+              <Link href={`/partnerships-form?type=lead`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {becoming_partner_title}
+                              {lead_link_text}
                             </a>
               </Link>
               </div></div>
@@ -801,14 +831,14 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <Masonry columns={{md:2, sm:1}}>
               
          <div className="item-container">&nbsp;</div>
-            <div className="item-container">
+            <div className="item-container" style={{textAlign:"right"}}>
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {becoming_partner_title}
+                {dealer_title}
               </h4>
-              <Link href={`/partnerships`} passHref>
+              <Link href={`/partnerships-form?type=dealer`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {becoming_partner_title}
+                              {dealer_link_text}
                             </a>
               </Link>
               </div>
