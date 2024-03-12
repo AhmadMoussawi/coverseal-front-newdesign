@@ -214,7 +214,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
       <div className="content">       
         <div className="text-container">    
         
-        <h2 className="subtitle-poppins subtitle-poppins--terra-cotta">
+        <h2 className="subtitle-poppins subtitle-poppins--terra-cotta"style={{fontSize:"4rem"}}>{main_title}
               </h2>                          
         </div>        
       </div>      
@@ -413,7 +413,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item spacing={2} lg={2} sm={12}  xs={12}>
             <div className="boximpair">
-            <Image id={isolation_image.id} title="isolation_image" />
+            <Image id={isolation_image.id} title="isolation_image" className="hidenimage"/>
             <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
             <div style={{fontSize:"2.5rem"}}>
             <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{isolation_title}</h4>
@@ -427,7 +427,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
-              <Image id={isolation_image.id} title="isolation_image" />
+              <Image id={isolation_image.id} title="isolation_image" className="hidenimage"/>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>
                 <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
@@ -442,7 +442,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boximpair">
-            <Image id={water_quality_image.id} title="water_quality_image" />
+            <Image id={water_quality_image.id} title="water_quality_image" className="hidenimage"/>
             <div style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
             <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{water_quality_title}</h4>
             <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
@@ -456,7 +456,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
               <Image id={isolation_image.id
-              } title="isolation_image" />
+              } title="isolation_image" className="hidenimage"/>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-beige)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"2.5rem"}}>
                 <h4 className="subtitle-argesta subtitle-argesta--terra-cotta" >{security_title}</h4>

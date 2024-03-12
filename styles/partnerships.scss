@@ -54,6 +54,14 @@
       padding:10px
     }
   }
+  .hidenimage{
+    display: block;
+  }
+  @media(max-width: 768px){
+    .hidenimage{
+      display: none;
+    }
+  }
 }
 /* YourPage.css or styles.css */
 .image-box-two-section .horizontal-box-groups {
@@ -85,11 +93,7 @@ width: 100%; /* or specify a fixed width */
   .content{
     padding: 20px 5% 0px 5% !important;
   }
-  .subtitle-argesta{
-    font-size: 150px;
-    color: #7f351b;
-   
-  }
+ 
 }
 .only-title-section{
   .content{
