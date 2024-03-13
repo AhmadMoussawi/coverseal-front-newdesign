@@ -463,7 +463,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                     //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
                     />
                     <Image
-                      id={product_image_3}
+                      id={product_image_3.id}
                       title="product image 3"
                       containerClassName="image-on-top"
                       direction={AnimationDirection.TOP_TO_BOTTOM}
