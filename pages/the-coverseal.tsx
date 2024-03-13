@@ -21,6 +21,7 @@ import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeS
 import Masonry from "@mui/lab/Masonry";
 import { Label } from "@material-ui/icons";
 import { Grid } from "@material-ui/core";
+import { getLocale } from "../utils/locale";
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
   translateInFromRightToLeft(".first-section .main-paragraph");
@@ -969,7 +970,7 @@ comfort_button_text,
 // TODO: activate ISR on all pages
 export const getStaticProps: GetStaticProps<
   PageProps<TheCoversealContent>
-> = async ({ locale, locales }) => {
+> = async ({ locale }) => {
   const fetcher = new Fetcher();
 
   const allPageProps = await getAllPagePropsOnly(fetcher, locale);
@@ -978,8 +979,9 @@ export const getStaticProps: GetStaticProps<
     "the_coverseal_template",
     locale
   );
-  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale);
-  const pricerequest= await fetcher.fetchCollection<PriceRequestContent>("price_request_template", locale);
+  const cmsLocale = getLocale(locale);
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", cmsLocale);
+  const pricerequest= await fetcher.fetchCollection<PriceRequestContent>("price_request_template", cmsLocale);
   return {
     props: {
       ...allPageProps,

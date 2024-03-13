@@ -24,6 +24,7 @@ import { Grid, useTheme } from "@material-ui/core";
 import Box from "../components/Box";
 import VerticalBoxGroup from "../components/VerticalBoxGroup";
 import { useWindowSize } from "../components/useWindowSize";
+import { getLocale } from "../utils/locale";
 
 declare const YT: any;
 
@@ -625,9 +626,9 @@ export const getStaticProps: GetStaticProps<
   PageProps<AboutUsContent>
 > = async ({ locale, locales }) => {
   const fetcher = new Fetcher();
-
+  const cmsLocale = getLocale(locale);
   const allPageProps = await getAllPagePropsOnly(fetcher, locale);
-  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale);
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", cmsLocale);
   const pageProps = await getPageContentProps<AboutUsContent>(
     fetcher,
     "about_us_template",

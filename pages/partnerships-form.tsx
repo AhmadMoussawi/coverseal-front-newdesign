@@ -131,7 +131,7 @@ var countries = require(`../scripts/countries/${lang}/countries.json`);
       <CatalogueRequestHomeSection 
           {...globalSection.priceRequest}
           formsMessages={globalSection.formsMessages}
-          locale={locale}/>
+          locale={router.locale}/>
     </main>
   );
 }

@@ -116,7 +116,7 @@ function appearingAnimations() {
 interface ModelProps extends PageProps<ModelsContent> {
   models: PartialItem<SingleModelDirectus>[];
   currentModel: PartialItem<SingleModelDirectus>;
-  achievementsPath: string | null;
+  
   home:HomeContent;
 }
 
@@ -126,7 +126,6 @@ export default function ModelPage({
   pageProps,
   models,
   currentModel,
-  achievementsPath,
   layoutProps,
   home
 }: ModelProps) {
@@ -1158,7 +1157,7 @@ export const getStaticProps: GetStaticProps<
     "models_template",
     locale
   );
-  const home= await fetcher.fetchCollection<HomeContent>("home_template", locale)
+  const home= await fetcher.fetchCollection<HomeContent>("home_template", cmsLocale)
   
   // TODO: remove this shit
   const currentModel = await fetcher.directus
@@ -1199,7 +1198,7 @@ export const getStaticProps: GetStaticProps<
     })
     .then((res) => res.data);
 
-  const achievementsPath = await (async () => {
+  /*const achievementsPath = await (async () => {
     const deepQuery = {
       translations: {
         _filter: {
@@ -1246,7 +1245,7 @@ export const getStaticProps: GetStaticProps<
     }
 
     return null;
-  })();
+  })();*/
 
   const props: ModelProps = {
     ...allPageProps,
@@ -1259,8 +1258,7 @@ export const getStaticProps: GetStaticProps<
     },
     home,
     models,
-    currentModel,
-    achievementsPath,
+    currentModel
   };
 
   return {

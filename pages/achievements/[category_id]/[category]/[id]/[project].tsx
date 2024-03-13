@@ -365,7 +365,7 @@ export const getStaticProps: GetStaticProps<
 
     return null;
   })();
-  const pricerequest= await fetcher.fetchCollection<PriceRequestContent>("price_request_template", locale)
+  const pricerequest= await fetcher.fetchCollection<PriceRequestContent>("price_request_template", cmsLocale)
   const props: AchievementsDetailsProps = {
     ...allPageProps,
     seoProps: {
