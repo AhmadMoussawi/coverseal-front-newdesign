@@ -196,7 +196,7 @@ export default function FAQPage({
               {main_title}
             </h1>
             
-            <div className="input-container">
+            <div className="input-container desktopsearch">
               <input
                 className="input"
                 type="text"
@@ -216,6 +216,23 @@ export default function FAQPage({
               {main_description}
             </h6></span>
             </div>
+            <div className="title-container mobilesearch">
+            <div className="input-container ">
+              <input
+                className="input"
+                type="text"
+                value={searchTerm}
+                onChange={handleSearchTermChanged}
+                placeholder={search_placeholder}
+              />
+              {searchTerm.length > 0 && (
+                <div className="icon-container" onClick={handleClearSearch}>
+                  <Cross color={Color.ANTHRACITE} />
+                </div>
+              )}
+            </div>
+            </div>
+            
 </div>
       </section>
                 <section className="section first-section" data-color={Color.BEIGE}>

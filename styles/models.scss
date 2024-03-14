@@ -94,14 +94,23 @@
     }
     .section-model-content-mobile{
        display: block;
-
+      #C{
+        width:90%;
+        margin:auto;
+      }
        #D {
-        width:66.66%;
+        width:90%;
         display: flex;
         flex-direction: row !important;
         align-items: center;
         justify-content: center;
-        margin-left:17%;
+        margin-left:5%;
+        .secondimg{
+          margin-left:10px;
+        }
+      }
+      #E{
+        margin-left:5%
       }
       .text-container{
         //position: absolute;

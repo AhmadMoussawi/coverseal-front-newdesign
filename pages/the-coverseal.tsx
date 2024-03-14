@@ -209,7 +209,7 @@ comfort_button_text,
                     </h4>
                     <Link href="#securite">
                                   <a className="link-before-translate link-before-translate--white" 
-                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
+                                  style={{fontFamily:"Poppins",  letterSpacing: "2px", whiteSpace:"nowrap"}}>
                                   {certificate_button_text}
                                   </a>
                     </Link>
@@ -726,7 +726,7 @@ comfort_button_text,
                 </h4>
                 <Link href={`/price-request`} passHref>
                               <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                                {models_title}
+                                {models_link_text}
                               </a>
                 </Link>
               </div>
@@ -877,13 +877,11 @@ comfort_button_text,
                 <h6 style={{ color: 'white' }}>
                   {home.realisations_description}
                 </h6>
-                <h6 >
                 <Link href="/the-coverseal" passHref >
                           <a className="link-before-translate link-before-translate--white">
                             {home.realisations_link_text}
                           </a>
                 </Link>
-                </h6>
               </div>       
               </div>     
         </section>

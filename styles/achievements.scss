@@ -1,5 +1,12 @@
 .achievements-details-template,
 .achievements-category-template {
+  .section-container-second
+  {
+    @media(max-width:768px)
+    {
+      width:100% !important;
+    }
+  }
   .title-container {
     display: flex;
     align-items: center;
@@ -74,8 +81,39 @@
   }
 
   @media (max-width: 768px) {
+    
+    li{
+      a{
+        flex-direction:column;
+        align-items:flex-start;
+        margin-top:20px
+      }
+      &:nth-child(even) {
+        a{
+        align-items:flex-end;
+        margin-top:50px;
+        .subtitle-poppins{
+          padding-right:0px
+        }
+        .text-container{
+          padding-right:5%
+        }
+        }
+      }
+    }
     .image-container {
       min-height: 200px;
+      order:1;
+      width:100%
+    }
+    .text-container{
+      order:0;
+      margin-top:-43px;
+      width:auto;
+      margin-left:0px;
+      background-color:var(--color-beige);
+      padding-left:10px
+      
     }
   }
 
@@ -87,15 +125,10 @@
       height: 150px;
     }
 
-    a {
-      align-items: center;
-    }
 
     li {
       .text-container {
         padding: 0;
-        padding-left: 0px;
-        padding-right: 10px;
 
         h3 {
           font-size: 1rem;
@@ -104,7 +137,7 @@
 
       &:nth-child(odd) {
         .text-container {
-          padding-left: 10px;
+          padding-left: 5%;
           padding-right: 0px;
         }
       }

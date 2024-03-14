@@ -40,6 +40,7 @@ const CookieBanner = (props) => {
 
   const handleOpenSettings = () => {
     props.setOpenSettingsModal(true);
+    setOpen(false);
   };
 
   const handleCloseSettings = () => {
@@ -89,7 +90,7 @@ const CookieBanner = (props) => {
     setOpen(false);
   }}
   severity="" // Set the appropriate severity level
-  style={{ backgroundColor: "#723722", width: "100%", color: "white"}}
+  style={{ backgroundColor: "#723722", width: "100%", color: "white", padding:"0px"}}
   //color="white"
 >
   {/* Your alert content goes here */}

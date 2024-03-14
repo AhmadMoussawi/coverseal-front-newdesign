@@ -4,6 +4,23 @@
   color: var(--color-terra-cotta);
   .first-section {
     padding-top: 60px;
+    .mobilesearch{
+      display:none;
+    }
+      @media(max-width:768px)
+      {
+        .desktopsearch{
+        display: none;
+        }
+        .mobilesearch{
+          display:block;
+          .input{
+            width:70% !important
+          }
+          margin-bottom:30px
+        }
+      }
+    
 }
 //added
 .second-section {

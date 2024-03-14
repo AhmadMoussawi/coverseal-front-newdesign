@@ -474,7 +474,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                   <div className="grid-item" id="E">
                     <div className="text-container">
                       <Link href={`/about-us`} passHref>
-                        <a className="link-before-translate link-before-translate--terra-cotta" style={{textAlign:"left", marginTop:"30px"}}>
+                        <a className="link-before-translate link-before-translate--terra-cotta">
                           {home.partenair_link_text}
                         </a>
                       </Link>
@@ -512,9 +512,9 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                    
                     />
                     <Image
-                      id={product_image_3}
+                      id={product_image_3.id}
                       title="product image 3"
-                      containerClassName="image-on-top"
+                      containerClassName="image-on-top secondimg"
                       direction={AnimationDirection.TOP_TO_BOTTOM}
                    
                     />
@@ -522,8 +522,8 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                  
                   <div className="grid-item" id="E">
                        <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" 
-                            style={{fontFamily:"Poppins" , color:"var(--color-terra-cotta)"}}>
+                            <a className="link-before-translate link-before-translate--terra-cotta" 
+                            >
                               {home.partenair_link_text}
                             </a>
                        </Link>
@@ -554,7 +554,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                         </div>
                         <div className="text-container">
                       <Link href={`/about-us`} passHref>
-                        <a className="link-before-translate link-before-translate--terra-cotta" style={{textAlign:"left", marginTop:"30px"}}>
+                        <a className="link-before-translate link-before-translate--terra-cotta">
                           {home.partenair_link_text}
                         </a>
                       </Link>

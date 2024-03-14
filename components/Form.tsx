@@ -625,7 +625,7 @@ const handlePlaceChange = (postalcode)=>{
   const inputs = useMemo(
     () =>
       fields.map(
-        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle, step, hastooltip }) => {
+        ({ id, type, textarea, required, options, select, rows, maxRows, help, additionalstyle, step, hastooltip, dontshrink }) => {
           let field;
           const label = content[`${id}_label`];
           var tooltip = "";
@@ -747,7 +747,31 @@ const handlePlaceChange = (postalcode)=>{
                   {hastooltip && 
         <InputLabel htmlFor="my-textfield">{required ? <>{label}<sup>*</sup></>:<>{label}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
       }
-                  <TextField
+                  {dontshrink ? <TextField
+                    className={classes.root}
+                    label={!hastooltip && (required ? <>{ label}<sup>*</sup></>:<>{label}</>)}
+                    fullWidth
+                    
+                    multiline={textarea}
+                    /*required={required}*/
+                    id={id}
+                    type={type}
+                    select={select}
+                    minRows={rows}
+                    maxRows={maxRows}
+                    value={state[id] || ''}
+                    onChange={handleChange(id) as any}
+                    error={Boolean(state.errors[id])}
+                    helperText={help || state.errors[id]}
+                    {...extraProps}
+                  >
+                    {options &&
+                      options.map(({ label, value }) => (
+                        <MenuItem key={value} value={value}>
+                          {label} 
+                        </MenuItem>
+                      ))}
+                  </TextField>:<TextField
                     className={classes.root}
                     label={!hastooltip && (required ? <>{ label}<sup>*</sup></>:<>{label}</>)}
                     fullWidth
@@ -772,7 +796,7 @@ const handlePlaceChange = (postalcode)=>{
                           {label} 
                         </MenuItem>
                       ))}
-                  </TextField>
+                  </TextField>}
                 </NoSsr>
               );
               break;

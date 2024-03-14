@@ -26,16 +26,19 @@ export function CatalogueRequestHomeSection(props: Props) {
         id: "first_name",
         type: "text",
         required:  true,
+        dontshrink:true,
       },
       {
         id: "last_name",
         type: "text",
         required: true,
+        dontshrink:true,
       },
       {
         id: "mail",
         type: "email",
         required: true,
+        dontshrink:true,
       },
       // {
       //   id: "mail_confirmation",

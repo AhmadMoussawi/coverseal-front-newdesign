@@ -63,6 +63,8 @@ export default function AchievementsCategoryPage({
             className="main-paragraph wysiwyg"
             dangerouslySetInnerHTML={{ __html: main_description }}
           />
+          </div>
+          <div className="section-container section-container-second">
           <ul className="projects">
             {projects.map((project, i) => (
               <li key={project.translations[0].main_title}>

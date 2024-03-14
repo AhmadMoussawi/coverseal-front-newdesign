@@ -293,7 +293,7 @@ partenair_link_text,
       </section>
 
 
-<section className="section coversealnew-section" data-color={Color.SAND}>
+<section className="section coversealnew-section" id="coverseal-section" data-color={Color.SAND}>
        
         <div className="content">
           <div className="text-container">
