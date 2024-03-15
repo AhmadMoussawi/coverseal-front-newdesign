@@ -309,7 +309,7 @@ export default function BlogsPage({
               className="main-title main-title--terra-cotta  header-title"
             >
               {main_title}
-              <span className="text-container"><h6>{main_description}</h6></span>
+              
               
             </h1></a>
             
@@ -328,6 +328,7 @@ export default function BlogsPage({
               )}
               </div>*/}
           </div>
+          <div className="text-container" style={{color:"black", marginBottom:"20px"}}><h6>{main_description}</h6></div>
           </div>
           </section>
            {/* </div>

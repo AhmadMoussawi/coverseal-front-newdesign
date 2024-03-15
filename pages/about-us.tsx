@@ -323,39 +323,39 @@ for (let i = 0; i < boxData.length; i += 3) {
       <section className="section image-box-two-section" data-color={Color.BEIGE} >
         <div className="container">
           <Grid container spacing={2}>
-            <Grid item sm={12} lg={2}  xs={12} spacing={2} >
+            <Grid item sm={6} lg={2}  xs={6} spacing={2} >
               <div className="boxpair">
               <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{installation_effectue_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{installation_effectue_title}</div></div>
+                <div className="boxnumber">{installation_effectue_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{installation_effectue_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
             </Grid>
-            <Grid item spacing={2} lg={2} sm={12}  xs={12}>
+            <Grid item spacing={2} lg={2} sm={6}  xs={6}>
             <div className="boximpair">
             <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-anthracite)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{countries_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{countries_title}</div></div>
+                <div className="boxnumber">{countries_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{countries_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div></div>
             </Grid>
-            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <Grid item sm={6} lg={2} xs={6} spacing={2}>
             <div className="boxpair">
             <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-white)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}>{years_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{years_title}</div></div>
-                <div style={{height:"40px"}}></div>
+                <div className="boxnumber adaptedboxnumber">{years_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{years_title}</div></div>
+                <div className="belowyearsnumber" style={{height:"40px"}}></div>
               </div></div>
             </Grid>
-            <Grid item sm={12} lg={2} xs={12} spacing={2}>
+            <Grid item sm={6} lg={2} xs={6} spacing={2}>
             <div className="boximpair">
             <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"60px"}}><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div style={{fontSize:"12px", marginTop:"-30px"}}>{quality_title}</div></div>
+                <div><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div className="boxtitle adaptedboxtitle" style={{marginTop:"-30px"}}>{quality_title}</div></div>
                 
               </div></div>
             </Grid>
-            <Grid item sm={12} lg={2} xs={12} spacing={2}>
-            <div className="boxpair">
+            <Grid item sm={6} lg={2} xs={6} spacing={2}>
+            <div className="boxpair lastbox">
             <div style={{verticalAlign:"middle", textAlign:"center", padding:"40px 20px 30px 20px", backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
-            <div style={{fontSize:"12px"}}>{more_then}</div><div style={{fontSize:"60px", marginTop:"-30px"}}>{collaborator_number}<div style={{fontSize:"12px", marginTop:"-30px"}}>{collaborator_title}</div></div>
+            <div style={{fontSize:"12px"}}>{more_then}</div><div className="boxnumber" style={{marginTop:"-30px"}}>{collaborator_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{collaborator_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
@@ -417,7 +417,7 @@ for (let i = 0; i < boxData.length; i += 3) {
       </section>
       </main>
 
-      <section  className="section image-box-two" data-color={Color.BEIGE} style={{paddingTop:"30px"}}>
+      <section  className="section image-box-two" data-color={Color.BEIGE} style={{paddingTop:"30px", paddingBottom:"30px"}}>
         <div className="section-container">
           <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{history_title}</h1>
           <div
@@ -448,14 +448,14 @@ for (let i = 0; i < boxData.length; i += 3) {
                   direction={AnimationDirection.BOTTOM_TO_TOP}
                   style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                 /> 
-                <Grid container spacing={2}>
-                        <Grid item xs={6} lg={4}>
+                <Grid container spacing={2} style={{marginTop:"10px"}}>
+                        <Grid item xs={4} lg={4}>
                           <Image id={company_image_2} title="image" />
                           </Grid>
-                          <Grid item xs={6} lg={4}>
+                          <Grid item xs={4} lg={4}>
                           <Image id={company_image_3} title="image" />
                           </Grid>
-                          <Grid item xs={6} lg={4}>
+                          <Grid item xs={4} lg={4}>
                           <Image id={company_image_4.id} title="image" />
                           </Grid>
                   </Grid>
@@ -492,7 +492,7 @@ for (let i = 0; i < boxData.length; i += 3) {
     </section>
 
     {/*text image  */}
-    <section className="section first-section" data-color={Color.BEIGE} style={{padding:"100px"}}>
+    <section className="section first-section" data-color={Color.BEIGE} style={{paddingTop:"50px"}}>
         <div className="section-container">
           <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{network_title}</h1>
           <div

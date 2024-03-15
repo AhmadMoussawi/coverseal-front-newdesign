@@ -116,7 +116,7 @@ export function CatalogRequestSection(props: Props) {
             {catalog_request_title}
           </h3>
         )}
-        {form_title && <div style={{fontWeight:"500", fontSize:"20px"}}>{form_title}</div>}
+        {form_title && <div className="formtitle">{form_title}</div>}
         <Form
           id="catalog_request"
           formsMessages={formsMessages}

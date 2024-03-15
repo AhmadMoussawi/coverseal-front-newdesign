@@ -104,6 +104,9 @@ export function AfterSaleSection(props: Props) {
       {
         id: "problem_description",
         type: "text",
+        textarea:true,
+        rows:4,
+        maxRows:10,
         required: true,
       },
       // {
@@ -149,7 +152,7 @@ export function AfterSaleSection(props: Props) {
           className="wysiwyg"
           dangerouslySetInnerHTML={{ __html: after_sale_sentence }}
         />
-        {form_title && <div style={{fontWeight:"500", fontSize:"19px", margin:"10px 0"}}>{form_title}</div>}
+        {form_title && <div className="formtitle" style={{margin:"10px 0"}}>{form_title}</div>}
         <Form
           id="after_sale"
           submit_text={submit_text}

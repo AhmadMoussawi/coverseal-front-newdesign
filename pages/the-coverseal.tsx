@@ -932,12 +932,19 @@ comfort_button_text,
         mobile_step_two_title={mobile_step_two_title}
         next_btn_title={next_btn_title}
       /> */}
+      <section className="section pr-first-section" data-color={Color.BEIGE}>
+        <div className="section-container">
+          <h2 className="subtitle-argesta subtitle-argesta--terra-cotta">{pricerequest.main_title}</h2>
+          <p>{pricerequest.main_description}</p>
+        </div>
+      </section>
       <PriceRequestSection
       
       {...globalSection.priceRequest}
       formsMessages={globalSection.formsMessages}
       locale={locale}
       form_title={""}
+      noTitle
       step_one_title={step_one_title}
       step_two_title={step_two_title}
       mobile_step_one_title={mobile_step_one_title}

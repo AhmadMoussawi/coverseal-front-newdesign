@@ -102,6 +102,7 @@ label + .MuiInput-formControl {
       }
 
       @media (max-width: 768px) {
+       
         &.demand-field {
           order: -1;
         }
@@ -310,7 +311,12 @@ label + .MuiInput-formControl {
   .success-form {
     text-align: center;
   }
-
+.legal-container{
+  @media(max-width:768px)
+  {
+    margin-top:20px;
+  }
+}
   .fields {
     display: flex;
     flex-wrap: wrap;
@@ -339,6 +345,7 @@ label + .MuiInput-formControl {
       }
 
       @media (max-width: 768px) {
+        margin:10px 0;
         &.demand-field {
           order: -1;
         }
@@ -514,7 +521,7 @@ label + .MuiInput-formControl {
     margin-bottom: 0;
   }
   [data-field="coverseal_reference_number"] label {
-    font-size: 13px;
+    font-size: 13px !important;
     line-height: 20px;
     margin-top: -15px;
   }

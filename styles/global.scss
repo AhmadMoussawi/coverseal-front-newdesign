@@ -42,6 +42,17 @@ body {
   padding: 0;
   overflow: auto !important
 }
+.formtitle{
+  font-weight:500;
+  font-size:20px;
+  @media(max-width:768px)
+  {
+    font-size:17px;
+  }
+}
+textarea{
+  padding:10px 5px !important;
+}
 .parafourtlines{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -146,7 +157,9 @@ button {
   }
 
   @media (max-width: 580px), (max-height: 500px) {
-    font-size: 3rem;
+    font-size: 35px !important;
+    margin-bottom:20px;
+    padding-right:0px;
   }
 }
 
@@ -1364,7 +1377,8 @@ section {
       .content {
         flex-direction: column;
         left:5%;
-        margin:10px
+        margin:10px;
+        margin-top:0px
       }
 
       .image-container {
@@ -1454,6 +1468,8 @@ form {
   @media (max-width: 768px) {
     .field-group {
       order: 1;
+      margin:15px 0 !important;
+      padding-right:0px !important
     }
 
     /*[data-field="city"] {
@@ -1653,5 +1669,5 @@ form {
   padding:0px;
 }
 .MuiAlert-action{
-  margin-right:0px
+  margin-right:0px !important
 }

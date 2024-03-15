@@ -518,7 +518,7 @@ dealer_link_text
         />
         <div style={{position:"absolute", width:"100%", height:"100%", backgroundColor:"rgba(0,0,0,.5)", top:"0px", left:"0px"}}></div>
               <div className="text-container">
-                <h1 className="subtitle-argesta subtitle-argesta--white">
+                <h1 className="subtitle-argesta subtitle-argesta--white backgroundtitle">
                   {coverseal_partners_title}
                 </h1>
                 
@@ -773,7 +773,7 @@ dealer_link_text
 <section className="section partenaire-ideal-section" data-color={Color.ANTHRACITE}>
         <div className="content">
           <div className="text-container">
-            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{fontSize:"3rem"}}>
+            <h2 className="subtitle-argesta subtitle-argesta--terra-cotta partnertitle" style={{fontSize:"3rem"}}>
                 {partner_profile_title}
               </h2>
           <div className="mobile-image">

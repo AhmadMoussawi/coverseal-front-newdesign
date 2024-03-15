@@ -16,6 +16,13 @@
     align-items: flex-start;
     //flex-direction: column;
   }
+  .main-title h1{
+    @media(max-width:768px)
+    {
+      padding-right:0px;
+      font-size:40px;
+    }
+  }
 .mobile-image{
   display:none;
 }
@@ -42,6 +49,9 @@
   }
   @media(max-width:768px)
   {
+    .text-container {
+      width:100%
+    }
     .mobile-image{
       display:block;
     }
@@ -190,6 +200,10 @@ display:none;
   font-size: 2.31rem;
   margin-top:50px;
   font-weight:500;
+  @media(max-width:768px)
+  {
+    font-size:25px;
+  }
 }
 
 .before-configurator-template .step-list .wysiwyg {
@@ -319,24 +333,28 @@ display:none;
     }
   }
 
-  @media (max-width: 768px), (max-height: 500px) {
+  @media (max-width: 768px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 50px 0;
     padding: 0 !important;
-
-    h2 {
-      margin-top: 30px !important;
+    .number{
+      margin-right:10px !important;
+      font-size:70px;
     }
-
+    h2 {
+      margin-top: 0px !important;
+      margin-bottom:0px !important;
+      font-size:17px
+    }
+    p{
+      font-size:13px
+    }
     .line {
       display: none;
     }
   }
 
-  @media (max-width: 580px), (max-height: 500px) {
-    flex-direction: column;
-  }
 }
 
 // shapes
@@ -440,7 +458,7 @@ display:none;
     }
   }
 
-  @media (max-width: 768px), (max-height: 500px) {
+  @media (max-width: 768px) {
     #shape-1,
     #shape-2,
     #shape-3,
@@ -450,7 +468,7 @@ display:none;
     }
 
     .link-container {
-      padding: 150px 0;
+      padding: 0px 0;
     }
 
     .center-circle-link {
@@ -507,8 +525,10 @@ display:none;
 
   @media (max-width: 580px), (max-height: 500px) {
     flex-direction: column;
-    margin: 50px 0;
-
+    margin: 0px 0;
+    h2{
+      font-size:40px;
+    }
     .text-container,
     .circle-link {
       width: 100%;

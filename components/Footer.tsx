@@ -254,7 +254,7 @@ export function Footer({
                   </Link>
           </div>
           
-          <div className="flex-child" style ={{left:"80%"}}>{size.width > 580 && socialNetworks}</div>
+          <div className="flex-child" style ={{left:"80%"}}>{socialNetworks}</div>
         </div>
           
 
