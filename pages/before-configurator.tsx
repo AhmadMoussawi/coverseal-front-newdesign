@@ -179,11 +179,9 @@ export default function BeforeConfiguratorPage({
                 abs
               </a>
             </Link> */}
-<Link href={configuratorLink} passHref target="_blank">
-                            <a className="link-before-translate link-before-translate--terra-cotta" style={{fontFamily:"Poppins"}}>
+                            <a href={configuratorLink} target="_blank" className="link-before-translate link-before-translate--terra-cotta" style={{fontFamily:"Poppins"}}>
                               {configurator_link_text}
                             </a>
-              </Link>
       
           </div>
 <div className="desktop-image">
@@ -263,11 +261,9 @@ export default function BeforeConfiguratorPage({
               </svg>
             </div>
             <div className="link-container">
-            <Link href={configuratorLink} passHref target="_blank">
-                            <a className="link-before-translate link-before-translate--terra-cotta" style={{fontFamily:"Poppins"}}>
+                            <a href={configuratorLink} target="_blank" className="link-before-translate link-before-translate--terra-cotta" style={{fontFamily:"Poppins"}}>
                               {configurator_link_text}
                             </a>
-              </Link>
               {/* <CircleCenterLink
                 text={configurator_last_link_text}
                 href={configuratorLink}

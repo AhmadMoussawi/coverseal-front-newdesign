@@ -6,6 +6,7 @@ import { translateInFromRightToLeft } from "../animations/appearing/shared";
 import { CMS_PUBLIC_URL } from "../utils/constants";
 import { getLocale } from "../utils/locale";
 import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import { useRouter } from "next/router";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -17,8 +18,9 @@ export default function DocumentsPage({
   pageProps,
   layoutProps,
 }: PageProps<DocumentsTemplateDirectus>) {
-  const { main_title, main_paragraph, files , locale} = pageProps.translations[0];
-
+  const { main_title, main_paragraph, files } = pageProps.translations[0];
+  const router = useRouter();
+const cmsLocale = getLocale(router.locale)
   useEffect(() => {
     appearingAnimations();
   }, []);
@@ -56,7 +58,7 @@ export default function DocumentsPage({
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
-        locale={locale}
+        locale={cmsLocale}
       />
     </main>
   );

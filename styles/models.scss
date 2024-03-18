@@ -85,7 +85,10 @@
         a{
           font-size: small;
           text-transform: uppercase;
-          width: 12ch;
+          width: 13ch;
+          text-overflow: ellipsis;
+          overflow: hidden;
+
         }
       }        
     }

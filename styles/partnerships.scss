@@ -331,7 +331,8 @@ width: 100%; /* or specify a fixed width */
       padding-right:0px;
     }
     .wysiwyg{
-      font-size:12px;
+      font-size:13px;
+      margin-top:-10px;
     }
     .content{
       width:100%;
@@ -353,8 +354,9 @@ display: none;
     .text-container{        
       position: absolute;
       text-align: left;
-    width:90%;
-    padding-left:5%;
+    width:95%;
+    padding-left:4%;
+    top:0%
     }
   }
 }

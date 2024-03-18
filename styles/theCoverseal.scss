@@ -577,6 +577,12 @@ h6{
       display: inline-block;
       margin-left: calc(100% - 168px);
     }
+    .wysiwyg{
+      a{
+        display:inline;
+        margin-left:0px;
+      }
+    }
 
     .link-underline {
       &::before {

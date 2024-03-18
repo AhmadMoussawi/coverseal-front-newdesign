@@ -54,7 +54,7 @@ export function CatalogRequestSection(props: Props) {
       {
         id: "zip_code",
         type: "text",
-        required: false,
+        required: true,
         help: (
           <span  style={{color:"red"}}
             className="Mui-error"

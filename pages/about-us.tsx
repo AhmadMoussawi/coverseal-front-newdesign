@@ -325,7 +325,7 @@ for (let i = 0; i < boxData.length; i += 3) {
           <Grid container spacing={2}>
             <Grid item sm={6} lg={2}  xs={6} spacing={2} >
               <div className="boxpair">
-              <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
+              <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
                 <div className="boxnumber">{installation_effectue_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{installation_effectue_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
@@ -333,28 +333,28 @@ for (let i = 0; i < boxData.length; i += 3) {
             </Grid>
             <Grid item spacing={2} lg={2} sm={6}  xs={6}>
             <div className="boximpair">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-anthracite)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
+            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-anthracite)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
                 <div className="boxnumber">{countries_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{countries_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div></div>
             </Grid>
             <Grid item sm={6} lg={2} xs={6} spacing={2}>
             <div className="boxpair">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-white)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
+            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-white)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
                 <div className="boxnumber adaptedboxnumber">{years_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{years_title}</div></div>
                 <div className="belowyearsnumber" style={{height:"40px"}}></div>
               </div></div>
             </Grid>
             <Grid item sm={6} lg={2} xs={6} spacing={2}>
             <div className="boximpair">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div className="boxtitle adaptedboxtitle" style={{marginTop:"-30px"}}>{quality_title}</div></div>
+            <div className="madeinbelgium" style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+                <div><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div className="boxtitle adaptedboxtitle" style={{marginTop:"-10px"}}>{quality_title}</div></div>
                 
               </div></div>
             </Grid>
             <Grid item sm={6} lg={2} xs={6} spacing={2}>
             <div className="boxpair lastbox">
-            <div style={{verticalAlign:"middle", textAlign:"center", padding:"40px 20px 30px 20px", backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
+            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"40px 20px 30px 20px", backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
             <div style={{fontSize:"12px"}}>{more_then}</div><div className="boxnumber" style={{marginTop:"-30px"}}>{collaborator_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{collaborator_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>

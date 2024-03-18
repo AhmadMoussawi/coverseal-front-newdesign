@@ -112,7 +112,10 @@ export default function FAQPage({
       return;
     }
     setIsLoading(true);
-    fetch("/api/elastic-search", {
+    var filteredq = questions.filter(x=> x.translations.filter(z=>(z.content.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) || (z.question!=null && z.question.includes(debouncedSearchTerm.toLowerCase())) || (z.keywords!=null && z.keywords.includes(debouncedSearchTerm.toLowerCase()))) && z.languages_code.includes(locale.split('-')[0])).length>0) as FAQQuestionDirectus[];
+      setQueryResponse(filteredq);
+      setIsLoading(false);
+    /*fetch("/api/elastic-search", {
       method: "POST",
       body: JSON.stringify({
         searchTerm: debouncedSearchTerm,
@@ -126,7 +129,7 @@ export default function FAQPage({
         }
         // here display an indication about an error
         setIsLoading(false);
-      });
+      });*/
   }, [debouncedSearchTerm]);
 
   const questionTargeted = useMemo(() => {

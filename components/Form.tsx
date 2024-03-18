@@ -74,7 +74,7 @@ const CustomCheckbox = withStyles({
 
 interface Props {
   color:string | undefined;
-  id: "partnerships" | "price_request" | "catalog_request" | "after_sale";
+  id: "partnerships" | "price_request" | "catalog_request" | "catalog_request_home" | "after_sale";
   formsMessages: FormMessagesContent;
   submit_text: string;
   fields: any[];
@@ -160,19 +160,89 @@ export function Form({
     "first_name",
     "last_name",
     "mail",
+    "mail_confirmation",
+    "coverseal_reference_number",
     "phone",
     "problem_description",
-    "message",
+    //"message",
     "language",
     "address",
     "zip_code",
     "city",
     "country",
   ];
-  const catalogrequestRF = ["mail", "language","zip_code"];
+  const catalogrequestRF = ["last_name","first_name","mail","mail_confirmation", "language","zip_code"];
+  const catalogrequestHomeRF = ["last_name","first_name","mail"];
   const partnershipsRF = ["mail", "language", "country", "type", "zip_code"];
   const classes = useStyles();
+  const validateStepOne = ()=>{
+    var errorfound = false;
+    fields.forEach(field=>{
+      var fieldName = field.id;
+      var value = state[field.id];
+      setState((prevState) => {
+        const { errors } = prevState;
+        let match;
+    switch (fieldName) {
+      case "mail":
+        match = value.toString().match(MAIL_REGEXP);
+        if (!match) {
+          errors[fieldName] = wrong_email;
+        } else {
+          const address = value.toString().split('@').pop()
+          var found = wildcards.indexOf(address)>-1;//.filter(x=>address.includes(x));
+if(found == true)
+{
+errors[fieldName] = wrong_email;
+}
+else{
+delete errors[fieldName];
+}
+         
+        }
 
+        break;
+      case "mail_confirmation":
+        if (value !== prevState.mail) {
+          errors[fieldName] = wrong_email_confirmation;
+        } else {
+          delete errors[fieldName];
+        }
+        
+        break;
+      default:
+        
+          for(let i=0;i<pricerequestRF.length;i++)
+          {
+            if(fieldName == pricerequestRF[i] && field.step == 1)
+            {
+              if(value.toString()=="")
+              {
+                errorfound = true;
+                errors[fieldName] = "This field is required";
+              }
+            
+            else{
+              delete errors[fieldName];
+            }
+          }
+          }
+        
+        break;
+    }
+    return {
+      ...prevState,
+      errors,
+      [fieldName]: value,
+    };
+  });
+      
+    })
+    if(!errorfound)
+    {
+      setFormStep(2)
+    }
+  };
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       
@@ -257,6 +327,21 @@ export function Form({
                 for(let i=0;i<catalogrequestRF.length;i++)
                 {
                   if(fieldName == catalogrequestRF[i])
+                  {
+                    if(value.toString()=="")
+                      errors[fieldName] = "This field is required";
+                  
+                  else{
+                    delete errors[fieldName];
+                  }
+                }
+                }
+            }
+            else if(id == "catalog_request_home")
+              {
+                for(let i=0;i<catalogrequestHomeRF.length;i++)
+                {
+                  if(fieldName == catalogrequestHomeRF[i])
                   {
                     if(value.toString()=="")
                       errors[fieldName] = "This field is required";
@@ -362,7 +447,7 @@ console.log("FILES",files);
         });
         return;
       }
-      const postalcode = document.querySelector<HTMLInputElement>("#zip_code").value;
+      const postalcode = document.querySelector<HTMLInputElement>("#zip_code")?document.querySelector<HTMLInputElement>("#zip_code").value:"";
       //const countryval = document.querySelector<HTMLInputElement>("#country").value;
       //console.log("COUNTRY",Object.entries(state));
       var validpostalcode = true;
@@ -404,7 +489,10 @@ console.log("FILES",files);
       setIsLoading(true);
       if(validpostalcode && isEmpty(state.errors))
       {
+        if(document.querySelector<HTMLSpanElement>("#zip_code_validation"))
+        {
         document.querySelector<HTMLSpanElement>("#zip_code_validation").innerText = '';
+        }
         console.log("Time to fetch", data);
         
       fetch(apiPath, {
@@ -639,7 +727,7 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && <Tooltip title={tooltip}>
-        <InputLabel htmlFor="my-textfield">{label} <InfoOutlinedIcon /></InputLabel>
+        <InputLabel htmlFor={id}>{label} <InfoOutlinedIcon /></InputLabel>
       </Tooltip>}
                   <PlacesAutocomplete
                   onChange={(postalcode,country, address, city)=>{
@@ -672,7 +760,7 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && <Tooltip title={tooltip}>
-        <InputLabel htmlFor="my-textfield">{label} <InfoOutlinedIcon /></InputLabel>
+        <InputLabel htmlFor={id}>{label} <InfoOutlinedIcon /></InputLabel>
       </Tooltip>}
                   <MuiPhoneNumber
                     defaultCountry={(() => {
@@ -729,7 +817,17 @@ const handlePlaceChange = (postalcode)=>{
                 </div>
               );
               break;
-            default:
+            case type === "hidden":
+              field = (
+                    <input
+                      name={id}
+                      id={id}
+                      type="hidden"
+                    />
+                    
+              );
+              break;
+              default:
               const extraProps = (() => {
                 if (id === "pool_width" || id === "pool_length") {
                   return {
@@ -745,7 +843,7 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && 
-        <InputLabel htmlFor="my-textfield">{required ? <>{label}<sup>*</sup></>:<>{label}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
+        <InputLabel htmlFor={id}>{required ? <>{state.errors[id] ? <span style={{color:"red", fontWeight:"bold"}}>{label}</span>:<span style={{fontWeight:"bold"}}>{label}</span>}<sup>*</sup></>:<>{state.errors[id] ? <span style={{color:"red"}}>{label}</span>:<span>{label}</span>}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
       }
                   {dontshrink ? <TextField
                     className={classes.root}
@@ -802,6 +900,7 @@ const handlePlaceChange = (postalcode)=>{
               break;
             }
           return (
+            type!=="hidden"?
             showfield && <div
               key={id}
               className={classNames({
@@ -811,7 +910,7 @@ const handlePlaceChange = (postalcode)=>{
               data-field={id} style={additionalstyle?additionalstyle:{}}
             >
               {field}
-            </div>
+            </div>:<>{field}</>
           );
         }
       ),
@@ -905,7 +1004,7 @@ const handlePlaceChange = (postalcode)=>{
           {submit_text}
         </button>:<a style={{cursor:"pointer"}}
           className={color?("link-before-translate link-before-translate--"+color+" submit"):"link-before-translate link-before-translate--anthracite submit"}
-          onClick={()=>{setFormStep(2);}}
+          onClick={()=>{validateStepOne();}}
         >
           {next_btn_title}
         </a>)

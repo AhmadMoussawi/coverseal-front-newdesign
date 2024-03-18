@@ -35,10 +35,22 @@ export function CatalogueRequestHomeSection(props: Props) {
         dontshrink:true,
       },
       {
+        id: "country",
+        type: "hidden",
+        required: false,
+        value:locale.split('-')[0],
+      },{
+        id: "zip_code",
+        type: "hidden",
+        required: false,
+        value:"0000",
+      },
+      {
         id: "mail",
         type: "email",
         required: true,
         dontshrink:true,
+        additionalstyle:{padding:"0px", paddingRight:"30px"}
       },
       // {
       //   id: "mail_confirmation",

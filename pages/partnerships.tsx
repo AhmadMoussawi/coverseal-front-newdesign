@@ -495,7 +495,7 @@ dealer_link_text
 
 
 <section className="section only-text-section" data-color={Color.BEIGE}>
-      <div className="content" style={{marginTop:"50px"}}>       
+      <div className="content">       
         <div className="text-container">                 
           <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_texttwo }} />          
         </div>        
