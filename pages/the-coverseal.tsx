@@ -146,9 +146,7 @@ comfort_button_text,
                     </Link>
                   </div>
                 </div> 
-                  {/* <div className="image-text">{security_title}
-                  <a href="#securite" className="btn">en savoir plus</a>
-                  </div> */}
+                
               </div>
             <div className="image-container">
             <Image
@@ -169,9 +167,7 @@ comfort_button_text,
                     </Link>
                   </div>
                 </div> 
-                  {/* <div className="image-text">{water_quality_title}
-                  <a href="#qualite" className="btn">en savoir plus</a></div> */}
-
+                  
               </div>
             <div className="image-container">
                 <Image
@@ -192,9 +188,7 @@ comfort_button_text,
                       </Link>
                     </div>
                   </div> 
-                  {/* <div className="image-text">{economy_title}
-                  <a href="#economie" className="btn">en savoir plus</a>
-                  </div> */}
+               
               </div>      
             <div className="image-container">
             <Image
@@ -215,9 +209,7 @@ comfort_button_text,
                     </Link>
                   </div>
                 </div> 
-                  {/* <div className="image-text">{security_title}
-                  <a href="#securite" className="btn">en savoir plus</a>
-                  </div> */}
+              
               </div>
             <div className="image-container">
             <Image
@@ -239,9 +231,7 @@ comfort_button_text,
                     </Link>
                   </div>
                 </div> 
-                  {/* <div className="image-text">{water_quality_title}
-                  <a href="#qualite" className="btn">en savoir plus</a></div> */}
-
+                 
               </div>
             </div>
         </section>
@@ -718,7 +708,7 @@ comfort_button_text,
 <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
       <div className="content" style={{margin:"auto", width:"90%"}}>
       
-      <Masonry columns={{md:2, sm:1}}>
+      {/* <Masonry columns={{md:2, sm:1}}> */}
             <div  className="item-container">
               <div className ="text-container" >
                   <h4 className="subtitle-argesta subtitle-argesta--white" >                   
@@ -733,14 +723,14 @@ comfort_button_text,
             </div>
             
             <div></div>
-          </Masonry>        
+          {/* </Masonry>         */}
   
         </div>
     </section>
 
 
 
-    <section className="section right-image-section" data-color={Color.BEIGE} id ="discretion">
+    <section className="section right-image-section" data-color={Color.BEIGE} id ="discretion" style={{ marginTop: '80px' }}>
       <div className="content">
        <div className="desktop-image">
       <Image
@@ -863,7 +853,7 @@ comfort_button_text,
 
         <section className="section six-section" data-color={Color.SAND}>
             <div className="content" style={{position:"relative"}}>
-              
+            <div className="shade-top"></div>
 
                 <Image
                   id={home.realisations_image.id}

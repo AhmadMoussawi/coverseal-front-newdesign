@@ -475,7 +475,8 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                     <div className="text-container">
                       <Link href={`/about-us`} passHref>
                         <a className="link-before-translate link-before-translate--terra-cotta">
-                          {home.partenair_link_text}
+                          {achievements_link_text}
+
                         </a>
                       </Link>
                       </div>
@@ -984,7 +985,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </Grid>
       </Grid>
       </section>
-    <section className="section-model-content-m2" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
+    <section className="section-model-content-m2" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)", paddingBottom:"50px"}}>
     <div style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", width:"auto", overflow:"hidden", backgroundColor:"var(--color-anthracite)"}}>
         
                  
@@ -1062,7 +1063,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
 
 
 
-<section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+<section className="section devis-section" data-color={Color.TERRA_COTTA} style={{ padding:"30px" }}>      
       <div className="content" style={{margin:"auto", width:"90%"}}>
       
       <Masonry columns={{md:2, sm:1}}>

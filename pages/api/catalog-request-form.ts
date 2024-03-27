@@ -65,8 +65,8 @@ const handler = nextConnect<NextApiRequest, CustomNextApiResponse>()
       withCatalog: true,
     })
   )
-  .post((req, res) => {
-    res.status(200).json({ status: "ok" });
-  });
+  // .post((req, res) => {
+  //   res.status(200).json({ status: "ok" });
+  // });
 
 export default handler;

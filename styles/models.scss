@@ -93,6 +93,12 @@
       }        
     }
     .devis-section{
+      // .content{
+      //   padding-top:30px !important;
+      //   padding-bottom: 30px !important;
+      // }
+      
+      color:#e4ded7;
       display: none;
     }
     .section-model-content-mobile{
@@ -281,6 +287,9 @@ h6{
 .grid-item[id="C"] {
   grid-column: span 1.5;
 }
+.grid-item[id="B"] {
+  text-transform: uppercase;
+}
 
 
 // @media (max-width: 768px) {
@@ -367,6 +376,7 @@ h6{
   .text-container{
     //position: absolute;
     //width: 40%;
+    
     height: 100%;
     top: 20%;
     right: 10%;

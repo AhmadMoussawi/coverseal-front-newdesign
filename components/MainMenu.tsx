@@ -244,8 +244,6 @@ export function MainMenu(props: Props) {
           </div>
           <nav>
             <div className="left" />
-            {/*  */}
-            
            <Grid container spacing={2} >
                 <Grid className="not-decorated" item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
                   <ul className="main-menu">
@@ -299,7 +297,7 @@ export function MainMenu(props: Props) {
               ))}
             </ul> */}
           </nav>
-          <div className="bottom">
+          
             {/* <div className="left">
               <div className="icon-container">
                 <Globe color={Color.TERRA_COTTA} />
@@ -318,7 +316,10 @@ export function MainMenu(props: Props) {
                 onChange={onLanguageChange}
               />
             </div> */}
-            <ul className="sub-menu" style={{justifyContent:"space-between"}}>
+            <div className="bottom">
+            
+            
+            <ul className="sub-menu" style={{justifyContent:"flex-start", paddingLeft: "8%"}}>
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
@@ -351,7 +352,7 @@ export function MainMenu(props: Props) {
                 }
             })}
             </ul>
-            
+       
           </div>
           <div className="bottom">
             <br/>

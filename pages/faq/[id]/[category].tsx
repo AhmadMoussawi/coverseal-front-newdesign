@@ -189,7 +189,7 @@ export default function FAQPage({
     <>
     <StructuredData data={structuredData}  id="faqs-data" />
     <main className="faq-template">
-      <section className="section first-section" data-color={Color.WHITE}>
+      <section className="section first-section" data-color={Color.WHITE} style={{paddingBottom:"0px"}}>
         <div className="section-container">
           <div className="title-container">
             <h1

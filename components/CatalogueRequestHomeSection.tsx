@@ -105,25 +105,28 @@ export function CatalogueRequestHomeSection(props: Props) {
     ],
     [countries]
   );
-  
+  const labelStyle = { color: '#808080' };
   return (
     <section
       className="section catalogue-request-home-section catalog-request-section"
       data-color={Color.ANTHRACITE}
     >
       <div className="section-container">
-        {/* {!noTitle && (
+        {!noTitle && (
           <h3 className="subtitle-argesta subtitle-argesta--white">
             {catalog_request_title}
           </h3>
-        )} */}
+        )}
         <Form
         color="white"
           id="catalog_request"
           formsMessages={formsMessages}
           submit_text={submit_text}
           content={props}
-          fields={fields}
+          fields={fields.map(field => ({
+            ...field,
+            labelStyle: labelStyle // Apply label style to each field
+          }))}
           apiPath="/api/catalog-request-form"
         />
       </div>

@@ -339,7 +339,7 @@ export default function BlogsPage({
           { */}
             <section className="section first-section" data-color={Color.BEIGE}>
             <div className="section-container">
-              {!queryResponse ? (
+              {/* {!queryResponse ? (
                 <>
                 <Tabs
                 variant="scrollable"
@@ -426,7 +426,7 @@ export default function BlogsPage({
                 <h2 className="subtitle-argesta subtitle-argesta--anthracite">
                   {queryResponse.length === 0 ? no_result_text : result_text}
                 </h2>
-              )}
+              )} */}
               
       <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects"> 
         

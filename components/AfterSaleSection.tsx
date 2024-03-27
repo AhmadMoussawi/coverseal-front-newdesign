@@ -128,13 +128,13 @@ export function AfterSaleSection(props: Props) {
   const title = useMemo(() => {
     if (props.withH1) {
       return (
-        <h1 className="main-title main-title--terra-cotta">
+        <h1 className="subtitle-argesta subtitle-argesta--terra-cotta">
           {after_sale_title}
         </h1>
       );
     } else {
       return (
-        <h3 className="main-title main-title--terra-cotta">
+        <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
           {after_sale_title}
         </h3>
       );
@@ -144,7 +144,7 @@ export function AfterSaleSection(props: Props) {
   return (
     <section
       className="section price-request-section after-sale-section"
-      data-color={Color.BEIGE} 
+      data-color={Color.SAND} 
     >
       <div className="section-container">
         {title}
