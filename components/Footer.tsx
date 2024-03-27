@@ -161,14 +161,9 @@ export function Footer({
   const socialNetworks = useMemo(
     () => (
       <ul className="social-networks">
-        <li>
-          <a target="_blank" href={youtube_link}>
-            <Youtube color={Color.SAND} />
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href={linkedin_link}>
-            <Linkedin color={Color.SAND} />
+         <li>
+          <a target="_blank" href={instagram_link}>
+            <Instagram color={Color.SAND} />
           </a>
         </li>
         <li className="facebook">
@@ -177,10 +172,18 @@ export function Footer({
           </a>
         </li>
         <li>
-          <a target="_blank" href={instagram_link}>
-            <Instagram color={Color.SAND} />
+          <a target="_blank" href={linkedin_link}>
+            <Linkedin color={Color.SAND} />
           </a>
         </li>
+        <li>
+          <a target="_blank" href={youtube_link}>
+            <Youtube color={Color.SAND} />
+          </a>
+        </li>
+        
+        
+       
       </ul>
     ),
     []

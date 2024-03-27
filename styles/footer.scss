@@ -2,6 +2,7 @@
   padding: 50px 0;
   background: var(--color-anthracite);
   color: var(--color-white);
+  
 
   .button-container {
     margin-top: 30px;
@@ -86,6 +87,7 @@
 
 
   .legal {
+ 
     font-size: 1.125rem;
     list-style: none;
     padding: 0;
@@ -99,7 +101,7 @@
       display:inline-block;
       a {
         transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-
+        color : #808080;
         &:hover {
           color: var(--color-terra-cotta);
         }
@@ -162,15 +164,22 @@
     li{
       display:inline-block;
       width:40px;
+      margin-right: 20px;
+      width: 45px; /* Set width equal to height for square SVG elements */
+      height: 45px; /* Set height of SVG elements */
+      margin-right: 10px;
     }
     svg {
-      width: 20px;
+    //  width: 40px;
+      width: 45px; /* Allow the width to adjust based on the aspect ratio */
+      height: 100%;
       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .facebook {
       svg {
-        width: 10px;
+        width: 25px;
+        
       }
     }
 
@@ -179,6 +188,7 @@
       align-items: center;
       padding: 10px;
       width: 300px;
+     
       &:hover {
         svg {
           fill: var(--color-terra-cotta);
@@ -244,6 +254,7 @@
     .legal {
       text-align: left;
       font-size: 0.8rem;
+      
     }
   }
 }

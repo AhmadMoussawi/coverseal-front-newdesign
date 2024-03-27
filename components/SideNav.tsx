@@ -54,7 +54,9 @@ export function SideNav({
         <li>
           {/* <Link href="/price-request" passHref> */}
           <Link href="/catalog-request" passHref> 
-          <a className="price-request"><div className="text">{catalog_side_nav_link_text}</div></a>
+          <a className="price-request">
+            <div className="text">{catalog_side_nav_link_text}</div>
+            </a>
 
             {/* <a className="price-request">
               

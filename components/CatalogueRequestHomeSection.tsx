@@ -22,16 +22,17 @@ export function CatalogueRequestHomeSection(props: Props) {
 
   const fields = useMemo(
     () => [
-      {
-        id: "first_name",
-        type: "text",
-        required:  true,
-        dontshrink:true,
-      },
+     
       {
         id: "last_name",
         type: "text",
         required: true,
+        dontshrink:true,
+      },
+      {
+        id: "first_name",
+        type: "text",
+        required:  true,
         dontshrink:true,
       },
       {
@@ -111,11 +112,11 @@ export function CatalogueRequestHomeSection(props: Props) {
       data-color={Color.ANTHRACITE}
     >
       <div className="section-container">
-        {!noTitle && (
+        {/* {!noTitle && (
           <h3 className="subtitle-argesta subtitle-argesta--white">
             {catalog_request_title}
           </h3>
-        )}
+        )} */}
         <Form
         color="white"
           id="catalog_request"

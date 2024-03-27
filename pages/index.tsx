@@ -309,7 +309,7 @@ partenair_link_text,
        </div>
             <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: coverseal_paragraph }} />
             <Link href="/the-coverseal" passHref>
-              <a className="link-before-translate link-before-translate--anthracite">
+              <a className="link-before-translate link-before-translate--terra-cotta">
                 {coverseal_link_text}
               </a>
             </Link>
@@ -340,7 +340,7 @@ partenair_link_text,
             </Link>
                   </div>
                 
-                  <Grid container spacing={2}>
+                  <Grid container spacing={4}>
                   <Grid item xs={12} lg={4}>
 
                   <Image
@@ -396,7 +396,7 @@ partenair_link_text,
                     <Grid item xs={12}>
                       <div style={{marginTop:"20px"}}>
                     <Link href="/benefits" passHref>
-                          <a className="link-before-translate link-before-translate--anthracite">
+                          <a className="link-before-translate link-before-translate--terra-cotta">
                             {coverseal_link_text}
                           </a>
             </Link></div>
@@ -543,7 +543,7 @@ partenair_link_text,
           <Link href={`/models/${filteredmodels[0].id}/${slugify(filteredmodels[0].translations[0].main_title, {
             lower: true,
           })}`} passHref>
-            <a className="link-before-translate link-before-translate--anthracite">
+            <a className="link-before-translate link-before-translate--terra-cotta">
               {coverseal_link_text}
             </a>
           </Link>
