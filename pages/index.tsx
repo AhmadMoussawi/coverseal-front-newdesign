@@ -561,7 +561,7 @@ partenair_link_text,
 
       <section className="section six-section" data-color={Color.SAND}>
             <div className="content" style={{position:"relative"}}>
-              
+            <div className="overlay"></div>
 
         <Image
           id={realisations_image.id}

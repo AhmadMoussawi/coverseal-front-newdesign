@@ -728,9 +728,10 @@ comfort_button_text,
         </div>
     </section>
 
+    <section className="section right-image-section" data-color={Color.BEIGE}  style={{ padding: '30px' }}>
+      </section>
 
-
-    <section className="section right-image-section" data-color={Color.BEIGE} id ="discretion" style={{ marginTop: '80px' }}>
+    <section className="section right-image-section" data-color={Color.BEIGE} id ="discretion" style={{ paddingTop: '40px' }}>
       <div className="content">
        <div className="desktop-image">
       <Image

@@ -123,10 +123,11 @@ export function CatalogueRequestHomeSection(props: Props) {
           formsMessages={formsMessages}
           submit_text={submit_text}
           content={props}
-          fields={fields.map(field => ({
-            ...field,
-            labelStyle: labelStyle // Apply label style to each field
-          }))}
+          fields={fields}
+          // fields={fields.map(field => ({
+          //   ...field,
+          //   labelStyle: labelStyle // Apply label style to each field
+          // }))}
           apiPath="/api/catalog-request-form"
         />
       </div>
