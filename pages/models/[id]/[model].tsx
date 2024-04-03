@@ -473,7 +473,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                  
                   <div className="grid-item" id="E">
                     <div className="text-container">
-                      <Link href={`/about-us`} passHref>
+                      <Link href={`/achievements`} passHref>
                         <a className="link-before-translate link-before-translate--terra-cotta">
                           {achievements_link_text}
 
@@ -918,7 +918,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           </section> */}
 
     <section className="section-model-content" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
-    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>
+    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", backgroundColor:"var(--color-ANTHRACITE)"}}>
         
         <Grid item xs={6} lg={5}>
         <h3 className="subtitle-poppins"  style={{color:'white'}}>
@@ -926,7 +926,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
           </h3>
             <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />
         </Grid>
-        <Grid item xs={6} lg={7}>
+        <Grid item xs={6} lg={7} style={{height:"300px", overflow:"hidden"}}>
         <Image
            id={dressing_image}
            title="dressing image"
@@ -959,8 +959,8 @@ var filteredmodels = models.filter(x=>x.translations.filter(
 
   
     <section className="section-model-content" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
-    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", overflow:"hidden", backgroundColor:"var(--color-anthracite)"}}>
-        <Grid item xs={6} lg={5}>
+    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", backgroundColor:"var(--color-anthracite)"}}>
+        <Grid item xs={6} lg={5} style={{height:"300px", overflow:"hidden"}}>
                   <Image
                           id={options_images}
                           title="option image"

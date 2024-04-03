@@ -14,7 +14,7 @@ import slugify from "slugify";
 import { useRouter } from "next/router";
 // local
 import { CircleLink } from "../../../components/CircleLink";
-import { AfterSaleSection } from "../../../components/AfterSaleSection";
+import { AfterSaleFAQSection } from "../../../components/AfterSaleFAQSection";
 import {
   Fetcher,
   getAllPagePropsOnly,
@@ -189,7 +189,7 @@ export default function FAQPage({
     <>
     <StructuredData data={structuredData}  id="faqs-data" />
     <main className="faq-template">
-      <section className="section first-section" data-color={Color.WHITE} style={{paddingBottom:"0px"}}>
+      <section className="section first-section" data-color={Color.WHITE}>
         <div className="section-container">
           <div className="title-container">
             <h1
@@ -292,10 +292,9 @@ export default function FAQPage({
         />
       </section> */}
       {layoutProps.hasSAV && (
-        <AfterSaleSection
-          {...globalSection.afterSale}
-          formsMessages={globalSection.formsMessages}
-        />
+        <AfterSaleFAQSection
+          form_title={""} {...globalSection.afterSale}
+          formsMessages={globalSection.formsMessages}        />
       )}
 
 

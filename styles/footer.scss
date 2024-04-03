@@ -163,22 +163,21 @@
     margin-bottom: 50px;*/
     li{
       display:inline-block;
-      width:40px;
       margin-right: 20px;
-      width: 45px; /* Set width equal to height for square SVG elements */
+      width: 40px; /* Set width equal to height for square SVG elements */
       height: 45px; /* Set height of SVG elements */
       margin-right: 10px;
     }
     svg {
     //  width: 40px;
-      width: 45px; /* Allow the width to adjust based on the aspect ratio */
+      width: 30px; /* Allow the width to adjust based on the aspect ratio */
       height: 100%;
       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .facebook {
       svg {
-        width: 25px;
+        width: 15px;
         
       }
     }

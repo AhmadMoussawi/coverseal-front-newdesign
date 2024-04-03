@@ -241,7 +241,7 @@ const Layout: React.FC<Props> = ({
         
         <div className="initial-loader">
           <div className="image-container">
-            <Image src="/intro.gif" width="100%" height="100%" alt="intro animation with logo" />
+            <img src="/intro.gif" width="100%" height="100%" alt="intro animation with logo" />
           </div>
           <span className="link-underline">Skip</span>
         </div>

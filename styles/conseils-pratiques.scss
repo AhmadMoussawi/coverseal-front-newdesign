@@ -10,7 +10,6 @@
 .link-before-translate--terra-cotta:hover {
   color: var(--color-terra-cotta);
   background-color: var(--color-beige);
-  font-weight:bold;
 }
 .link-before-translate--terra-cotta:hover::before {
   background: var(--color-beige);
@@ -263,7 +262,6 @@ h6{
   }
   .is-selected{
     background-color:var(--color-beige);
-    font-weight:bold;
   }
 }
 
