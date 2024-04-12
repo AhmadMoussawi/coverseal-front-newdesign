@@ -37,6 +37,7 @@ import Date from '../components/date';
 import { PartialItem } from "@directus/sdk";
 import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
 import { Grid } from "@material-ui/core";
+import { Height } from "@material-ui/icons";
 
 
 const Label = styled(Paper)(({ theme }) => ({
@@ -281,17 +282,18 @@ partenair_link_text,
         <div className="text-container">
           <h1 className="main-title">{main_title}</h1>
         </div>
-        <ScrollDown          text={scroll_down_link_text}          target="coverseal-section"          color={Color.WHITE}        />
-        <a
+        {/* <ScrollDown          text={scroll_down_link_text}          target="coverseal-section"          color={Color.WHITE}        /> */}
+        {/* <a
           href="https://www.youtube.com/watch?v=MLJhLqqxUj0"
           target="_blank"
           className="video-icon-container"
         >
           <span>{video_link_text}</span>
           <VideoLink color={Color.WHITE} />
-        </a>
+        </a> */}
       </section>
 
+      <section className ="section spacing-section" data-color={Color.SAND} > </section>
 
 <section className="section coversealnew-section" id="coverseal-section" data-color={Color.SAND}>
        
@@ -325,11 +327,13 @@ partenair_link_text,
         
       </section>
 
+      <section className ="section spacing-section" data-color={Color.SAND}> </section>
 
 
         <section className="section benefits-section" data-color={Color.BEIGE}>
           
-                <div style={{ width:"80%", margin:"auto"}}>
+                <div className = "first-div">
+                  {/* style={{ paddingLeft:"160px", paddingRight:"160px", width:"calc(100% - 320px)", margin:"auto"}}> */}
                   <div className="title-container">
                   <Link href="/benefits" passHref>
               <a>
@@ -402,12 +406,12 @@ partenair_link_text,
             </Link></div>
                     </Grid>
                     </Grid>
-                    <div style={{height:"50px"}}></div>
              
           </div>
         </section>
 
-     
+        <section className ="section spacing-section" data-color={Color.BEIGE}> </section>
+
       {filteredmodels && filteredmodels.length>1 && <section
         className="section models-section"
         data-color={Color.ANTHRACITE}
@@ -523,6 +527,8 @@ partenair_link_text,
         
       </section>}
 
+      <section className ="section spacing-section" data-color={Color.SAND} > </section>
+
 
       {filteredmodels && filteredmodels.length>0 && 
       <section className="section coversealnew-section" data-color={Color.SAND}>
@@ -558,6 +564,8 @@ partenair_link_text,
       
     </section>}
 
+    <section className ="section spacing-section" data-color={Color.SAND} > </section>
+
 
       <section className="section six-section" data-color={Color.SAND}>
             <div className="content" style={{position:"relative"}}>
@@ -587,7 +595,8 @@ partenair_link_text,
               </div>     
         </section>
 
-      
+      <section className ="section spacing-section" data-color={Color.BEIGE} > </section>
+
         {filteredmodels && filteredmodels.length>0 && 
       <section className="section about-section" data-color={Color.BEIGE}>
       <div className="content">
@@ -620,10 +629,12 @@ partenair_link_text,
       </div>
       
     </section>}
+    <section className ="section spacing-section" data-color={Color.BEIGE} > </section>
 
 
     <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
+      <div className="content">
+         {/* style={{margin:"auto", width:"90%"}}> */}
       
       <Masonry columns={{md:2, sm:1}}>
             <div

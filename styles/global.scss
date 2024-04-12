@@ -107,15 +107,21 @@ textarea{
 }
 
 .section-container {
-  width: 80% !important;
-  margin: 0 auto;
+  width: calc(100% - 320px) !important;
+  margin: 0 0;
+  padding-left:160px;
+  padding-right:160px;
 
   @media (max-width: 768px), (max-height: 500px) {
-    width: 85% !important;
+    padding-left:44px;
+  padding-right:43px;
+    width: calc(100% - 87px) !important;
   }
 
   @media (max-width: 580px) {
-    width: 90% !important;
+    padding-left:44px;
+  padding-right:43px;
+    width: calc(100% - 87px) !important;
   }
 }
 
@@ -569,11 +575,11 @@ section {
 }
 
 .subtitle-argesta {
-  font-size: 3.1875rem;
+  font-size: 80px;
   font-family: "argesta_hairlineRgIt";
 
   @media (max-width: 580px) {
-    font-size: 2.5rem;
+    font-size: 40px;
   }
 }
 

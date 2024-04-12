@@ -323,8 +323,12 @@ label + .MuiInput-formControl {
   }
 }
   .fields {
+    width:800px;
     display: flex;
     flex-wrap: wrap;
+    @media (max-width: 768px) {
+      width:100%;
+    }
     .field-group {
       width: 50%;
       box-sizing: border-box;
@@ -351,6 +355,7 @@ label + .MuiInput-formControl {
 
       @media (max-width: 768px) {
         margin:10px 0;
+        width:344px;
         &.demand-field {
           order: -1;
         }

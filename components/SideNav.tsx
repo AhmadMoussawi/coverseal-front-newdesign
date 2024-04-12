@@ -77,6 +77,16 @@ export function SideNav({
             </Link>
           </li>
         )}
+         <li>
+          <Link href="/partnerships" passHref>
+          <a className="partnerships"><div className="text">{partnerships_side_nav_link_text}</div></a>
+            {/* <a className="partnerships">
+              
+              <Partnerships color={Color.TERRA_COTTA} />
+              <div className="text">{partnerships_side_nav_link_text}</div>
+            </a> */}
+          </Link>
+        </li>
         {hasSAV && (
           <li>
             <Link href="/after-sale" passHref>
@@ -89,16 +99,7 @@ export function SideNav({
             </Link>
           </li>
         )}
-        <li>
-          <Link href="/partnerships" passHref>
-          <a className="partnerships"><div className="text">{partnerships_side_nav_link_text}</div></a>
-            {/* <a className="partnerships">
-              
-              <Partnerships color={Color.TERRA_COTTA} />
-              <div className="text">{partnerships_side_nav_link_text}</div>
-            </a> */}
-          </Link>
-        </li>
+       
       </ul>
     </div>
   );

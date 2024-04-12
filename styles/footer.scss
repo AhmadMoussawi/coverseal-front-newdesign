@@ -195,6 +195,37 @@
         }
       }
     }
+
+    @media(max-width:768px)
+      {
+        .facebook {
+          svg {
+            width: 20px;
+            height :20px;            
+          }
+        }
+        li{
+          display:inline-block;
+          width:40px;
+          margin-right: 20px;
+          width: 20px; /* Set width equal to height for square SVG elements */
+          height: 20px; /* Set height of SVG elements */
+          margin-right: 10px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          padding: 2.5px;
+          width: calc(100% - 5px);
+         
+          &:hover {
+            svg {
+              fill: var(--color-terra-cotta);
+            }
+          }
+        }
+
+      }
   }
 
   .input {
