@@ -1,9 +1,9 @@
 # *
 User-agent: *
-Allow: /
+Disallow: /
 
 # Host
-Host: https://coverseal-stage.com
+Host: https://coverseal-stage.fr
 
 # Sitemaps
-Sitemap: https://coverseal-stage.com/sitemap.xml
+Sitemap: https://coverseal-stage.fr/sitemap.xml
