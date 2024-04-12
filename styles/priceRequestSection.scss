@@ -317,6 +317,9 @@ label + .MuiInput-formControl {
     text-align: center;
   }
 .legal-container{
+  .MuiFormControlLabel-label{
+    color:#808080
+  }
   @media(max-width:768px)
   {
     margin-top:20px;

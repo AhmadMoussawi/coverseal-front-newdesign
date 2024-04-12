@@ -466,6 +466,7 @@ partenair_link_text:string;
   about_link_text:string;
   coverseal_paragraph: string;
   coverseal_link_text: string;
+  benefits_link_text:string;
   gallery_link_text: string;
   models_title: string;
   models_link_text: string;

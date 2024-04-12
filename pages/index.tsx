@@ -149,6 +149,7 @@ partenair_link_text,
     about_link_text,
     coverseal_paragraph,
     coverseal_link_text,
+    benefits_link_text,
     video_mobile_placeholder,
     coverseal_image,
     coverseal_image_2,
@@ -401,7 +402,7 @@ partenair_link_text,
                       <div style={{marginTop:"20px"}}>
                     <Link href="/benefits" passHref>
                           <a className="link-before-translate link-before-translate--terra-cotta">
-                            {coverseal_link_text}
+                            {benefits_link_text}
                           </a>
             </Link></div>
                     </Grid>

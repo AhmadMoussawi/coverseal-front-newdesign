@@ -8,7 +8,7 @@ interface Props extends AfterSaleSectionContent {
   form_title:String;
 }
 
-export function AfterSaleSection(props: Props) {
+export function AfterSaleFAQSection(props: Props) {
   const {
     after_sale_title,
     submit_text,
@@ -128,13 +128,13 @@ export function AfterSaleSection(props: Props) {
   const title = useMemo(() => {
     if (props.withH1) {
       return (
-        <h1 className="main-title main-title--terra-cotta">
+        <h1 className="subtitle-argesta subtitle-argesta--terra-cotta">
           {after_sale_title}
         </h1>
       );
     } else {
       return (
-        <h3 className="main-title main-title--terra-cotta">
+        <h3 className="subtitle-argesta subtitle-argesta--terra-cotta">
           {after_sale_title}
         </h3>
       );

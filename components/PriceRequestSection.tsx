@@ -180,7 +180,7 @@ export function PriceRequestSection(props: Props) {
         {form_title && <div className="formtitle" style={{margin:"10px 0"}}>{form_title}</div>}
         
         <Form
-        color={undefined}
+        color={"terra-cotta"}
         setStep={undefined}
           id="price_request"
           formsMessages={formsMessages}
