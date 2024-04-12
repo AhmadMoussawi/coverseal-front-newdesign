@@ -1115,6 +1115,10 @@ display:none;
         flex-wrap: wrap;
       }
 
+      .colors li:first-child {
+        margin-left: 0; /* Set margin-left to 0 for the first li element */
+      }
+      
       .square {
         margin: 15px;
         width: 125px;
