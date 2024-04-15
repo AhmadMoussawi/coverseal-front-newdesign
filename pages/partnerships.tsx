@@ -243,7 +243,7 @@ dealer_link_text
       <div className="content">       
         <div className="text-container">
                       
-          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />         
+          <div className="paragraph wysiwyg" style={{fontSize:"25px"}} dangerouslySetInnerHTML={{ __html: about_coverseal_text }} />         
         </div>        
       </div>      
     </section>
@@ -414,9 +414,9 @@ dealer_link_text
               <div className="boxpair">
               <Image id={security_image.id} title="security_image" />
              <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
-                <div style={{fontSize:"3rem"}}>
+                <div style={{fontSize:"50px"}}>
                 <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{security_title}</h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
+                <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}  dangerouslySetInnerHTML={{ __html: security_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
               <a className="link-before-translate link-before-translate--terra-cotta">
@@ -431,9 +431,9 @@ dealer_link_text
             <div className="boximpair">
             <Image id={water_economy_image.id} title="isolation_image" className="hidenimage"/>
             <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
-            <div style={{fontSize:"2.5rem"}}>
+            <div style={{fontSize:"50px"}}>
             <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{water_economy_title}</h4>
-            <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_economy_paragraph }}></div></div>
+            <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_economy_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
               <a className="link-before-translate link-before-translate--terra-cotta">
                 {more_link_text}
@@ -445,8 +445,8 @@ dealer_link_text
             <div className="boxpair">
               <Image id={aesthetic_image.id} title="isolation_image" className="hidenimage"/>
               <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{aesthetic_title}</h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: aesthetic_paragraph }}></div></div>
+                <div style={{fontSize:"50px.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{aesthetic_title}</h4>
+                <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: aesthetic_paragraph }}></div></div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
               <a className="link-before-translate link-before-translate--terra-cotta">
@@ -460,8 +460,8 @@ dealer_link_text
             <div className="boximpair">
             <Image id={water_quality_image.id} title="water_quality_image" className="hidenimage"/>
             <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
-            <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{water_quality_title}</h4>
-            <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
+            <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{water_quality_title}</h4>
+            <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: water_quality_paragraph }}></div></div>
                 <Link href="/the-coverseal" passHref>
               <a className="link-before-translate link-before-translate--terra-cotta">
                 {more_link_text}
@@ -474,9 +474,9 @@ dealer_link_text
               <Image id={comfort_in_use_image.id
               } title="isolation_image" className="hidenimage"/>
               <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%", marginTop:"10px"}}>
-                <div style={{fontSize:"2.5rem"}}>
+                <div style={{fontSize:"50px"}}>
                 <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{comfort_in_use_title}</h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: comfort_in_use_paragraph }}></div>
+                <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}} dangerouslySetInnerHTML={{ __html: comfort_in_use_paragraph }}></div>
                 </div>
                 <div style={{height:"40px"}}></div>
                 <Link href="/the-coverseal" passHref>
@@ -493,6 +493,8 @@ dealer_link_text
     
       </section>
 
+
+      <section className ="section spacing-section" data-color={Color.SAND} > </section>
 
 <section className="section only-text-section" data-color={Color.BEIGE}>
       <div className="content">       
@@ -522,7 +524,7 @@ dealer_link_text
                   {coverseal_partners_title}
                 </h1>
                 
-                <div className="paragraph wysiwyg" style={{color:"white"}}  dangerouslySetInnerHTML={{ __html: coverseal_partners_text }} />  
+                <div className="paragraph wysiwyg" style={{color:"white", fontSize:"25px"}}  dangerouslySetInnerHTML={{ __html: coverseal_partners_text }} />  
                 
               </div>       
               </div>     
@@ -544,15 +546,15 @@ dealer_link_text
             <Grid item sm={12} lg={2}  xs={12} spacing={2} >
               <div className="boxpair">
               <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><img src="/Picto_Partenaire-01.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
+                <div style={{fontSize:"50px"}}><img src="/Picto_Partenaire-01.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
               </div>        
           
               <div style={{verticalAlign:"left", textAlign:"left", paddingTop:"20px",flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"3rem", fontFamily:"Poppins"}}>
+                <div style={{fontSize:"50px", fontFamily:"Poppins"}}>
                   <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
                   <table><tr><td valign="top"><img src="/Picto_Partenaire-01-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength1_title}</td></tr></table>
                   </h4>
-                  <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"Poppins"}}>
+                  <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"Poppins"}}>
                     {strength1_text}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
@@ -561,12 +563,12 @@ dealer_link_text
             <Grid item spacing={2} lg={2} sm={12}  xs={12}>
             <div className="boximpair">
             <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><img src="/Picto_Partenaire-02.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
+                <div style={{fontSize:"50px"}}><img src="/Picto_Partenaire-02.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
               </div></div>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"20px", flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+              <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
               <table><tr><td valign="top"><img src="/Picto_Partenaire-02-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength2_title}</td></tr></table></h4>
-              <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength2_text}</div></div></div>
+              <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength2_text}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
@@ -574,10 +576,10 @@ dealer_link_text
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-03.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div>
               <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+                <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
                 <table><tr><td valign="top"><img src="/Picto_Partenaire-03-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength3_title}</td></tr></table>
                   </h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength3_text}</div></div>
+                <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength3_text}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
@@ -588,10 +590,10 @@ dealer_link_text
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-04.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div></div>
               <div style={{verticalAlign:"middle", textAlign:"left", paddingLeft:"30px",paddingTop:"20px",flexDirection:"column", width:"100%"}}>
-              <div style={{fontSize:"60px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+              <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
               <table><tr><td valign="top"><img src="/Picto_Partenaire-04-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength4_title}</td></tr></table>
                 </h4>
-              <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength4_text}</div></div></div>
+              <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength4_text}</div></div></div>
             </Grid>
             <Grid item sm={12} lg={2} xs={12} spacing={2}>
             <div className="boxpair">
@@ -599,10 +601,10 @@ dealer_link_text
                 <div style={{fontSize:"60px"}}><img src="/Picto_Partenaire-05.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"0%"}}/></div>                
               </div>
               <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}}>
-                <div style={{fontSize:"2.5rem"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
+                <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
                 <table><tr><td valign="top"><img src="/Picto_Partenaire-05-mobile.svg" className="mobileimage" style={{width:"47.8px"}}/></td><td style={{verticalAlign:"top", paddingLeft:"10px"}}>{strength5_title}</td></tr></table>
                   </h4>
-                <div style={{fontSize:"1rem", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength5_text}</div></div>
+                <div style={{fontSize:"22px", marginTop:"-10px", color:"#343337", fontFamily:"poppins"}}>{strength5_text}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
               </div>
@@ -783,7 +785,7 @@ dealer_link_text
                 direction={AnimationDirection.BOTTOM_TO_TOP}
               />
           </div>
-            <div className="paragraph wysiwyg" style={{fontSize:"1rem"}} dangerouslySetInnerHTML={{ __html: partner_profile_text }} />            
+            <div className="paragraph wysiwyg" style={{fontSize:"25px"}} dangerouslySetInnerHTML={{ __html: partner_profile_text }} />            
           </div>
         <div className="desktop-image">
           <Image

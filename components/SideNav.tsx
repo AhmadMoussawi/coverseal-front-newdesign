@@ -41,16 +41,7 @@ export function SideNav({
           </Link>
         </li>
 
-        {/* <li>
-          <Link href="/catalog-request" passHref>
-          <a style={{ color: 'white', fontSize: '20px' }}>{price_request_side_nav_link_text}</a>
-       { <a>
-              
-              <Catalog color={Color.TERRA_COTTA} />
-              <div className="text">{catalog_side_nav_link_text}</div>
-            </a> }
-          </Link>
-        </li> */}
+      
         <li>
           {/* <Link href="/price-request" passHref> */}
           <Link href="/catalog-request" passHref> 
@@ -87,18 +78,30 @@ export function SideNav({
             </a> */}
           </Link>
         </li>
-        {hasSAV && (
+        {/* {hasSAV && (
           <li>
             <Link href="/after-sale" passHref>
-            <a className="after-sale" ><div className="text">{after_sale_side_nav_link_text}</div></a>
+            <a className="after-sale" ><div className="text">{after_sale_side_nav_link_text}</div></a> */}
               {/* <a className="after-sale">
                 
                 <AfterSale color={Color.TERRA_COTTA} />
                 <div className="text">{after_sale_side_nav_link_text}</div>
               </a> */}
-            </Link>
+            {/* </Link>
           </li>
-        )}
+        )} */}
+
+
+      <li>
+          <Link href="/catalog-request" passHref>
+          <a><div className="text"> {price_request_side_nav_link_text}</div></a>
+       {/* { <a>
+              
+              <Catalog color={Color.TERRA_COTTA} />
+              <div className="text">{catalog_side_nav_link_text}</div>
+            </a> } */}
+          </Link>
+        </li>
        
       </ul>
     </div>

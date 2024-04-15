@@ -156,7 +156,6 @@ export function AfterSaleFAQSection(props: Props) {
         <Form
           id="after_sale"
           submit_text={submit_text}
-          
           formsMessages={formsMessages}
           content={props}
           fields={fields}

@@ -1,6 +1,27 @@
 .partnerships-template {
 
   
+  .spacing-section{
+    height:80px; 
+    padding-top:0px;
+    padding-bottom:0px;
+
+    @media (max-width: 768px) {
+      height:41px;
+    }
+  }
+
+  .devis-section{
+    .h4{
+      font-size: 90px;
+    }
+    @media(max-width:768px)
+    {
+      .h4{
+        font-size: 40px;
+      }
+    }
+  }
 
   .section {
     overflow: hidden;
@@ -61,9 +82,11 @@
   .container {   
     display: block;
     justify-content: center;
-    width:110%;
+    width:100%;
     margin:auto;
-    margin-left:4%
+    //margin-left:4%
+    padding-left:130px;
+    padding-right:130px;
   }
   .boxpair{
     padding:0 30px
@@ -107,7 +130,9 @@ width: 100%; /* or specify a fixed width */
 .devenir-partenaire-section{
   padding-top:10px;
   .content{
-    padding: 20px 5% 20px 5%;
+    //padding: 20px 5% 20px 5%;
+    padding-left:160px;
+    padding-right:160px;
   }
 }
 
@@ -123,20 +148,26 @@ width: 100%; /* or specify a fixed width */
   
   //padding-bottom:10px;
   .content{
-    padding: 20px 5% 0px 5% !important;
+    padding-left:160px;
+    padding-right:160px;
+   // padding: 20px 5% 0px 5% !important;
   }
  
 }
 .only-title-section{
   .content{
-    padding: 20px 5% 20px 5%;
+    padding-left:160px;
+    padding-right:160px;
+    // padding: 20px 5% 20px 5%;
   }
 
 }
 .only-text-section{
   background-color: #fbf6f1;
   .content{
-    padding: 20px 5% 20px 5%;
+    padding-left:160px;
+    padding-right:160px;
+    // padding: 20px 5% 20px 5%;
   }
   
 }

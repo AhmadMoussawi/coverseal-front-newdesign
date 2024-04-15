@@ -32,7 +32,7 @@ function appearingAnimations() {
   translateInFromRightToLeft("[data-step='5']");
   translateInFromLeftToRight("[data-step='6']");
   translateInFromLeftToRight("[data-step='7']");
-  
+  translateInFromLeftToRight("[data-step='8']");
   gsap.fromTo(
     "#shape-1",
     {
@@ -221,6 +221,14 @@ export default function BeforeConfiguratorPage({
                     __html: pageProps[`content_step_${stepId}`],
                   }}
                 />
+                 {/* Add margin after data-step='3' */}
+                {stepId === 3 && (
+                  <style jsx>{`
+                    div[data-step='4'] {
+                      dispay:block; // Adjust the margin as needed
+                    }
+                  `}</style>
+                )}
               </div>
             ))}
             <svg id="shape-1" viewBox="0 0 692.17 325.75">
@@ -248,7 +256,7 @@ export default function BeforeConfiguratorPage({
                 />
               </svg>
             </div>
-            <div id="shape-4">
+            <div id="shape-4" >
               <svg viewBox="0 0 23 247">
                 <style type="text/css">{`.st0{fill:none;stroke:#7b331b;}`}</style>
                 <line className="st0" x1="11.5" y1="14" x2="11.5" y2="233" />
@@ -274,8 +282,8 @@ export default function BeforeConfiguratorPage({
         </div>
       </section>
       <section className="link-section" style={{paddingTop:"30px", paddingBottom:"30px"}} data-color={Color.TERRA_COTTA}>
-        <div className="text-container">
-          <h2 className="subtitle-argesta subtitle-argesta--white">{help_sentence}</h2>
+        <div className="text-container" style={{width:"calc(100% - 320px)"}}>
+          <h2 className="subtitle-argesta subtitle-argesta--white" style={{fontSize:"90px"}}>{help_sentence}</h2>
           {/* <Link href="/price-request" passHref>
             <a className="subtitle-argesta subtitle-argesta--terra-cotta link-underline">
               {contact_link_text}

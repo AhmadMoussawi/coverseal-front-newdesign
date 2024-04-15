@@ -144,12 +144,13 @@ export function AfterSaleSection(props: Props) {
   return (
     <section
       className="section price-request-section after-sale-section"
-      data-color={Color.SAND} 
+      data-color={Color.BEIGE} 
     >
       <div className="section-container">
         {title}
         <div
           className="wysiwyg"
+
           dangerouslySetInnerHTML={{ __html: after_sale_sentence }}
         />
         {form_title && <div className="formtitle" style={{margin:"10px 0"}}>{form_title}</div>}
@@ -164,5 +165,7 @@ export function AfterSaleSection(props: Props) {
         />
       </div>
     </section>
+
+    
   );
 }

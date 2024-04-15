@@ -23,7 +23,7 @@
 
 // TODO-2: standardize margin
 html {
-  font-size: 16px;
+  font-size: 25px !important;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -141,7 +141,7 @@ button {
 }
 
 .main-title {
-  font-size: 6.25rem;
+  font-size: 150px;
   margin-bottom: 50px;
   line-height: 1.25;
   white-space: pre-wrap;
@@ -1442,6 +1442,10 @@ section {
     flex: unset !important;
     text-transform: none !important;
     white-space: initial;
+  }
+  .MuiSvgIcon-root {
+    width: 40px;
+    height: 40px;
   }
 }
 
