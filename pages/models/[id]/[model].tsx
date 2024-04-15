@@ -973,7 +973,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                               {options_title}
                             </h3>
            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
-                <ul className="options" style={{color:'white'}}>
+                <ul className="options" style={{ color: 'white', listStyleType: 'disc' }} >
                   {options_items.map(({ option_name, option_text }) => (
                     <OptionItem
                       key={option_name}

@@ -469,7 +469,7 @@ for (let i = 0; i < boxData.length; i += 3) {
 
 {/* section text and link  */}
 <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
+      <div className="content" >
       
       <Masonry columns={{md:2, sm:1}}>
             <div
@@ -486,7 +486,7 @@ for (let i = 0; i < boxData.length; i += 3) {
               </Link>
               </div></div>
             
-            <div></div>
+           
           </Masonry>     
         </div>
     </section>
@@ -527,7 +527,7 @@ for (let i = 0; i < boxData.length; i += 3) {
           
             <Masonry columns={{md:2, sm:1}}>
               
-         <div className="item-container">&nbsp;</div>
+         <div className="item-container" id = "itemcont">&nbsp;</div>
             <div className="item-container">
             <div className ="text-container" style={{textAlign:"right"}} >
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   

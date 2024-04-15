@@ -1,12 +1,37 @@
 .about-us-template {
   color: var(--color-white);
 
-  
+  .devis-section{
+    .content{
+      padding-left:160px;
+    }
+    .subtitle-argesta{
+      font-size:90px;
+      width:1240px;
+    }
+    .link-before-translate {
+      font-size:30px;
+    }
+    
+    #itemcont{
+      width:400px;
+    }
+
+    @media (max-width: 768px){
+      .subtitle-argesta{
+        font-size:40px;
+        width:344px;
+      }
+      .link-before-translate {
+        font-size:14px;
+      }
+    }
+  }
   // .image-box-two-section{
   //   display: block;
   // }
   @media (max-width: 768px){
-    
+   
   }
 
 
@@ -36,6 +61,8 @@
     //   gap: 5px;
     // }
     .image-box-two-section {
+      padding-bottom:0px;
+      padding-top:0px;
       .container {
         display: block;
         justify-content: center;
@@ -125,7 +152,10 @@
     padding-bottom: 50px;
 
    .main-title{
-      font-size: 5rem;
+      font-size: 150px;
+      @media (max-width: 768px) {
+        font-size: 44px;
+      }
     }
 
     @media (max-width: 768px) {

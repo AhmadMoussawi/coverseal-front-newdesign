@@ -44,10 +44,10 @@ body {
 }
 .formtitle{
   font-weight:500;
-  font-size:20px;
+  font-size:40px;
   @media(max-width:768px)
   {
-    font-size:17px;
+    font-size:19px;
   }
 }
 textarea{
@@ -158,9 +158,12 @@ button {
     color: var(--color-white);
   }
 
-  @media (max-width: 1200px) {
-    font-size: 5rem;
+  @media(max-width: 786px){
+    font-size: 44px;
   }
+  // @media (max-width: 1200px) {
+  //   font-size: 5rem;
+  // }
 
   @media (max-width: 580px), (max-height: 500px) {
     font-size: 35px !important;
@@ -170,11 +173,13 @@ button {
 }
 
 .main-paragraph {
-  font-size: 1.125rem;
+  font-size: 25px;
 
-  @media (max-width: 580px) {
-    font-size: 1rem;
+  @media (max-width: 786px) {
+    font-size: 16px;
   }
+
+  
 }
 
 .link-underline {
@@ -206,7 +211,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   display: inline-block;
-  font-size: 1.125rem;
+  font-size: 25px;
   letter-spacing: 2px;
   line-height: 2;
 
@@ -265,6 +270,10 @@ button {
     &:hover {
       color: var(--color-anthracite);
     }
+  }
+
+  @media (max-width:768px){
+    font-size: 12px;
   }
 }
 
@@ -450,7 +459,7 @@ section {
   border: none;
   display: block;
   width: 100%;
-  font-size: 1rem;
+  font-size: 38px;
   padding: 10px 0;
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -565,12 +574,12 @@ section {
 }
 
 .subtitle-poppins {
-  font-size: 2rem;
+  font-size: 30px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
 
-  @media (max-width: 580px) {
-    font-size: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 17px;
   }
 }
 

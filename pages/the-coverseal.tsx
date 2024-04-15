@@ -615,7 +615,7 @@ comfort_button_text,
       <div className="content">
        <div className="desktop-image">
       <Image
-          id={economy_image.id}
+          id={economy_image_2.id}
           title="economie image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -626,7 +626,7 @@ comfort_button_text,
             </h2>
             <div className="mobile-image">
       <Image
-          id={economy_image.id}
+          id={economy_image_2.id}
           title="economy image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -652,7 +652,7 @@ comfort_button_text,
                   </h2>
                 <div className="mobile-image">
                   <Image
-                      id={security_image.id}
+                      id={security_image_2.id}
                       title="security image"
                       direction={AnimationDirection.BOTTOM_TO_TOP}
                     />
@@ -666,7 +666,7 @@ comfort_button_text,
           </div>
             <div className="desktop-image">
               <Image
-                id={security_image.id}
+                id={security_image_2.id}
                 title="security image"
                 direction={AnimationDirection.BOTTOM_TO_TOP}
               />
@@ -679,7 +679,7 @@ comfort_button_text,
       <div className="content">
        <div className="desktop-image">
       <Image
-          id={water_quality_image.id}
+          id={water_quality_image_2.id}
           title="qualite image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -690,7 +690,7 @@ comfort_button_text,
             </h2>
             <div className="mobile-image">
       <Image
-          id={comfort_image.id}
+          id={water_quality_image_2.id}
           title="water_quality image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -711,7 +711,7 @@ comfort_button_text,
       {/* <Masonry columns={{md:2, sm:1}}> */}
             <div  className="item-container">
               <div className ="text-container" >
-                  <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                  <h4 className="subtitle-argesta subtitle-argesta--white">                   
                   {models_title}
                 </h4>
                 <Link href={`/price-request`} passHref>
@@ -735,7 +735,7 @@ comfort_button_text,
       <div className="content">
        <div className="desktop-image">
       <Image
-          id={discretion_image}
+          id={water_quality_image_2.id}
           title="discretion image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -746,7 +746,7 @@ comfort_button_text,
             </h2>
             <div className="mobile-image">
       <Image
-          id={discretion_image}
+          id={water_quality_image_2.id}
           title="discretion image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -772,7 +772,7 @@ comfort_button_text,
       </h2>
       <div className="mobile-image">
       <Image
-           id={certificate_image.id}
+           id={certificate_image_2.id}
            title="certificate image"
            direction={AnimationDirection.BOTTOM_TO_TOP}
          />
@@ -786,7 +786,7 @@ comfort_button_text,
          </div>
 <div className="desktop-image">
          <Image
-           id={discretion_image}
+           id={certificate_image_2.id}
            title="certificate image"
            direction={AnimationDirection.BOTTOM_TO_TOP}
          />
@@ -799,7 +799,7 @@ comfort_button_text,
       <div className="content">
        <div className="desktop-image">
       <Image
-          id={comfort_image.id}
+          id={comfort_image_2.id}
           title="confort image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -810,7 +810,7 @@ comfort_button_text,
             </h2>
             <div className="mobile-image">
       <Image
-          id={comfort_image.id}
+          id={comfort_image_2.id}
           title="about image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />

@@ -31,9 +31,12 @@
 
       label {
         display: block;
-        font-weight: bold;
-        font-size:larger;      
+        // font-weight: bold;
+        font-size:35px;      
         margin-bottom: 8px;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
       }
       .MuiInput-input{
         background-color: white;
@@ -159,20 +162,31 @@ label + .MuiInput-formControl {
     }
   }
 
+  .PrivateSwitchBase-root-12{
+    border:2px !important;
+    opacity :100% !important;
+    
+  }
   label,
   span {
-    font-size: 0.875rem;
+    font-size: 25px;
     color: var(--color-anthracite);
     //text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-anthracite);
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+
   }
 
   input,
   label,
   span {
     font-family: "Poppins";
-    font-weight: 300;
+    
+    // font-weight: 300;
   }
 
   span {
@@ -336,7 +350,7 @@ label + .MuiInput-formControl {
       width: 50%;
       box-sizing: border-box;
       margin: 25px 0;
-
+      margin-bottom:8px;
       &:nth-child(even) {
         padding-left: 30px;
       }
@@ -540,7 +554,7 @@ label + .MuiInput-formControl {
   }
   .wysiwyg {
     margin-bottom: 50px;
-    font-size: 1.125rem;
+    font-size: 25px;
   }
   @media (max-width: 1024px) {
     [data-field="coverseal_reference_number"]{
