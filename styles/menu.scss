@@ -155,6 +155,7 @@ header {
   }
   .section-container{
     display: block;
+    width:100% !important;
   }
   position: fixed;
   top: 0;
@@ -177,7 +178,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top:20px;
+    padding-top:52px;
 
     &.hidden {
       display: none;
@@ -194,6 +195,7 @@ header {
         margin-top: 5px;
         display: flex;
         justify-content: space-between;
+        
         align-items: center;
         height: 60px;
         padding: 0 20px;
@@ -281,7 +283,7 @@ header {
         a {
           color: var(--color-terra-cotta);
           font-family: "argesta_hairlineRgIt";
-          font-size: 1.6875rem;
+          font-size: 40px;
           white-space: nowrap;
         }
       }
@@ -392,7 +394,7 @@ header {
     flex-wrap: wrap;
 
     li {
-      margin: 0px 1vw;
+      margin: 0px 2vw;
       height:50px;
       &:first-child {
         margin-left: 0;
@@ -412,7 +414,7 @@ header {
     a {
       color: var(--color-terra-cotta);
       font-family: "argesta_hairlineRgIt";
-      font-size: 20px;
+      font-size: 40px;
       white-space: nowrap;
     }
 
@@ -511,10 +513,16 @@ header {
     }
   }
 
-  
+  .section-container {
+    padding-right: 0px;
+    padding-left: 0px;;
+  }
+
   nav,
   .bottom {
     display: flex;
+    padding-right:160px;
+    padding-left:160px;
     .left {
       flex: 1;
       display: flex;
@@ -523,7 +531,8 @@ header {
   }
 
   .icon-container {
-    width: 35px;
+    width: 92.89px;
+    height:76px;
     //display: flex;
     //align-items: center;
   }
@@ -560,7 +569,8 @@ header {
   .top {
     display: flex;
     justify-content: space-between;
-
+    padding-bottom: 120px;
+    padding-left: 65px;
     @media (max-width: 580px) {
       align-items: center;
       margin-top: 50px;

@@ -1,6 +1,10 @@
 .home-template {
   .main-title {
-    width: 75%;
+    width: 100%;
+    text-align: center;
+    font-size:135px;
+
+
     @media(max-width:768px)
     {
       text-align:center;
@@ -506,6 +510,9 @@ h6{
   .benefits-section {
     padding:0px !important;
     overflow: initial;
+    .subtitle-argesta {
+      font-size: 60px;
+    }
 .MuiPaper-root{
   height:auto !important
 }

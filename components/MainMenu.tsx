@@ -260,25 +260,25 @@ export function MainMenu(props: Props) {
                   <ul className="main-menu" >
                       <li >
                         <Link href="/catalog-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                         <Link href="/price-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li > 
                         <Link href="/before-configurator" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/partnerships" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                      {hasSAV && <li>
                         <Link href="/after-sale" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"25px"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>}
                     
@@ -319,7 +319,8 @@ export function MainMenu(props: Props) {
             <div className="bottom">
             
             
-            <ul className="sub-menu" style={{justifyContent:"flex-start", paddingLeft: "8%"}}>
+            <ul className="sub-menu" style={{justifyContent:"flex-start"}}>
+              {/* , paddingLeft: "8%"}}> */}
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
@@ -333,7 +334,7 @@ export function MainMenu(props: Props) {
                   </Link>
                   
                 </li>
-                <li><span className="dots" style={{fontSize:"4rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                <li><span className="dots" style={{fontSize:"40px", fontWeight:"bold", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
                 </>
               )
                 }
@@ -346,7 +347,7 @@ export function MainMenu(props: Props) {
                         </a>
                         
                     </li>
-                    <li><span className="dots" style={{fontSize:"4rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}} > . </span></li>
+                    <li><span className="dots" style={{fontSize:"40px", fontWeight:"bold", color:"var(--color-terra-cotta)", lineHeight:"0px"}} > . </span></li>
                     </>
                   )
                 }
@@ -434,7 +435,7 @@ export function MainMenu(props: Props) {
                   </Link>
                   
                 </li>
-                <li><span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                <li><span className="dots" style={{fontSize:"40px", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
                 </>
               )
                 }
@@ -445,7 +446,7 @@ export function MainMenu(props: Props) {
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
-                    </li><li><span className="dots" style={{fontSize:"1rem", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li></>
+                    </li><li><span className="dots" style={{fontSize:"40px", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li></>
                   )
                 }
             })}
