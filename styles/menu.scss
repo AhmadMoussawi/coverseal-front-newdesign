@@ -164,16 +164,18 @@ header {
   height: 100vh;
   transform: translateX(-2px);
   overflow: hidden;
+  overflow-y:auto;
   z-index: 100;
   border-right: solid var(--color-terra-cotta) 2px;
 
   .wrapper {
-    overflow: auto;
+    
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 99.99% !important;
+    height: auto;
+    min-height:100vh;
     background: var(--color-beige);
     display: flex;
     justify-content: center;
@@ -226,6 +228,9 @@ header {
         padding: 0;
         margin-right: 50px;
       }
+      .first-menu{
+        margin-top:47px !important;
+      }
       .main-menu {
         font-size: 1.5rem;
         margin-top: 0px;
@@ -240,11 +245,12 @@ header {
           &:last-child {
             margin-bottom: 0;            
           }
-        }    
+        }   
         a {
           color: var(--color-anthracite);
           position: relative;
-
+          font-size:24px !important;
+          
           &::before {
             content: "";
             position: absolute;
@@ -254,20 +260,28 @@ header {
             background: var(--color-terra-cotta);
             transition: 1.5s cubic-bezier(0.22, 1, 0.36, 1);
           }
-    
+          
           &:hover {
             &::before {
               width: 80vw;              
             }
           }
+          
+        }
+        .brownlink{
+          height: 42px;
+          display: inline-block;
+          line-height: 42px;
+          font-size:28px;
         }
       }
       .sub-menu {
         display: flex;
         flex-wrap: wrap;
-    
+        width:100vw;
+        margin-left:2%;
         li {
-          margin: 0px 1vw;
+          margin: 0px 3px;
     
           &:first-child {
             margin-left: 0;
@@ -283,7 +297,7 @@ header {
         a {
           color: var(--color-terra-cotta);
           font-family: "argesta_hairlineRgIt";
-          font-size: 40px;
+          font-size: 0.65rem;
           white-space: nowrap;
         }
       }
@@ -293,6 +307,8 @@ header {
         flex-direction: row;
         align-items: center;
         margin-bottom: 0px;
+        justify-content: flex-start !important;
+        margin-left:10px !important
         
       }
       
@@ -302,6 +318,8 @@ header {
 
       .icon-container{
         display: block;
+        width: 50px;
+        height:50px;
       }
     }
   
@@ -335,7 +353,13 @@ header {
         
       }
     }
-
+    .brownlink{
+      background-color:var(--color-terra-cotta);
+      border-radius:40px;
+      color:white !important;
+      margin:20px;
+      font-size:45px
+    }
     a {
       color: var(--color-anthracite);
       position: relative;
@@ -444,10 +468,12 @@ header {
 
         a {
           margin-right: 0px !important;
-          font-size: 1.05rem !important;
+          font-size: 1.05rem;
         }
         .dots{          
-           font-size: 3rem !important;
+          display: inline-block;
+          width: 5px;
+          height: 5px;
          }
       }
       // li:last-child{

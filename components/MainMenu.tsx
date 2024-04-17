@@ -260,25 +260,25 @@ export function MainMenu(props: Props) {
                   <ul className="main-menu" >
                       <li >
                         <Link href="/catalog-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a className="brownlink">&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                         <Link href="/price-request" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a className="brownlink">&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li > 
                         <Link href="/before-configurator" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a className="brownlink">&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                       <li>
                         <Link href="/partnerships" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a className="brownlink">&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>
                      {hasSAV && <li>
                         <Link href="/after-sale" passHref>
-                          <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"20px", fontSize:"45px"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                          <a className="brownlink">&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
                         </Link>
                       </li>}
                     
@@ -379,28 +379,28 @@ export function MainMenu(props: Props) {
             <div className="left" />
            <Grid container spacing={2} >
                 <Grid className="not-decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
-                  <ul className="main-menu" >
+                  <ul className="main-menu first-menu" >
                         <li >
                           <Link href="/catalog-request" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a className="brownlink" style={{margin:"0px"}}>&nbsp;&nbsp;{(props as any)[`catalogue_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                           <Link href="/price-request" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller", marginLeft:"10px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a className="brownlink" style={{margin:"0px", marginLeft:"10px"}}>&nbsp;&nbsp;{(props as any)[`price_request_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                         </li>
                         <li > 
                           <Link href="/before-configurator" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a className="brownlink" style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`configurator_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                         </li>
                         <li>
                           <Link href="/partnerships" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a className="brownlink" style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`partnerships_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                         </li>
                       {hasSAV && <li>
                           <Link href="/after-sale" passHref>
-                            <a style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
+                            <a className="brownlink" style={{backgroundColor:"var(--color-terra-cotta)", borderRadius:"40px", color:"white", margin:"0px", fontSize:"smaller"}}>&nbsp;&nbsp;{(props as any)[`after_sale_main_nav_link_text`]}&nbsp;&nbsp;</a>
                           </Link>
                         </li>}
                       
@@ -421,7 +421,7 @@ export function MainMenu(props: Props) {
            </Grid>  
           </nav>
           <div className="bottom" style={{marginTop:"20px"}}>
-            <ul className="sub-menu" style={{marginLeft:"2%"}}>
+            <ul className="sub-menu" >
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
