@@ -56,7 +56,7 @@ export function OptionItem({ name, popoverText }: Props) {
             aria-haspopup="true"
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
-            style={{ padding: 5 }}
+            style={{ position: "absolute", marginLeft:"5px" }}
             htmlColor="#FFF"
           />
         </NoSsr>
