@@ -570,8 +570,8 @@ partenair_link_text,
 
       <section className="section six-section" data-color={Color.SAND}>
             <div className="content" style={{position:"relative"}}>
-            <div className="overlay"></div>
-
+            {/* <div className="overlay"></div> */}
+            <div className="overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(50, 50, 50, 0.7)" }}></div>
         <Image
           id={realisations_image.id}
           title="coverseal image"
