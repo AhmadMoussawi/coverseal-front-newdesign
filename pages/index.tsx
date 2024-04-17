@@ -463,7 +463,8 @@ partenair_link_text,
             })}
           >
           <div className="icon-container">
-              {reference === "automatic" && (
+              <img src={`${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
+              {/* {reference === "automatic" && (
                 <ModelAutomatic color={Color.WHITE} />
               )}
               {reference === "semi-automatic" && (
@@ -471,7 +472,7 @@ partenair_link_text,
               )}
               {reference === "manual" && (
                 <ModelManual color={Color.WHITE} />
-              )}
+              )} */}
             </div>
             </a></Link>
         </Masonry>:
@@ -551,7 +552,7 @@ partenair_link_text,
             lower: true,
           })}`} passHref>
             <a className="link-before-translate link-before-translate--terra-cotta">
-              {coverseal_link_text}
+              {configurator_link_text}
             </a>
           </Link>
         </div>

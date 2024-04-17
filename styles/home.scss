@@ -548,7 +548,11 @@ h6{
       padding-right:160px;
       width:calc(100% - 320px); 
       margin:autos;
-    
+      
+      .title-container{
+        padding-top: 80px;
+        padding-bottom: 40px;
+      }
     }
 
     .link-underline {
