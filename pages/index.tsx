@@ -338,7 +338,7 @@ partenair_link_text,
                   <div className="title-container">
                   <Link href="/benefits" passHref>
               <a>
-                <h2 className="subtitle-argesta subtitle-argesta--terra-cotta link-underline">
+                <h2 className="subtitle-argesta subtitle-argesta--terra-cotta link-underline benefitstitle">
                   {benefits_section.main_title}
                 </h2>
               </a>
@@ -427,12 +427,13 @@ partenair_link_text,
           
         {filteredmodels.map(({ translations, reference, id }, index) => (
           index%2==0?
-          <Masonry columns={{sm:1, md:2}} spacing={{ sm: 1, md: 2 }}> 
+          <Masonry columns={{sm:1, md:2}} spacing={{ sm: 1, md: 1 }}> 
             
           
           <div
             className={classNames({
               "item-container": true,
+              "model-text":true,
               [`model-${reference}`]: true,
             })}
           >
@@ -440,6 +441,7 @@ partenair_link_text,
               <h4 className="subtitle-argesta subtitle-argesta--white" >                   
               {translations[0].home_title}
             </h4>
+                <br/>
             <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
           })}`} passHref>
@@ -463,7 +465,7 @@ partenair_link_text,
             })}
           >
           <div className="icon-container">
-              <img src={`${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
+              <img src={`/${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
               {/* {reference === "automatic" && (
                 <ModelAutomatic color={Color.WHITE} />
               )}
@@ -492,7 +494,8 @@ partenair_link_text,
               })}
             >
             <div className="icon-container">
-                {reference === "automatic" && (
+            <img src={`/${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
+                {/*{reference === "automatic" && (
                   <ModelAutomatic color={Color.WHITE} />
                 )}
                 {reference === "semi-automatic" && (
@@ -500,13 +503,14 @@ partenair_link_text,
                 )}
                 {reference === "manual" && (
                   <ModelManual color={Color.WHITE} />
-                )}
+                )}*/}
               </div>
               </a></Link>
             
             <div
               className={classNames({
-                "item-container": true,
+                "item-container": true,                
+                "model-text":true,
                 [`model-${reference}`]: true,
               })}
             >
@@ -514,7 +518,7 @@ partenair_link_text,
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {translations[0].home_title}
               </h4>
-
+                <br/>
                <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
           })}`} passHref>
@@ -582,17 +586,15 @@ partenair_link_text,
               {/* <div className="tx-container"> */}
                 <h1 className="subtitle-argesta subtitle-argesta--white">
                   {realisations_title}
-                </h1>
+                </h1><br/>
                 <h6 style={{ color: 'white' }}>
                   {realisations_description}
-                </h6>
-                <h6 >
+                </h6><br/>
                 <Link href="/the-coverseal" passHref >
                           <a className="link-before-translate link-before-translate--white">
                             {realisations_link_text}
                           </a>
                 </Link>
-                </h6>
               </div>       
               </div>     
         </section>
@@ -640,12 +642,12 @@ partenair_link_text,
       
       <Masonry columns={{md:2, sm:1}}>
             <div
-              className="item-container"
+              className="item-container textleft-container"
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {devis_title}
-              </h4>
+              </h4><br/>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {devis_link_text}
@@ -653,17 +655,17 @@ partenair_link_text,
               </Link>
               </div></div>
             
-            <div></div>
+            <div className="emptydiv"></div>
           </Masonry>
           
             <Masonry columns={{md:2, sm:1}}>
               
-         <div className="item-container">&nbsp;</div>
-            <div className="item-container">
+         <div className="emptydiv">&nbsp;</div>
+            <div className="item-container textright-container">
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {partenaire_title}
-              </h4>
+              </h4><br/>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {partenair_link_text}
@@ -682,7 +684,7 @@ partenair_link_text,
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
-        locale={locale}
+        locale={locale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
   );

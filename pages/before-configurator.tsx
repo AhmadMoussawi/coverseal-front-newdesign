@@ -307,7 +307,7 @@ export default function BeforeConfiguratorPage({
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
-        locale={router.locale}
+        locale={router.locale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
   );

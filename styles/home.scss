@@ -217,15 +217,15 @@
     }
     .text-container{
       position: absolute;
-      width: 910px;
+      width: 48%;
       height: 100%;
       top: 70px;
-      right: 50px;
+      right: 10%;
       z-index: 9999;
 
       h6{
-        width:600px ;
-        margin-left:300px ;
+        width:80% ;
+        margin-left:20%
       }
     }
     @media (max-width: 768px), (max-height: 500px) {
@@ -436,7 +436,6 @@ h6{
       right: 0;
       bottom: 0;
       z-index: 2;
-
       @media (max-width: 1024px) {
         bottom: -50px;
       }
@@ -492,8 +491,14 @@ h6{
 
   .models-section {
     // color: var(--color-white);
-    
+    .model-text{
+      width:60%;
+    }
+    .model-image{
+      width:40%;
+    }
     color: #fbf6f1;
+    padding: 100px 0 0px;
     .icon-container{
       svg{
         width:300px;
@@ -514,6 +519,9 @@ h6{
     }
 
     @media (max-width: 768px), (max-height: 500px) {
+      .model-text{
+        width:100%
+      }
       .model-image{
         display: none;
       }
@@ -535,6 +543,13 @@ h6{
     overflow: initial;
     .subtitle-argesta {
       font-size: 60px;
+    }
+    .benefitstitle{
+      font-size:80px;
+      @media(max-width:767px)
+      {
+        font-size:40px
+      }
     }
 .MuiPaper-root{
   height:auto !important
@@ -959,36 +974,37 @@ h6{
     color: #e4ded7;
     font-family: "argesta_hairlineRgIt";
     // font-size: 1rem;
-
+    .item-container{
+      width:60%
+    }
     .content{
       padding-left: 160px;
       padding-right: 160px;
       width: calc(100% - 320px);
     }
-    .textright-container {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: right;
-      justify-content: right;
-      padding-top:10px;
-      
-    }
-
+    
     .textleft-container {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: left;
-      justify-content: left;
-      padding-top:125%;
+      width:70%
     }
-
+    .textright-container{
+      width:70%;
+      text-align: right;
+      margin-top:50px
+    }
+    .emptydiv{
+      width:30%
+    }
     .main-title {
       font-family: "argesta_hairlineRgIt";
       color: var(--color-white);
     }
     @media (max-width: 768px) {
+      .textleft-container {
+        width:100%
+      }
+      .emptydiv{
+        width:100%
+      }
       .content{
         padding-left: 43px;
         padding-right: 43px;

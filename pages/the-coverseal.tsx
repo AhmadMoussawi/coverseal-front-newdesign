@@ -958,6 +958,7 @@ comfort_button_text,
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
         locale={locale}
+        newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
   );

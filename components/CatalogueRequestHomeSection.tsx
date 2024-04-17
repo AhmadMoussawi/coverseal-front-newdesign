@@ -7,6 +7,7 @@ interface Props extends PriceRequestSectionContent {
   noTitle?: boolean;
   formsMessages: FormMessagesContent;
   locale:String;
+  newsletter_subscribe_link_text:string;
 }
 
 // TODO_2: global fallback for translation could be nice
@@ -17,7 +18,8 @@ export function CatalogueRequestHomeSection(props: Props) {
     formsMessages,
     noTitle,
     countries,
-    locale
+    locale,
+    newsletter_subscribe_link_text
   } = props;
 
   const fields = useMemo(
@@ -118,18 +120,17 @@ export function CatalogueRequestHomeSection(props: Props) {
           </h3>
         )}
         <Form
-        color="white"
+          color="white"
           id="catalog_request"
           formsMessages={formsMessages}
-          submit_text={submit_text}
+          submit_text={newsletter_subscribe_link_text}
           content={props}
           fields={fields}
           // fields={fields.map(field => ({
           //   ...field,
           //   labelStyle: labelStyle // Apply label style to each field
           // }))}
-          apiPath="/api/catalog-request-form"
-        />
+          apiPath="/api/catalog-request-form" next_btn_title={""} setStep={undefined} showsteps={false} step_one_title={""} step_two_title={""} mobile_step_one_title={""} mobile_step_two_title={""}        />
       </div>
     </section>
   );

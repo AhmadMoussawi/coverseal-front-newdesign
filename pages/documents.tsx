@@ -58,7 +58,7 @@ const cmsLocale = getLocale(router.locale)
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
-        locale={cmsLocale}
+        locale={cmsLocale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
   );

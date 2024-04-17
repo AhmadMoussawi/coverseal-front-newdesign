@@ -42,6 +42,7 @@ interface AllPageProps {
     priceRequest: PriceRequestSectionContent;
     afterSale: AfterSaleSectionContent;
     formsMessages: FormMessagesContent;
+    footer:FooterContent;
   } | undefined;
 }
 

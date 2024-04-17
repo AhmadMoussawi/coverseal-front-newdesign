@@ -304,6 +304,11 @@ label + .MuiInput-formControl {
   }
   }
 .catalogue-request-home-section {
+  .legal-checkbox .MuiSvgIcon-root {
+    width: 40px;
+    height: 40px;
+    color:#707070;
+}
   .subtitle-argesta,
   .wysiwyg {
     margin-bottom: 30px;
