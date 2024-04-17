@@ -586,7 +586,8 @@ section {
 .subtitle-argesta {
   font-size: 80px;
   font-family: "argesta_hairlineRgIt";
-
+  line-height: normal;
+  
   @media (max-width: 580px) {
     font-size: 40px;
   }
