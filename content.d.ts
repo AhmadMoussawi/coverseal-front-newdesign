@@ -78,6 +78,7 @@ interface GlobalFormContent {
   mail_confirmation_label: string;
   phone_label: string;
   submit_text: string;
+  validate_text:string;
   wrong_email: string;
   wrong_email_confirmation: string;
   wrong_phone: string;

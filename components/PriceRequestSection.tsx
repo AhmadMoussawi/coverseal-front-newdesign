@@ -20,7 +20,7 @@ interface Props extends PriceRequestSectionContent {
 export function PriceRequestSection(props: Props) {
   const {
     price_request_title,
-    submit_text,
+    validate_text,
     formsMessages,
     noTitle,
     countries,
@@ -184,7 +184,7 @@ export function PriceRequestSection(props: Props) {
         setStep={undefined}
           id="price_request"
           formsMessages={formsMessages}
-          submit_text={submit_text}
+          submit_text={validate_text}
           content={props}
           next_btn_title={next_btn_title}
           fields={fields}
