@@ -103,7 +103,7 @@ function appearingAnimations() {
 
   gsap.fromTo(
     "#shape-5",
-    {
+    {      
       strokeDasharray: 300,
       strokeDashoffset: 300,
     },
@@ -212,7 +212,7 @@ export default function BeforeConfiguratorPage({
           </div>
           <div className="step-list" >
             {steps.map((stepId) => (
-              <div key={stepId} data-step={stepId}>
+              <div key={stepId} data-step={stepId} style={stepId === 5 ? { paddingTop: '150px'} : {}}>
                 {stepId === 5 && <div className="line" />}
                 <span className="number" >{`0${stepId}.`}</span>
                 <div
@@ -225,7 +225,7 @@ export default function BeforeConfiguratorPage({
                 {stepId === 3 && (
                   <style jsx>{`
                     div[data-step='4'] {
-                      dispay:block; // Adjust the margin as needed
+                      display:flex; // Adjust the margin as needed
                     }
                   `}</style>
                 )}

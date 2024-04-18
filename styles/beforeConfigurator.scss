@@ -5,6 +5,7 @@
   }
 }
 
+
 .before-configurator-template .main-paragraph {
   max-width: 800px;
 }
@@ -196,6 +197,7 @@ display:none;
       text-align: left;
     }
     .link-before-translate {
+      width : 655px;
       margin-left: 10px; /* Move the link to the left */
     }
   }
@@ -241,6 +243,37 @@ display:none;
   }
 }
 
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  grid-column: span 10; /* Span all columns */
+}
+
+.number {
+  font-size: 40px; /* Adjust the font size */
+  margin-right: 10px; /* Adjust spacing between the number and content */
+}
+
+.wysiwyg {
+  flex: 1; /* Take remaining space */
+  font-size: 25px; /* Adjust the font size */
+}
+
+@media (max-width: 768px) {
+  .step-list {
+    grid-template-columns: repeat(1, 1fr); /* Change to single column layout */
+    grid-gap: 20px; /* Adjust the gap between items */
+  }
+}
+
+
 .before-configurator-template [data-step] {
   box-sizing: border-box;
 
@@ -262,7 +295,10 @@ display:none;
   }
 
   &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3),
   &:nth-child(4),
+  &:nth-child(5),
   &:nth-child(6),
   &:nth-child(7) {
     display: flex;
@@ -363,6 +399,11 @@ display:none;
 
 }
 
+
+
+
+
+
 // shapes
 .before-configurator-template {
   #shape-1 {
@@ -371,6 +412,7 @@ display:none;
 
   #shape-2 {
     grid-area: 9/6/10/9;
+    // display: flex;
   }
 
   #shape-3 {
@@ -386,7 +428,9 @@ display:none;
     }
   }
 
-  
+  .step5-line {
+    padding-top: 150px;
+  }
   #shape-4,
   #shape-5 {
     grid-area: 19/4/21/7;
@@ -394,7 +438,8 @@ display:none;
     align-items: center;
     justify-content: center;
     stroke-width: 2;
-   
+    padding-top: 150px;
+        height: 150px;
 
     svg {
       width: 100px;
@@ -509,7 +554,8 @@ display:none;
     margin-left: 10%;
 
     p {
-      font-size: 2.31rem;
+      width :650px;
+      font-size: 25px;
     }
   }
   .circle-link {

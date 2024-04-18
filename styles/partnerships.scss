@@ -1,6 +1,8 @@
 .partnerships-template {
 
-  
+  .devis-section-mobile{
+    display:none;
+  }
   .spacing-section{
     height:80px; 
     padding-top:0px;
@@ -11,17 +13,96 @@
     }
   }
 
-  .devis-section{
-    .h4{
-      font-size: 90px;
-    }
-    @media(max-width:768px)
-    {
-      .h4{
-        font-size: 40px;
-      }
+  @media (max-width:768px) {
+    .devis-section-mobile{
+      display: block;
     }
   }
+
+  .devis-section {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    // color: var(--color-white);
+    color: #e4ded7;
+    font-family: "argesta_hairlineRgIt";
+    // font-size: 1rem;
+    .item-container{
+      width:60%
+    }
+    .content{
+      padding-left: 160px;
+      padding-right: 160px;
+      width: calc(100% - 320px);
+    }
+    
+    .textleft-container {
+      width:70%
+    }
+    .textright-container{
+      width:70%;
+      text-align: right;
+      margin-top:50px
+    }
+    .emptydiv{
+      width:30%
+    }
+    .main-title {
+      font-family: "argesta_hairlineRgIt";
+      color: var(--color-white);
+    }
+    @media (max-width: 768px) {
+      .textleft-container {
+        width:100%
+      }
+      .emptydiv{
+        width:100%
+      }
+      .content{
+        padding-left: 43px;
+        padding-right: 43px;
+        width:calc(100% - 87px);
+      }
+    }      
+  }
+
+  // .devis-section{
+  //   .content{
+  //     padding-left:160px;
+  //   }
+  //   .subtitle-argesta{
+  //     font-size:90px;
+  //     width:1240px;
+  //   }
+  //   .link-before-translate {
+  //     font-size:30px;
+  //   }
+    
+  //   #itemcont{
+  //     width:400px;
+  //   }
+
+  //   @media (max-width: 768px){
+  //     .subtitle-argesta{
+  //       font-size:40px;
+  //       width:344px;
+  //     }
+  //     .link-before-translate {
+  //       font-size:14px;
+  //     }
+  //   }
+  // }
+  // .devis-section{
+  //   .h4{
+  //     font-size: 90px;
+  //   }
+  //   @media(max-width:768px)
+  //   {
+  //     .h4{
+  //       font-size: 40px;
+  //     }
+  //   }
+  // }
 
   .section {
     overflow: hidden;
@@ -46,6 +127,12 @@
 
 .image-box-two-section {
   
+  .link-before-translate{
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+
 .mobiletitle{
   line-height:50px;
   font-size:50px;
@@ -139,13 +226,16 @@ width: 100%; /* or specify a fixed width */
 .only-title-1-section{
   
     overflow: hidden;
-    padding-top: 100px!important;
+    padding-top: 252px!important;
   
     @media (max-width: 580px) {
       padding: 50 0;
     }
 
-  
+    .main-title--terra-cotta{
+
+      font-size:80px;
+    }
   //padding-bottom:10px;
   .content{
     padding-left:160px;
@@ -177,26 +267,28 @@ width: 100%; /* or specify a fixed width */
   padding-bottom: 0px !important;
   padding-top: 0px !important;
   .content{
+      height:1040px;
     display: flex;
     padding-bottom: 0px;
   }
   // justify-content: space-between;
   .text-container {
-    margin-left: 10%;
-    margin-right :10px;
+    padding-top:80px;
+    margin-left: 160px;
+    margin-right :80px;
     
     // flex: 1; /* Take up remaining space in the flex container */
-    width: 100%;
+    width: 770px;
     flex-direction: row;
   }
   
   .paragraph {
-    font-size: 1rem;
+    font-size: 25px;
     color: #ffffff;
   }
 
   .subtitle-argesta {
-    font-size: 3rem;
+    font-size: 80px;
     color: #fbf6f1;
   }
 
@@ -205,14 +297,14 @@ width: 100%; /* or specify a fixed width */
     // overflow: hidden; /* Hide any content that overflows the container */
     // width: 100%;
 
-    width: 100%;
-  height: 100%;
+    width: 920px;
+  height: 1040px;
   overflow: hidden;
   }
   
   .desktop-image img {
-    width: 100%; /* Make sure the image takes up the full width of its container */    
-    height: 100%; /* Make the image fill the height of its container */
+    width: 920px; /* Make sure the image takes up the full width of its container */    
+    height: 1040px; /* Make the image fill the height of its container */
     object-fit: cover; 
   }
   .mobile-image{

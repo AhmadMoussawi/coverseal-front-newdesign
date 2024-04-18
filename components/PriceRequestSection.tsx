@@ -67,14 +67,14 @@ export function PriceRequestSection(props: Props) {
         required: false,
         additionalstyle:{width:"100%", padding:"0px"},
         step:2
-      },  
+      },  */
       {
         id: "phone",
         type: "tel",
         required: true,
         additionalstyle:{paddingLeft:"0px"},
         step:1
-      },*/
+      },
       {
         id: "country",
         type: "text",

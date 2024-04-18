@@ -84,7 +84,7 @@
     border-bottom:0px;
 }
 label + .MuiInput-formControl {
-  margin-top: 25px;
+  // margin-top: 25px;
 }
       // .Mui-error {
       //   color: red;
@@ -303,6 +303,11 @@ label + .MuiInput-formControl {
     }
   }
   }
+
+  .price-request-section .fields .field-group label {
+
+    position :relative;
+  }
 .catalogue-request-home-section {
   .legal-checkbox .MuiSvgIcon-root {
     width: 40px;
@@ -337,7 +342,10 @@ label + .MuiInput-formControl {
   }
 .legal-container{
   .MuiFormControlLabel-label{
-    color:#808080
+    color:#808080;
+  }
+  .legal-checkbox{
+    color:#808080;
   }
   @media(max-width:768px)
   {

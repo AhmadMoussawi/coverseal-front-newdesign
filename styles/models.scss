@@ -18,6 +18,7 @@
     display:none;
   }
 
+ 
 
    .section-model-content{
   //   .MuiGrid-spacing-xs-3 > .MuiGrid-item {
@@ -109,31 +110,74 @@
         }
       }        
     }
-    .devis-section{
-      // .content{
-      //   padding-top:30px !important;
-      //   padding-bottom: 30px !important;
-      // }
+  
+    .devis-section {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      // color: var(--color-white);
+      color: #e4ded7;
+      font-family: "argesta_hairlineRgIt";
+      // font-size: 1rem;
+      .item-container{
+        width:60%
+      }
+      .content{
+        padding-left: 160px;
+        padding-right: 160px;
+        width: calc(100% - 320px);
+      }
       
-      color:#e4ded7;
-      display: none;
-
-      .link-before-translate{
-        font-size: 30px;
-        
-        @media (max-width:768px){
-          font-size: 14px;
-        }
+      .textleft-container {
+        width:70%
       }
-
-      .subtitle-argesta {
-        font-size: 90px;
-        
-        @media (max-width:768px){
-          font-size: 40px;
-        }
+      .textright-container{
+        width:70%;
+        text-align: right;
+        margin-top:50px
       }
+      .emptydiv{
+        width:30%
+      }
+      .main-title {
+        font-family: "argesta_hairlineRgIt";
+        color: var(--color-white);
+      }
+      @media (max-width: 768px) {
+        .textleft-container {
+          width:100%
+        }
+        .emptydiv{
+          width:100%
+        }
+        .content{
+          padding-left: 43px;
+          padding-right: 43px;
+          width:calc(100% - 87px);
+        }
+      }      
     }
+    // .devis-section{
+         
+    //   color:#e4ded7;
+    //   display: none;
+
+    //   .link-before-translate{
+    //     font-size: 30px;
+        
+    //     @media (max-width:768px){
+    //       font-size: 14px;
+    //     }
+    //   }
+
+    //   .subtitle-argesta {
+    //     font-size: 90px;
+        
+    //     @media (max-width:768px){
+    //       font-size: 40px;
+    //     }
+    //   }
+    // }
     .section-model-content-mobile{
        display: block;
       #C{
@@ -188,10 +232,14 @@
 
   }
 
+
+
   .first-section {
     display: block;
-    padding-bottom: 50px;
-
+    padding-bottom: 0px;
+    .section1{
+      padding-bottom:0px;
+    }
     .main-paragraph {
       padding-bottom: 80px;
     }
@@ -239,7 +287,7 @@ h6{
   flex-direction: row;
 
   padding: 0px; 
-  position:absolute;
+  position:relative;
   a{
     padding:16px;
   }

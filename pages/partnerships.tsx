@@ -494,7 +494,7 @@ dealer_link_text
       </section>
 
 
-      <section className ="section spacing-section" data-color={Color.SAND} > </section>
+      <section className ="section spacing-section" data-color={Color.BEIGE} > </section>
 
 <section className="section only-text-section" data-color={Color.BEIGE}>
       <div className="content">       
@@ -545,7 +545,7 @@ dealer_link_text
           <Grid container spacing={2}>
             <Grid item sm={12} lg={2}  xs={12} spacing={2} >
               <div className="boxpair">
-              <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
+              <div className="desktopimage" style={{verticalAlign:"middle", textAlign:"left", padding:"50px 20px",backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column", width:"100%", height:"160px"}}>
                 <div style={{fontSize:"50px"}}><img src="/Picto_Partenaire-01.svg" style={{maxWidth:"50%", margin:"center", marginLeft:"27%"}}/></div>                
               </div>        
           
@@ -809,7 +809,7 @@ dealer_link_text
       </div>      
     </section>
       
-    <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+    {/* <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
       <div className="content" style={{margin:"auto", width:"90%", marginTop:"30px", marginBottom:"30px"}}>
       
       <Masonry columns={{md:2, sm:1}}>
@@ -846,6 +846,78 @@ dealer_link_text
               </div>
               </div>
           </Masonry>
+        </div>
+    </section> */}
+
+    <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content"
+         style={{margin:"auto", paddingLeft:"160px", paddingRight:"160px"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container textleft-container" style={{width:"70%"}}
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {lead_title}
+              </h4><br/>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {lead_link_text}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div className="emptydiv" style={{width:"30%"}}></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="emptydiv" style={{width:"30%"}}>&nbsp;</div>
+            <div className="item-container textright-container" style={{width:"70%"}}>
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {dealer_title}
+              </h4><br/>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {dealer_link_text}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section>
+
+
+    <section className="section devis-section-mobile" data-color={Color.TERRA_COTTA}>      
+      <div className="content" style={{margin:"auto", width:"90%"}}>      
+            
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {lead_title}
+              </h4>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {lead_link_text}
+                            </a>
+              </Link>
+             </div>            
+            <div></div>                    
+         <div className="item-container">&nbsp;</div>
+          
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"right"}} >                   
+                {dealer_title}
+              </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", textAlign:"right", marginLeft: "110px"}}>
+                              {dealer_link_text}
+                            </a>
+              </Link>
+           
+              </div>
         </div>
     </section>
 

@@ -85,10 +85,10 @@ export function AfterSaleFAQSection(props: Props) {
         })),
         help: (
           <span
-            className="form-help-text wysiwyg"
-            dangerouslySetInnerHTML={{
-              __html: formsMessages.country_help_text,
-            }}
+            // className="form-help-text wysiwyg"
+            // dangerouslySetInnerHTML={{
+            //   __html: formsMessages.country_help_text,
+            // }}
           />
         ),
         additionalstyle:{paddingLeft:"30px", paddingRight:"0px"} 
@@ -108,6 +108,7 @@ export function AfterSaleFAQSection(props: Props) {
         rows:4,
         maxRows:10,
         required: true,
+        additionalstyle: { width: "100%", paddingRight: "0px" }
       },
       // {
       //   id: "add_photos",

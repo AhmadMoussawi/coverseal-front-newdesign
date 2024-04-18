@@ -189,7 +189,7 @@ export default function FAQPage({
     <>
     <StructuredData data={structuredData}  id="faqs-data" />
     <main className="faq-template">
-      <section className="section first-section" data-color={Color.WHITE}>
+      <section className="section first-section section1" data-color={Color.WHITE}>
         <div className="section-container">
           <div className="title-container">
             <h1
@@ -238,7 +238,7 @@ export default function FAQPage({
             
 </div>
       </section>
-                <section className="section first-section" data-color={Color.BEIGE}>
+                <section className="section first-section section2" data-color={Color.BEIGE}>
                 <div className="section-container">
           {isLoading ? (
             <div className="loader-container">
@@ -250,7 +250,7 @@ export default function FAQPage({
                 <ul className="link-list categories">
                   {categories.map(({ id, translations }) => {
                     return (
-                      <li key={id}>
+                      <li key={id}  style={{ marginRight: '15px' }}>
                         <Link
                           passHref
                           href={`/faq/${id}/${slugify(translations[0].name, {

@@ -233,7 +233,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               if(translation)
               {
               return (
-                <li key={id}>
+                <li key={id} style={{ marginRight: '15px' }}>
                   <Link
                     passHref
                     href={`/models/${id}/${slugify(translation.main_title, {
@@ -1062,9 +1062,9 @@ var filteredmodels = models.filter(x=>x.translations.filter(
 
 
 
-
+{/* 
 <section className="section devis-section" data-color={Color.TERRA_COTTA} style={{ padding:"30px" }}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
+      <div className="content" style={{margin:"auto", paddingLeft:"160px", paddingRight:"160px"}}>
       
       <Masonry columns={{md:2, sm:1}}>
             <div
@@ -1092,6 +1092,47 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
                 {home.partenaire_title}
               </h4>
+              <Link href={`/partnerships`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {home.partenair_link_text}
+                            </a>
+              </Link>
+              </div>
+              </div>
+          </Masonry>
+        </div>
+    </section> */}
+
+    <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content"
+         style={{margin:"auto", paddingLeft:"160px", paddingRight:"160px"}}>
+      
+      <Masonry columns={{md:2, sm:1}}>
+            <div
+              className="item-container textleft-container" style={{width:"70%"}}
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {home.devis_title}
+              </h4><br/>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                              {home.devis_link_text}
+                            </a>
+              </Link>
+              </div></div>
+            
+            <div className="emptydiv" style={{width:"30%"}}></div>
+          </Masonry>
+          
+            <Masonry columns={{md:2, sm:1}}>
+              
+         <div className="emptydiv" style={{width:"30%"}}>&nbsp;</div>
+            <div className="item-container textright-container" style={{width:"70%"}}>
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {home.partenaire_title}
+              </h4><br/>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {home.partenair_link_text}
@@ -1133,6 +1174,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               </div>
         </div>
     </section>
+
 
 
 
