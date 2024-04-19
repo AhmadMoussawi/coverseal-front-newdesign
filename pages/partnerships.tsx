@@ -519,7 +519,7 @@ dealer_link_text
           direction={AnimationDirection.RIGHT_TO_LEFT}
         />
         <div style={{position:"absolute", width:"100%", height:"100%", backgroundColor:"rgba(0,0,0,.5)", top:"0px", left:"0px"}}></div>
-              <div className="text-container">
+              <div className="text-container conversealpertners">
                 <h1 className="subtitle-argesta subtitle-argesta--white backgroundtitle">
                   {coverseal_partners_title}
                 </h1>
@@ -851,16 +851,16 @@ dealer_link_text
 
     <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
       <div className="content"
-         style={{margin:"auto", paddingLeft:"160px", paddingRight:"160px"}}>
+         style={{margin:"auto"}}>
       
       <Masonry columns={{md:2, sm:1}}>
             <div
-              className="item-container textleft-container" style={{width:"70%"}}
+              className="item-container textleft-container"
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {lead_title}
-              </h4><br/>
+              </h4><br/><br/>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {lead_link_text}
@@ -868,17 +868,17 @@ dealer_link_text
               </Link>
               </div></div>
             
-            <div className="emptydiv" style={{width:"30%"}}></div>
+            <div className="emptydiv"></div>
           </Masonry>
           
             <Masonry columns={{md:2, sm:1}}>
               
          <div className="emptydiv" style={{width:"30%"}}>&nbsp;</div>
-            <div className="item-container textright-container" style={{width:"70%"}}>
+            <div className="item-container textright-container">
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {dealer_title}
-              </h4><br/>
+              </h4><br/><br/>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {dealer_link_text}
@@ -890,36 +890,6 @@ dealer_link_text
         </div>
     </section>
 
-
-    <section className="section devis-section-mobile" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>      
-            
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {lead_title}
-              </h4>
-              <Link href={`/price-request`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {lead_link_text}
-                            </a>
-              </Link>
-             </div>            
-            <div></div>                    
-         <div className="item-container">&nbsp;</div>
-          
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"right"}} >                   
-                {dealer_title}
-              </h4>
-              <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", textAlign:"right", marginLeft: "110px"}}>
-                              {dealer_link_text}
-                            </a>
-              </Link>
-           
-              </div>
-        </div>
-    </section>
 
     <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}

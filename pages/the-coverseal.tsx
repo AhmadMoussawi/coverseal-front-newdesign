@@ -90,7 +90,7 @@ comfort_button_text,
   const { locale } = useRouter();
   return (
     <main className="the-coverseal-template">
-      <section className="section first-section" data-color="BEIGE">
+      <section className="section first-section" data-color={Color.BEIGE}>
           <div className="section-container" style={{paddingBottom:"80px"}}>
             <h1 className="main-title main-title--terra-cotta">{main_title}</h1>
             
@@ -105,7 +105,7 @@ comfort_button_text,
           </div>
         </section>   
 
-      <section className="test-section" data-color="BEIGE">
+      <section className="test-section" data-color={Color.BEIGE}>
           <div className="image-gallery">
             <div className="image-container">
                     <Image
@@ -317,7 +317,7 @@ comfort_button_text,
     </div>
     </section> */}
 
-      <section className="test-section-mobile" data-color="BEIGE">
+      <section className="test-section-mobile" data-color={Color.BEIGE}>
       <div className="image-gallery">
             <div className="image-container">
                     <Image

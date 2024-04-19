@@ -2,25 +2,34 @@
   color: var(--color-white);
 
   .devis-section{
-    .content{
-      padding-left:160px;
-    }
+    
     .subtitle-argesta{
       font-size:90px;
-      width:1240px;
     }
     .link-before-translate {
       font-size:30px;
     }
-    
+    .emptydiv{
+      width:30%
+      
+    }
+    .rightcontainer{
+      width:70%
+    }
     #itemcont{
       width:400px;
     }
 
     @media (max-width: 768px){
+      .emptydiv{
+        width:0%
+        
+      }
+      .rightcontainer{
+        width:100%
+      }
       .subtitle-argesta{
         font-size:40px;
-        width:344px;
       }
       .link-before-translate {
         font-size:14px;
@@ -72,7 +81,9 @@
         height:330px;
       }
       .insidebox{
-        height:180px;
+        height:180px;    
+        display: flex;
+        justify-content: center;
       }
       .madeinbelgium{
         height:140px;
@@ -84,7 +95,8 @@
         padding:50px 30px 0 30px
       }
       .boxnumber{
-        font-size:60px;
+        font-size:70px;
+        font-weight: bold;
       }
       .boxtitle{
         font-size:12px;

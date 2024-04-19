@@ -79,8 +79,12 @@
 //////////////////////
     }
     .first-section-mobile{
+      .section-container{
+        padding-left:10px;
+        padding-right:10px;
+      }
       display: block;    
-      
+      padding-bottom:0px;
       .text-container{
          padding-bottom: 20px !important;
       }

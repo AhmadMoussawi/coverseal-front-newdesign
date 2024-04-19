@@ -176,7 +176,7 @@ interface AllPageContent {
 security_image:DirectusImage;
 security_image_2:DirectusImage;
 economy_image:DirectusImage;
-economy_image_2:string;
+economy_image_2:DirectusImage;
 water_quality_image:DirectusImage;
 water_quality_image_2:DirectusImage;
 models_title:string;

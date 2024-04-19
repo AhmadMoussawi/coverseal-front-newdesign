@@ -55,9 +55,7 @@ export function AfterSaleSection(props: Props) {
       },
       {
         id: "coverseal_reference_number",
-        textarea: true,
-        rows: 2,
-        maxRows: 2,
+        type:"text",
         required: true,
         hastooltip:true
         // additionalstyle:{paddingLeft:"0px", marginRight:"50%", paddingRight:"30px"}

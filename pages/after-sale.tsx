@@ -7,12 +7,15 @@ import {
   getAllPagePropsOnly,
   getPageContentProps,
 } from "../utils/fetchers";
+import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import { useRouter } from "next/router";
 
 export default function AfterSalePage({
   pageProps,
   globalSection,
 }: PageProps<AfterSaleContent>) {
   const { main_title, form_title } = pageProps;
+  const { locale, asPath } = useRouter();
   return (
     <main className="after-sale-template">
       {<section className="section first-section" data-color={Color.BEIGE}>
@@ -24,6 +27,11 @@ export default function AfterSalePage({
         {...globalSection.afterSale}
         formsMessages={globalSection.formsMessages}
         form_title={form_title}
+      />
+      <CatalogueRequestHomeSection 
+        {...globalSection.priceRequest}
+        formsMessages={globalSection.formsMessages}
+        locale={locale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
   );

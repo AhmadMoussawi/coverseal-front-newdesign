@@ -1,5 +1,18 @@
 .achievements-details-template,
 .achievements-category-template {
+  .section-container {
+    width: calc(100% - 100px) !important;
+    margin: 0 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    @media(max-width:768px)
+    {
+      width: calc(100% - 20px) !important;
+    margin: 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+}
   .section-container-second
   {
     @media(max-width:768px)
@@ -149,12 +162,16 @@
   .wysiwyg {
     h2 {
       font-family: "argesta_hairlineRgIt";
-      font-size: 4rem;
+      font-size: 80px;
+      @media(max-width:768px)
+      {
+        font-size:40px;
+      }
     }
   }
 
   .block {
-    margin: 100px 0;
+    margin: 0px 0;
 
     &:last-child {
       margin-bottom: 0;
@@ -200,6 +217,7 @@
 
       .paragraph {
         order: 2;
+        margin-left:2%
       }
     }
 
@@ -371,6 +389,10 @@
     .link-container {
       flex-direction: column;
       align-items: center;
+      font-size:17px;
+      a{
+        margin:10px
+      }
     }
   }
 

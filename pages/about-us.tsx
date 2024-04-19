@@ -527,8 +527,8 @@ for (let i = 0; i < boxData.length; i += 3) {
           
             <Masonry columns={{md:2, sm:1}}>
               
-         <div className="item-container" id = "itemcont">&nbsp;</div>
-            <div className="item-container">
+         <div className="emptydiv">&nbsp;</div>
+            <div className="item-container rightcontainer">
             <div className ="text-container" style={{textAlign:"right"}} >
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
                 {home.partenaire_title}

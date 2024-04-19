@@ -179,7 +179,7 @@ export default function AchievementsInspirationDetailsPage({
         </div>
       </section>
       <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
+      <div className="content" style={{margin:"auto", width:"93%"}}>
       
             <div
               className="item-container"

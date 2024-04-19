@@ -55,9 +55,7 @@ export function AfterSaleFAQSection(props: Props) {
       },
       {
         id: "coverseal_reference_number",
-        textarea: true,
-        rows: 2,
-        maxRows: 2,
+        type:"text",
         required: true,
         hastooltip:true
         // additionalstyle:{paddingLeft:"0px", marginRight:"50%", paddingRight:"30px"}
@@ -156,6 +154,7 @@ export function AfterSaleFAQSection(props: Props) {
         {form_title && <div className="formtitle" style={{margin:"10px 0"}}>{form_title}</div>}
         <Form
           id="after_sale"
+          color="terra-cotta"
           submit_text={submit_text}
           formsMessages={formsMessages}
           content={props}

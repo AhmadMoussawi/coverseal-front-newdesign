@@ -1,4 +1,11 @@
 .the-coverseal-template {
+  .wysiwyg{
+    font-size:25px;
+    @media(max-width:768px)
+    {
+      font-size:16px
+    }
+  }
   .price-request-section{
     padding:0px;
     padding-bottom:100px
@@ -75,8 +82,7 @@
       padding-left:43px;
       justify-content: center;
     .image-text {
-      margin-left: 10%;
-      width: 70%;   
+      width: 90%;   
         
       position: absolute;
       bottom: 0;
@@ -85,6 +91,13 @@
       font-size: 0.8rem;
       color: white;
       text-align: center;
+      h4{
+        font-size:25px;
+      }
+      .link-before-translate--white{
+        font-size:12px;
+        margin-left:-43px
+      }
       .overlay{
         background-color:#34333780;
       }
@@ -164,8 +177,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 1;
+  background: #343337 0% 0% no-repeat padding-box;
+  opacity: 0.5;
   z-index: 2;
   // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
 }
@@ -208,8 +221,9 @@
       }
 
       .subtitle-argesta--white{
-        font-size: x-large;
-        width:300px
+        font-size: 40px;
+        width:323px;
+        max-width:100%
       }
 h6{
   display: none;
@@ -512,8 +526,8 @@ h6{
     .content {
       display: flex;
       align-items: center;
-      margin-left: 160px;
-      margin-right:160px;
+      margin-left: 5%;
+      margin-right:5%;
     }
 
     .desktop-image {
@@ -583,7 +597,8 @@ h6{
      // margin:10%;
       justify-content: center;
       .mobile-image{
-        display:block
+        display:block;
+        width:84vw;
       }
       .desktop-image{
         display:none;
@@ -642,6 +657,7 @@ h6{
         display:inline;
         margin-left:0px;
       }
+      
     }
 
     .link-underline {
@@ -653,11 +669,13 @@ h6{
     .content {
       display: flex;
       align-items: center;
+      padding-right:5%;
       //flex-direction: column;
     }
 
     .desktop-image {
-      width: 40%;
+      width: 640px;
+      max-width:100%
     }
     .image-container
     {
@@ -670,13 +688,14 @@ h6{
     .text-container {
       margin-left: 10%;
       margin-top: 0px;
-      padding-right:20px;
+      padding-right:80px;
       display: flex;
       text-align:right;
       flex-direction: column;
       align-items: flex-start;
-      width:40%;
-      font-size:1.2rem;
+      width:880px;
+      max-width:100%;
+      font-size:25px;
     }
 
     .line {

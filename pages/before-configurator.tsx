@@ -282,8 +282,8 @@ export default function BeforeConfiguratorPage({
         </div>
       </section>
       <section className="link-section" style={{paddingTop:"30px", paddingBottom:"30px"}} data-color={Color.TERRA_COTTA}>
-        <div className="text-container" style={{width:"calc(100% - 320px)"}}>
-          <h2 className="subtitle-argesta subtitle-argesta--white" style={{fontSize:"90px"}}>{help_sentence}</h2>
+        <div className="text-container">
+          <h2 className="subtitle-argesta subtitle-argesta--white">{help_sentence}</h2>
           {/* <Link href="/price-request" passHref>
             <a className="subtitle-argesta subtitle-argesta--terra-cotta link-underline">
               {contact_link_text}
