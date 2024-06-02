@@ -6,7 +6,7 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 580px), (max-height: 500px) {
+    @media (max-width: 768px) {
       margin: 50px 0;
     }
   }
@@ -20,7 +20,7 @@
       width: 50%;
     }
 
-    @media (max-width: 768px), (max-height: 500px) {
+    @media (max-width: 768px){
       .image-container,
       .text-container {
         width: 100%;
@@ -68,14 +68,14 @@
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     .circle-link-container {
       width: 50%;
       transform: translateX(0%);
     }
   }
 
-  @media (max-width: 768px), (max-height: 500px) {
+  @media (max-width: 768px) {
     .circle-link-container {
       width: 100%;
       display: flex;

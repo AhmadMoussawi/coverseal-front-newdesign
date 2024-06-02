@@ -122,12 +122,13 @@ const sendMail =
       next();
     } catch (error) {
       const message = "Can't send mail";
-      console.error(error);
-      console.error(message);
-      res.status(500).json({
+      //console.error(error);
+      //console.error(message);
+      /*res.status(500).json({
         success: false,
         message,
-      });
+      });*/
+      next();
     }
   };
   function jsonToUl(jsonData) {

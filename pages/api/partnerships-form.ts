@@ -23,7 +23,7 @@ export const config = {
     bodyParser: false,
   },
 };
-const requiredFields = ["mail", "language", "country", "type", "zip_code"];
+const requiredFields = ["mail", "language", "country", "zip_code"];
 
 const handler = nextConnect<NextApiRequest, CustomNextApiResponse>()
   .use(async (req, res, next) => {

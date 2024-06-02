@@ -60,7 +60,7 @@ export default function SingleJobPage({
 
           <div className="contact-container">
             <h4 className="subtitle-argesta subtitle-argesta--terra-cotta">
-              {interested_text}
+              {interested_text.replace(" ?","?")}
             </h4>
             <div
               className="wysiwyg"

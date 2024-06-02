@@ -115,13 +115,13 @@ export function CatalogueRequestHomeSection(props: Props) {
     >
       <div className="section-container">
         {!noTitle && (
-          <h3 className="subtitle-argesta subtitle-argesta--white">
+          <h3 className="subtitle-argesta subtitle-argesta--white catalogmobiletitle">
             {catalog_request_title}
           </h3>
         )}
         <Form
           color="white"
-          id="catalog_request"
+          id="catalog_request_home"
           formsMessages={formsMessages}
           submit_text={newsletter_subscribe_link_text}
           content={props}

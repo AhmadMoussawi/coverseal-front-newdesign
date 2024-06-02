@@ -132,7 +132,7 @@ export default function AchievementsInspirationDetailsPage({
                 );
                 case "images_gallery":
                 return (
-                  <div className="section-container">
+                  <div className="section-container gallery-container">
                   <ImageOnly
                     key={i}
                     {...(section as AchievementsSectionsDirectus)}
@@ -160,7 +160,7 @@ export default function AchievementsInspirationDetailsPage({
           />
           </div>*/}
           </section>
-          <section className="section " style={{padding:"30px 0"}} data-color="white">
+          <section className="section " style={{padding:"30px 0", backgroundColor:"white"}} data-color="white">
         <div className="section-container link-container">
           <Link href="/achievements" passHref>
             <a className="back-button">
@@ -178,30 +178,33 @@ export default function AchievementsInspirationDetailsPage({
           )}
         </div>
       </section>
-      <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"93%"}}>
+      <section className="section devis-section" data-color={Color.TERRA_COTTA}>
+        <div className="section-container">
+        <div className="content">
       
-            <div
-              className="item-container"
-            >
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {configurator_title}
-              </h4>
-              <Link href={`/before-configurator`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {configurator_link_text}
-                            </a>
-              </Link>
-              </div></div>
-            
-          
-            
-        </div>
+      <div
+        className="item-container"
+      >
+      <div className ="text-container" >
+          <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+          {configurator_title}
+        </h4><br/>
+        <Link href={`/before-configurator`} passHref>
+                      <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                        {configurator_link_text}
+                      </a>
+        </Link>
+        </div></div>
+      
+    
+      
+  </div>
+          </div>   
+      
     </section>
     </main>
     <main className="price-request-template">
-    <section className="section first-section" data-color={Color.BEIGE}>
+    <section className="section" data-color={Color.BEIGE}>
       <div className="section-container">
         <h1 className="subtitle-argesta subtitle-argesta--terra-cotta">{pricerequest.main_title}</h1>
         <p>{pricerequest.main_description}</p>

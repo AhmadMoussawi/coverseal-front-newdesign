@@ -36,7 +36,7 @@ export default function CatalogRequestPage({
       </section>
 
       <section className="section coversealnew-section" data-color={Color.BEIGE}>
-       
+      <div className="section-container">
         <div className="content">
          
         <div className="logo-container1">
@@ -58,6 +58,7 @@ export default function CatalogRequestPage({
             title="coverseal image"
             direction={AnimationDirection.BOTTOM_TO_TOP}
           />
+        </div>
         </div>
       </section>
 

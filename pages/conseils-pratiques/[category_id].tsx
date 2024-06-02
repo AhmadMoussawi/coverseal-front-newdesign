@@ -294,7 +294,7 @@ export default function BlogsPage({
   }, []);
   return (
     <main className="blogs-category-template">
-      <section className="section first-section" data-color={Color.WHITE}>
+      <section className="section first-section titlesection" data-color={Color.WHITE} style={{backgroundColor:"white"}}>
         <div className="section-container">
         {/*<HeaderImage
                       id={header_image.id}
@@ -302,7 +302,7 @@ export default function BlogsPage({
                       main_title={main_title + (currentCategory && currentCategory.translations && currentCategory.translations.length>0?": " + currentCategory.translations[0].name:"")}
                       direction={AnimationDirection.LEFT_TO_RIGHT}
   />*/}
-          <div className="title-container" style={{paddingTop:"50px"}}>
+          <div className="title-container">
             
               <a href={`/${locale}/conseils-pratiques/all`}>
                 <h1  onClick={handleClearSearch}
@@ -328,18 +328,9 @@ export default function BlogsPage({
               )}
               </div>*/}
           </div>
-          <div className="text-container" style={{color:"black", marginBottom:"20px"}}><h6>{main_description}</h6></div>
+          <div className="text-container"><h6>{main_description}</h6></div>
           </div>
-          </section>
-           {/* </div>
-
-          </section>           
-            <section className="section second-section" data-color={Color.BEIGE}> 
-           <div className="section-container">
-          { */}
-            <section className="section first-section" data-color={Color.BEIGE}>
-            <div className="section-container">
-               {!queryResponse ? (
+          {!queryResponse ? (
                 <>
                 <Tabs
                 variant="scrollable"
@@ -382,11 +373,8 @@ export default function BlogsPage({
               </Tabs>
                 <ul className="link-list categories catlink">
                 <li key={"all"}>
-                      <Link
-                        passHref
-                        href={`/conseils-pratiques/all`}
-                      >
-                        <a
+                      
+                        <a href={`/${locale}/conseils-pratiques/all`}
                           className={classnames({
                             "subtitle-poppins": true,
                             "link-before-translate": true,
@@ -396,17 +384,13 @@ export default function BlogsPage({
                         >
                           {all}
                         </a>
-                      </Link>
                     </li>
                 {categories.filter(x=>x.hasblogs == true).map(({ id, translations }) => {
                   return (
                     
                     <li key={id}>
-                      <Link
-                        passHref
-                        href={`/conseils-pratiques/${id}`}
-                      >
-                        <a
+                     
+                        <a href={`/${locale}/conseils-pratiques/${id}`}
                           className={classnames({
                             "subtitle-poppins": true,
                             "link-before-translate": true,
@@ -416,7 +400,6 @@ export default function BlogsPage({
                         >
                           {translations[0].name}
                         </a>
-                      </Link>
                     </li>
                   );
                 })}
@@ -427,6 +410,16 @@ export default function BlogsPage({
                   {queryResponse.length === 0 ? no_result_text : result_text}
                 </h2>
               )}
+          </section>
+           {/* </div>
+
+          </section>           
+            <section className="section second-section" data-color={Color.BEIGE}> 
+           <div className="section-container">
+          { */}
+            <section className="section" data-color={Color.BEIGE}>
+            <div className="section-container">
+               
               
       <Masonry columns={{xs:1, sm:2, md:3, lg:4}} spacing={2} className="projects"> 
         

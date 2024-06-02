@@ -198,52 +198,11 @@ export function Footer({
 
     <footer className="footer" data-color={Color.ANTHRACITE}>
 
-{/* <CatalogueRequestHomeSection 
-        {...globalSection.priceRequest}
-        formsMessages={globalSection.formsMessages}
-        locale={locale}
-      /> */}
+
 
 
       <div className="section-container">
-        {/*<div className="footer__top">
-        {size.width <= 580 && socialNetworks}
-          <div className="newsletter">
-            <div
-              className="wysiwyg"
-              dangerouslySetInnerHTML={{ __html: newsletter_text }}
-            />
-            <NoSsr>
-              <TextField
-                className={classes.root + " input"}
-                fullWidth
-                required
-                id="newsletter"
-                placeholder={newsletter_placeholder}
-                value={mail}
-                onChange={handleChange}
-                error={Boolean(error)}
-                helperText={error}
-              />
-            </NoSsr>
-            <div className="button-container">
-              {isLoading ? (
-                <Loader />
-              ) : (
-                <button
-                  className="link-before-translate link-before-translate--white subscribe-button"
-                  type="button"
-                  onClick={handleSubscribeNewsletter}
-                >
-                  {newsletter_subscribe_link_text}
-                </button>
-              )}
-            </div>
-          </div>
-          <Link href="/contact" passHref>
-            <a className="contact-link subtitle-argesta">{contact_link_text}</a>
-          </Link>
-        </div>*/}
+       
 
 
 

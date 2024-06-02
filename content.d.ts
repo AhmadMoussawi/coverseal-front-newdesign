@@ -300,6 +300,8 @@ interface AboutUsContent extends AllPageContent {
   company_image_2: string;
   company_image_3: string;  
   company_image_4: DirectusImage;
+  video_mobile_image:DirectusImage;
+  network_partners:{directus_files_id:string}[];
 }
 interface CookiesPolicyContent extends AllPageContent{
   title:string;

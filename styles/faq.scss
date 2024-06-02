@@ -7,32 +7,57 @@
 .section2{
   
     padding-top:42px;
+    @media(max-width:1919px)
+    {
+      padding-top:calc(100vw * 42px / 1920px);
+    }
 
 }
 
 .section1{
   
-  padding-top:60px;
+  padding-bottom:0px;
 
 }
 
 
   .first-section {
-    
+    .searchcontainer{
+      width:calc(100vw - 160px) !important;
+      margin-left:calc((100vw - 1600px) / 2) !important;
+      max-width:unset !important;
+      @media(max-width:1919px)
+      {
+        margin-left:calc(100vw * 160px / 1920px) !important
+      }
+      .searchdescription{
+        width:calc(100vw - 320px) !important;
+        margin:auto !important;
+        max-width:1600px !important;
+        margin-left:0px !important;
+        @media(max-width:1919px)
+        {
+          width: calc(100vw * ((1600px / 1920px))) !important;
+        }
+      }
+    }
     .mobilesearch{
       display:none;
     }
-      @media(max-width:768px)
+      @media(max-width: 768px)
       {
         .desktopsearch{
         display: none;
         }
         .mobilesearch{
           display:block;
+          width:calc(100vw * 344px / 430px);
+          margin-top:calc(100vw * 27.5px / 430px);
           .input{
-            width:70% !important
+            width:100% !important;
+            font-size:calc(100vw * 16px / 430px);
           }
-          margin-bottom:30px
+          margin-bottom:0
         }
       }
     
@@ -55,9 +80,7 @@
            line-clamp: 1; 
    -webkit-box-orient: vertical;
 }
-h6{  
-  font-size: 25px;
-}
+
 .subtext{
   background-color: var(--color-beige);
   overflow: hidden;
@@ -76,12 +99,11 @@ h6{
   .title-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 50px;
 
     .input-container {
-      width: 500px;
+      width: 880px;
       position: relative;
+      margin-left:502px;
 
       .icon-container {
         display: flex;
@@ -102,9 +124,20 @@ h6{
           border: solid 1px var(--color-anthracite);
         }
       }
+      @media(max-width:1919px)
+    {
+      width: calc(100vw * 880px / 1920px);
+      margin-left:calc(100vw * 502px / 1920px);
+    }
+    @media(max-width:768px)
+    {
+      width: 100%;
+      margin-left:0px;
+    }
     }
 
-    @media (max-width: 1024px) {
+    
+    @media (max-width: 768px) {
       .input {
         width: 50%;
       }
@@ -151,12 +184,15 @@ h6{
         }
       }
 
-      @media (max-width: 768px), (max-height: 500px) {
-        font-size: 1.5rem;
+      @media (max-width: 768px) {
+        font-size: calc(100vw * 16px / 430px);
+        padding-right:0px;
+        line-height:calc(100vw * 20px / 430px);
+        letter-spacing:0px
       }
 
       @media (max-width: 580px) {
-        font-size: 1.25rem;
+        
 
         svg {
           margin-right: 10px;
@@ -218,7 +254,7 @@ h6{
     
     .link-list a {
       color: var(--color-terra-cotta);
-      background-color:var(--color-white);
+      background-color:white;
       
       
       .link-list a.is-selected{
@@ -227,14 +263,14 @@ h6{
   }
   .link-list {
     display: flex;
-    margin-top: -112px;
+    margin-top: 30px;
     background-color: white; 
     flex-direction: row;
 
     padding: 0px; 
-    position:absolute;
+    position:unset;
     a{
-      padding:10px;
+      padding:10px 30px;
     }
     a::before{
       background:unset;
@@ -242,9 +278,25 @@ h6{
     .is-selected{
       background-color:var(--color-beige);
     }
-    @media(max-width:768px)
+    @media(max-width:1919px)
+    {      
+      margin-top: calc(100vw * 30px / 1920px);
+      a{
+        padding:calc(100vw * 10px / 1920px) calc(100vw * 30px / 1920px);
+      }
+    }
+    @media(max-width: 768px)
     {
-      margin-top: -108px;
+      margin-top: calc(100vw * 30px / 430px);
+      a{
+        padding:0 calc(100vw * 10px / 430px);
+        width: 25vw;
+        text-overflow: ellipsis;
+        overflow:hidden;
+        font-size:calc(100vw * 17px / 430px);
+        display:block;
+        height:100%;
+      }
     }
   }
   
@@ -345,11 +397,11 @@ h6{
   
     @media(min-width:580px),(max-width:768px){
       .first-section {   
-        padding-bottom: 50px;   
+        padding-bottom: calc(100vw * 50px / 430px);   
       } 
     }
 
-    @media(max-width:580px)
+    @media(max-width: 768px)
 {
   .link-list {
     background-color: var(--color-beige) !important;
@@ -384,14 +436,7 @@ h6{
 }
 
     @media (max-width: 768px) {
-      .image-container {
-        min-height: 200px;
-      }      
-    }
-
-  
-    @media (max-width: 580px) {
-      margin-top: 50px;
+      margin-top: calc(100vw * 50px / 430px);
       width:90%;
       .image-container {
         min-height: auto;

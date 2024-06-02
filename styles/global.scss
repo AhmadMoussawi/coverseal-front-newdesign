@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @font-face {
   font-family: "argesta_hairlineRgIt";
   src: url("../fonts/argestahairline-regularitalic-webfont.woff2")
@@ -24,34 +25,72 @@
 // TODO-2: standardize margin
 html {
   font-size: 25px !important;
-
+@media(max-width:1919px)
+{
+  font-size:calc(100vw * 25px / 1919px) !important
+}
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: calc(100vw * 14px / 430px);
   }
 
-  @media (max-width: 350px) {
-    font-size: 12px;
-  }
 }
 
 body {
-  font-family: "Poppins";
+  font-family: "Lexend";
   line-height: 1.75;
-  font-weight: 300;
+  font-weight: 250;
   margin: 0;
   padding: 0;
   overflow: auto !important
 }
+label{
+  @media(max-width:768px)
+  {
+    font-size:calc(100vw * 16px / 430px) !important
+  }
+}
+.infoicon{
+  position: absolute;
+  margin-left:10px !important;
+  width:21.85px !important;
+  height:21.85px !important;
+  margin-top:12px !important;
+  @media(max-width:1919px)
+  {
+    
+  margin-left:calc(100vw * 10px / 1920px) !important;
+  width:calc(100vw * 21.85px / 1920px) !important;
+  height:calc(100vw * 21.85px / 1920px) !important;
+  margin-top:calc(100vw * 12px / 1920px) !important;
+  }
+
+}
+.MuiMenuItem-root{
+  @media (max-width:768px) {
+    font-size: calc(100vw * 16px / 430px) !important;
+  }
+}
+.MuiSelect-icon{
+  @media (max-width:768px) {
+    width: calc(100vw * 16px / 430px) !important;
+    height:calc(100vw * 16px / 430px) !important;
+  }
+}
 .formtitle{
   font-weight:500;
   font-size:40px;
-  @media(max-width:768px)
+  @media(max-width:1919px)
   {
-    font-size:19px;
+    font-size:calc(100vw * 40px / 1920px);
+  }
+  @media(max-width: 768px)
+  {
+    font-size:calc(100vw * 19px / 430px);
   }
 }
 textarea{
   padding:10px !important;
+  background-color:white !important
 }
 .model-template .textright-container{
   text-align:right
@@ -78,6 +117,19 @@ textarea{
 .MuiSelect-select.MuiSelect-select {
   padding-right: 24px;
   padding-left: 10px;
+  @media(max-width: 768px)
+  {
+    font-size:calc(100vw * 16px / 430px);
+    line-height:calc(100vw * 16px / 430px)
+  }
+  
+}
+.makeStyles-root-1 .MuiSelect-icon {
+  @media(max-width: 768px)
+  {
+    width:calc(100vw * 16px / 430px);
+    height:calc(100vw * 16px / 430px);
+  }
 }
 .MuiSelect-select:not([multiple]) option, .MuiSelect-select:not([multiple]) optgroup{
   background-color: #fff;
@@ -92,40 +144,42 @@ textarea{
     position: unset;
   }
   ol {
-    list-style: decimal;
-    margin-left:10px;
+    list-style: none;
+    margin-left:0;
   }
   ul{
     list-style:circle;
     margin-left:10px;
   }
+  @media(max-width: 768px)
+  {
+      font-size:calc(100vw * 16px / 430px) !important
+  }
 } 
 :root {
   --color-anthracite: #333338;
-  --color-terra-cotta: #7b331b;
-  --color-white: #ffffff;
+  --color-terra-cotta: #803016;
+  --color-white: #e4ded7;
   --color-sand: #f2e3d6;
   --color-beige: #fcf6f2;
   --color-grey-blue: #78a0a0;
 }
 
 .section-container {
-  width: calc(100% - 320px) !important;
-  margin: 0 0;
-  padding-left:160px;
-  padding-right:160px;
-
-  @media (max-width: 768px), (max-height: 500px) {
-    padding-left:44px;
-  padding-right:43px;
-    width: calc(100% - 87px) !important;
+  width: calc(100vw - 320px) !important;
+  margin: auto;
+  max-width:1600px;
+  @media(max-width:1919px)
+  {
+    width: calc(100vw * 1600px / 1920px) !important;
+  }
+  @media (max-width: 768px) {
+    width: calc(100vw * 344px / 430px) !important;
+    margin: auto;
+    margin-top:0px;
   }
 
-  @media (max-width: 580px) {
-    padding-left:44px;
-  padding-right:43px;
-    width: calc(100% - 87px) !important;
-  }
+  
 }
 
 a {
@@ -133,7 +187,17 @@ a {
 }
 
 em {
-  font-family: "argesta_hairlineRgIt";
+  font-family: "argesta_regular";
+  line-height: 80px;
+  display: inline-block;
+  @media(max-width:1919px)
+  {
+    line-height: calc(100vw * 80px / 1920px);
+  }
+  @media(max-width:768px)
+  {
+    line-height: calc(100vw * 48px / 430px);
+  }
 }
 
 button {
@@ -144,11 +208,20 @@ button {
 }
 
 .main-title {
-  font-size: 150px;
+  font: normal normal normal 150px / 160px Lexend;
   margin-bottom: 50px;
-  line-height: 1.25;
+  line-height: 160px !important;
   white-space: pre-wrap;
-
+  letter-spacing: -5.6px;
+  margin-left:-15px;
+  @media(max-width:1919px)
+  {
+    font-size:calc(100vw * 150px / 1919px);
+    margin-bottom: calc(100vw * 50px / 1919px);
+    line-height: calc(100vw * 160px / 1919px) !important;
+    
+  margin-left:calc(100vw * -15px / 1919px) !important;;
+  }
   &--terra-cotta {
     color: var(--color-terra-cotta);
   }
@@ -161,15 +234,18 @@ button {
     color: var(--color-white);
   }
 
-  @media(max-width: 786px){
-    font-size: 44px;
+  @media(max-width: 768px){
+    font-size: calc(100vw * 40px / 430px) !important;
+    line-height:calc(100vw * 60px / 430px) !important;
+    letter-spacing:calc(100vw * -0.84px / 1920px);
+    margin-left:0px;
   }
   // @media (max-width: 1200px) {
   //   font-size: 5rem;
   // }
 
   @media (max-width: 580px), (max-height: 500px) {
-    font-size: 35px !important;
+    
     margin-bottom:20px;
     padding-right:0px;
   }
@@ -178,8 +254,8 @@ button {
 .main-paragraph {
   font-size: 25px;
 
-  @media (max-width: 786px) {
-    font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: calc(100vw * 16px / 430px);
   }
 
   
@@ -208,16 +284,23 @@ button {
 
 .link-before-translate {
   position: relative;
-  padding: 10px 20px;
+  padding: 10px 12px;
   z-index: 10;
   transition: 0.3s ease-out;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 0px;
   display: inline-block;
-  font-size: 25px;
-  letter-spacing: 2px;
+  font-size: 30px;
+  letter-spacing: 0px;
   line-height: 2;
-
+  font-family: "Lexend";
+  font-weight: 300;
+  @media(max-width:1919px)
+  {
+    font-size: calc(100vw * 30px / 1920px);
+    
+  padding: calc(100vw * 10px / 1920px) calc(100vw * 12px / 1920px);
+  }
   &::before {
     content: "";
     display: block;
@@ -275,8 +358,9 @@ button {
     }
   }
 
-  @media (max-width:768px){
-    font-size: 12px;
+  @media (max-width: 768px){
+    font-size: calc(100vw * 14px / 430px);
+    padding:0 calc(100vw * 7px / 430px);
   }
 }
 
@@ -368,7 +452,7 @@ button {
 
   @media (max-width: 768px) {
     .circle {
-      width: 500px;
+      width: calc(100vw * 500px / 430px);
     }
 
     .main-link {
@@ -408,10 +492,10 @@ section {
   }
 
   &[data-color="white"] {
-    background: var(--color-white);
+    background: white;
 
     .image-container .overlay {
-      background: var(--color-white);
+      background: white;
     }
   }
 
@@ -421,6 +505,17 @@ section {
     .image-container .overlay {
       background: var(--color-beige);
     }
+    label.Mui-focused {
+      color: var(--color-terra-cotta)
+    }
+    .MuiInput-underline:after {
+      border-bottom-color: var(--color-terra-cotta)
+    }
+    .MuiOutlinedInput-root {
+      &.Mui-focused fieldset {
+        border-color: var(--color-terra-cotta)
+      }
+    }
   }
 
   &[data-color="anthracite"] {
@@ -428,6 +523,17 @@ section {
 
     .image-container .overlay {
       background: var(--color-anthracite);
+    }
+    label.Mui-focused {
+      color: white
+    }
+    .MuiInput-underline:after {
+      border-bottom-color: white
+    }
+    .MuiOutlinedInput-root {
+      &.Mui-focused fieldset {
+        border-color: white
+      }
     }
   }
   &[data-color="sand"] {
@@ -441,18 +547,22 @@ section {
 
 .section {
   overflow: hidden;
-  padding: 100px 0;
-
-  @media (max-width: 580px) {
-    padding: 50px 0;
+  padding: 80px 0;
+  @media (max-width: 1919px) {
+    padding: calc(100vw * 80px / 1920px) 0;
+  }
+  @media (max-width: 768px) {
+    padding: calc(100vw * 50px / 430px) 0;
   }
 }
 
 .first-section {
-  padding-top: 150px;
-
-  @media (max-width: 580px) {
-    padding-top: 100px;
+  padding-top: 240px;
+  @media (max-width: 1919px) {
+    padding-top: calc(100vw * 240px / 1920px);
+  }
+  @media (max-width: 768px) {
+    padding-top: calc(100vw * 108px / 430px);
   }
 }
 
@@ -491,18 +601,43 @@ section {
       border-color: rgba(0, 0, 0, 0.87);
     }
   }
+  @media(max-width:1919px)
+  {
+    font-size: calc(100vw * 38px / 1920px);
+  padding: calc(100vw * 10px / 1920px) 0;
+  }
 }
 
 .wysiwyg {
+  
+  line-height:35px;
+  h2{
+    line-height:60px;
+  }
+  @media(max-width:1919px)
+  {
+    font-size:calc(100vw * 25px / 1920px) !important;
+    line-height:calc(100vw * 35px / 1920px);
+    h2{
+      line-height:calc(100vw * 60px / 1920px);
+    }
+  }
+  @media(max-width: 768px)
+    {
+      line-height:calc(100vw * 20px / 430px);
+      font-size:calc(100vw * 16px / 430px) !important;
+      h2{
+        line-height:calc(100vw * 40px / 430px);
+      }
+    }
   h2,
   h3,
   h4,
   h5,
   h6 {
     font-size: 2.5rem;
-    font-family: "Poppins";
     color: var(--color-terra-cotta);
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 30px 0;
   }
 
@@ -530,12 +665,24 @@ section {
   p,
   li {
     margin: 10px 0;
+    line-height:35px;
+    letter-spacing:0px;
+    @media(max-width:1919px)
+  {
+    font-size:calc(100vw * 25px / 1920px) !important;
+    line-height:calc(100vw * 35px / 1920px) !important;
+  }
+    @media(max-width: 768px)
+    {
+      line-height:calc(100vw * 20px / 430px) !important;
+      font-size:calc(100vw * 16px / 430px) !important;
+    }
   }
 
   ul {
     list-style: initial;
     margin: initial;
-    padding-left: 40px;
+    padding-left: 20px;
   }
 }
 
@@ -580,19 +727,26 @@ section {
   font-size: 30px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-
+  @media (max-width: 1919PX) {
+    font-size: calc(100vw * 30px / 1920px);
+  }
   @media (max-width: 768px) {
-    font-size: 17px;
+    font-size: calc(100vw * 17px / 430px);
   }
 }
 
 .subtitle-argesta {
-  font-size: 80px;
-  font-family: "argesta_hairlineRgIt";
-  line-height: normal;
+  font-size:80px;
+  @media(max-width:1919px)
+  {
+    font-size: calc(100vw * 80px / 1920px);
+  }
   
-  @media (max-width: 580px) {
-    font-size: 40px;
+  font-family: "argesta_regular";
+  line-height: normal;
+  letter-spacing:-1.6px;
+  @media (max-width: 768px) {
+    font-size: calc(100vw * 40px / 430px);
   }
 }
 
@@ -625,7 +779,7 @@ section {
   }
 
   &[data-color="white"] {
-    fill: var(--color-white);
+    fill: white;
   }
 
   &[data-color="beige"] {
@@ -646,7 +800,7 @@ section {
     }
 
     &[data-color="white"] {
-      stroke: var(--color-white);
+      stroke: white;
     }
 
     &[data-color="beige"] {
@@ -685,7 +839,7 @@ section {
     width: 50px;
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 768px) {
     bottom: 1%;
   }
 }
@@ -705,7 +859,12 @@ section {
 
 .image {
   width: 100%;
-
+  height:100%;
+  object-fit:cover;
+  @media(max-width: 768px)
+  {
+    height:auto;
+  }
   &.css-image {
     height: 100%;
     background-size: cover;
@@ -775,7 +934,7 @@ section {
 
   &[data-color="white"] {
     .line {
-      background: var(--color-white);
+      background: white;
     }
 
     a {
@@ -856,7 +1015,7 @@ section {
 
   &[data-color="white"] {
     .line {
-      background: var(--color-white);
+      background: white;
     }
 
     svg {
@@ -882,7 +1041,7 @@ section {
     }
 
     svg {
-      width: 250px;
+      width: calc(100vw * 250px / 430px);
     }
   }
 
@@ -911,7 +1070,8 @@ section {
     display: inline-block;
     text-align: center;
     white-space: nowrap;
-
+    letter-spacing:0px;
+    font-weight:300;
     &.is-selected {
       color: var(--color-beige);
 
@@ -931,15 +1091,15 @@ section {
     }
   }
 
-  @media (max-width: 1000px) {
-    margin-top: 50px;
+  @media (max-width: 768px) {
+    margin-top: calc(100vw * 50px / 430px);
 
     a {
       font-size: 1.5rem;
     }
 
     li {
-      margin: 0 5px;
+      margin: 0 calc(100vw * 5px / 430px);
     }
   }
 
@@ -1020,7 +1180,7 @@ section {
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     transform: translate(0, 0);
   }
 
@@ -1052,11 +1212,11 @@ section {
     }
   }
 
-  @media (max-width: 768px), (max-height: 500px) {
+  @media (max-width: 768px) {
     flex-direction: column;
 
     .text-container {
-      margin-bottom: 50px;
+      margin-bottom: calc(100vw * 50px / 430px);
       padding: 0 !important;
     }
 
@@ -1075,7 +1235,7 @@ section {
   display: flex;
   margin-top: 100px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     flex-wrap: wrap;
   }
 
@@ -1105,28 +1265,28 @@ section {
     display: inline-block;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     li {
       width: 50%;
-      padding: 0 30px;
+      padding: 0 calc(100vw * 30px / 430px);
 
       &:nth-child(2) {
         padding: 0px;
       }
 
       &:last-child {
-        margin-top: 50px;
+        margin-top: calc(100vw * 50px / 430px);
       }
     }
   }
 
   @media (max-width: 768px) {
     h3 {
-      height: 50px;
+      height: calc(100vw * 50px / 430px);
     }
 
     a {
-      margin-top: 25px;
+      margin-top: calc(100vw * 25px / 430px);
     }
 
     li {
@@ -1134,15 +1294,15 @@ section {
     }
   }
 
-  @media (max-width: 580px) {
-    margin: 50px 0;
+  @media (max-width: 768px) {
+    margin: calc(100vw * 50px / 430px) 0;
 
     li {
       width: 100%;
-      margin: 20px 0;
+      margin: calc(100vw * 20px / 430px) 0;
 
       &:last-child {
-        margin-top: 20px;
+        margin-top: calc(100vw * 20px / 430px);
       }
     }
   }
@@ -1204,8 +1364,9 @@ section {
     }
   }
 
-  @media (max-width: 580px) {
-    margin: 25px 0;
+  @media (max-width: 768px) {
+    margin: calc(100vw * 25px / 430px) 0;
+    font-size:calc(100vw * 16px / 430px);
   }
 }
 
@@ -1294,12 +1455,25 @@ section {
     transform: scale(1.5);
   }
 }
-
+.after-sale-template
+{
+  .main-title{
+    @media(max-width:768px)
+    {
+      font-size: calc(100vw * 40px / 430px) !important;
+    letter-spacing: calc(100vw * -0.76px / 430px) !important;
+    line-height: calc(100vw * 47px / 430px) !important;
+    }
+  }
+}
 .after-sale-template,
 .price-request-template {
+  .formtitle{
+    padding-top:0px;
+  }
   .first-section {
     padding-bottom: 0;
-
+    padding-top:230px;
     .logo-container1 {
       position: absolute;
       top: 5%;
@@ -1308,13 +1482,15 @@ section {
       transform: translateX(-50%);
       z-index: 10;
 
-      @media (max-width: 580px), (max-height: 500px) {
+      @media (max-width: 768px) {
         top: 6%;
-        width: 60px;
+        width: calc(100vw * 60px / 430px);
         left: 15%;
       }
     }
-    
+    @media(max-width: 768px){
+      padding-top:calc(100vw * 111px / 430px) !important
+    }
   }
 
   .price-request-section {
@@ -1323,7 +1499,7 @@ section {
 
   .coversealnew-section {
     overflow: initial;
-
+    padding-bottom:0px;
     a {
       display: inline-block;
       margin-left: calc(100% - 168px);
@@ -1350,14 +1526,22 @@ section {
     }
 
     .text-container {
-      margin-left: 10%;
       margin-top: 0px;
-      padding-right:10%;
-      display: flex;
-      text-align:left;
-      flex-direction: column;
-      align-items: flex-start;
-      width:40%;
+    margin-right: 120px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 920px;
+    font-size: 25px;
+    line-height: 35px;
+    letter-spacing: 0px;
+    @media(max-width:1600px)
+    {
+      margin-right:calc(100% * 240px / 1920px);
+      width:calc(100% * 1000px / 1920px);
+    }
+      
     }
 
     .line {
@@ -1368,8 +1552,8 @@ section {
       transform: translateY(-100px);
     }
 
-    @media (max-width: 1024px) {
-      padding-bottom: 50px;
+    @media (max-width: 768px) {
+      padding-bottom: calc(100vw * 50px / 430px);
 
       h4 {
         font-size: 2.75rem;
@@ -1381,7 +1565,7 @@ section {
       .text-container {
         margin-left: 10%;
         margin-top: 0px;
-        padding-right:20px;
+        padding-right:calc(100vw * 20px / 430px);
         display: flex;
         text-align:left;
         flex-direction: column;
@@ -1390,14 +1574,13 @@ section {
       }
     }
 
-    @media (max-width: 768px), (max-height: 500px) {
+    @media (max-width: 768px) {
       padding-top: 0;
 
       .content {
         flex-direction: column;
         left:5%;
-        margin:10px;
-        margin-top:0px
+        margin:0px;
       }
 
       .image-container {
@@ -1413,8 +1596,8 @@ section {
         margin-bottom: 0;
         left:5%;
         text-align: left !important;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
       }
 
       .image-container,
@@ -1443,20 +1626,29 @@ section {
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  
+  margin-top:48px;
 }
 
 .legal-checkbox {
   width: 100%;
   display: flex !important;
   justify-content: flex-start;
-  margin: 10px 0;
+  margin: 0px 0;
   
   span {
     flex: unset !important;
     text-transform: none !important;
     white-space: initial;
     
+  }
+  span:nth-of-type(2)
+  {
+    margin-left:31px;
+    @media(max-width:1919px)
+    {
+      margin-left:calc(100vw * 31px / 1919px);      
+      
+    }
   }
   .MuiSvgIcon-root {
     width: 40px;
@@ -1467,6 +1659,9 @@ section {
     color: #808080;
     width:40px;
     height:40px;
+    path{
+      stroke-width: 0.5px !important;
+    }
   }
   .MuiTypography-root , .MuiFormControlLabel-label , .MuiTypography-body1{
     color: #808080;
@@ -1502,7 +1697,7 @@ form {
   @media (max-width: 768px) {
     .field-group {
       order: 1;
-      margin:15px 0 !important;
+      margin:calc(100vw * 15px / 430px) 0 !important;
       padding-right:0px !important
     }
 
@@ -1521,17 +1716,22 @@ form {
   }
 }
 
-@media (max-width: 580px) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
+@media (max-width: 768px) {
+  p, h6 {
     box-sizing: border-box;
-    padding-right: 30px;
+    padding-right: 0px;
+    font-size:calc(100vw * 16px / 430px) !important;
+    line-height:calc(100vw * 20px / 430px) !important;
   }
+  .main-title p{
+    font-size:unset !important;
+  }
+  button{
+    font-size:calc(100vw * 15px / 430px) !important;
+  }
+  .MuiSvgIcon-fontSizeSmall {
+    font-size: calc(100vw * 16px / 430px) !important;
+}
 }
 
 .country-section,

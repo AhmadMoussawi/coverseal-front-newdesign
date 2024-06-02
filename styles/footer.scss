@@ -1,13 +1,19 @@
 .footer {
-  padding: 0 0 50px;
+  padding: 30px 0;
   background: var(--color-anthracite);
   color: var(--color-white);
-  
+  margin-top:-1px;
 
   .button-container {
     margin-top: 30px;
   }
-
+  @media(max-width:1919px)
+  {
+    padding: calc(100vw * 30px / 1920px) 0;
+    .button-container {
+      margin-top: calc(100vw * 30px / 1920px);
+    }
+  }
   a {
     color: var(--color-white);
   }
@@ -27,14 +33,28 @@
   }
 
   .logo {
-    width: 300px;
+    width: 360px;
 
     svg {
+      width:360px;
       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
       &:hover {
         fill: var(--color-white);
       }
+    }
+    @media(max-width:1919px)
+    {
+      width: calc(100vw * 360px / 1920px);
+
+    svg {
+      width:calc(100vw * 360px / 1920px);
+      transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+      &:hover {
+        fill: var(--color-white);
+      }
+    }
     }
   }
 
@@ -105,13 +125,33 @@
       a {
         transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         color : #808080;
+        font-size:26px;
         &:hover {
           color: var(--color-terra-cotta);
         }
       }
+      @media(max-width:1919px)
+      {
+        margin-right: calc(100vw * 20px / 1920px);
+      margin-top:calc(100vw * 10px / 1920px);
+      a {
+        font-size:calc(100vw * 26px / 1920px);
+      }
+      
+      }
     }
     li:last-child {
       margin-right: 0;
+    }
+    @media(max-width: 768px){
+      display:block;
+      text-align: center !important;
+      li{
+      margin-top:0px;
+      a{
+        font-size:calc(100vw * 13px / 430px);
+      }
+    }
     }
   }
 
@@ -124,8 +164,12 @@
   .line {
     border-top: 1px solid #ece6e6; // Adjust color and width as needed
     width: 100%; // Adjust the width of the line
-    margin: 0 10px; // Adjust margin as needed
+    margin: 20px 0px; // Adjust margin as needed
     color:white;
+    @media(max-width:768px)
+    {
+      margin:calc(100vw * 21.6px / 430px) 0;
+    }
   }
   
   .flex-container {
@@ -136,12 +180,10 @@
 .flex-child {
     flex: 1;
     // border: 2px solid yellow;
-    width:250px;
     svg{
-      width:250px;
-      @media(max-width:768px)
+      @media(max-width: 768px)
       {
-        width:150px;
+        width:calc(100vw * 150px / 430px);
       }
     }
 }  
@@ -167,28 +209,48 @@
     li{
       display:inline-block;
       margin-right: 20px;
-      width: 40px; /* Set width equal to height for square SVG elements */
+      width: 45px; /* Set width equal to height for square SVG elements */
       height: 45px; /* Set height of SVG elements */
-      margin-right: 10px;
+      margin-right: 15px;
+      margin-left:10px;
+      @media(max-width:1919px)
+      {
+        width: calc(100vw * 45px / 1920px) !important; /* Set width equal to height for square SVG elements */
+      height: calc(100vw * 45px / 1920px) !important; /* Set height of SVG elements */
+      margin-right: calc(100vw * 15px / 1920px) !important;
+      margin-left:calc(100vw * 10px / 1920px) !important;
+      }
     }
     svg {
     //  width: 40px;
-      width: 30px; /* Allow the width to adjust based on the aspect ratio */
+      width: 45px; /* Allow the width to adjust based on the aspect ratio */
       height: 100%;
       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
+
     .facebook {
+      width:35px;
+      margin-right:5px;
       svg {
-        width: 15px;
+        width: 25px;
         
+      }
+      @media(max-width:1919px)
+      {
+        width:calc(100vw * 35px / 1920px);
+      margin-right:calc(100vw * 5px / 1920px);
+      svg {
+        width: calc(100vw * 25px / 1920px);
+        
+      }
       }
     }
 
     a {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 10px 0 0 15px;
       width: 300px;
      
       &:hover {
@@ -197,27 +259,63 @@
         }
       }
     }
-
-    @media(max-width:768px)
+    @media(max-width:1919px)
+    {
+      li{
+        margin-right: 0;
+        width: calc(100vw * 70px / 1920px); /* Set width equal to height for square SVG elements */
+        height: calc(100vw * 45px / 1920px); /* Set height of SVG elements */
+        
+      }
+      svg {
+      //  width: 40px;
+        width: calc(100vw * 45px / 1920px); /* Allow the width to adjust based on the aspect ratio */
+        height: 100%;
+      }
+  
+  
+      .facebook {
+        svg {
+          width: calc(100vw * 25px / 1920px);;
+          
+        }
+      }
+  
+      a {
+        display: flex;
+        align-items: center;
+        padding: calc(100vw * 10px / 1920px) 0 0 calc(100vw * 15px / 1920px);
+        width: calc(100vw * 300px / 1920px);
+       justify-items:end;
+        &:hover {
+          svg {
+            fill: var(--color-terra-cotta);
+          }
+        }
+      }
+    }
+    @media(max-width: 768px)
       {
         .facebook {
+          width:calc(100vw * 25px / 430px);
           svg {
-            width: 20px;
-            height :20px;            
+            width: calc(100vw * 25px / 430px);
+            height :calc(100vw * 25px / 430px);            
           }
         }
         li{
           display:inline-block;
-          width:40px;
-          margin-right: 20px;
-          width: 20px; /* Set width equal to height for square SVG elements */
-          height: 20px; /* Set height of SVG elements */
-          margin-right: 10px;
+          width:calc(100vw * 30px / 430px) !important;
+          height: calc(100vw * 30px / 430px) !important; /* Set height of SVG elements */
+          svg {
+            width: calc(100vw * 25px / 430px);
+            height :calc(100vw * 25px / 430px);            
+          }
         }
         a {
           display: flex;
-          align-items: center;
-          padding: 2.5px;
+          align-items: end;
+          padding: calc(100vw * 2.5px / 430px);
           width: calc(100% - 5px);
          
           &:hover {

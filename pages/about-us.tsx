@@ -68,6 +68,7 @@ export default function AboutUsPage({ globalSection, pageProps, home }: AboutUsP
     history_paragraph,
     network_paragraph,
     network_title,
+    network_partners,
     partnership_link_text,
     the_coverseal_link_text,
     achievements_link_text,
@@ -77,6 +78,7 @@ export default function AboutUsPage({ globalSection, pageProps, home }: AboutUsP
     company_image_2,
     company_image_3,
     company_image_4,
+    video_mobile_image
   } = pageProps;
 
    const boxData = [
@@ -202,172 +204,96 @@ for (let i = 0; i < boxData.length; i += 3) {
       setIsGenerated(true);
     }
   }, [isGenerated]);
-
-
   return (
     <main className="about-us-template">
-      <section className="section first-section" data-color="beige" style={{paddingTop:"150px"}}>
+      <section className="section first-section" data-color="beige">
         <div className="section-container">
-          <h1 className="main-title main-title--terra-cotta" >{main_title}</h1>
+          <h1 className="main-title main-title--terra-cotta" >{main_title.replace(/ \?/gi,"?")}</h1>
           <div
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: main_paragraph }}
           />
-          {/* <div className="video-container"> */}
-            {/* <div className="video-poster" />
-            <div className="button-container">
-              <YoutubePlayButton color={Color.TERRA_COTTA} />
-            </div>
-            <div id="video" /> */}
-          {/* </div> */}
-
-          {/* <div className="block block-history">
-            <div className="text-container">
-              <h2 className="subtitle-argesta subtitle-argesta--white">
-                {history_title}
-              </h2>
-              <div
-                className="wysiwyg"
-                dangerouslySetInnerHTML={{
-                  __html: history_paragraph,
-                }}
-              />
-              <Image
-                id={history_image_2}
-                title="histoire image 2"
-                containerClassName="image-on-top"
-                direction={AnimationDirection.RIGHT_TO_LEFT}
-              />
-            </div>
-            <Image
-              id={history_image}
-              title="histoire image"
-              containerClassName="image-behind"
-              direction={AnimationDirection.TOP_TO_BOTTOM}
-            />
-          </div> */}
-
-          {/* <div className="block block-text-image image-left">
-            <div className="text-container">
-              <h2 className="subtitle-argesta subtitle-argesta--white">
-                {company_title}
-              </h2>
-              <div
-                className="wysiwyg"
-                dangerouslySetInnerHTML={{
-                  __html: company_paragraph,
-                }}
-              />
-            </div>
-            <Image
-              id={company_image.filename_disk}
-              title="company image"
-              direction={AnimationDirection.RIGHT_TO_LEFT}
-            />
-          </div> */}
-
-          {/* <div className="block block-double-image">
-            <Image
-              id={company_image_2}
-              title="company image"
-              direction={AnimationDirection.RIGHT_TO_LEFT}
-            />
-            <Image
-              id={company_image_3}
-              title="company image"
-              direction={AnimationDirection.RIGHT_TO_LEFT}
-            />
-          </div> */}
-
-          {/* <div className="block block-network">
-            <div className="text-container">
-              <h2 className="subtitle-argesta subtitle-argesta--white">
-                {network_title}
-              </h2>
-              <div
-                className="wysiwyg"
-                dangerouslySetInnerHTML={{
-                  __html: network_paragraph,
-                }}
-              />
-            </div>
-            <Image
-              id={company_image_4.filename_disk}
-              title="company image"
-              direction={AnimationDirection.RIGHT_TO_LEFT}
-            />         
-          </div> */}
         </div>
-        {/* <LineLink
-          href="/partnerships"
-          text={partnership_link_text}
-          color={Color.WHITE}
-        /> */}
       </section>
-      {/* <section className="link-section" data-color={Color.WHITE}>
-        <CircleLink
-          mainLink={{
-            text: the_coverseal_link_text,
-            href: "/the-coverseal",
-          }}
-          secondLink={{
-            text: achievements_link_text,
-            href: "/achievements",
-          }}
-          textAlign="right"
-        />
-      </section> */}
-
-
-
       <section className="section image-box-two-section" data-color={Color.BEIGE} >
         <div className="container">
-          <Grid container spacing={2}>
-            <Grid item sm={6} lg={2}  xs={6} spacing={2} >
+          <table className="desktopboxes">
+            <tr>
+              <td style={{verticalAlign:"top"}}>
               <div className="boxpair">
-              <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
-                <div className="boxnumber">{installation_effectue_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{installation_effectue_title}</div></div>
-                <div style={{height:"40px"}}></div>
+              <div className="insidebox" style={{ backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column"}}>
+                <div className="boxnumber">{installation_effectue_number && installation_effectue_number.split('.').length>1 && installation_effectue_number.split('.')[0]}<small>.{installation_effectue_number && installation_effectue_number.split('.').length>1 && installation_effectue_number.split('.')[1]}</small><div className="boxtitle">{installation_effectue_title}</div></div>
+                <div className="spacebelow"></div>
               </div>
               </div>
-            </Grid>
-            <Grid item spacing={2} lg={2} sm={6}  xs={6}>
-            <div className="boximpair">
-            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-anthracite)",color:"#FFFFFF", flexDirection:"column", width:"100%"}}>
-                <div className="boxnumber">{countries_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{countries_title}</div></div>
-                <div style={{height:"40px"}}></div>
+              </td>
+              <td style={{verticalAlign:"bottom"}}>
+              <div className="boximpair">
+            <div className="insidebox" style={{backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column"}}>
+                <div className="boxnumber">{countries_number}<div className="boxtitle">{countries_title}</div></div>
+                <div className="spacebelow"></div>
               </div></div>
-            </Grid>
-            <Grid item sm={6} lg={2} xs={6} spacing={2}>
-            <div className="boxpair">
-            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"30px 20px 30px 20px", backgroundColor:"var(--color-white)",color:"var(--color-terra-cotta)", flexDirection:"column", width:"100%"}}>
-                <div className="boxnumber adaptedboxnumber">{years_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{years_title}</div></div>
-                <div className="belowyearsnumber" style={{height:"40px"}}></div>
+              </td>
+              <td style={{verticalAlign:"top"}}>
+              <div className="boxpair">
+            <div className="insidebox" style={{backgroundColor:"white",color:"var(--color-terra-cotta)", flexDirection:"column"}}>
+                <div className="boxnumber adaptedboxnumber">{years_number}<div className="boxtitle">{years_title}</div></div>
+                <div className="belowyearsnumber"></div>
               </div></div>
-            </Grid>
-            <Grid item sm={6} lg={2} xs={6} spacing={2}>
-            <div className="boximpair">
-            <div className="madeinbelgium" style={{verticalAlign:"middle", textAlign:"center", padding:"50px 20px",backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column", width:"100%"}}>
-                <div><img src="/made_in_belgium.png" style={{maxWidth:"90%", margin:"center"}}/><div className="boxtitle adaptedboxtitle" style={{marginTop:"-10px"}}>{quality_title}</div></div>
+              </td>
+              <td style={{verticalAlign:"bottom"}}>
+              <div className="boximpair">
+            <div className="insidebox" style={{backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column"}}>
+                <div><img src="/made_in_belgium.png" className="madeinbelgium"/><div className="boxtitle adaptedboxtitle">{quality_title}</div></div>
                 
               </div></div>
-            </Grid>
-            <Grid item sm={6} lg={2} xs={6} spacing={2}>
-            <div className="boxpair lastbox">
-            <div className="insidebox" style={{verticalAlign:"middle", textAlign:"center", padding:"40px 20px 30px 20px", backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column", width:"100%"}}>
-            <div style={{fontSize:"12px"}}>{more_then}</div><div className="boxnumber" style={{marginTop:"-30px"}}>{collaborator_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{collaborator_title}</div></div>
+              </td>
+              <td style={{verticalAlign:"top"}}>
+              <div className="boxpair lastbox">
+            <div className="insidebox" style={{backgroundColor:"var(--color-sand)",color:"var(--color-anthracite)", flexDirection:"column"}}>
+            <div className="morethen">{more_then}</div><div className="boxnumber">{collaborator_number}<div className="boxtitle">{collaborator_title}</div></div>
+                <div className="spacebelow"></div>
+              </div>
+              </div>
+              </td>
+            </tr>
+          </table>
+          <table className="mobileboxes">
+            <tr>
+              <td style={{padding:"10px", verticalAlign:"top"}}>
+              <div className="insidebox" style={{ backgroundColor:"var(--color-terra-cotta)",color:"#FFFFFF", flexDirection:"column"}}>
+                <div className="boxnumber">{installation_effectue_number && installation_effectue_number.split('.').length>1 && installation_effectue_number.split('.')[0]}<small>.{installation_effectue_number && installation_effectue_number.split('.').length>1 && installation_effectue_number.split('.')[1]}</small><div className="boxtitle" style={{marginTop:"-30px"}}>{installation_effectue_title}</div></div>
                 <div style={{height:"40px"}}></div>
               </div>
+              </td>
+              <td  style={{padding:"10px", verticalAlign:"top"}}>
+            <div className="insidebox" style={{backgroundColor:"var(--color-anthracite)",color:"var(--color-sand)", flexDirection:"column"}}>
+            <div style={{marginTop:"44px"}}><img src="/made_in_belgium.png"  className="madeinbelgium"/><div className="boxtitle adaptedboxtitle">{quality_title}</div></div>
+                
+                <div style={{height:"40px"}}></div>
               </div>
-            </Grid>
-          </Grid>
-        
+              </td>
+              </tr><tr>
+              <td  style={{padding:"10px", verticalAlign:"top"}}>
+            <div className="insidebox" style={{backgroundColor:"white",color:"var(--color-terra-cotta)", flexDirection:"column"}}>
+                <div className="boxnumber adaptedboxnumber">{years_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{years_title}</div></div>
+                <div className="belowyearsnumber" style={{height:"40px"}}></div>
+              </div>
+              </td>
+              <td  style={{padding:"10px", verticalAlign:"top"}}>
+            <div className="insidebox" style={{backgroundColor:"var(--color-terra-cotta)",color:"var(--color-sand)", flexDirection:"column"}}>
+            <div className="boxnumber adaptedboxnumber">{countries_number}<div className="boxtitle" style={{marginTop:"-30px"}}>{countries_title}</div></div>
+            <div className="belowyearsnumber" style={{height:"40px"}}></div>
+              </div>
+              </td>
+            </tr>
+          </table>
         </div>
     
       </section>
 
       
-      <section className="section video-section" data-color="beige" style={{paddingTop:"50px"}}>
+      <section className="section video-section" data-color="beige" >
         <div className="section-container-full">
         <div className="section-container">
 
@@ -387,10 +313,10 @@ for (let i = 0; i < boxData.length; i += 3) {
           </div>
           </section>
           <main className="home-template">
-      <section className="section first-section" data-color={Color.ANTHRACITE}> 
+      <section className="section first-section-about" data-color={Color.ANTHRACITE}> 
         {/*first image background*/}
         <div className="background-overlay" />
-        {size.width > 580 ? (
+        {size.width > 768 ? (
           <video autoPlay muted loop id="myVideo">
             <source src="/showcase.webm" type="video/webm" />
             <source src="/showcase.mp4" type="video/mp4" />
@@ -398,7 +324,7 @@ for (let i = 0; i < boxData.length; i += 3) {
         ) : (
           <Image
             isBackgroundCss
-            id={home.video_mobile_placeholder.filename_disk}
+            id={video_mobile_image.filename_disk}
             title="Placeholder mobile"
           />
         )
@@ -417,7 +343,7 @@ for (let i = 0; i < boxData.length; i += 3) {
       </section>
       </main>
 
-      <section  className="section image-box-two" data-color={Color.BEIGE} style={{paddingTop:"30px", paddingBottom:"30px"}}>
+      <section  className="section image-box-two" data-color={Color.SAND}>
         <div className="section-container">
           <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{history_title}</h1>
           <div
@@ -427,7 +353,7 @@ for (let i = 0; i < boxData.length; i += 3) {
         </div>
       </section>
 {/* section une entreprise */}
-      <section className="section text-image-section" data-color="white">
+      <section className="section text-image-section" data-color="white" style={{backgroundColor:"white"}}>
         <div className="section-container">
           <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{company_title}</h1>
           <div
@@ -446,7 +372,6 @@ for (let i = 0; i < boxData.length; i += 3) {
                   id={company_image.id}
                   title="dressing image"
                   direction={AnimationDirection.BOTTOM_TO_TOP}
-                  style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                 /> 
                 <Grid container spacing={2} style={{marginTop:"10px"}}>
                         <Grid item xs={4} lg={4}>
@@ -463,12 +388,53 @@ for (let i = 0; i < boxData.length; i += 3) {
           </div>
           </div>
           </section>
-{/* 3images section/ white background*/}
-<section className="section three-image" data-color="white">
-  </section>
+
 
 {/* section text and link  */}
 <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+      <div className="content" >
+      
+            <div
+              className="item-container"
+            >
+            <div className ="text-container" >
+                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                {jobs_title}
+              </h4><br/>
+              <Link href={`/price-request`} passHref>
+                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+                            {jobs_link_text}
+                            </a>
+              </Link>
+              </div></div>
+               
+        </div>
+    </section>
+
+    {/*text image  */}
+    <section className="section partners" data-color={Color.BEIGE} >
+        <div className="section-container">
+          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{network_title}</h1>
+          <div
+            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
+            dangerouslySetInnerHTML={{ __html: network_paragraph }}
+          />  
+          <Grid container spacing={2}>
+                    {network_partners.map(gal=>{
+                      return (
+                        <Grid item xs={6} lg={2}>
+                          <Image id={gal.directus_files_id} title="image" />
+                          </Grid>
+                      );
+                    })}
+                  </Grid>       
+          </div>
+          
+          </section>
+
+          {/*  */}
+
+          <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
       <div className="content" >
       
       <Masonry columns={{md:2, sm:1}}>
@@ -477,44 +443,8 @@ for (let i = 0; i < boxData.length; i += 3) {
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {jobs_title}
-              </h4>
-              <Link href={`/price-request`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                            {jobs_link_text}
-                            </a>
-              </Link>
-              </div></div>
-            
-           
-          </Masonry>     
-        </div>
-    </section>
-
-    {/*text image  */}
-    <section className="section first-section" data-color={Color.BEIGE} style={{paddingTop:"50px"}}>
-        <div className="section-container">
-          <h1 className="subtitle-argesta subtitle-argesta--terra-cotta" >{network_title}</h1>
-          <div
-            className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
-            dangerouslySetInnerHTML={{ __html: network_paragraph }}
-          />         
-          </div>
-          </section>
-
-          {/*  */}
-
-          <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>
-      
-      <Masonry columns={{md:2, sm:1}}>
-            <div
-              className="item-container"
-            >
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {home.devis_title}
-              </h4>
+              </h4><br/>
               <Link href={`/price-request`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {home.devis_link_text}
@@ -525,14 +455,14 @@ for (let i = 0; i < boxData.length; i += 3) {
             <div></div>
           </Masonry>
           
-            <Masonry columns={{md:2, sm:1}}>
+            <Masonry columns={{md:2, sm:1}} className="seconddevis">
               
          <div className="emptydiv">&nbsp;</div>
             <div className="item-container rightcontainer">
             <div className ="text-container" style={{textAlign:"right"}} >
                 <h4 className="subtitle-argesta subtitle-argesta--white"  >                   
                 {home.partenaire_title}
-              </h4>
+              </h4><br/>
               <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                               {home.partenair_link_text}

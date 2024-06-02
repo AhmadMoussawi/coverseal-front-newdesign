@@ -24,9 +24,9 @@
     }
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 768px) {
     a {
-      font-size: 0.8rem;
+      font-size: calc(100vw * 16px / 430px);
     }
   }
 }

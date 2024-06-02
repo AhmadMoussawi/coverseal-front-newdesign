@@ -14,8 +14,9 @@
       padding: 20px;
       box-sizing: border-box;
 
-      @media (max-width: 580px) {
+      @media (max-width: 768px) {
         width: 100%;
+        padding:calc(100vw * 20px / 430px) 0
       }
     }
 
@@ -30,12 +31,9 @@
       justify-content: space-between;
       transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
-      @media (max-width: 1024px) {
-        height: auto;
-      }
-
       @media (max-width: 768px) {
-        padding: 25px;
+        height: auto;
+        padding: calc(100vw * 25px / 430px);
       }
 
       &:hover {
@@ -46,8 +44,8 @@
     .subtitle-poppins {
       color: var(--color-white);
 
-      @media (max-width: 1024px) {
-        font-size: 1.5rem;
+      @media (max-width: 768px) {
+        font-size: calc(100vw * 16px / 430px);
       }
     }
 
@@ -90,7 +88,7 @@
       }
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       display: none;
     }
   }
@@ -125,22 +123,19 @@
 
     .wysiwyg {
       flex: 3;
-      font-size: 2rem;
       color: var(--color-anthracite);
       margin-left: 50px;
 
       em,
-      a {
-        font-size: 2.3rem;
-      }
+     
 
       a {
         color: var(--color-anthracite);
-        font-family: "argesta_hairlineRgIt";
+        font-family: "argesta_regular";
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       align-items: flex-start;
 
@@ -149,13 +144,13 @@
       }
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       .wysiwyg {
-        font-size: 1.5rem;
+        font-size: calc(100vw * 16px / 430px);
 
         em,
         a {
-          font-size: 2rem;
+          font-size: calc(100vw * 16px / 430px);
         }
   
       }

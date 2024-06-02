@@ -89,44 +89,26 @@ const CookieBanner = (props) => {
   onClose={() => {
     setOpen(false);
   }}
-  severity="" // Set the appropriate severity level
+  severity=""
   style={{ backgroundColor: "#723722", width: "100%", color: "white", padding:"0px"}}
-  //color="white"
+  
 >
-  {/* Your alert content goes here */}
-{/* </Alert>
-      <Alert onClose={() => {
-        
-          setOpen(false)
-      }} severity="" style={{backgroundColor:"#723722", width:"100%"}}     > */}
+  
 
       <Typography variant="h6" style={{ fontWeight: 'bold', fontStyle: 'italic', marginBottom: '10px', backgroundColor:"#723722", color: 'white' , textAlign: 'center' , fontFamily : 'argesta_hairlineRgIt'}}>
       {props.cookies_banner_title}
         </Typography>
         <Typography style={{ color: 'white', margin: '0 auto', textAlign: 'center' }}>
         {props.cookies_banner_text}
-        {/*<Link href="/cookies-policy" style={{textDecoration:"underline", color:"rgb(5,99,193)" , textAlign: "center"}}>{props.banner_cookies_policy_link_text}</Link>*/}
-
         </Typography>
-      {/*  <div style={{width:"100%", marginTop:"20px"}}>
-        <Button onClick={handleOpenSettings} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", borderRadius:"5px", float:"left"}} sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
-          {props.personalize_settings_btn}
-        </Button>
-        <div style={{float:"right"}}>
-        <Button onClick={handleRejectAll} style={{border:"1px solid #723722", padding:"5px 10px", color:"#723722", borderRadius:"5px", textTransform:"none"}}  sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
-          {props.rejectall_btn}
-        </Button>
-    */} <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
-        <Button onClick={handleOpenSettings} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px", width: "180px" }} sx={{ fontSize: "11px", [theme.breakpoints.up('md')]: { fontSize: "13px" } }}>
+       <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
+        <Button onClick={handleOpenSettings} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px" }} sx={{ fontSize: "11px", [theme.breakpoints.up('md')]: { fontSize: "13px" } }}>
         {props.personalize_settings_btn}
         </Button>
-        <Button onClick={handleAcceptAll} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", backgroundColor:"white", borderRadius:"0px", marginLeft:"10px" , width: "180px"}}  sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
+        <Button onClick={handleAcceptAll} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", backgroundColor:"white", borderRadius:"0px", marginLeft:"10px" }}  sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
           {props.acceptall_btn}
         </Button>
         </div>
-      {/*  </div>
-        
-  </div>*/}
       </Alert>
     </Snackbar>
   );

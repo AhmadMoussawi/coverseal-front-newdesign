@@ -261,9 +261,15 @@ partenair_link_text,
   return (
       <main className="home-template">
        <section className="section first-section" data-color={Color.ANTHRACITE}> 
+       
         {/*first image background*/}
         <div className="background-overlay" />
-        {size.width > 580 ? (
+        <Image
+            isBackgroundCss
+            id={video_mobile_placeholder.filename_disk}
+            title="Placeholder mobile"
+          />
+        {/*size.width > 580 ? (
           <video autoPlay muted loop id="myVideo">
             <source src="/showcase.webm" type="video/webm" />
             <source src="/showcase.mp4" type="video/mp4" />
@@ -275,7 +281,7 @@ partenair_link_text,
             title="Placeholder mobile"
           />
         )
-        }
+        */}
 
 
       
@@ -336,7 +342,7 @@ partenair_link_text,
                 <div className = "first-div">
                   {/* style={{ paddingLeft:"160px", paddingRight:"160px", width:"calc(100% - 320px)", margin:"auto"}}> */}
                   <div className="title-container">
-                  <Link href="/benefits" passHref>
+                  <Link href="/the-coverseal" passHref>
               <a>
                 <h2 className="subtitle-argesta subtitle-argesta--terra-cotta link-underline benefitstitle">
                   {benefits_section.main_title}
@@ -345,8 +351,8 @@ partenair_link_text,
             </Link>
                   </div>
                 
-                  <Grid container spacing={4}>
-                  <Grid item xs={12} lg={4}>
+                  <Grid container spacing={0} className="benefits-container">
+                  <Grid item className="benefits-item">
 
                   <Image
                         id={benefits_section.security_image}
@@ -365,8 +371,14 @@ partenair_link_text,
                           dangerouslySetInnerHTML={{ __html: benefits_section.security_home_description }}
                         />
                       </Label>
+                      <div className="benefitslinkmobile">
+                    <Link href="/the-coverseal" passHref>
+                          <a className="link-before-translate link-before-translate--terra-cotta">
+                            {benefits_link_text}
+                          </a>
+            </Link></div>
                     </Grid>
-                    <Grid item xs={12} lg={4}>
+                    <Grid item  className="benefits-item">
                     <Image
                         id={benefits_section.water_quality_image.id}
                         title="Blog image"
@@ -376,12 +388,18 @@ partenair_link_text,
                       />
                       <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.water_quality_title}</h5>
                       <div
-                          className="wysiwyg"
+                          className="wysiwyg parafourlines"
                           dangerouslySetInnerHTML={{ __html: benefits_section.water_quality_home_description }}
                         />
                       </Label>
+                      <div className="benefitslinkmobile">
+                    <Link href="/the-coverseal" passHref>
+                          <a className="link-before-translate link-before-translate--terra-cotta">
+                            {benefits_link_text}
+                          </a>
+            </Link></div>
                     </Grid>
-                    <Grid item xs={12} lg={4}>
+                    <Grid item  className="benefits-item">
                     <Image
                         id={benefits_section.isolation_image}
                         title="Blog image"
@@ -395,12 +413,18 @@ partenair_link_text,
                           dangerouslySetInnerHTML={{ __html: benefits_section.isolation_home_description }}
                         />
                       </Label>
+                      <div className="benefitslinkmobile">
+                    <Link href="/the-coverseal" passHref>
+                          <a className="link-before-translate link-before-translate--terra-cotta">
+                            {benefits_link_text}
+                          </a>
+            </Link></div>
                     </Grid>
                     </Grid>
                     <Grid container spacing={2}>
                     <Grid item xs={12}>
-                      <div style={{marginTop:"20px"}}>
-                    <Link href="/benefits" passHref>
+                      <div className="benefitslink">
+                    <Link href="/the-coverseal" passHref>
                           <a className="link-before-translate link-before-translate--terra-cotta">
                             {benefits_link_text}
                           </a>
@@ -423,14 +447,13 @@ partenair_link_text,
             {models_title}
           </h2>
         </div>
-        <div className="content" style={{marginTop:"50px"}}>
+        <div className="content">
           
         {filteredmodels.map(({ translations, reference, id }, index) => (
           index%2==0?
-          <Masonry columns={{sm:1, md:2}} spacing={{ sm: 1, md: 1 }}> 
-            
-          
-          <div
+          <Grid container className="models-container">
+            <Grid item className="models-text">
+            <div
             className={classNames({
               "item-container": true,
               "model-text":true,
@@ -440,18 +463,19 @@ partenair_link_text,
           <div className ="text-container" >
               <h4 className="subtitle-argesta subtitle-argesta--white" >                   
               {translations[0].home_title}
-            </h4>
-                <br/>
+            </h4><br/>
+            <div>
             <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
           })}`} passHref>
                           <a className="link-before-translate link-before-translate--white subscribe-button">
                             {translations[0].home_link_text}
                           </a>
-            </Link>
+            </Link></div>
             </div></div>
-          
-          <Link
+            </Grid>
+            <Grid item className="models-image">
+            <Link
           key={id}
           href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
@@ -460,12 +484,12 @@ partenair_link_text,
         >
           <a
             className={classNames({
-              "item-container model-image": true,
+              "item-container models-image": true,
               [`model-${reference}`]: true,
             })}
           >
           <div className="icon-container">
-              <img src={`/${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
+              <img src={`/${reference}.png`} alt={reference} className="image"  style={{ color: Color.WHITE }} />
               {/* {reference === "automatic" && (
                 <ModelAutomatic color={Color.WHITE} />
               )}
@@ -477,9 +501,11 @@ partenair_link_text,
               )} */}
             </div>
             </a></Link>
-        </Masonry>:
-            <Masonry columns={{sm:1, md:2}} spacing={{ sm: 1, md: 2 }}>
-              
+            </Grid>
+          </Grid>
+          :
+          <Grid container className="models-container">
+            <Grid item className="models-image">
             <Link
             key={id}
             href={`/models/${id}/${slugify(translations[0].main_title, {
@@ -493,8 +519,8 @@ partenair_link_text,
                 [`model-${reference}`]: true,
               })}
             >
-            <div className="icon-container">
-            <img src={`/${reference}.png`} alt={reference} style={{ color: Color.WHITE }} />
+            <div className="icon-container" style={{textAlign:"right"}}>
+            <img src={`/${reference}.png`} alt={reference} className="image" style={{ color: Color.WHITE }} />
                 {/*{reference === "automatic" && (
                   <ModelAutomatic color={Color.WHITE} />
                 )}
@@ -506,7 +532,8 @@ partenair_link_text,
                 )}*/}
               </div>
               </a></Link>
-            
+            </Grid>
+            <Grid item className="models-text">
             <div
               className={classNames({
                 "item-container": true,                
@@ -517,17 +544,19 @@ partenair_link_text,
             <div className ="text-container" style={{textAlign:"right"}}>
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {translations[0].home_title}
-              </h4>
-                <br/>
+              </h4><br/>
+              <div>
                <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
           })}`} passHref>
                           <a className="link-before-translate link-before-translate--white">
                             {translations[0].home_link_text}
                           </a>
-            </Link>
-              </div></div>            
-          </Masonry>
+            </Link></div>
+              </div></div>    
+            </Grid>
+          </Grid>
+            
           ))}
         </div>
         
@@ -537,7 +566,7 @@ partenair_link_text,
 
 
       {filteredmodels && filteredmodels.length>0 && 
-      <section className="section coversealnew-section" data-color={Color.SAND}>
+      <section className="section coversealnew-section-2" data-color={Color.SAND}>
       <div className="content">
        
         <div className="text-container">
@@ -552,9 +581,7 @@ partenair_link_text,
         />
             </div>
           <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: coverseal_paragraph }} />
-          <Link href={`/models/${filteredmodels[0].id}/${slugify(filteredmodels[0].translations[0].main_title, {
-            lower: true,
-          })}`} passHref>
+          <Link href={`/before-configurator`} passHref>
             <a className="link-before-translate link-before-translate--terra-cotta">
               {configurator_link_text}
             </a>
@@ -578,6 +605,7 @@ partenair_link_text,
             {/* <div className="overlay"></div> */}
             <div className="overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(50, 50, 50, 0.7)" }}></div>
         <Image
+        isBackgroundCss
           id={realisations_image.id}
           title="coverseal image"
           direction={AnimationDirection.RIGHT_TO_LEFT}
@@ -586,11 +614,11 @@ partenair_link_text,
               {/* <div className="tx-container"> */}
                 <h1 className="subtitle-argesta subtitle-argesta--white">
                   {realisations_title}
-                </h1><br/>
+                </h1>
                 <h6 style={{ color: 'white' }}>
                   {realisations_description}
-                </h6><br/>
-                <Link href="/the-coverseal" passHref >
+                </h6>
+                <Link href="/achievements" passHref >
                           <a className="link-before-translate link-before-translate--white">
                             {realisations_link_text}
                           </a>
@@ -611,7 +639,7 @@ partenair_link_text,
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
 </div>
-        <div className="text-container">
+        <div className="text-container about-title">
             <h2 className="subtitle-argesta subtitle-argesta--terra-cotta" style={{textAlign:"left", width:"100%"}}>
               {about_title}
             </h2>
@@ -624,7 +652,7 @@ partenair_link_text,
 </div>
           <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: about_description }} />
           <Link href={`/about-us`} passHref>
-            <a className="link-before-translate link-before-translate--terra-cotta" style={{textAlign:"left", marginTop:"30px"}}>
+            <a className="link-before-translate link-before-translate--terra-cotta" style={{textAlign:"left"}}>
               {about_link_text}
             </a>
           </Link>

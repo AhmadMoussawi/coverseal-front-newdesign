@@ -56,8 +56,8 @@ export function OptionItem({ name, popoverText }: Props) {
             aria-haspopup="true"
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
-            style={{ position: "absolute", marginLeft:"5px" }}
-            htmlColor="#FFF"
+            className="infoicon"
+            htmlColor="var(--color-white)"
           />
         </NoSsr>
       </div>

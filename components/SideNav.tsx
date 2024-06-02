@@ -22,9 +22,10 @@ export function SideNav({
   partnerships_side_nav_link_text,
   hasConfigurator,
   hasSAV,
-}: SideNavContent ){
+  handleMenuOpen, mainMenuProps
+} ){
  useUpdateColorOnScroll(".side-nav li");
-
+ useUpdateColorOnScroll(".side-nav .logo");
   useEffect(() => {
     // Add any side effects or logic you need on component mount
   }, []);
@@ -32,78 +33,52 @@ export function SideNav({
 
   return (
     <div className="side-nav">
-      <ul>
-      <li >
-          <Link href="/" passHref> 
+<Link href="/" passHref> 
           <a className="logo">         
                 <LogoSymbol color={Color.WHITE} />              
        </a>
           </Link>
-        </li>
+      <ul>
 
       
         <li>
-          {/* <Link href="/price-request" passHref> */}
           <Link href="/catalog-request" passHref> 
           <a className="price-request">
             <div className="text">{catalog_side_nav_link_text}</div>
             </a>
 
-            {/* <a className="price-request">
-              
-              <PriceRequest color={Color.TERRA_COTTA} />
-              <div className="text">{price_request_side_nav_link_text}</div>
-            </a> */}
+           
           </Link>
         </li>
         {hasConfigurator && (
           <li>
             <Link href="/before-configurator" passHref>
             <a><div className="text">{configurator_side_nav_link_text}</div></a>
-              {/* <a>
-                
-                <Configurator color={Color.TERRA_COTTA} />
-                <div className="text">{configurator_side_nav_link_text}</div>
-              </a> */}
+              
             </Link>
           </li>
         )}
          <li>
           <Link href="/partnerships" passHref>
           <a className="partnerships"><div className="text">{partnerships_side_nav_link_text}</div></a>
-            {/* <a className="partnerships">
-              
-              <Partnerships color={Color.TERRA_COTTA} />
-              <div className="text">{partnerships_side_nav_link_text}</div>
-            </a> */}
+            
           </Link>
         </li>
-        {/* {hasSAV && (
-          <li>
-            <Link href="/after-sale" passHref>
-            <a className="after-sale" ><div className="text">{after_sale_side_nav_link_text}</div></a> */}
-              {/* <a className="after-sale">
-                
-                <AfterSale color={Color.TERRA_COTTA} />
-                <div className="text">{after_sale_side_nav_link_text}</div>
-              </a> */}
-            {/* </Link>
-          </li>
-        )} */}
-
-
       <li>
-          <Link href="/catalog-request" passHref>
+          <Link href="/price-request" passHref>
           <a><div className="text"> {price_request_side_nav_link_text}</div></a>
-       {/* { <a>
-              
-              <Catalog color={Color.TERRA_COTTA} />
-              <div className="text">{catalog_side_nav_link_text}</div>
-            </a> } */}
           </Link>
         </li>
-       
+        
       </ul>
+      <button className="open-menu-button" onClick={handleMenuOpen}>
+        <div className="icon">
+          <div className="line" />
+          <div className="line" />
+          <div className="line" />
+        </div>
+        <span>{mainMenuProps.menu_hamburger_text}</span>
+      </button>
     </div>
   );
 }

@@ -17,8 +17,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const currentDomain = window.location.host;
     setDomain(currentDomain);
-    const loader = document.querySelector<HTMLDivElement>(".initial-loader");
-    const skipButton = loader.querySelector(".link-underline");
+    //const loader = document.querySelector<HTMLDivElement>(".initial-loader");
+    //const skipButton = loader.querySelector(".link-underline");
     const PUBLIC_FILE = /\.(.*)$/;
     //implement middleware here
     
@@ -48,9 +48,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     //end of implement middleware here
     if (document.cookie.includes("VISITED=true")) {
-      loader.style.display = "none";
+     // loader.style.display = "none";
     } else {
-      disableBodyScroll(loader);
+      //disableBodyScroll(loader);
     }
     function getCookie(cname) {
       let name = cname + "=";
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       return "";
     }
     const closeIntroScreen = () => {
-      gsap
+      /*gsap
         .to(loader, {
           x: "-100%",
         })
@@ -78,14 +78,14 @@ function MyApp({ Component, pageProps }: AppProps) {
             Date.now() + 12096e5
           ).toString()};`;
         });
-      enableBodyScroll(loader);
+      enableBodyScroll(loader);*/
     };
 
     const timeOutId = setTimeout(closeIntroScreen, 6000);
-    skipButton.addEventListener("click", () => {
+    /*skipButton.addEventListener("click", () => {
       closeIntroScreen();
       clearTimeout(timeOutId);
-    });
+    });*/
 
     gsap.fromTo(".side-nav li", { x: 80 }, { x: 0, stagger: 0.2, delay: 0.5 });
     // gsap.fromTo(

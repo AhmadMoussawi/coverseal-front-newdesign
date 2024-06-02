@@ -82,12 +82,12 @@ export default function AchievementsInspirationDetailsPage({
     <>
     <StructuredData data={structuredData} id="conseils-pratiques-data" />
     <article className="blogs-details-template">
-      <section className="section first-section" data-color="beige">
+      <section className="section first-section titlesection" data-color="beige">
         <div className="section-container">
           <div className="title-container">
             <h1 className="main-title main-title--terra-cotta">
               {/*<span>{text}</span>*/} {main_title}
-              <Date style={{fontSize:"15px",marginTop:"0px", display:"block"}} dateString={date_created.toString()} language={language} />
+              <Date style={{fontSize:"20px",marginTop:"20px", letterSpacing:"0px", display:"block"}} dateString={date_created.toString()} language={language} />
             </h1>
             
             

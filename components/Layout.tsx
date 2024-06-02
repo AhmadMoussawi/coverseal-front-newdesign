@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import TopBar from "./TopBar";
 import { Footer } from "./Footer";
-import { SideNav } from "./SideNav";
 import { BASE_URL, COUNTRIES, Color } from "../utils/constants";
 import Image from 'next/image'
 import { getLocale } from "../utils/locale";
@@ -180,7 +179,7 @@ const Layout: React.FC<Props> = ({
             }${router.asPath === "/" ? "": router.asPath}`.split("?")[0]}
           />:<></>}
           
-          {/* TODO: investigate why meta tag are not generated in all languages */}
+          
           {router.asPath !== "/country" && (
             <>
               {COUNTRIES.reduce((acc, item) => {
@@ -239,14 +238,14 @@ const Layout: React.FC<Props> = ({
       {/* <!-- End Google Tag Manager (noscript) --> */}
       <div className="main-container" data-version={process.env.APP_VERSION}>
         
-        <div className="initial-loader">
+        {/*<div className="initial-loader">
           <div className="image-container">
             <img src="/intro.gif" width="100%" height="100%" alt="intro animation with logo" />
           </div>
           <span className="link-underline">Skip</span>
-        </div>
-        <TopBar {...topBarProps} />
-        <SideNav {...sideNavProps} />
+          </div>*/}
+        <TopBar {...topBarProps} sideNavProps={sideNavProps} />
+        
         {children}
         <Footer {...footerProps} {...topBarProps} formsMessages={formsMessages}  setOpenSettingsModal={setOpenSettingsModal}/>
       </div>

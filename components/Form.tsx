@@ -155,6 +155,7 @@ export function Form({
     "country",
     "zip_code",
     "language",
+    "user_come_from"
   ];
   const aftersaleRF = [
     "first_name",
@@ -177,69 +178,82 @@ export function Form({
   const classes = useStyles();
   const validateStepOne = ()=>{
     var errorfound = false;
-    fields.forEach(field=>{
-      var fieldName = field.id;
+    for(var i=0;i<fields.length;i++)
+      {
+        var field = fields[i];
+        var fieldName = field.id;
       var value = state[field.id];
-      setState((prevState) => {
-        const { errors } = prevState;
-        let match;
-    switch (fieldName) {
-      case "mail":
-        match = value.toString().match(MAIL_REGEXP);
-        if (!match) {
-          errors[fieldName] = wrong_email;
-        } else {
-          const address = value.toString().split('@').pop()
-          var found = wildcards.indexOf(address)>-1;//.filter(x=>address.includes(x));
-if(found == true)
-{
-errors[fieldName] = wrong_email;
-}
-else{
-delete errors[fieldName];
-}
-         
-        }
-
-        break;
-      case "mail_confirmation":
-        if (value !== prevState.mail) {
-          errors[fieldName] = wrong_email_confirmation;
-        } else {
-          delete errors[fieldName];
-        }
-        
-        break;
-      default:
-        
-          for(let i=0;i<pricerequestRF.length;i++)
-          {
-            if(fieldName == pricerequestRF[i] && field.step == 1)
+      const { errors } = state;
+      switch (fieldName) {
+        case "mail":
+          let match = value.toString().match(MAIL_REGEXP);
+          if (!match || value.toString() == "") {
+            errorfound = true;
+            errors[fieldName] = wrong_email;
+          } else {
+            const address = value.toString().split('@').pop()
+            var found = wildcards.indexOf(address)>-1;//.filter(x=>address.includes(x));
+  if(found == true)
+  {
+    errorfound = true;
+  errors[fieldName] = wrong_email;
+  }
+  else{
+  delete errors[fieldName];
+  }
+           
+          }
+  
+          break;
+        case "mail_confirmation":
+          if (value.toString() !== state.mail || value.toString() == "") {          
+            errorfound = true;
+            errors[fieldName] = wrong_email_confirmation;
+          } else {
+            delete errors[fieldName];
+          }
+          
+          break;
+        default:
+          
+            for(let i=0;i<pricerequestRF.length;i++)
             {
-              if(value.toString()=="")
+              if(fieldName == pricerequestRF[i] && field.step == 1)
               {
-                errorfound = true;
-                errors[fieldName] = "This field is required";
+                if(value.toString()=="")
+                {
+                  errorfound = true;
+                  errors[fieldName] = "This field is required";
+                }
+              
+              else{
+                delete errors[fieldName];
               }
-            
-            else{
-              delete errors[fieldName];
             }
-          }
-          }
+            }
+          
+          break;
+      }
+      setState((state) => {
         
-        break;
-    }
-    return {
-      ...prevState,
-      errors,
-      [fieldName]: value,
-    };
-  });
+        
+    
+        return {
+          ...state,
+          errors,
+          [fieldName]: value,
+        };
+      });
+      }
       
-    })
     if(!errorfound)
     {
+      document.getElementById('formtitle').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function(){
+        document.querySelector("header").classList.remove("translate-y-0");
+      document.querySelector("header").classList.add("translate-y-full");
+      },500)
+      
       setFormStep(2)
     }
   };
@@ -250,7 +264,7 @@ delete errors[fieldName];
       console.log("STATE",state);
       
         
-          Object.entries(state).forEach(([fieldName, value]) => {
+          /*Object.entries(state).forEach(([fieldName, value]) => {
             setState((prevState) => {
               const { errors } = prevState;
               let match;
@@ -375,8 +389,135 @@ delete errors[fieldName];
             [fieldName]: value,
           };
         });
-        });
+        });*/
+        var errorfound = false;
+    for(var i=0;i<fields.length;i++)
+      {
+        var field = fields[i];
+        var fieldName = field.id;
+      var value = state[field.id];
+      const { errors } = state;
+      switch (fieldName) {
+        case "mail":
+          let match = value.toString().match(MAIL_REGEXP);
+          if (!match || value.toString() == "") {
+            errorfound = true;
+            errors[fieldName] = wrong_email;
+          } else {
+            const address = value.toString().split('@').pop()
+            var found = wildcards.indexOf(address)>-1;//.filter(x=>address.includes(x));
+  if(found == true)
+  {
+    errorfound = true;
+  errors[fieldName] = wrong_email;
+  }
+  else{
+  delete errors[fieldName];
+  }
+           
+          }
+  
+          break;
+        case "mail_confirmation":
+          if (value.toString() !== state.mail || value.toString() == "") {          
+            errorfound = true;
+            errors[fieldName] = wrong_email_confirmation;
+          } else {
+            delete errors[fieldName];
+          }
+          
+          break;
+        default:
+          
+        if(id == "price_request")
+          {
+            for(let i=0;i<pricerequestRF.length;i++)
+            {
+              if(fieldName == pricerequestRF[i])
+              {
+                if(value.toString()=="")
+                  errors[fieldName] = "This field is required";
+              
+              else{
+                delete errors[fieldName];
+              }
+            }
+            }
+        }
+          else if(id == "after_sale")
+          {
+            for(let i=0;i<aftersaleRF.length;i++)
+            {
+              if(fieldName == aftersaleRF[i])
+              {
+                if(value.toString()=="")
+                  errors[fieldName] = "This field is required";
+              
+              else{
+                delete errors[fieldName];
+              }
+            }
+            }
+        }
+        else if(id == "catalog_request")
+          {
+            for(let i=0;i<catalogrequestRF.length;i++)
+            {
+              if(fieldName == catalogrequestRF[i])
+              {
+                if(value.toString()=="")
+                  errors[fieldName] = "This field is required";
+              
+              else{
+                delete errors[fieldName];
+              }
+            }
+            }
+        }
+        else if(id == "catalog_request_home")
+          {
+            for(let i=0;i<catalogrequestHomeRF.length;i++)
+            {
+              if(fieldName == catalogrequestHomeRF[i])
+              {
+                if(value.toString()=="")
+                  errors[fieldName] = "This field is required";
+              
+              else{
+                delete errors[fieldName];
+              }
+            }
+            }
+        }
+        else if(id == "partnerships")
+          {
+            for(let i=0;i<partnershipsRF.length;i++)
+            {
+              if(fieldName == partnershipsRF[i])
+              {
+                if(value.toString()=="")
+                  errors[fieldName] = "This field is required";
+              
+              else{
+                delete errors[fieldName];
+              }
+            }
+            }
+        }
+          
+          break;
+      }
+      setState((state) => {
         
+        
+    
+        return {
+          ...state,
+          errors,
+          [fieldName]: value,
+        };
+      });
+      }
         
       if (!isEmpty(state.errors)) {
         document
@@ -502,10 +643,13 @@ console.log("FILES",files);
         .then(async(res) => {
           
           console.log("RESPONSE",res);
+          try{
           window.dataLayer.push({
             'data':state,
             'event': id
           });
+        }
+        catch(ewe){}
           if (!res.ok) {
             if (!isEmpty(state.errors)) {
               document
@@ -727,7 +871,7 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && <Tooltip title={tooltip}>
-        <InputLabel htmlFor={id}>{label} <InfoOutlinedIcon /></InputLabel>
+        <InputLabel htmlFor={id}>{label}: <InfoOutlinedIcon /></InputLabel>
       </Tooltip>}
                   <PlacesAutocomplete
                   onChange={(postalcode,country, address, city)=>{
@@ -736,7 +880,7 @@ const handlePlaceChange = (postalcode)=>{
                     //
                   }}
                   name={id}
-                  label={!hastooltip && label}
+                  label={!hastooltip && (label + ":")}
                     /*className={classes.root}
                     label={label}
                     fullWidth
@@ -760,7 +904,7 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && <Tooltip title={tooltip}>
-        <InputLabel htmlFor={id}>{label} <InfoOutlinedIcon /></InputLabel>
+        <InputLabel htmlFor={id}>{label} :<InfoOutlinedIcon /></InputLabel>
       </Tooltip>}
                   <MuiPhoneNumber
                     defaultCountry={(() => {
@@ -774,7 +918,7 @@ const handlePlaceChange = (postalcode)=>{
                       return router.locale.toLowerCase();
                     })()}
                     className={classes.root}
-                    label={!hastooltip && label}
+                    label={!hastooltip && (label + ":")}
                     fullWidth
                     /*required={required}*/
                     id={id}
@@ -808,7 +952,7 @@ const handlePlaceChange = (postalcode)=>{
                       style={{ display: "none" }}
                     />
                     <p className={color?("link-before-translate link-before-translate--" + color):"link-before-translate link-before-translate--anthracite"}>
-                      {label}
+                      {label}:
                     </p>
                     {numberOfFilesUploaded}
                     <InsertDriveFileIcon />
@@ -843,11 +987,11 @@ const handlePlaceChange = (postalcode)=>{
               field = (
                 <NoSsr>
                   {hastooltip && 
-        <InputLabel htmlFor={id}>{required ? <>{state.errors[id] ? <span style={{color:"red", fontWeight:"bold"}}>{label}</span>:<span style={{fontWeight:"bold"}}>{label}</span>}<sup>*</sup></>:<>{state.errors[id] ? <span style={{color:"red"}}>{label}</span>:<span>{label}</span>}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
+        <InputLabel htmlFor={id}>{required ? <>{state.errors[id] ? <span style={{color:"red", fontWeight:"400"}}>{label}</span>:<span style={{fontWeight:"400"}}>{label}</span>}<sup>*</sup>:</>:<>{state.errors[id] ? <span style={{color:"red"}}>{label}:</span>:<span>{label}:</span>}</>} <Tooltip title={tooltip}><InfoOutlinedIcon /></Tooltip></InputLabel>
       }
                   {dontshrink ? <TextField
                     className={classes.root}
-                    label={!hastooltip && (required ? <>{ label}<sup>*</sup></>:<>{label}</>)}
+                    label={!hastooltip && (required ? <>{ label}<sup>*</sup>:</>:<>{label}:</>)}
                     fullWidth
                     
                     multiline={textarea}
@@ -866,12 +1010,12 @@ const handlePlaceChange = (postalcode)=>{
                     {options &&
                       options.map(({ label, value }) => (
                         <MenuItem key={value} value={value}>
-                          {label} 
+                          {label}
                         </MenuItem>
                       ))}
                   </TextField>:<TextField
                     className={classes.root}
-                    label={!hastooltip && (required ? <>{ label}<sup>*</sup></>:<>{label}</>)}
+                    label={!hastooltip && (required ? <>{ label}<sup>*</sup>:</>:<>{label}:</>)}
                     fullWidth
                     
                     multiline={textarea}
@@ -891,7 +1035,7 @@ const handlePlaceChange = (postalcode)=>{
                     {options &&
                       options.map(({ label, value }) => (
                         <MenuItem key={value} value={value}>
-                          {label} 
+                          {label}
                         </MenuItem>
                       ))}
                   </TextField>}
@@ -918,48 +1062,65 @@ const handlePlaceChange = (postalcode)=>{
   );
 
   if (isFormSuccess) {
-    const href = (() => {
-      switch (id) {
-        case "catalog_request":
-          return {
-            pathname: "/price-request",
-            query: state,
-          };
-        case "price_request":
-        case "after_sale":
-          return "https://www.facebook.com/CoversealOfficial";
-        case "partnerships":
-          return "https://www.linkedin.com/company/coverseal/";
+    if(id == "price_request")
+      {
+        router.push("price-request-thankyou");
       }
-    })();
-
-    return (
-      <div className="success-form">
-        <h3 className={color?("subtitle-argesta subtitle-argesta--" + color):"subtitle-argesta subtitle-argesta--anthracite"}>
-          {formsMessages[`${id}_success_title`]}
-        </h3>
-        <div
-          className="wysiwyg"
-          dangerouslySetInnerHTML={{
-            __html: formsMessages[`${id}_success_paragraph`],
-          }}
-        />
-        <Link href={href} passHref>
-          <a
-            className={color?("link-before-translate link-before-translate--" + color):"link-before-translate link-before-translate--anthracite"}
-            target={id === "catalog_request" ? undefined : "_blank"}
-          >
-            {formsMessages[`${id}_success_cta`]}
-          </a>
-        </Link>
-      </div>
-    );
+      else if(id == "after_sale")
+        {
+          router.push("after-sale-thankyou")
+        }
+        else if(id="partnerships")
+          {
+            router.push("partnerships-thankyou")
+          }
+        else{
+          const href = (() => {
+            switch (id) {
+              case "catalog_request":
+                case "catalog_request_home":
+                return "/" + router.locale + "/price-request";
+              case "price_request":
+              case "after_sale":
+                return "https://www.facebook.com/CoversealOfficial";
+              case "partnerships":
+                return "https://www.linkedin.com/company/coverseal/";
+            }
+          })();
+      var returnmsg = id;
+      if(id === "catalog_request_home")
+        returnmsg = "catalog_request";
+          return (
+            <div className="success-form">
+              <h3 className={color?("subtitle-argesta subtitle-argesta--" + color):"subtitle-argesta subtitle-argesta--anthracite"}>
+                {formsMessages[`${returnmsg}_success_title`]}
+              </h3>
+              <div
+                className="wysiwyg" style={color?{color:color}:{}}
+                dangerouslySetInnerHTML={{
+                  __html: formsMessages[`${returnmsg}_success_paragraph`],
+                }}
+              />
+              
+                <a href={href||""}
+                  className={color?("link-before-translate link-before-translate--" + color):"link-before-translate link-before-translate--anthracite"}
+                  target={id === "catalog_request" || id === "catalog_request_home" ? undefined : "_blank"}
+                >
+                  
+      
+                  {formsMessages[`${returnmsg}_success_cta`]}
+      
+                </a>
+            </div>
+          );
+        }
+    
   }
   
   return (
     <>
     {showsteps && <Box style={{ width: '100%' }}>
-    <br />
+    
     <table style={{width:"100%", color:"var(--color-terra-cotta)"}}><tr><td style={{textAlign:"center", cursor:"pointer"}} onClick={()=>{setFormStep(1)}}><span className="desktopsteptitle">{step_one_title}</span><span className="mobilesteptitle">{mobile_step_one_title}</span></td><td onClick={()=>{setFormStep(2)}} style={{textAlign:"center", cursor:"pointer"}}><span className="desktopsteptitle">{step_two_title}</span><span className="mobilesteptitle">{mobile_step_two_title}</span></td></tr></table>
     <BorderLinearProgress variant="determinate" value={formstep==1?50:100} />
   </Box>}

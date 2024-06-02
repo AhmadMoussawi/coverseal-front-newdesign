@@ -153,9 +153,6 @@ export function MainMenu(props: Props) {
   );
 
   return (
-
-   
-
     <div className="overlay-menu hidden">
       <div className="wrapper" ref={overlayRef}>
       <div className="section-container">
@@ -167,10 +164,10 @@ export function MainMenu(props: Props) {
                           </a>
                         </Link>
                 </div> 
-            <div className="icon-container">
+            <div className="icon-container glob">
                      <Globe color={Color.TERRA_COTTA} />
             </div>               
-            <div style={{width:"10%"}}>
+            <div>
               <LanguageSwitcher
                       list={COUNTRIES}
                       currentValue={currentCountry}
@@ -178,7 +175,7 @@ export function MainMenu(props: Props) {
                     />
             </div>
             <div>
-              <Link href="/after-sale" passHref>
+              
               <LanguageSwitcher
                       list={currentLanguageList.map((language) => ({
                         name: language,
@@ -187,65 +184,18 @@ export function MainMenu(props: Props) {
                       currentValue={currentLanguage.toUpperCase()}
                       onChange={onLanguageChange}
                     />         
-              </Link>
+              
               </div>
             <div>
               <button className="close-menu-button" onClick={handleMenuClose}>
                     <Cross color={Color.TERRA_COTTA} />
                   </button>
-              </div>
-    
-
-
-
-
-
-
-          {/* <Grid container spacing={2} >
-                <Grid item xs={12} lg={7} style={{ display: 'flex', alignItems: 'center' }}>
-                    <div className="logo-container">
-                      <Link href="/" passHref>
-                        <a>
-                          <LogoSymbol color={Color.TERRA_COTTA} />
-                        </a>
-                      </Link>
-                    </div>
-                </Grid>
-                <Grid item xs={12} lg={1} >                   
-                    <div className="icon-container">
-                     <Globe color={Color.TERRA_COTTA} />
-                    </div>
-                </Grid>
-                <Grid item xs={12} lg={1} >
-                    <LanguageSwitcher
-                      list={COUNTRIES}
-                      currentValue={currentCountry}
-                      onChange={onCountryChange}
-                    />
-                </Grid>
-                <Grid item xs={12} lg={1} >
-                    <LanguageSwitcher
-                      list={currentLanguageList.map((language) => ({
-                        name: language,
-                        code: language,
-                      }))}
-                      currentValue={currentLanguage.toUpperCase()}
-                      onChange={onLanguageChange}
-                    />
-                </Grid>
-                <Grid item xs={12} lg={2} >
-                  <button className="close-menu-button" onClick={handleMenuClose}>
-                    <Cross color={Color.TERRA_COTTA} />
-                  </button>
-                </Grid>
-          </Grid>  */}
-            
-            
+              </div>            
           </div>
           <nav>
             <div className="left" />
            <Grid container spacing={2} >
-                <Grid className="not-decorated" item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
+                <Grid className="not-decorated" item xs={12} sm={6} >
                   <ul className="main-menu">
                     {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
                       <li key={key}>
@@ -284,70 +234,41 @@ export function MainMenu(props: Props) {
                     
                   </ul>         
                 </Grid>
-           </Grid>            
-                                  
-            {/*  */}
-            {/* <ul className="main-menu">
-              {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
-                <li key={key}>
-                  <Link href={href} passHref>
-                    <a>{(props as any)[`${key}_main_nav_link_text`]}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul> */}
+           </Grid> 
           </nav>
           
-            {/* <div className="left">
-              <div className="icon-container">
-                <Globe color={Color.TERRA_COTTA} />
-              </div>
-              <LanguageSwitcher
-                list={COUNTRIES}
-                currentValue={currentCountry}
-                onChange={onCountryChange}
-              />
-              <LanguageSwitcher
-                list={currentLanguageList.map((language) => ({
-                  name: language,
-                  code: language,
-                }))}
-                currentValue={currentLanguage.toUpperCase()}
-                onChange={onLanguageChange}
-              />
-            </div> */}
+           
             <div className="bottom">
             
             
             <ul className="sub-menu" style={{justifyContent:"flex-start"}}>
-              {/* , paddingLeft: "8%"}}> */}
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
                 {
                 return (
                <> <li key={key} data-item={key}>
                   <Link href={href} passHref>
-                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}> 
+                    <a className="link-underline" style={{fontFamily:"Lexend", letterSpacing: "2px", whiteSpace:"nowrap"}}> 
                       {(props as any)[`${key}_main_nav_link_text`] ||
                         (props as any)[`${key}_nav_link_text`]}                        
                     </a>
                   </Link>
                   
                 </li>
-                <li><span className="dots" style={{fontSize:"40px", fontWeight:"bold", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                <li><span className="dots"></span></li>
                 </>
               )
                 }
                 else{
                   return (
                     <><li key={key} data-item={key}>
-                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "2px", whiteSpace:"nowrap"}}>
+                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Lexend", letterSpacing: "2px", whiteSpace:"nowrap"}}>
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
                         
                     </li>
-                    <li><span className="dots" style={{fontSize:"40px", fontWeight:"bold", color:"var(--color-terra-cotta)", lineHeight:"0px"}} > . </span></li>
+                    <li><span className="dots" ></span></li>
                     </>
                   )
                 }
@@ -362,7 +283,7 @@ export function MainMenu(props: Props) {
 
         <div className="section-container-mobile">
           <div className="top">
-                <div  className="icon-container" style={{marginTop:"20px"}}>
+                <div  className="icon-container" style={{marginTop:"0px"}}>
                         <Link href="/" passHref>
                           <a className="logo">         
                           <LogoSymbol color={Color.TERRA_COTTA} />              
@@ -378,7 +299,7 @@ export function MainMenu(props: Props) {
           <nav>
             <div className="left" />
            <Grid container spacing={2} >
-                <Grid className="not-decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  >
+                <Grid className="not-decorated" item xs={12} lg={6}  >
                   <ul className="main-menu first-menu" >
                         <li >
                           <Link href="/catalog-request" passHref>
@@ -407,7 +328,7 @@ export function MainMenu(props: Props) {
                     </ul> 
                           
                 </Grid>
-                <Grid className="decorated" item xs={12} lg={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >                   
+                <Grid className="decorated" item xs={12} lg={6} >                   
                   <ul className="main-menu">
                     {mainMenuItems.filter(x=>x.href!='').map(({ href, key }) => (
                       <li key={key}>
@@ -420,7 +341,7 @@ export function MainMenu(props: Props) {
                 </Grid>
            </Grid>  
           </nav>
-          <div className="bottom" style={{marginTop:"20px"}}>
+          <div className="bottom" style={{marginTop:"10px"}}>
             <ul className="sub-menu" >
               {subMenuItems.map(({ key, href }) => {
                 if(key!="blogs")
@@ -428,33 +349,33 @@ export function MainMenu(props: Props) {
                 return (
                 <><li key={key} data-item={key}>
                   <Link href={href} passHref>
-                    <a className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}> 
+                    <a className="link-underline" style={{fontFamily:"Lexend", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}> 
                       {(props as any)[`${key}_main_nav_link_text`] ||
                         (props as any)[`${key}_nav_link_text`]}                        
                     </a>
                   </Link>
                   
                 </li>
-                <li><span className="dots" style={{fontSize:"40px", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li>
+                <li><span className="dots"> </span></li>
                 </>
               )
                 }
                 else{
                   return (
                     <><li key={key} data-item={key}>
-                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Poppins", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}>
+                        <a href={"/" + locale + href} className="link-underline" style={{fontFamily:"Lexend", letterSpacing: "0px", whiteSpace:"nowrap", marginRight:"0px"}}>
                           {(props as any)[`${key}_main_nav_link_text`] ||
                             (props as any)[`${key}_nav_link_text`]}
                         </a>
-                    </li><li><span className="dots" style={{fontSize:"40px", color:"var(--color-terra-cotta)", lineHeight:"0px"}}> . </span></li></>
+                    </li><li><span className="dots"></span></li></>
                   )
                 }
             })}
             </ul>
             
           </div>
-          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex", marginTop:"20px"}}>
-          <div className="icon-container">
+          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex", marginTop:"0px"}}>
+          <div className="icon-container globe">
                      <Globe color={Color.TERRA_COTTA} />
             </div>               
             <div style={{marginRight:"5px"}}>

@@ -210,7 +210,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
     <main className="model-template">
 
 
-      <section className="section first-section" data-color={Color.WHITE}>
+      <section className="section first-section" data-color={Color.WHITE} style={{backgroundColor:"white"}}>
         <div className="section-container">
           {/* <h1 className="main-title main-title--terra-cotta">{main_title}</h1> */}
           <div className="title-container">
@@ -261,7 +261,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
       </section>
 
 
-      <section className="section first-section-mobile" data-color={Color.WHITE}>
+      <section className="section first-section-mobile" data-color={Color.WHITE} style={{backgroundColor:"white"}}>
         <div className="section-container">         
           <div className="title-container">
           <h1 className="main-title main-title--terra-cotta" style={{fontSize:"1rem"}}>{main_title}</h1> 
@@ -304,117 +304,6 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </div>
       </section>
 
-
-      {/* <section className="section first-section" data-color={Color.BEIGE}>
-                <div className="section-container">
-          {isLoading ? (
-            <div className="loader-container">
-              <Loader />
-            </div>
-          ) : (
-            <>
-              {!queryResponse ? (
-                <ul className="link-list categories">
-                  {categories.map(({ id, translations }) => {
-                    return (
-                      <li key={id}>
-                        <Link
-                          passHref
-                          href={`/faq/${id}/${slugify(translations[0].name, {
-                            lower: true,
-                          })}`}
-                        >
-                          <a
-                            className={classnames({
-                              "subtitle-poppins": true,
-                              "link-before-translate": true,
-                              "link-before-translate--terra-cotta": true,
-                              "is-selected": id === currentCategoryId,
-                            })}
-                          >
-                            {translations[0].name}
-                          </a>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <h2 className="subtitle-argesta subtitle-argesta--anthracite">
-                  {queryResponse.length === 0 ? no_result_text : result_text}
-                </h2>
-              )}
-
-              <ul className="questions">{questionsDom}</ul>
-            </>
-          )}
-        </div>
-      </section> */}
-
-      {/* <section className="section first-section" data-color={Color.WHITE}>
-        <div className="section-container">
-          <div className="title-container">
-            <h1
-              onClick={handleClearSearch}
-              className="main-title main-title--terra-cotta link-underline"
-            >
-              {main_title}
-            </h1>
-            
-           
-            <div>
-            <span className="text-container"><h6>
-              {main_description}
-            </h6></span>
-            </div>
-          </div>
-</div>
-      </section> */}
-
-
-
-{/* start testing */}
-{/* <section>
-    <div className="layout">
-      <div className="row" >
-        <div className="column order1">
-          <h1>test1</h1>
-        <div
-            className="product-description wysiwyg"
-            dangerouslySetInnerHTML={{
-              __html: translations[0].product_description,
-            }}            
-          />
-        </div>
-        <div className="column order2">
-        <h1>test2</h1>
-        <div
-            className="product-description wysiwyg"
-            dangerouslySetInnerHTML={{
-              __html: translations[0].product_description,
-            }}
-          />
-        </div>
-      </div>
-      <div className="row">
-        <div className="column order3">
-        <h1>test3</h1>
-        <div
-            className="product-description wysiwyg"
-            dangerouslySetInnerHTML={{
-              __html: translations[0].product_description,
-            }}
-          />
-        </div>
-      </div>
-    </div>
-    </section> */}
-{/* end testing */}
-
-
-
-
-
 <section className="section-model-content" data-color={Color.BEIGE}>
           <div className="top">
                 <div className="grid-container" >
@@ -446,16 +335,22 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                         </div>
                     </div>
                   </div>
-                  <div className="grid-item" id = "C">
-                      <Image
+                 
+                  </div>
+                  </div></section>
+                  <section className="gallery-section"  data-color={Color.BEIGE}>
+                    <div className="section-container">
+                      <Grid container spacing={2}>
+                        <Grid item lg={7}>
+                        <Image
                         id={product_image}
                         title="product image"
                         containerClassName="main-image"
                      //   isBackgroundCss
                       />
-                  </div>
-                  <div className="grid-item" id="D">
-                    <Image
+                        </Grid>
+                        <Grid item lg={5}>
+                        <Image
                       id={product_image_2}
                       title="product image 2"
                       containerClassName="image-on-top"
@@ -469,9 +364,11 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                       direction={AnimationDirection.TOP_TO_BOTTOM}
                     //  isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
                     />
-                  </div>
+                        </Grid>
+                      </Grid>
                  
-                  <div className="grid-item" id="E">
+                 
+                  <div style={{marginTop:"74px"}}>
                     <div className="text-container">
                       <Link href={`/achievements`} passHref>
                         <a className="link-before-translate link-before-translate--terra-cotta">
@@ -480,18 +377,12 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                         </a>
                       </Link>
                       </div>
-                       {/* <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" 
-                            style={{fontFamily:"Poppins" , color:"var(--color-terra-cotta)" }}>
-                              {home.partenair_link_text}
-                            </a>
-                       </Link> */}
                   </div>
                 </div>
-          </div>
 </section>
 
 <section className="section-model-content-mobile" data-color={Color.BEIGE}>
+<div className="section-container">
           <div className="top">
                 <div className="product-description wysiwyg" dangerouslySetInnerHTML={{__html: translations[0].product_description, }}/>
                 
@@ -529,20 +420,21 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                             </a>
                        </Link>
                   </div>
+                  </div>
                   <div className="technical-information">
                           <h3 className="subtitle-argesta subtitle-argesta--anthracite">
                             {technical_information_title}
                           </h3>
-                          <ul>
+                          <ul style={{marginTop:"15px"}}>
                             {translations[0].technical_information.map(({ text }) => (
                               
-                              <li key={text}><hr></hr>{text}</li>
+                              <li key={text}><div style={{backgroundColor:"black", height:"1px", width:"100%", margin:"10px 0"}}></div><span>{text}</span></li>
                             ))}
                             {translations[0].technical_info_file && (
                               
                               <li className="technical-file-item">
-                                <hr></hr>
-                                {technical_info_file_text}                              
+                                <div style={{backgroundColor:"black", height:"1px", width:"100%", margin:"10px 0"}}></div>
+                                <span>{technical_info_file_text}</span>
                               </li>
                             )}
                             {translations[0].user_manual_file && (
@@ -553,180 +445,17 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                             )}
                           </ul>
                         </div>
+                        <div className="section-container">
                         <div className="text-container">
-                      <Link href={`/about-us`} passHref>
+                        <Link href={`/achievements`} passHref>
                         <a className="link-before-translate link-before-translate--terra-cotta">
-                          {home.partenair_link_text}
+                          {achievements_link_text}
+
                         </a>
                       </Link>
                       </div>
+                      </div>
 </section>
-{/* 
-<section className="section-model-content" data-color={Color.BEIGE}>
-          <div className="top">
-                <div className="grid-container" >
-                  <div className="grid-item" id ="A">
-                    <div className="product-description wysiwyg" dangerouslySetInnerHTML={{__html: translations[0].product_description, }}/>
-                  </div>
-                  <div className="grid-item" id ="B">
-                    <div className="bottom">
-                        <div className="technical-information">
-                          <h3 className="subtitle-argesta subtitle-argesta--anthracite">
-                            {technical_information_title}
-                          </h3>
-                          <ul>
-                            {translations[0].technical_information.map(({ text }) => (
-                              <li key={text}>{text}</li>
-                            ))}
-                            {translations[0].technical_info_file && (
-                              <li className="technical-file-item">
-                                {technical_info_file_text}                              
-                              </li>
-                            )}
-                            {translations[0].user_manual_file && (
-                              <li className="technical-file-item">
-                                {user_manual_file_text}
-                                
-                              </li>
-                            )}
-                          </ul>
-                        </div>
-                    </div>
-                  </div>
-                  <div className="grid-item" id = "C">
-                      <Image
-                        id={product_image}
-                        title="product image"
-                        containerClassName="main-image"
-                      />
-                  </div>
-                  <div className="grid-item" id="D">
-                    <Image
-                      id={product_image_2}
-                      title="product image 2"
-                      containerClassName="image-on-top"
-                      direction={AnimationDirection.TOP_TO_BOTTOM}
-                    />
-                    <Image
-                      id={product_image_3.id}
-                      title="product image 3"
-                      containerClassName="image-on-top"
-                      direction={AnimationDirection.TOP_TO_BOTTOM}                   
-                    />
-                  </div>
-                 
-                  <div className="grid-item" id="E">
-                       <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" 
-                            style={{fontFamily:"Poppins" , color:"var(--color-terra-cotta)"}}>
-                              {home.partenair_link_text}
-                            </a>
-                       </Link>
-                  </div>
-                </div>
-          </div>
-</section> */}
-
-
-      {/* <section className="section-model-content" data-color={Color.BEIGE}>
-        <div className="top">
-          <div
-            className="product-description wysiwyg"
-            dangerouslySetInnerHTML={{
-              __html: translations[0].product_description,
-            }}
-          />
-          <div className="images-container">
-            <Image
-              id={product_image}
-              title="product image"
-              containerClassName="main-image"
-              isBackgroundCss
-            />
-            <Image
-              id={product_image_2}
-              title="product image 2"
-              containerClassName="image-on-top"
-              direction={AnimationDirection.TOP_TO_BOTTOM}
-              isBackgroundCss={Boolean(size.width) && size.width! <= 1024}
-            />
-          </div>
-        </div>
-        <Link href={`/before-configurator`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {configurator_link_text}
-                            </a>
-              </Link>
-        {layoutProps.hasConfigurator && (
-          <div className="link-container">
-            <CircleCenterLink
-              href="/before-configurator"
-              text={configurator_link_text}
-            />
-          </div>
-        )}
-        <div className="bottom">
-          <div className="technical-information">
-            <h3 className="subtitle-argesta subtitle-argesta--anthracite">
-              {technical_information_title}
-            </h3>
-            <ul>
-              {translations[0].technical_information.map(({ text }) => (
-                <li key={text}>{text}</li>
-              ))}
-              {translations[0].technical_info_file && (
-                <li className="technical-file-item">
-                  {technical_info_file_text}
-                  <a
-                    onClick={onDownloadTechnicalFileClick(
-                      "technical_info_file"
-                    )}
-                  >
-                    <Download color={Color.ANTHRACITE} />
-                  </a>
-                </li>
-              )}
-              {translations[0].user_manual_file && (
-                <li className="technical-file-item">
-                  {user_manual_file_text}
-                  <a onClick={onDownloadTechnicalFileClick("user_manual_file")}>
-                    <Download color={Color.ANTHRACITE} />
-                  </a>
-                </li>
-              )}
-            </ul>
-            <div className="icon-container">
-              {reference === "automatic" && (
-                <ModelAutomatic color={Color.TERRA_COTTA} />
-              )}
-              {reference === "semi-automatic" && (
-                <ModelSemiAutomatic color={Color.TERRA_COTTA} />
-              )}
-              {reference === "manual" && (
-                <ModelManual color={Color.TERRA_COTTA} />
-              )}
-            </div>
-          </div>
-          {achievementsPath && (
-            <CircleLink
-              mainLink={{
-                href: achievementsPath,
-                text: achievements_link_text,
-              }}
-              textAlign="left"
-            />
-          )}
-        </div>
-        <ScrollDown
-          text={scroll_down_link_text}
-          color={Color.TERRA_COTTA}
-          target="section-customization"
-        />
-      </section> */}
-
-
-
-      
       <section id="section-customization"  className="section section-customization"  data-color={Color.ANTHRACITE}>
             <div className="section-container">
               <h2 className="main-title main-title--sand">{customization_title}</h2>
@@ -734,21 +463,6 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 className="main-paragraph wysiwyg"
                 dangerouslySetInnerHTML={{ __html: customization_paragraph }}
               />
-
-              {/* <div className ="text-container" >                
-                  <Link href={"/before-configurator"} passHref>
-                                <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                                  {customization_configurator_link_text}
-                                </a>
-                  </Link>
-              </div> */}
-              {/* {layoutProps.hasConfigurator && (
-                <LineCircleLink
-                  href="/before-configurator"
-                  color={Color.WHITE}
-                  text={customization_configurator_link_text}
-                />
-              )} */}
             </div>
 
             <div className="section-container">
@@ -775,170 +489,28 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               </div>
             </div>
         </section>
-
-    
-            {/* <div className="block block-dressing">
-              <div className="left">B</div>
-              <div className="text-container">
-                <h3 className="subtitle-poppins">{dressing_title}</h3>
-                <div
-                  className="paragraph wysiwyg"
-                  dangerouslySetInnerHTML={{ __html: dressing_paragraph }}
-                />
-              </div>
-              <div className="image-container-right" style={{width:"100%"}}>
-                <Image id={dressing_image} title="Image container" />
-              </div>
-            </div> */}
-
-
-
-{/* <section data-color={Color.ANTHRACITE}>
-<Grid container spacing={3} style={{paddingRight:"10%", paddingLeft:"10%"}}>
-  <Grid item xs={12} lg={12}>
-      <Grid container spacing={2} >
-                  <Grid item xs={12} lg={5} style={{ display: 'flex', alignItems: 'center' }}>
-                        <div className="block block-dressing">
-                          <div className="text-container">
-                            <h3 className="subtitle-poppins" style={{color:"white"}}>{dressing_title}</h3>
-                            <div
-                              className="paragraph wysiwyg" style={{color:"white"}}
-                              dangerouslySetInnerHTML={{ __html: dressing_paragraph }}
-                            />
-                          </div>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} lg={7} >
-                    
-                    <Image
-                            id={dressing_image}
-                            title="dressing image"
-                            direction={AnimationDirection.BOTTOM_TO_TOP}
-                            style={{ height: "300px" }}
-                          />
-                          
-                    </Grid>
-      </Grid>
-  </Grid>
-  <Grid item xs={12} lg={12}>
-      <Grid container spacing={2} >
-                  <Grid item xs={12} lg={5}>
-                    
-                  <Image
-                          id={options_images}
-                          title="option image"
-                          direction={AnimationDirection.RIGHT_TO_LEFT}
-                        />
-                        
-                    </Grid>
-                    <Grid item xs={12} lg={7}>
-                      <div className="text-container">
-                        <h3 className="subtitle-poppins" style={{color:"white"}}>{options_title}</h3>
-                        <div
-                          className="paragraph wysiwyg" style={{color:"white"}}
-                          dangerouslySetInnerHTML={{ __html: options_paragraph }}
-                        />
-                        <ul className="options" style={{color:"white"}}>
-                          {options_items.map(({ option_name, option_text }) => (
-                            <OptionItem
-                              key={option_name}
-                              name={option_name}
-                              popoverText={option_text}
-                            />
-                          ))}
-                        </ul>
-                      </div>
-                    </Grid>
-      </Grid>
-  </Grid>
-  </Grid>
-</section> */}
-      
-      
-      
-      {/* <section className="section left-image-section" data-color={Color.ANTHRACITE}>
-       
-       <div className="content">
-         <div className="text-container">
-         <h3 className="subtitle-poppins"  style={{color:'white'}}>
-            {dressing_title}
-          </h3>
-      <div className="mobile-image">
-      <Image
-           id={dressing_image}
-           title="dressing image"
-           direction={AnimationDirection.BOTTOM_TO_TOP}
-         />
-      </div>
-           <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />          
-         </div>
-        <div className="desktop-image">
-         <Image
-           id={dressing_image}
-           title="dressing image"
-           direction={AnimationDirection.BOTTOM_TO_TOP}
-         />
-         </div>
-       </div>
-       
-        </section>
-     
-        <section className="section right-image-section" data-color={Color.ANTHRACITE} >
-                      <div className="content">
-                      <div className="desktop-image">
-                      <Image
-                          id={options_images}
-                          title="option image"
-                          direction={AnimationDirection.RIGHT_TO_LEFT}
-                        />
-                </div>
-                        <div className="text-container">
-                        <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"white"}}>
-                              {options_title}
-                            </h3>
-                            <div className="mobile-image">
-                            <Image
-                                id={options_images}
-                                title="option image"
-                                direction={AnimationDirection.RIGHT_TO_LEFT}
-                              />
-                </div>
-          <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
-          <ul className="options" style={{color:'white'}}>
-                  {options_items.map(({ option_name, option_text }) => (
-                    <OptionItem
-                      key={option_name}
-                      name={option_name}
-                      popoverText={option_text}
-                    />
-                  ))}
-                </ul>  
-        </div>        
-      </div>      
-          </section> */}
-
-    <section className="section-model-content" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
-    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", backgroundColor:"var(--color-ANTHRACITE)"}}>
+    <section className="section-model-content2" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
+      <div className="section-container">
+    <Grid container style={{backgroundColor:"var(--color-ANTHRACITE)"}}>
         
-        <Grid item xs={6} lg={5}>
-        <h3 className="subtitle-poppins"  style={{color:'white'}}>
+        <Grid item className="dressingtext">
+        <h3 className="subtitle-poppins"  style={{color:'var(--color-white)'}}>
             {dressing_title}
           </h3>
-            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />
+            <div className="paragraph wysiwyg" style={{color:'var(--color-white)'}} dangerouslySetInnerHTML={{ __html: dressing_paragraph }} />
         </Grid>
-        <Grid item xs={6} lg={7} style={{height:"300px", overflow:"hidden"}}>
+        <Grid item  className="dressingimage">
         <Image
            id={dressing_image}
            title="dressing image"
-           direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
-                  />
+           direction={AnimationDirection.BOTTOM_TO_TOP}/>
         </Grid>
       </Grid>
+      </div>
       </section>
 
     <section className="section-model-content-m1" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
-      <div style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", width:"auto", overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>
+      <div className="section-container" style={{overflow:"hidden", backgroundColor:"var(--color-ANTHRACITE)"}}>
         
  
         <h3 className="subtitle-poppins"  style={{color:'white'}}>
@@ -951,25 +523,24 @@ var filteredmodels = models.filter(x=>x.translations.filter(
            id={dressing_image}
            title="dressing image"
            direction={AnimationDirection.BOTTOM_TO_TOP}
-           style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                   />
         </div>
   
       </section>
 
   
-    <section className="section-model-content" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
-    <Grid container spacing={3} style={{paddingRight:"5%", paddingLeft:"5%", backgroundColor:"var(--color-anthracite)"}}>
-        <Grid item xs={6} lg={5} style={{height:"300px", overflow:"hidden"}}>
+    <section className="section-model-content2" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
+    <div className="section-container">
+    <Grid container spacing={3} style={{backgroundColor:"var(--color-anthracite)"}}>
+        <Grid item className="optionsimage">
                   <Image
                           id={options_images}
                           title="option image"
                           direction={AnimationDirection.RIGHT_TO_LEFT}
-                          style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                   />
         </Grid>
-        <Grid item xs={6} lg={7}>
-                <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"white"}}>
+        <Grid className="optionstext">
+                <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"var(--color-white)"}}>
                               {options_title}
                             </h3>
            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
@@ -984,13 +555,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                 </ul>  
         </Grid>
       </Grid>
+      </div>
       </section>
     <section className="section-model-content-m2" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)", paddingBottom:"50px"}}>
-    <div style={{paddingRight:"5%", paddingLeft:"5%", height:"300px", width:"auto", overflow:"hidden", backgroundColor:"var(--color-anthracite)"}}>
+    <div className="innersection-m2">
         
                  
         
-                <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"white"}}>
+                <h3 className="subtitle-poppins" style={{textAlign:"left", width:"100%", color:"var(--color-white)"}}>
                               {options_title}
                             </h3>
            <div className="paragraph wysiwyg" style={{color:'white'}} dangerouslySetInnerHTML={{ __html: options_paragraph }} /> 
@@ -1008,7 +580,6 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                           id={options_images}
                           title="option image"
                           direction={AnimationDirection.RIGHT_TO_LEFT}
-                          style={{height: '100%', objectFit: 'cover', maxHeight:"300px"}}
                   />
        </div>
       </section>
@@ -1103,13 +674,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </div>
     </section> */}
 
-    <section className="section devis-section" data-color={Color.TERRA_COTTA}>      
+    <section className="section devis-section" data-color={Color.TERRA_COTTA}>     
+    <div className="section-container">
       <div className="content"
-         style={{margin:"auto", paddingLeft:"160px", paddingRight:"160px"}}>
+         >
       
       <Masonry columns={{md:2, sm:1}}>
             <div
-              className="item-container textleft-container" style={{width:"70%"}}
+              className="item-container textleft-container"
             >
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
@@ -1122,13 +694,13 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               </Link>
               </div></div>
             
-            <div className="emptydiv" style={{width:"30%"}}></div>
+            <div className="emptydiv"></div>
           </Masonry>
           
             <Masonry columns={{md:2, sm:1}}>
               
-         <div className="emptydiv" style={{width:"30%"}}>&nbsp;</div>
-            <div className="item-container textright-container" style={{width:"70%"}}>
+         <div className="emptydiv">&nbsp;</div>
+            <div className="item-container textright-container">
             <div className ="text-container" >
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {home.partenaire_title}
@@ -1142,38 +714,10 @@ var filteredmodels = models.filter(x=>x.translations.filter(
               </div>
           </Masonry>
         </div>
-    </section>
-
-
-    <section className="section devis-section-mobile" data-color={Color.TERRA_COTTA}>      
-      <div className="content" style={{margin:"auto", width:"90%"}}>      
-            
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
-                {home.devis_title}
-              </h4>
-              <Link href={`/price-request`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
-                              {home.devis_link_text}
-                            </a>
-              </Link>
-             </div>            
-            <div></div>                    
-         <div className="item-container">&nbsp;</div>
-          
-            <div className ="text-container" >
-                <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"right"}} >                   
-                {home.partenaire_title}
-              </h4>
-              <Link href={`/partnerships`} passHref>
-                            <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins", textAlign:"right", marginLeft: "110px"}}>
-                              {home.partenair_link_text}
-                            </a>
-              </Link>
-           
-              </div>
         </div>
     </section>
+
+
 
 
 
@@ -1330,7 +874,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
       models.forEach((model) => {
         const translation = model.translations.find(
-          (item) => item.languages_code === cmsLocale && item.published === true
+          (item) => item.languages_code.code === cmsLocale && item.published === true
         );
         if(translation)
         acc.push({

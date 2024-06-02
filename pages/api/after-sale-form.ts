@@ -32,11 +32,8 @@ const requiredFields = [
   "mail",
   "phone",
   "problem_description",
-  "message",
   "language",
-  "address",
   "zip_code",
-  "city",
   "country",
 ];
 

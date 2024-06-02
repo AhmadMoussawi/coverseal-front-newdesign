@@ -44,7 +44,7 @@ function QuestionItem({ translations }: PartialItem<FAQQuestionDirectus>) {
       })}
     >
       <h4 onClick={() => setIsOpen(!isOpen)}>
-        {question} <Arrow color={Color.TERRA_COTTA} strokeWidth={2} />
+        {question.replace(/ \?/gi,"?")} <Arrow color={Color.TERRA_COTTA} strokeWidth={2} />
       </h4>
       <div
         ref={contentRef}
@@ -189,8 +189,8 @@ export default function FAQPage({
     <>
     <StructuredData data={structuredData}  id="faqs-data" />
     <main className="faq-template">
-      <section className="section first-section section1" data-color={Color.WHITE}>
-        <div className="section-container">
+      <section className="section first-section section1" data-color={Color.WHITE} style={{backgroundColor:"white"}}>
+        <div className="section-container searchcontainer">
           <div className="title-container">
             <h1
               onClick={handleClearSearch}
@@ -214,7 +214,7 @@ export default function FAQPage({
               )}
             </div>
           </div>
-          <div >
+          <div className="searchdescription">
             <span className="text-container" style={{color:"black"}}><h6>
               {main_description}
             </h6></span>
@@ -235,18 +235,7 @@ export default function FAQPage({
               )}
             </div>
             </div>
-            
-</div>
-      </section>
-                <section className="section first-section section2" data-color={Color.BEIGE}>
-                <div className="section-container">
-          {isLoading ? (
-            <div className="loader-container">
-              <Loader />
-            </div>
-          ) : (
-            <>
-              {!queryResponse ? (
+            {!queryResponse ? (
                 <ul className="link-list categories">
                   {categories.map(({ id, translations }) => {
                     return (
@@ -277,6 +266,18 @@ export default function FAQPage({
                   {queryResponse.length === 0 ? no_result_text : result_text}
                 </h2>
               )}
+</div>
+
+      </section>
+                <section className="section first-section section2" data-color={Color.BEIGE}>
+                <div className="section-container">
+          {isLoading ? (
+            <div className="loader-container">
+              <Loader />
+            </div>
+          ) : (
+            <>
+              
 
               <ul className="questions">{questionsDom}</ul>
             </>

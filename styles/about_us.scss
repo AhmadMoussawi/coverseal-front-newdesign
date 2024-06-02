@@ -1,21 +1,75 @@
 .about-us-template {
   color: var(--color-white);
-
+.partners{
+  .image-container{
+    height:100%
+  }
+  
+}
+.subtitle-argesta{
+  @media(max-width:768px)
+  {
+    margin-bottom:calc(100vw * 15px / 430px)
+  }
+}
   .devis-section{
+    .content{
+      width: calc(100vw - 320px) !important;
+  margin: auto;
+  max-width:1600px;
+  .text-container{
+    width:1240px;
+  }
+  .seconddevis{
+    margin-top:80px
+  }
+  .emptydiv{
+    width:calc(100% - 1240px)
     
+  }
+  @media(max-width:1919px)
+  {
+    width: calc(100vw * (1600px / 1920px)) !important;
+    .seconddevis{
+      margin-top:calc(100vw * 80px / 1920px)
+    }
+    .text-container{
+      width:calc(100vw * 1240px / 1920px);
+    }
+    .emptydiv{
+      width:calc(100vw * (1600px - 1240px)/1920px)
+      
+    }
+  }
+  @media (max-width: 768px) {
+    width: calc(100vw * 344px / 430px) !important;
+    margin: auto;
+    .text-container{
+      width:calc(100vw * 344px / 430px) !important;
+    }
+    .emptydiv{
+      width:0px;
+      margin:0px;
+      padding:0px
+      
+    }
+  }
+    }
     .subtitle-argesta{
       font-size:90px;
+      @media(max-width:1919px)
+      {
+        font-size: calc(100vw * 90px / 1920px);
+      }
     }
     .link-before-translate {
       font-size:30px;
+      @media(max-width:1919px)
+      {
+        font-size: calc(100vw * 30px / 1920px);
+      }
     }
-    .emptydiv{
-      width:30%
-      
-    }
-    .rightcontainer{
-      width:70%
-    }
+    
     #itemcont{
       width:400px;
     }
@@ -29,10 +83,10 @@
         width:100%
       }
       .subtitle-argesta{
-        font-size:40px;
+        font-size:calc(100vw * 40px / 430px);
       }
       .link-before-translate {
-        font-size:14px;
+        font-size:calc(100vw * 14px / 430px);
       }
     }
   }
@@ -47,8 +101,8 @@
   .block {
     margin: 100px 0;
 
-    @media (max-width: 768px), (max-height: 500px) {
-      margin: 50px 0;
+    @media (max-width: 768px){
+      margin: calc(100vw * 50px / 430px) 0;
     }
   }
 
@@ -75,86 +129,166 @@
       .container {
         display: block;
         justify-content: center;
-        width:90%;
+        width:calc(100vw - 320px);
+        max-width:1600px;
         margin:auto;
-        margin-left:9%;
-        height:330px;
+        @media(max-width:1919px)
+        {
+          width:calc(100vw * 1600px / 1920px)
+        }
       }
+      .desktopboxes{
+        display:block;
+        margin-left:-30px;
+        @media(max-width:1919px)
+        {
+          margin-left:calc(100vw * -30px / 1920px) !important
+        }
+      }
+      .mobileboxes{
+        display:none;
+      }
+      @media(max-width: 768px)
+        {
+          .desktopboxes{
+            display:none
+          }
+          .mobileboxes{
+            display:block;
+            margin-top:calc(100vw * 20px / 430px);
+          }
+        }
       .insidebox{
-        height:180px;    
+        height:280px;    
+        width:280px;
+        text-align:center;
         display: flex;
         justify-content: center;
+        @media(max-width:1919px)
+        {
+          height:calc(100vw * 280px / 1920px);
+          width:calc(100vw * 280px / 1920px);
+        }
+        
+        @media(max-width: 768px)
+        {
+          height: calc(100vw * 161px / 430px);
+          width: calc(100vw * 161px / 430px);
+        }
       }
       .madeinbelgium{
-        height:140px;
+        width:182px;
+        margin-bottom:10px;
       }
       .boxpair{
-        padding:0 30px;
-      }
-      .boximpair{
-        padding:50px 30px 0 30px
+        padding: 0 30px 100px 30px;
       }
       .boxnumber{
-        font-size:70px;
         font-weight: bold;
+        font: normal normal 110px Lexend;
+        small{
+          font-weight:300;
+          font: normal normal 55px / 58px Lexend;
+        }
       }
       .boxtitle{
-        font-size:12px;
+        font-size:19px;
+        font-weight:200;
+        font: normal normal 19px / 0px Lexend;
       }
-      @media(max-width:1279px)
+      .adaptedboxtitle{
+        margin-top:-10px;
+      }
+      .morethen{
+        font-size:20px;
+        margin-bottom: -30px;
+      }
+      .spacebelow, .belowyearsnumber{
+        height:40px;
+      }
+      @media(max-width:1919px)
       {
-        .container{
-          padding:10px;
-          margin:0px;
-          margin-left:0%;
-          width:85%
+        .madeinbelgium{
+          width:calc(100vw * 182px / 1920px);
+          margin-bottom:calc(100vw * 10px / 1920px)
         }
         .boxpair{
-          padding:10px
+          padding: 0 calc(100vw * 30px / 1920px) calc(100vw * 100px / 1920px) calc(100vw * 30px / 1920px);
         }
-        .boximpair{
-          padding:10px
+        .boxnumber{
+          font: normal normal calc(100vw * 110px / 1920px) Lexend;
+          small{
+            font: normal normal calc(100vw * 55px / 1920px) / calc(100vw * 58px / 1920px) Lexend;
+          }
+        }
+        .boxtitle{
+          font: normal normal calc(100vw * 19px / 1920px) / 0px Lexend;
+        }
+        .adaptedboxtitle{
+          margin-top:calc(100vw * -10px / 1920px);
+        }
+        .morethen{
+          font-size:calc(100vw * 20px / 1920px);
+          margin-bottom: calc(100vw * -30px / 1920px);
+        }
+        .spacebelow, .belowyearsnumber{
+          height:calc(100vw * 40px / 1920px);
         }
       }
-      @media(max-width:768px)
+      @media(max-width: 768px)
       {
+        .madeinbelgium{
+          width:80%;
+          height:auto;
+          
+        }
+        .boxpair{
+          padding: 0 calc(100vw * 30px / 430px) calc(100vw * 100px / 430px) calc(100vw * 30px / 430px);
+        }
+        .boxnumber{
+          font-size:calc(100vw * 70px / 430px);
+          font-weight: bold;
+          small{
+            font-size:calc(100vw * 35px / 430px);
+            font-weight:300
+          }
+        }
+        .boxtitle{
+          font-size:calc(100vw * 19px / 430px);
+          font-weight:200;
+        }
         padding:0px;
         .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-          padding: 0 8px;
+          padding: 0 calc(100vw * 8px / 430px);
       }
         .lastbox{
           display:none
         }
         .boxpair{
-          margin-right:10px;
+          margin-right:calc(100vw * 10px / 430px);
         }
         .boximpair{
-          margin-left:10px;
-        }
-        .insidebox{
-          height:160px !important;
-        }
-        .madeinbelgium{
-          height:120px;
+          margin-left:calc(100vw * 10px / 430px);
         }
         .boxnumber{
-          font-size:40px;
-          font-weight:bold;
+          font-size:calc(100vw * 80px / 430px);
+          font-weight:500;
         }
         .adaptedboxnumber{
-          font-size:60px;
-          margin-top:-10px;
+          font-size:calc(100vw * 100px / 430px);
+          margin-top:calc(100vw * -10px / 430px);
         }
         .belowyearsnumber{
-          height:17px !important;
+          height:calc(100vw * 17px / 430px) !important;
         }
         .boxtitle{
-          font-size:11px;
-          margin-top:-10px !important;
+          font-size:calc(100vw * 13px / 430px);
+          margin-top:0px !important;
           font-weight:normal
         }
         .adaptedboxtitle{
-          padding-top:15px
+          padding-top:calc(100vw * 15px / 430px);
+          margin-top:calc(100vw * -15px / 430px) !important;
         }
       }
     }
@@ -168,19 +302,14 @@
 
 
   .first-section {
-    padding-bottom: 50px;
+    padding-bottom: 120px;
 
-   .main-title{
-      font-size: 150px;
-      @media (max-width: 768px) {
-        font-size: 44px;
-      }
-    }
+
 
     @media (max-width: 768px) {
-      padding-bottom: 50px;
+      padding-bottom: 0px;
       .main-title{
-        font-size:44px;
+        font-size:calc(100vw * 44px / 430px);
       }
     }
   }
@@ -196,6 +325,8 @@
   }
 
 .video-section{
+  padding-top:160px;
+  
   .section-container-full{
     width:100%;
   }
@@ -205,23 +336,34 @@
     margin: 100px 0 0 0;
 
     @media (max-width: 768px) {
-      margin: 50px 0;
-      height: 400px;
+      margin: calc(100vw * 50px / 430px) 0;
+      height: calc(100vw * 400px / 430px);
     }
 
     @media (max-width: 580px) {
       height: 300px;
     }
   }
-}
-  /* Your CSS code */
-  .image-box-two{
-    padding-top:0px;
-    padding-bottom: 0px;
+  @media(max-width:1919px)
+  {
+    padding-top:calc(100vw * 160px / 1920px);
+    
+    .video-container {
+      position: relative;
+      height: calc(100vw * 600px / 1920px);
+      margin: calc(100vw * 100px / 1920px) 0 0 0;
+    }
   }
+}
   
 .text-image-section{
-  padding-top:10px;
+  .image-container{
+    height:100%;
+    @media(max-width:768px)
+    {
+      margin-top:calc(100vw * 21px / 430px)
+    }
+  }
   // position: relative;
 }
   .video-container .video-poster {
@@ -269,8 +411,8 @@
 
     @media (max-width: 768px) {
       width: 100%;
-      margin: 50px 0;
-      height: 400px;
+      margin: calc(100vw * 50px / 430px) 0;
+      height: calc(100vw * 400px / 430px);
     }
 
     .info {
@@ -287,7 +429,7 @@
       transform: translate(-20%, -20%);
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 768px) {
       margin-bottom: 0;
 
       .text-container {
@@ -347,8 +489,8 @@
       }
     }
 
-    @media (max-width: 768px), (max-height: 500px) {
-      margin-bottom: 50px;
+    @media (max-width: 768px) {
+      margin-bottom: calc(100vw * 50px / 430px);
       flex-direction: column;
 
       .text-container {
@@ -377,7 +519,7 @@
     z-index: 1;
     align-items: center;
 
-    @media (max-width: 768px), (max-height: 500px) {
+    @media (max-width: 768px) {
       margin-bottom: 0;
     }
   }
@@ -398,7 +540,7 @@
       }
     }
 
-    @media (max-width: 768px), (max-height: 500px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       margin-top: 0;
 
@@ -415,7 +557,7 @@
       width: 70%;
     }
 
-    @media (max-width: 768px), (max-height: 500px) {
+    @media (max-width: 768px) {
       .text-container {
         width: 100%;
       }

@@ -123,6 +123,7 @@ export function CatalogRequestSection(props: Props) {
           submit_text={submit_text}
           content={props}
           fields={fields}
+        color="terra-cotta"
           apiPath="/api/catalog-request-form"
         />
       </div>

@@ -168,6 +168,7 @@ export default function BeforeConfiguratorPage({
           
        <div className="mobile-image">
        <Image
+       
             id={image}
             title="coverseal image"
             direction={AnimationDirection.BOTTOM_TO_TOP}
@@ -179,13 +180,14 @@ export default function BeforeConfiguratorPage({
                 abs
               </a>
             </Link> */}
-                            <a href={configuratorLink} target="_blank" className="link-before-translate link-before-translate--terra-cotta" style={{fontFamily:"Poppins"}}>
+                            <a href={configuratorLink} target="_blank" className="link-before-translate link-before-translate--terra-cotta">
                               {configurator_link_text}
                             </a>
       
           </div>
 <div className="desktop-image">
           <Image
+          isBackgroundCss
             id={image}
             title="coverseal image"
             direction={AnimationDirection.BOTTOM_TO_TOP}
@@ -206,13 +208,15 @@ export default function BeforeConfiguratorPage({
             text={configurator_link_text}
             externalLink
           /> */}
-
+          
+          </div>
+          <div className="section-container mobileconfigsection">
           <div className="start-sentence">
             <span>{start_sentence}</span>
           </div>
           <div className="step-list" >
             {steps.map((stepId) => (
-              <div key={stepId} data-step={stepId} style={stepId === 5 ? { paddingTop: '150px'} : {}}>
+              <div key={stepId} data-step={stepId} style={stepId === 5 ? { paddingTop: '150px', position:'relative'} : {position:'relative'}}>
                 {stepId === 5 && <div className="line" />}
                 <span className="number" >{`0${stepId}.`}</span>
                 <div
@@ -221,6 +225,7 @@ export default function BeforeConfiguratorPage({
                     __html: pageProps[`content_step_${stepId}`],
                   }}
                 />
+                {stepId%2 == 0?<div className="mobileline left"></div>:<div className="mobileline right"></div>}
                  {/* Add margin after data-step='3' */}
                 {stepId === 3 && (
                   <style jsx>{`
@@ -288,9 +293,9 @@ export default function BeforeConfiguratorPage({
             <a className="subtitle-argesta subtitle-argesta--terra-cotta link-underline">
               {contact_link_text}
             </a>
-          </Link> */}
+          </Link> */}<br/>
           <Link href={modelsPath} passHref target="_blank">
-              <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
+              <a className="link-before-translate link-before-translate--white">
                    {models_link_text}
               </a>
               </Link>

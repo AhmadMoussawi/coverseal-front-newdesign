@@ -133,7 +133,7 @@ export function PriceRequestSection(props: Props) {
       },*/
       {
         id: "user_come_from",
-        required: false,
+        required: true,
         select: true,
         options: user_come_from_options.map(({ name, code }) => ({
           label: name,
@@ -177,7 +177,7 @@ export function PriceRequestSection(props: Props) {
             {price_request_title}
           </h3>
         )}
-        {form_title && <div className="formtitle" style={{margin:"10px 0"}}>{form_title}</div>}
+        {form_title && <div className="formtitle" id="formtitle">{form_title}</div>}
         
         <Form
         color={"terra-cotta"}
