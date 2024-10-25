@@ -14,9 +14,10 @@ import { CircleLink } from "../components/CircleLink";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getLocale } from "../utils/locale";
-import { Image } from "../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
 import { Button, useTheme} from '@mui/material';
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 
 
 function appearingAnimations() {
@@ -140,7 +141,11 @@ export default function BeforeConfiguratorPage({
   } = pageProps;
   const router = useRouter();
 
-  const [_language, country] = router.locale.split("-");
+  var [_language, country] = router.locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   const theme = useTheme();
   const { modelsPath } = layoutProps.topBarProps.mainMenuProps;
 
@@ -323,6 +328,10 @@ export const getStaticProps: GetStaticProps<
 > = async ({ locale }) => {
   const fetcher = new Fetcher();
   const allPageProps = await getAllPagePropsOnly(fetcher, locale);
+  if(!locale.includes('-'))
+    {
+      locale += "-FR"
+    }
   const cmsLocale = getLocale(locale);
 
   if (!allPageProps.layoutProps.hasConfigurator) {

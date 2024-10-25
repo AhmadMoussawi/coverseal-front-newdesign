@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import { AnimationDirection } from "../../utils/constants";
-import { Image } from "../Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../Image'));
 import { useWindowSize } from "../useWindowSize";
+
 
 export function DoubleImage({
   image,

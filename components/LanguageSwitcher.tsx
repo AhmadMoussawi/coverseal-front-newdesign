@@ -57,6 +57,7 @@ export default function LanguageSwitcher({
           fullWidth
           value={currentValue}
           onChange={onOptionClick}
+          
         >
           {list.map(({ code, name }) => (
             <MenuItem key={code} value={code}>

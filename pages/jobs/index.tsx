@@ -14,7 +14,8 @@ import { translateInFromRightToLeft } from "../../animations/appearing/shared";
 import { Color } from "../../utils/constants";
 import { useCallback } from "react";
 import { getLocale } from "../../utils/locale";
-import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../../components/CatalogueRequestHomeSection'));
 
 const terraCotta = "#7f351b";
 
@@ -68,7 +69,11 @@ export default function JobsPage({ pageProps, jobs, countries, globalSection }: 
   const { main_title, main_paragraph, all_filter_text, country_label_text } =
     pageProps;
     const { locale } = useRouter();
-  const [_language, country] = locale.split("-");
+  var [_language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   var code = countries.filter(x=>x.code == country);
   var sstat = "all";
   if(code.length>0)

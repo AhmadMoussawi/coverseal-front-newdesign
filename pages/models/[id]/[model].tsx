@@ -9,7 +9,8 @@ import gsap from "gsap";
 import { CircleLink } from "../../../components/CircleLink";
 import { useWindowSize } from "../../../components/useWindowSize";
 import { CircleCenterLink } from "../../../components/CircleCenterLink";
-import { Image } from "../../../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../../../components/Image'));
 import {
   Download,
   ModelAutomatic,
@@ -38,7 +39,7 @@ import { useRouter } from "next/router";
 import { OptionItem } from "../../../components/model/OptionItem";
 import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
-import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../../../components/CatalogueRequestHomeSection'));
 import Masonry from "@mui/lab/Masonry";
 import { Grid } from "@material-ui/core";
 import { Label } from "@material-ui/icons";
@@ -322,13 +323,22 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                             ))}
                             {translations[0].technical_info_file && (
                               <li className="technical-file-item">
-                                {technical_info_file_text}                              
+                                
+                                <a
+                    onClick={onDownloadTechnicalFileClick(
+                      "technical_info_file"
+                    )}
+                  >{technical_info_file_text}
+                    <Download color={Color.ANTHRACITE}/>
+                  </a>                              
                               </li>
                             )}
                             {translations[0].user_manual_file && (
                               <li className="technical-file-item">
-                                {user_manual_file_text}
                                 
+                                <a onClick={onDownloadTechnicalFileClick("user_manual_file")}>
+                                {user_manual_file_text}<Download color={Color.ANTHRACITE} />
+                  </a>
                               </li>
                             )}
                           </ul>
@@ -338,7 +348,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                  
                   </div>
                   </div></section>
-                  <section className="gallery-section"  data-color={Color.BEIGE}>
+                  <section className="gallery-section" style={{paddingTop:"0px"}}  data-color={Color.BEIGE}>
                     <div className="section-container">
                       <Grid container spacing={2}>
                         <Grid item lg={7}>
@@ -412,14 +422,14 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                     />
                   </div>
                  
-                  <div className="grid-item" id="E">
+                  {/*<div className="grid-item" id="E">
                        <Link href={`/partnerships`} passHref>
                             <a className="link-before-translate link-before-translate--terra-cotta" 
                             >
                               {home.partenair_link_text}
                             </a>
                        </Link>
-                  </div>
+                  </div>*/}
                   </div>
                   <div className="technical-information">
                           <h3 className="subtitle-argesta subtitle-argesta--anthracite">
@@ -434,12 +444,21 @@ var filteredmodels = models.filter(x=>x.translations.filter(
                               
                               <li className="technical-file-item">
                                 <div style={{backgroundColor:"black", height:"1px", width:"100%", margin:"10px 0"}}></div>
-                                <span>{technical_info_file_text}</span>
+                                <span><a
+                              onClick={onDownloadTechnicalFileClick(
+                                "technical_info_file"
+                              )}
+                            >{technical_info_file_text}
+                              <Download color={Color.ANTHRACITE}/>
+                            </a> </span>
                               </li>
                             )}
                             {translations[0].user_manual_file && (
                               <li className="technical-file-item">
-                                {user_manual_file_text}
+                                <div style={{backgroundColor:"black", height:"1px", width:"100%", margin:"10px 0"}}></div>
+                               <span><a onClick={onDownloadTechnicalFileClick("user_manual_file")}>
+                                {user_manual_file_text}<Download color={Color.ANTHRACITE} />
+                  </a></span>
                                 
                               </li>
                             )}
@@ -491,7 +510,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
         </section>
     <section className="section-model-content2" data-color={Color.ANTHRACITE} style={{backgroundColor:"var(--color-anthracite)"}}>
       <div className="section-container">
-    <Grid container style={{backgroundColor:"var(--color-ANTHRACITE)"}}>
+    <Grid container style={{backgroundColor:"var(--color-ANTHRACITE)", alignItems:"center"}}>
         
         <Grid item className="dressingtext">
         <h3 className="subtitle-poppins"  style={{color:'var(--color-white)'}}>
@@ -531,7 +550,7 @@ var filteredmodels = models.filter(x=>x.translations.filter(
   
     <section className="section-model-content2" data-color={Color.ANTHRACITE}  style={{backgroundColor:"var(--color-anthracite)"}}>
     <div className="section-container">
-    <Grid container spacing={3} style={{backgroundColor:"var(--color-anthracite)"}}>
+    <Grid container spacing={3} style={{backgroundColor:"var(--color-anthracite)", alignItems:"center", paddingTop:"60px"}}>
         <Grid item className="optionsimage">
                   <Image
                           id={options_images}
@@ -864,12 +883,16 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       fields: ["id", "translations.main_title", "translations.languages_code", "translations.published"],
     })
     .then((res) => res.data);
-
-  const paths = COUNTRIES.reduce((acc, country) => {
+    var countries = [{
+      name: "France",
+      code: "FR",
+      languages: ["FR"],
+    }]
+  const paths = countries.reduce((acc, country) => {
     const countryCode = country.code;
 
     country.languages.forEach((language) => {
-      const locale = `${language.toLowerCase()}-${countryCode}`;
+      const locale = `${language.toLowerCase()}`;
       const cmsLocale = getLocale(locale);
 
       models.forEach((model) => {

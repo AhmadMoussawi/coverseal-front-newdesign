@@ -95,17 +95,17 @@ const CookieBanner = (props) => {
 >
   
 
-      <Typography variant="h6" style={{ fontWeight: 'bold', fontStyle: 'italic', marginBottom: '10px', backgroundColor:"#723722", color: 'white' , textAlign: 'center' , fontFamily : 'argesta_hairlineRgIt'}}>
+      <Typography variant="h4" style={{ fontWeight: 'bold', fontStyle: 'italic', marginBottom: '10px', backgroundColor:"#723722", color: 'white' , textAlign: 'center' , fontFamily : 'argesta_hairlineRgIt'}}>
       {props.cookies_banner_title}
         </Typography>
         <Typography style={{ color: 'white', margin: '0 auto', textAlign: 'center' }}>
         {props.cookies_banner_text}
         </Typography>
        <div style={{ display: 'flex', justifyContent: 'center', marginTop: "20px" }}>
-        <Button onClick={handleOpenSettings} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px" }} sx={{ fontSize: "11px", [theme.breakpoints.up('md')]: { fontSize: "13px" } }}>
+        <Button type="button" onClick={handleOpenSettings} style={{ border: "1px solid #723722", padding: "5px 10px", textTransform: "none", color:"#723722", backgroundColor:"white", borderRadius: "0px", marginLeft: "10px" }} sx={{ fontSize: "11px !important", [theme.breakpoints.up('md')]: { fontSize: "13px !important" } }}>
         {props.personalize_settings_btn}
         </Button>
-        <Button onClick={handleAcceptAll} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", backgroundColor:"white", borderRadius:"0px", marginLeft:"10px" }}  sx={{fontSize:"11px",[theme.breakpoints.up('md')]: {fontSize:"13px"}}}>
+        <Button type="button" onClick={handleAcceptAll} style={{border:"1px solid #723722", padding:"5px 10px",textTransform:"none", color:"#723722", backgroundColor:"white", borderRadius:"0px", marginLeft:"10px" }}  sx={{fontSize:"11px !important",[theme.breakpoints.up('md')]: {fontSize:"13px !important"}}}>
           {props.acceptall_btn}
         </Button>
         </div>

@@ -87,7 +87,7 @@ const sendMail =
       // send confirmation mail to the user
       await transporter
         .sendMail({
-          from: "berenice@coverseal-stage.com",
+          from: "berenice@coverseal.com",
           to: data.mail,
           subject: mailsContent.translations[0][subjectKey],
           html: mailsContent.translations[0][bodyKey],
@@ -103,7 +103,7 @@ const sendMail =
         
         await transporter
           .sendMail({
-            from: "berenice@coverseal-stage.com",
+            from: "berenice@coverseal.com",
             to: mails[contentKey],
             subject: mailsContent.translations[0][subjectKey],
             html: `

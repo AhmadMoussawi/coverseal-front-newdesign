@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "./Icon";
 
-export function Youtube({ color }: IconProps) {
+export default function Youtube({ color }: IconProps) {
   return (
     <Icon viewBox="0 0 19.6794 15.0512" color={color}>
       <path

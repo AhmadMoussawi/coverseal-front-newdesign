@@ -5,7 +5,8 @@ import { Fetcher, getAllPagePropsOnly } from "../utils/fetchers";
 import { translateInFromRightToLeft } from "../animations/appearing/shared";
 import { CMS_PUBLIC_URL } from "../utils/constants";
 import { getLocale } from "../utils/locale";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 import { useRouter } from "next/router";
 
 function appearingAnimations() {

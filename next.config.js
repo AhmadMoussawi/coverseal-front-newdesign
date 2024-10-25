@@ -35,10 +35,17 @@ const securityHeaders = [
   {
     key: 'Referrer-Policy',
     value: 'no-referrer'
-  }
+  },
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=31536000, immutable',
+  },
 ];
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 // next.config.js
-module.exports = {
+module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
@@ -48,6 +55,7 @@ module.exports = {
       },
     ]
   },
+  basePath: '',
   poweredByHeader: false,
   typescript: {
     // !! WARN !!
@@ -65,32 +73,52 @@ module.exports = {
       };
     });
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'coverseal-stage.com',
+      },{
+        protocol: 'https',
+        hostname: 'coverseal-stage.fr',
+      },{
+        protocol: 'https',
+        hostname: 'coverseal.com',
+      },{
+        protocol: 'https',
+        hostname: 'coverseal-stage.fr',
+      },{
+        protocol: 'https',
+        hostname: 'coverseal-stage.fr',
+      },
+    ],
+  },
   i18n: {
     // These are all the locales you want to support in
     // your application
     locales: [
       "default",
 
-      "fr-BE",
-      "nl-BE",
-      "en-BE",
-      "de-BE",
+      //"fr-BE",
+      //"nl-BE",
+      //"en-BE",
+      //"de-BE",
 
-      "fr-FR",
-      "en-FR",
+      "fr",
+      //"en",
 
-      "nl-NL",
-      "en-NL",
+     // "nl-NL",
+      //"en-NL",
 
-      "fr-LU",
-      "de-LU",
-      "en-LU",
+      //"fr-LU",
+      //"de-LU",
+      //"en-LU",
 
-      "de-DE",
-      "en-DE",
+      //"de-DE",
+      //"en-DE",
 
-      "de-AT",
-      "en-AT",
+      //"de-AT",
+      /*"en-AT",
 
       "en-CH",
       "fr-CH",
@@ -137,11 +165,11 @@ module.exports = {
       "en-RS",
       "en-TR",
       "en-ME",
-      "en-WORLD"
+      "en-WORLD"*/
     ],
     // This is the default locale you want to be used when visiting
     // a non-locale prefixed path e.g. `/hello`
-    defaultLocale: "default",
+    defaultLocale: "fr",
     localeDetection: false,
     // This is a list of locale domains and the default locale they
     // should handle (these are only required when setting up domain routing)
@@ -149,14 +177,14 @@ module.exports = {
      domains: [
        {
          domain: "coverseal-stage.fr",
-         defaultLocale: "fr-FR"
+         defaultLocale: "fr"
        },
        /*{
          domain: "coverseal-stage.fr",
          defaultLocale: "fr-FR"
        },
        {
-         domain: "coverseal.fr",
+         domain: "coverseal-stage.fr",
          defaultLocale: "fr-FR"
        },*/
     //   {
@@ -178,4 +206,31 @@ module.exports = {
     // BACKEND_ROOT: "https://saporita.ddns.net/backend",
     // BACKEND_ROOT: "http://localhost:8080",
   },
-};
+  compress: true,
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    [
+      "postcss-preset-env",
+      {
+        "autoprefixer": {
+          "flexbox": "no-2009"
+        },
+        "stage": 3,
+        "features": {
+          "custom-properties": false
+        }
+      }
+    ],
+    [
+      '@fullhuman/postcss-purgecss',
+      {
+        content: [
+            './pages/**/*.{js,jsx,ts,tsx}',
+            './components/**/*.{js,jsx,ts,tsx}'
+        ],
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+        safelist: ["html", "body"]
+      }
+    ],
+  ]
+});

@@ -6,7 +6,8 @@ import {
   getAllPagePropsOnly,
 } from "../../utils/fetchers";
 import { ArrowCustom } from "../../components/icons";
-import { Image } from "../../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../../components/Image'));
 import slugify from "slugify";
 import Link from "next/link";
 import { AnimationDirection, Color } from "../../utils/constants";
@@ -15,7 +16,7 @@ import { translateInFromRightToLeft } from "../../animations/appearing/shared";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../utils/locale";
 import { COUNTRIES } from "../../utils/constants";
-import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../../components/CatalogueRequestHomeSection'));
 import { useRouter } from "next/router";
 
 function appearingAnimations() {

@@ -11,7 +11,8 @@ import {
   TextOnly,
   ImageOnly,
 } from "../../../../components/achievements";
-import { Image } from "../../../../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../../../../components/Image'));
 import slugify from "slugify";
 import Link from "next/link";
 import { CircleLink } from "../../../../components/CircleLink";
@@ -30,6 +31,8 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { useRouter } from 'next/router'
 import StructuredData from '../../../../components/StructuredData';
+import { Button } from "@mui/material";
+import { LineWeight } from "@material-ui/icons";
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
 }
@@ -77,7 +80,11 @@ export default function AchievementsInspirationDetailsPage({
         }:{}]
   };
   
-  const [language, country] = locale.split("-");
+  var [language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   return (
     <>
     <StructuredData data={structuredData} id="conseils-pratiques-data" />
@@ -87,11 +94,11 @@ export default function AchievementsInspirationDetailsPage({
           <div className="title-container">
             <h1 className="main-title main-title--terra-cotta">
               {/*<span>{text}</span>*/} {main_title}
-              <Date style={{fontSize:"20px",marginTop:"20px", letterSpacing:"0px", display:"block"}} dateString={date_created.toString()} language={language} />
+              
             </h1>
+            <Date className="main-title--terra-cotta" style={{fontSize:"20px",marginTop:"20px", letterSpacing:"0px", display:"block", fontWeight:"400", lineHeight:"100px"}} dateString={date_created.toString()} language={language} />
             
-            
-              <a className="back-button" style={{cursor:"pointer"}} onClick={() => router.back()}>
+              <a className="back-button" style={{cursor:"pointer", color:"var(--color-terra-cotta)"}} onClick={() => router.back()}>
                 <ArrowCustom color={Color.TERRA_COTTA} />
                 {back_to_blogs}
               </a>
@@ -146,10 +153,10 @@ export default function AchievementsInspirationDetailsPage({
           </div>*/}
         <div className="section-container link-container">
           
-            <a className="back-button btn" style={{cursor:"pointer"}} onClick={() => router.back()}>
+            <Button className="back-button btn" style={{cursor:"pointer", color:"var(--color-terra-cotta)"}} onClick={() => router.back()}>
               <ArrowCustom color={Color.TERRA_COTTA} />
               {back_to_blogs}
-            </a>
+            </Button>
           {/*linkToNextProject && (
             <Link href={linkToNextProject} passHref>
               <a className="back-button next-button">
@@ -261,7 +268,11 @@ export const getStaticProps: GetStaticProps<
       "blogs_template",
       locale
     );
-    const [language, country] = locale.split("-");
+    var [language, country] = locale.split("-");
+    if(!country)
+      {
+        country = "FR";
+      }
     const countrydb = await fetcher.directus
       .items<string, CountriesDirectus>("countries")
       .readMany({

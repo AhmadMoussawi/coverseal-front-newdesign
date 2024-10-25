@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 
 # COPY package*.json /usr/src/app/
 COPY . .
-
 #RUN yarn install --frozen-lockfile
 RUN npm install
 # ENV CMS_INTERNAL_URL http://directus:8055

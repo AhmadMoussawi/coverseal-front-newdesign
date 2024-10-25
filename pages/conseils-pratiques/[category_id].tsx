@@ -1,21 +1,18 @@
 // vendors
 import React, {
   useState,
-  useRef,
   useCallback,
   ChangeEvent,
   useEffect,
-  useLayoutEffect,
   useMemo,
 } from "react";
 import Link from "next/link";
 import classnames from "classnames";
 import { GetStaticProps, GetStaticPaths } from "next";
-import slugify from "slugify";
 import { useRouter } from "next/router";
 import { generateBlogPath } from "../../utils/paths";
-import { Image } from "../../components/Image";
-import { HeaderImage } from "../../components/HeaderImage";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../../components/Image'));
 import Date from '../../components/date';
 import { ArrowCustom } from "../../components/icons";
 // local
@@ -25,20 +22,15 @@ import {
   getPageContentProps,
 } from "../../utils/fetchers";
 import { AnimationDirection, Color } from "../../utils/constants";
-import { Arrow, Cross } from "../../components/icons";
 import { useDebounce } from "../../components/useDebounce";
-import { Loader } from "../../components/Loader";
 import { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../utils/locale";
-import { COUNTRIES } from "../../utils/constants";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Masonry from '@mui/lab/Masonry';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { ItemSelection } from "@aws-sdk/client-cloudfront";
-import { redirect } from "next/dist/server/api-utils";
-import { CatalogueRequestHomeSection } from "../../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../../components/CatalogueRequestHomeSection'));
 
 
 const Label = styled(Paper)(({ theme }) => ({
@@ -220,7 +212,11 @@ export default function BlogsPage({
     }
     return null;
   }, [asPath]);
-  const [language, country] = locale.split("-");
+  var [language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   const questionsDom = useMemo(
     () =>
       (queryResponse || blogs || dblogs).map((question, i) => {
@@ -240,13 +236,12 @@ export default function BlogsPage({
             <Image
               id={question.list_image}
               title="Blog image"
-              quality="50"
               
               isBackgroundCss
             />
-            <Label><h5 className="subtitle" style={{fontWeight:"500"}}>{main_title}</h5>
+            <Label style={{height:"unset"}}><h5 className="subtitle" style={{fontWeight:"500"}}>{main_title}</h5>
             <span className="subtext">{description}</span>
-            <Date style={{fontSize:"12px",marginTop:"5px", display:"block"}} dateString={question.date_created.toString()} language={language} /><a className="back-button next-button" href={"/" + locale + generateBlogPath(
+            <Date className="" style={{fontSize:"12px",marginTop:"5px", display:"block"}} dateString={question.date_created.toString()} language={language} /><a className="back-button next-button" href={"/" + locale + generateBlogPath(
             category_id,
             main_title, question.id
           )} style={{fontSize:"12px", marginTop:"10px"}}>{readmore}
@@ -530,7 +525,11 @@ export const getStaticProps: GetStaticProps<
     locale
   );
   
-  const [language, country] = locale.split("-");
+  var [language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   const countrydb = await fetcher.directus
     .items<string, CountriesDirectus>("countries")
     .readMany({
@@ -714,12 +713,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fields: ["translations.name", "translations.languages_code", "id"],
     })
     .then((res) => res.data);
-    
-  const paths = COUNTRIES.reduce((acc, country) => {
+    var countries = [{
+      name: "France",
+      code: "FR",
+      languages: ["FR"],
+    }]
+  const paths = countries.reduce((acc, country) => {
     const countryCode = country.code;
 
     country.languages.forEach(async(language) => {
-      const locale = `${language.toLowerCase()}-${countryCode}`;
+      const locale = `${language.toLowerCase()}`;
       const blogTemplateProps = await getPageContentProps<BlogsContent>(
         fetcher,
         "blogs_template",

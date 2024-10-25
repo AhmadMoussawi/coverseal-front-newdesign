@@ -8,7 +8,7 @@ import {
   getPageContentProps,
 } from "../utils/fetchers";
 import { BlockList } from "../components/BlockList";
-import { Image } from "../components/Image";
+const Image = dynamic(() => import('../components/Image'));
 import { CircleCenterLink } from "../components/CircleCenterLink";
 import Link from "next/link";
 import {
@@ -19,7 +19,8 @@ import { AnimationDirection, Color } from "../utils/constants";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../utils/locale";
 import { Grid } from "@material-ui/core";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 import Masonry from "@mui/lab/Masonry";
 import Box from "../components/Box";
 import VerticalBoxGroup from "../components/VerticalBoxGroup";
@@ -50,6 +51,7 @@ export default function PartnershipsPage({ pageProps, globalSection, faqQuestion
     isolation_title,
     isolation_paragraph,security_image,
     isolation_image,
+    mobile_image,
     water_quality_image,
     about_coverseal_title,
     about_coverseal_text,
@@ -92,11 +94,15 @@ dealer_link_text
     pageProps;
     const router = useRouter();
   const { locale } = useRouter();
-  const [_language, country] = locale.split("-");
+  var [_language, country] = locale.split("-");
   var filteredquestions = faqQuestions.filter(x=>x.category);
   const randomQuestionIndex = getRandomInt(0, filteredquestions.length - 1);
   const partnership_types = ["distributor", "dealer", "lead"];
   const randomQuestion = filteredquestions[randomQuestionIndex];
+  if(!country)
+  {
+    country = "FR";
+  }
   var lang = "en";
   switch(_language)
   {
@@ -378,6 +384,7 @@ dealer_link_text
             <Grid item className="aboutitem"  >
               <div className="boxpair">
               <Image id={security_image.id} title="security_image" className="security-image-container" />
+              {mobile_image && <Image id={mobile_image.id} title="mobile_image" className="mobile-image-container" />}
              <div style={{verticalAlign:"middle", textAlign:"left", flexDirection:"column", width:"100%"}}>
                 <div>
                 <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle">{security_title}</h4>
@@ -518,7 +525,7 @@ dealer_link_text
               <div style={{verticalAlign:"left", textAlign:"left", paddingTop:"20px",flexDirection:"column", width:"100%"}} className="firstbox">
                 <div style={{fontSize:"50px"}}>
                   <h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
-                  <table><tr><td valign="top"><img src="/Picto_Partenaire-01-mobile.svg" className="mobileimage"/></td><td style={{width:"7px"}}></td><td style={{verticalAlign:"top"}}>{strength1_title}</td></tr></table>
+                  <table><tr><td valign="top"><img src="/Picto_Partenaire-01-mobile.svg" className="mobileimage"/></td><td className="tdspacer"></td><td style={{verticalAlign:"top"}}>{strength1_title}</td></tr></table>
                   </h4>
                   <p>
                     {strength1_text}</p></div>
@@ -532,7 +539,7 @@ dealer_link_text
               </div>
               <div style={{verticalAlign:"middle", textAlign:"left", padding:"20px 0px", flexDirection:"column", width:"100%"}}>
               <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
-              <table><tr><td valign="top"><img src="/Picto_Partenaire-02-mobile.svg" className="mobileimage"/></td><td style={{width:"7px"}}></td><td style={{verticalAlign:"top"}}>{strength2_title}</td></tr></table></h4>
+              <table><tr><td valign="top"><img src="/Picto_Partenaire-02-mobile.svg" className="mobileimage"/></td><td className="tdspacer"></td><td style={{verticalAlign:"top"}}>{strength2_title}</td></tr></table></h4>
               <p>{strength2_text}</p></div></div></div>
             </Grid>
             <Grid item className="aboutitem">
@@ -542,7 +549,7 @@ dealer_link_text
               </div>
               <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}}>
                 <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
-                <table><tr><td valign="top"><img src="/Picto_Partenaire-03-mobile.svg" className="mobileimage"/></td><td style={{width:"7px"}}></td><td style={{verticalAlign:"top"}}>{strength3_title}</td></tr></table>
+                <table><tr><td valign="top"><img src="/Picto_Partenaire-03-mobile.svg" className="mobileimage"/></td><td className="tdspacer"></td><td style={{verticalAlign:"top"}}>{strength3_title}</td></tr></table>
                   </h4>
                 <p>{strength3_text}</p></div>
               </div>
@@ -555,7 +562,7 @@ dealer_link_text
               </div>
               <div className="strength4" style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px",flexDirection:"column", width:"100%"}}>
               <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
-              <table><tr><td valign="top"><img src="/Picto_Partenaire-04-mobile.svg" className="mobileimage"/></td><td style={{width:"7px"}}></td><td style={{verticalAlign:"top"}}>{strength4_title}</td></tr></table>
+              <table><tr><td valign="top"><img src="/Picto_Partenaire-04-mobile.svg" className="mobileimage"/></td><td className="tdspacer"></td><td style={{verticalAlign:"top"}}>{strength4_title}</td></tr></table>
                 </h4>
               <p>{strength4_text}</p></div></div></div>
             </Grid>
@@ -566,7 +573,7 @@ dealer_link_text
               </div>
               <div style={{verticalAlign:"middle", textAlign:"left", paddingTop:"20px", flexDirection:"column", width:"100%"}} className="lastbox">
                 <div style={{fontSize:"50px"}}><h4 className="subtitle-argesta subtitle-argesta--terra-cotta mobiletitle2">
-                <table><tr><td valign="top"><img src="/Picto_Partenaire-05-mobile.svg" className="mobileimage"/></td><td style={{width:"7px"}}></td><td style={{verticalAlign:"top"}}>{strength5_title}</td></tr></table>
+                <table><tr><td valign="top"><img src="/Picto_Partenaire-05-mobile.svg" className="mobileimage"/></td><td className="tdspacer"></td><td style={{verticalAlign:"top"}}>{strength5_title}</td></tr></table>
                   </h4>
                 <p>{strength5_text}</p></div>
               </div>

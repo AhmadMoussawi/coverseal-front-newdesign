@@ -8,7 +8,8 @@ import {
   getPageContentProps,
 } from "../utils/fetchers";
 import { useRouter } from "next/router";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 
 const partnership_types = ["distributor", "dealer", "lead"];
 
@@ -18,7 +19,11 @@ export default function PartnershipsForm({
 }: PageProps<PartershipsFormContent>) {
   const { main_title } = pageProps;
   const router = useRouter();
-  const [language, lcountry] = router.locale.split("-");
+  var [language, lcountry] = router.locale.split("-");
+  if(!lcountry)
+    {
+      lcountry = "FR";
+    }
   var lang = "en";
   switch(language)
   {

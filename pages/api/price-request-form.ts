@@ -50,7 +50,7 @@ try{
   })
   .use(
     Cors({
-      origin: ["https://coverseal-stage.com"],
+      origin: ["https://coverseal-stage.fr"],
     })
   )
   .use(upload.array("add_documents", 3))

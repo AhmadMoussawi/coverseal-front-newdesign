@@ -155,7 +155,11 @@ export function PriceRequestSection(props: Props) {
     [countries]
   );
   const [currentstep, setStep] = useState(1);
-  const [language, lcountry] = locale.split("-");
+  var [language, lcountry] = locale.split("-");
+  if(!lcountry)
+    {
+      lcountry = "FR";
+    }
   var countrieslist = 'BE,LU,FR,NL';
   if(countrieslist.includes(lcountry))
   {

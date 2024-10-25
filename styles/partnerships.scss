@@ -18,6 +18,9 @@
   .aboutitem{
     width:280px;
   }
+  .tdspacer{
+    width:0px
+  }
   @media(max-width:1919px)
   {
     p, span{
@@ -34,6 +37,9 @@
   }
   @media(max-width: 768px)
   {
+    .tdspacer{
+      width:7px
+    }
     .aboutitem{
       width:100%;
       .mobileimage{
@@ -164,11 +170,18 @@
       
   }
   }
-
+  .mobile-image-container{
+    display:none;
+    @media(max-width:768px)
+    {
+      display:block;
+      margin-bottom:calc(100vw * 32px / 430px);
+    }
+  }
   .security-image-container{
     @media(max-width:768px)
     {
-      margin-bottom:calc(100vw * 32px / 430px);
+      display:none;
     }
   }
   .hidemobilelink

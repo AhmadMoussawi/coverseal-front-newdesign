@@ -34,7 +34,7 @@ export function SideNav({
   return (
     <div className="side-nav">
 <Link href="/" passHref> 
-          <a className="logo">         
+          <a className="logo" aria-label="logo">         
                 <LogoSymbol color={Color.WHITE} />              
        </a>
           </Link>
@@ -71,7 +71,7 @@ export function SideNav({
         </li>
         
       </ul>
-      <button className="open-menu-button" onClick={handleMenuOpen}>
+      <button className="open-menu-button" title="open menu" onClick={handleMenuOpen}>
         <div className="icon">
           <div className="line" />
           <div className="line" />

@@ -32,7 +32,7 @@ const uploadFilesToS3 =
         .replace(/\s/g, "_");
         return new AWS.S3.ManagedUpload({
           params: {
-            Bucket: "becoflex-frontend-storage-bucket",//"becoflex-storage-staging",
+            Bucket: "becoflex-frontend-storage-bucket-fr",//"becoflex-storage-staging",
             Key: `${folderName}/${nextEntryId}_${fulldata}_image_${i}.${fileExtension}`,
             Body: stream,
           },

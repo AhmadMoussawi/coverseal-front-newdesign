@@ -4,7 +4,8 @@ import Link from "next/link";
 import { CatalogRequestSection } from "../components/CatalogRequestSection";
 import { AnimationDirection, Color } from "../utils/constants";
 import { useRouter } from "next/router";
-import { Image } from "../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
 import {
   Fetcher,
   getAllPagePropsOnly,
@@ -39,11 +40,8 @@ export default function CatalogRequestPage({
       <div className="section-container">
         <div className="content">
          
-        <div className="logo-container1">
-                <LogoSymbol color={Color.WHITE} />
-        </div>
 
-          <div className="text-container">
+          <div className="text-container" style={{justifyContent:"start"}}>
               
             <div className="paragraph wysiwyg" dangerouslySetInnerHTML={{ __html: description }} />
             {/* <Link href="/the-coverseal" passHref>
@@ -52,11 +50,10 @@ export default function CatalogRequestPage({
               </a>
             </Link> */}
           </div>
-
+              
           <Image
             id={image.id}
             title="coverseal image"
-            direction={AnimationDirection.BOTTOM_TO_TOP}
           />
         </div>
         </div>

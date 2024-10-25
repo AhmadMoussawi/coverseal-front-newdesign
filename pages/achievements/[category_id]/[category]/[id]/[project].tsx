@@ -1,5 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Fetcher,
   getAllPagePropsOnly,
@@ -24,10 +24,11 @@ import { translateInFromRightToLeft } from "../../../../../animations/appearing/
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../../../../utils/locale";
 import { COUNTRIES } from "../../../../../utils/constants";
-import { Image } from "../../../../../components/Image";
+const Image = dynamic(() => import('../../../../../components/Image'));
 import { Grid } from "@material-ui/core";
 import { PriceRequestSection } from "../../../../../components/PriceRequestSection";
-import { CatalogueRequestHomeSection } from "../../../../../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../../../../../components/CatalogueRequestHomeSection'));
 import { useRouter } from "next/router";
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -57,6 +58,23 @@ export default function AchievementsInspirationDetailsPage({
   const { sections } = pageProps;
   const { back_to_achievements, models_link_text, next_coverseal, configurator_title, configurator_link_text } = achievementsTemplateProps;
   const { form_title, step_one_title, step_two_title, next_btn_title, mobile_step_one_title, mobile_step_two_title } = pricerequest;
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   useEffect(() => {
     appearingAnimations();
   }, []);
@@ -76,7 +94,7 @@ export default function AchievementsInspirationDetailsPage({
         <div className="section-container">
           <div className="title-container">
             <h1 className="main-title main-title--terra-cotta">
-              <span>{project_text}</span> {main_title}
+              <span>{project_text}</span>{main_title}
             </h1>
             {/*<Link href={backToCategoryPath} passHref>
               <a className="back-button">
@@ -87,6 +105,7 @@ export default function AchievementsInspirationDetailsPage({
           </div>
           </div>
           {sections.map((section, i) => {
+            
             switch (section.type) {
               case "double_images":
                 return (
@@ -131,23 +150,28 @@ export default function AchievementsInspirationDetailsPage({
                   </div>
                 );
                 case "images_gallery":
+                  if(section.gallery)
+                  {
+                  const sortedGallery = section.gallery.sort(sortGallery);
+                  const galleryToDisplay = isMobile ? sortedGallery.slice(0, 2) : sortedGallery;
                 return (
                   <div className="section-container gallery-container">
                   <ImageOnly
                     key={i}
                     {...(section as AchievementsSectionsDirectus)}
                   />
-                  <Grid container spacing={2}>
-                    {section.gallery.sort(sortGallery).map(gal=>{
+                  <Grid container spacing={2} style={{marginTop:"0px"}}>
+                    {galleryToDisplay.map(gal=>{
                       return (
                         <Grid item xs={6} lg={4}>
-                          <Image id={gal.directus_files_id} title="image" />
+                          <Image id={gal.directus_files_id} title="image" className="image-container" />
                           </Grid>
                       );
                     })}
                   </Grid>
                   </div>
                 );
+              }
             }
           })}
         {/*<div className="circle-link-container">
@@ -324,10 +348,12 @@ export const getStaticProps: GetStaticProps<
       "translations.project_text",
       "category.id",
       "category.translations.main_title",
+      "orderindex"
     ],
+    sort: ["orderindex"],
     filter: {
-      category: {
-        _eq: Number(params.category_id),
+      orderindex: {
+        _gt: Number(currentProject.orderindex),
       },
     },
     deep: {
@@ -349,12 +375,12 @@ export const getStaticProps: GetStaticProps<
       },
     } as any,
   })
-  .then((res) => res.data.find((item) => item.id > Number(params.id)))
+  .then((res) => res.data.find((item) => item.orderindex > Number(currentProject.orderindex)))
   .catch((_error) => {
     console.log("next item doesn't exist");
     return null;
   });
-  const nextProjectTitle = nextProject ? nextProject.translations[0].project_text + " " +nextProject.translations[0].main_title:null;
+  const nextProjectTitle = nextProject && nextProject.translations.length>0? nextProject.translations[0].project_text + " " +nextProject.translations[0].main_title:null;
   const linkToNextProject = await (async () => {
     
 
@@ -413,12 +439,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
       ],
     })
     .then((res) => res.data);
-
-  const paths = COUNTRIES.reduce((acc, country) => {
+    var countries = [{
+      name: "France",
+      code: "FR",
+      languages: ["FR"],
+    }]
+  const paths = countries.reduce((acc, country) => {
     const countryCode = country.code;
 
     country.languages.forEach((language) => {
-      const locale = `${language.toLowerCase()}-${countryCode}`;
+      const locale = `${language.toLowerCase()}`;
       const cmsLocale = getLocale(locale);
 
       achievements.forEach((achievement) => {

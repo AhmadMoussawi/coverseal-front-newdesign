@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "./Icon";
 
-export function Linkedin({ color }: IconProps) {
+export default function Linkedin({ color }: IconProps) {
   return (
     <Icon viewBox="0 0 19.0183 17.9289" color={color}>
       <path

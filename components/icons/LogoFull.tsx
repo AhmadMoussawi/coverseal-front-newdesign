@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "./Icon";
 
-export function LogoFull({ color }: IconProps) {
+function LogoFull({ color }: IconProps) {
   return (
     <Icon viewBox="0 0 742.1985 109.2179" color={color}>
       <path
@@ -135,3 +135,4 @@ export function LogoFull({ color }: IconProps) {
     </Icon>
   );
 }
+export default LogoFull

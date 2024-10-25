@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "./Icon";
 
-export function Facebook({ color }: IconProps) {
+export default function Facebook({ color }: IconProps) {
   return (
     <Icon viewBox="0 0 9.8271 18.8617" color={color}>
       <path

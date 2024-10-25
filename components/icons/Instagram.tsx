@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "./Icon";
 
-export function Instagram({ color }: IconProps) {
+export default function Instagram({ color }: IconProps) {
   return (
     <Icon viewBox="0 0 21.3473 21.3719" color={color}>
       <g transform="translate(-1483.422 -252.903)">

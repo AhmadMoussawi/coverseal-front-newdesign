@@ -1,7 +1,8 @@
 import { GetStaticProps } from "next";
 import React, { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-import { Image } from "../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
 import Avis  from "../components/Avis";
 import { PriceRequestSection } from "../components/PriceRequestSection";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -48,7 +49,11 @@ export default function ReviewsPage({
     Photo
   } = pageProps;
   const { locale } = useRouter();
-  const [_language, country] = locale.split("-");
+  var [_language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   const modelsLink = layoutProps.topBarProps.mainMenuProps.modelsPath;
   var page = 0;
   useEffect(() => {

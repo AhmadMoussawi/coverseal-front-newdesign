@@ -858,14 +858,14 @@ h6{
     }
 .MuiPaper-root{
   height:auto !important;
-  margin-top:34px;
+  margin-top:25px;
   @media(max-width:1919px)
   {
-    margin-top:calc(100vw * 34px / 1920px)
+    margin-top:calc(100vw * 25px / 1920px)
   }
   @media(max-width:768px)
   {
-    margin-top:calc(100vw * 24px / 430px)
+    margin-top:calc(100vw * 25px / 430px)
   }
 }
     a {
@@ -931,7 +931,7 @@ h6{
     }
 
     h3 {
-      margin-bottom: 50px;
+      margin-bottom: 0px;
     }
 
     .text-container {

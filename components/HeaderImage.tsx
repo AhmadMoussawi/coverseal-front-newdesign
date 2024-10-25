@@ -78,7 +78,7 @@ export function HeaderImage({
   const[url, setUrl] = useState("");
 
 
-  const link = `${CMS_PUBLIC_URL}/assets/${id}?quality=60&format=webp`;
+  const link = `${CMS_PUBLIC_URL}/assets/${id}?quality=40&format=webp`;
   const unsigned_url = "https://d3nou5eyizbneo.cloudfront.net/" + id;
   const cssClassImage = classNames({
     image: true,

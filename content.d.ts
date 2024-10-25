@@ -175,6 +175,7 @@ interface AllPageContent {
   certificate_image_2:DirectusImage;
 security_image:DirectusImage;
 security_image_2:DirectusImage;
+mobile_image:DirectusImage;
 economy_image:DirectusImage;
 economy_image_2:DirectusImage;
 water_quality_image:DirectusImage;
@@ -300,8 +301,17 @@ interface AboutUsContent extends AllPageContent {
   company_image_2: string;
   company_image_3: string;  
   company_image_4: DirectusImage;
+  company_image_5: DirectusImage;
   video_mobile_image:DirectusImage;
   network_partners:{directus_files_id:string}[];
+  banner_image_mobile: DirectusImage;
+    banner_image_desktop: DirectusImage;
+    banner_image_tablet: DirectusImage;
+  banner_video_desktop: DirectusImage;
+  banner_video_mobile: DirectusImage;
+  banner_video_tablet: DirectusImage;
+  banner_title: string;
+  show_video: boolean;
 }
 interface CookiesPolicyContent extends AllPageContent{
   title:string;
@@ -401,6 +411,7 @@ interface PartnershipsContent extends AllPageContent {
   isolation_title: string;
   isolation_paragraph: string;
   security_image: DirectusImage;
+  mobile_image:DirectusImage;
   water_quality_image: DirectusImage;
   isolation_image: DirectusImage;
   about_coverseal_title: string;
@@ -447,6 +458,12 @@ interface PartershipsFormContent extends AllPageContent {
 
 interface HomeContent extends AllPageContent {
   video_mobile_placeholder: DirectusImage;
+  video_tablet_placeholder:DirectusImage;
+  video_placeholder: DirectusImage;
+  video_desktop:DirectusImage;
+  video_tablet:DirectusImage;
+  video_mobile:DirectusImage;
+  show_video:boolean;
   coverseal_image: string;
   coverseal_image_2: string;
   realisations_title:string;

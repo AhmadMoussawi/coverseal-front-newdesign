@@ -28,14 +28,14 @@ import React, {
   useState,
 } from "react";
 import { isEmpty } from "ramda";
-import { Loader } from "./Loader";
+import Loader  from "./Loader";
 import { MAIL_REGEXP } from "../utils/constants";
 import { postcodeValidator, postcodeValidatorExistsForCountry } from 'postcode-validator';
 import {PlacesAutocomplete} from "./PlacesAutocomplete";
-import disposable from "@ip1sms/is-disposable-phone-number"
 import http from "https";
 import { styled } from '@mui/material/styles';
 
+import disposable from "@ip1sms/is-disposable-phone-number"
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 export const MuiPhoneNumber = dynamic<any>(
   () => import("material-ui-phone-number"),
@@ -139,7 +139,7 @@ export function Form({
   useEffect(() => {
     setState(generateInitialState);
   }, [fields]);
-
+  
   const {
     wrong_email,
     wrong_email_confirmation,
@@ -720,7 +720,7 @@ console.log("FILES",files);
     },
     [state, fields, router]
   );
-
+  
   const handleChange = useCallback(
     (fieldName: string) => (e: React.ChangeEvent<HTMLInputElement> | string) => {
       const value =
@@ -805,7 +805,7 @@ req.end();*/
             
             break;
             case "phone":
-              if(disposable(value))
+              if(disposable(value) || value == "")
               {
                 errors[fieldName] = "Invalid phone number";
               }
@@ -909,6 +909,8 @@ const handlePlaceChange = (postalcode)=>{
                   <MuiPhoneNumber
                     defaultCountry={(() => {
                       const parts = router.locale.split("-");
+                      if(parts.length ==1)
+                        parts.push("FR")
                       if (parts[1]) {
                         if(parts[1]!="WORLD" && parts[1]!="SOUTHAMERICA")
                           return parts[1].toLowerCase();
@@ -1064,21 +1066,21 @@ const handlePlaceChange = (postalcode)=>{
   if (isFormSuccess) {
     if(id == "price_request")
       {
-        router.push("price-request-thankyou");
+        window.location.href ="/" + router.locale + "/price-request-thankyou";
       }
       else if(id == "after_sale")
         {
-          router.push("after-sale-thankyou")
+          window.location.href ="/" + router.locale + "/after-sale-thankyou";
         }
-        else if(id="partnerships")
+        else if(id=="partnerships")
           {
-            router.push("partnerships-thankyou")
+            window.location.href = "/" + router.locale + "/partnerships-thankyou";
           }
         else{
           const href = (() => {
             switch (id) {
               case "catalog_request":
-                case "catalog_request_home":
+              case "catalog_request_home":
                 return "/" + router.locale + "/price-request";
               case "price_request":
               case "after_sale":

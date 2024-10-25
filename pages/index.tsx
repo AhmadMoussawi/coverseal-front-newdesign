@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React,   { useMemo, useEffect, useState  } from "react";
+import React,   { useEffect, useState  } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import slugify from "slugify";
@@ -8,45 +8,31 @@ import {
   getAllPagePropsOnly,
   getPageContentProps,
 } from "../utils/fetchers";
+import dynamic from "next/dynamic";
+
+import { AnimationDirection, CMS_PUBLIC_URL, Color } from "../utils/constants";
+//import gsap from "gsap";
 import {
-  LogoSymbol,
-  ModelSemiAutomatic,
-  ModelManual,
-  ModelAutomatic,
-  VideoLink,
-} from "../components/icons";
-import { Image } from "../components/Image";
-import { LineCircleLink } from "../components/LineCircleLink";
-import { CircleCenterLink } from "../components/CircleCenterLink";
-import { ScrollDown } from "../components/ScrollDown";
-import { AnimationDirection, Color } from "../utils/constants";
-import gsap from "gsap";
-import {
-  translateInFromLeftToRight,
   translateInFromRightToLeft,
 } from "../animations/appearing/shared";
 import { useRouter } from "next/router";
-import { useWindowSize } from "../components/useWindowSize";
 import { getLocale } from "../utils/locale";
-import { generateBlogPath } from "../utils/paths";
-import { ArrowCustom } from "../components/icons";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import Masonry from '@mui/lab/Masonry';
-import Date from '../components/date';
 import { PartialItem } from "@directus/sdk";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
+const Image = dynamic(() => import('../components/Image'));
+const Masonry = dynamic(() => import('@mui/lab/Masonry'));
+import NextImage from 'next/image';
 import { Grid } from "@material-ui/core";
-import { Height } from "@material-ui/icons";
+import Head from "next/head";
 
 
 const Label = styled(Paper)(({ theme }) => ({
   backgroundColor: 'transparent',
-  //...theme.typography.body2,
   padding: theme.spacing(0.5),
   textAlign: 'left',
   height:'160px',
-  //color: theme.palette.text.secondary,
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
   boxShadow:"unset",
@@ -55,10 +41,10 @@ const Label = styled(Paper)(({ theme }) => ({
 function appearingAnimations() {
   translateInFromRightToLeft(".main-title");
 
-  translateInFromLeftToRight(".coverseal-section h2");
-  translateInFromRightToLeft(".coverseal-section .text-container");
+  //translateInFromLeftToRight(".coverseal-section h2");
+ // translateInFromRightToLeft(".coverseal-section .text-container");
 
-  gsap.fromTo(
+  /*gsap.fromTo(
     ".models-section .line-alone",
     {
       x: "100%",
@@ -72,12 +58,12 @@ function appearingAnimations() {
       x: 0,
       ease: "power3.out",
     }
-  );
-  translateInFromLeftToRight(".benefits-section .text-container");
+  );*/
+  //translateInFromLeftToRight(".benefits-section .text-container");
 
-  translateInFromLeftToRight(".models-section h2");
+  //translateInFromLeftToRight(".models-section h2");
 
-  gsap.fromTo(
+  /*gsap.fromTo(
     ".item-container",
     { opacity: 0 },
     {
@@ -89,7 +75,7 @@ function appearingAnimations() {
         start: "top center",
       },
     }
-  );
+  );*/
 }
 
 interface Props extends PageProps<HomeContent> {
@@ -121,9 +107,7 @@ export default function HomePage({
   pageProps,
   globalSection,
   models,
-  benefits_section,
-  layoutProps,
-  dblogs,
+  benefits_section
 }: Props) {
   const { locale, asPath } = useRouter();
 
@@ -151,18 +135,18 @@ partenair_link_text,
     coverseal_link_text,
     benefits_link_text,
     video_mobile_placeholder,
+    video_placeholder,
     coverseal_image,
-    coverseal_image_2,
-    gallery_link_text,    
     models_title,
     models_link_text,
     models_paragraph,
     models_image,
     configurator_link_text,
-    benefits_image,
-    scroll_down_link_text,
-    video_link_text,
-    readmore,
+    video_desktop,
+    video_mobile,
+    video_tablet,
+    video_tablet_placeholder,
+    show_video
   } = pageProps;
   const YourComponent = () => (
     <Image
@@ -172,20 +156,61 @@ partenair_link_text,
       // direction={AnimationDirection.BOTTOM_TO_TOP}
     />
   );
- 
-  const [language, country] = locale.split("-");
- // const { locale } = useRouter();
-  const size = useWindowSize();
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  const [imgSrc, setImgSrc] = useState("");
+  const [videoSrc, setVideoSrc] = useState("");
+  const getImageSrc = () => {
+    if (windowSize.width < 768) {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${video_mobile_placeholder.filename_disk}?quality=40&format=webp`);
+    } else if (windowSize.width < 1024) {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${video_tablet_placeholder.filename_disk}?quality=40&format=webp`);
+    } else {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${video_placeholder.filename_disk}?quality=40&format=webp`);
+    }
+  };
+  const getVideoSrc = () => {
+    if (windowSize.width < 768) {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${video_mobile.filename_disk}`);
+    } else if (windowSize.width < 1024) {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${video_tablet.filename_disk}`);
+    } else {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${video_desktop.filename_disk}`);
+    }
+  };
+  useEffect(() => {
+    // Handler to call on window resize
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });      
+      getImageSrc();
+      getVideoSrc();
+    };
 
-   // Add state for blogs, queryResponse, and questionTargeted
-     // Replace 'BlogType' with the actual type of your blogs
-   const [blogs, setBlogs] = useState<  undefined | SingleBlogDirectus[]>(undefined);
-   const [queryResponse, setQueryResponse] = useState<  undefined | SingleBlogDirectus[]  >(undefined);
-   //const [questionTargeted, setQuestionTargeted] = useState<YourQuestionType | null>(null);  // Replace 'YourQuestionType' with the actual type
- 
+    // Add event listener
+    window.addEventListener('resize', handleResize);
 
-   
-   const questionTargeted = useMemo(() => {
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, [imgSrc, videoSrc, windowSize]); // Empty array ensures that effect is only run on mount and unmount
+
+  
+  var [language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
+
+   //const [blogs, setBlogs] = useState<  undefined | SingleBlogDirectus[]>(undefined);
+   //const [queryResponse, setQueryResponse] = useState<  undefined | SingleBlogDirectus[]  >(undefined);
+   /*const questionTargeted = useMemo(() => {
     if (asPath.includes("#")) {
       const parts = asPath.split("#");
       if (parts[1]) {
@@ -194,94 +219,40 @@ partenair_link_text,
       return null;
     }
     return null;
-  }, [asPath]);
-
-
-  
-
-  //  const questionsDom = useMemo(
-  //   () =>
-  //     (queryResponse || blogs || dblogs).map((question, i) => {
-  //       const id = `question-${question.id}`;
-  //       const { main_title, description } = question.translations[0];
-  //       const category_id = question.category as number;
-  //       return (
-  //         <div key={i}>
-  //           <Link
-  //         href={generateBlogPath(
-  //           category_id,
-  //           main_title, question.id
-  //         )}
-  //         passHref
-  //       >
-  //         <a>
-  //           <Image
-  //             id={question.list_image}
-  //             title="Blog image"
-  //             quality="50"
-              
-  //             isBackgroundCss
-  //           />
-  //           <Label><h5 className="subtitle" style={{fontWeight:"500"}}>{main_title}</h5>
-  //           <span className="subtext">{description}</span>
-  //           <Date style={{fontSize:"12px",marginTop:"5px", display:"block"}} 
-  //           dateString={question.date_created.toString()} language={language} />
-  //           <a className="back-button next-button" href={"/" + locale + generateBlogPath(
-  //           category_id,
-  //           main_title, question.id
-  //         )} style={{fontSize:"12px", marginTop:"10px"}}>{readmore}
-  //         <ArrowCustom color={Color.TERRA_COTTA} />
-  //         </a></Label>
-  //           </a>
-  //           </Link>
-  //         </div>
-          
-          
-  //       );
-  //     }),
-  //   [blogs, queryResponse, questionTargeted]
-  // );
+  }, [asPath]);*/
   useEffect(() => {
     appearingAnimations();
   }, []);
-
-
-  // return (
-  //   <main className="home-template">
-  //     {/* ... existing sections and components */}
-      
-  //     {/* Include YourComponent within the JSX structure */}
-  //     <YourComponent />
-
-  //     {/* ... other sections and components */}
-  //   </main>
-  // );
-  
   var filteredmodels = models.filter(x=>x.translations && x.translations.length>0);
   return (
+    <>
+    <Head>
+    <link rel="preconnect" href={CMS_PUBLIC_URL} />
+      <style>
+        {`
+          body::before {
+            content: url('${CMS_PUBLIC_URL}/assets/${video_mobile_placeholder.filename_disk}?quality=40&format=webp');
+            display: none;
+          }
+        `}
+      </style>
+    </Head>
       <main className="home-template">
        <section className="section first-section" data-color={Color.ANTHRACITE}> 
        
-        {/*first image background*/}
         <div className="background-overlay" />
-        <Image
-            isBackgroundCss
-            id={video_mobile_placeholder.filename_disk}
-            title="Placeholder mobile"
-          />
-        {/*size.width > 580 ? (
-          <video autoPlay muted loop id="myVideo">
-            <source src="/showcase.webm" type="video/webm" />
-            <source src="/showcase.mp4" type="video/mp4" />
+        
+        {show_video == true ? (
+          <video autoPlay muted loop id="myVideo" src={videoSrc}>
+            
           </video>
         ) : (
-          <Image
-            isBackgroundCss
-            id={video_mobile_placeholder.filename_disk}
-            title="Placeholder mobile"
+          <NextImage
+            
+            src={imgSrc}
+            title="Placeholder mobile" priority layout="fill"
           />
-        )
-        */}
+        )}
 
 
       
@@ -289,15 +260,7 @@ partenair_link_text,
         <div className="text-container">
           <h1 className="main-title">{main_title}</h1>
         </div>
-        {/* <ScrollDown          text={scroll_down_link_text}          target="coverseal-section"          color={Color.WHITE}        /> */}
-        {/* <a
-          href="https://www.youtube.com/watch?v=MLJhLqqxUj0"
-          target="_blank"
-          className="video-icon-container"
-        >
-          <span>{video_link_text}</span>
-          <VideoLink color={Color.WHITE} />
-        </a> */}
+       
       </section>
 
       <section className ="section spacing-section" data-color={Color.SAND} > </section>
@@ -357,15 +320,14 @@ partenair_link_text,
                   <Image
                         id={benefits_section.security_image}
                         title="Blog image"
-                        quality="50"
                         
                         
                       />
 
 
 
-                      <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"
-                    }}>{benefits_section.security_title}</h5>
+                      <Label><h3 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"
+                    }}>{benefits_section.security_title}</h3>
                       <div
                           className="wysiwyg parafourlines"
                           dangerouslySetInnerHTML={{ __html: benefits_section.security_home_description }}
@@ -382,11 +344,10 @@ partenair_link_text,
                     <Image
                         id={benefits_section.water_quality_image.id}
                         title="Blog image"
-                        quality="50"
                         
                         
                       />
-                      <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.water_quality_title}</h5>
+                      <Label><h3 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.water_quality_title}</h3>
                       <div
                           className="wysiwyg parafourlines"
                           dangerouslySetInnerHTML={{ __html: benefits_section.water_quality_home_description }}
@@ -403,11 +364,10 @@ partenair_link_text,
                     <Image
                         id={benefits_section.isolation_image}
                         title="Blog image"
-                        quality="50"
                         
                         
                       />
-                      <Label><h5 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.isolation_title}</h5>
+                      <Label><h3 className="subtitle-argesta subtitle-argesta--grey-blue" style={{fontWeight:"500"}}>{benefits_section.isolation_title}</h3>
                       <div
                           className="wysiwyg parafourlines"
                           dangerouslySetInnerHTML={{ __html: benefits_section.isolation_home_description }}
@@ -461,9 +421,9 @@ partenair_link_text,
             })}
           >
           <div className ="text-container" >
-              <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+              <h3 className="subtitle-argesta subtitle-argesta--white" >                   
               {translations[0].home_title}
-            </h4><br/>
+            </h3><br/>
             <div>
             <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
@@ -489,16 +449,8 @@ partenair_link_text,
             })}
           >
           <div className="icon-container">
-              <img src={`/${reference}.png`} alt={reference} className="image"  style={{ color: Color.WHITE }} />
-              {/* {reference === "automatic" && (
-                <ModelAutomatic color={Color.WHITE} />
-              )}
-              {reference === "semi-automatic" && (
-                <ModelSemiAutomatic color={Color.WHITE} />
-              )}
-              {reference === "manual" && (
-                <ModelManual color={Color.WHITE} />
-              )} */}
+              <img src={`/${reference}.png`} alt={reference} className="image" loading="lazy"  style={{ color: Color.WHITE }} />
+              
             </div>
             </a></Link>
             </Grid>
@@ -520,16 +472,8 @@ partenair_link_text,
               })}
             >
             <div className="icon-container" style={{textAlign:"right"}}>
-            <img src={`/${reference}.png`} alt={reference} className="image" style={{ color: Color.WHITE }} />
-                {/*{reference === "automatic" && (
-                  <ModelAutomatic color={Color.WHITE} />
-                )}
-                {reference === "semi-automatic" && (
-                  <ModelSemiAutomatic color={Color.WHITE} />
-                )}
-                {reference === "manual" && (
-                  <ModelManual color={Color.WHITE} />
-                )}*/}
+            <img src={`/${reference}.png`} alt={reference} className="image" loading="lazy" style={{ color: Color.WHITE }} />
+                
               </div>
               </a></Link>
             </Grid>
@@ -542,9 +486,9 @@ partenair_link_text,
               })}
             >
             <div className ="text-container" style={{textAlign:"right"}}>
-                <h4 className="subtitle-argesta subtitle-argesta--white" >                   
+                <h3 className="subtitle-argesta subtitle-argesta--white" >                   
                 {translations[0].home_title}
-              </h4><br/>
+              </h3><br/>
               <div>
                <Link href={`/models/${id}/${slugify(translations[0].main_title, {
             lower: true,
@@ -580,7 +524,7 @@ partenair_link_text,
           direction={AnimationDirection.RIGHT_TO_LEFT}
         />
             </div>
-          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: coverseal_paragraph }} />
+          <div className="paragraph wysiwyg"  dangerouslySetInnerHTML={{ __html: models_paragraph }} />
           <Link href={`/before-configurator`} passHref>
             <a className="link-before-translate link-before-translate--terra-cotta">
               {configurator_link_text}
@@ -604,6 +548,7 @@ partenair_link_text,
             <div className="content" style={{position:"relative"}}>
             {/* <div className="overlay"></div> */}
             <div className="overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(50, 50, 50, 0.7)" }}></div>
+            
         <Image
         isBackgroundCss
           id={realisations_image.id}
@@ -704,17 +649,13 @@ partenair_link_text,
           </Masonry>
         </div>
     </section>
-        
-      
-
-
-      
       <CatalogueRequestHomeSection 
         {...globalSection.priceRequest}
         formsMessages={globalSection.formsMessages}
         locale={locale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}
       />
     </main>
+    </>
   );
 }
 

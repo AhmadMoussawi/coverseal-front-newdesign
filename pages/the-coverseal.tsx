@@ -2,7 +2,8 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { PriceRequestSection } from "../components/PriceRequestSection";
-import { Image } from "../components/Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
 import {
   Fetcher,
   getAllPagePropsOnly,
@@ -17,7 +18,7 @@ import {
 } from "../animations/appearing/shared";
 
 import { useRouter } from "next/router";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 import Masonry from "@mui/lab/Masonry";
 import { Label } from "@material-ui/icons";
 import { Grid } from "@material-ui/core";
@@ -355,7 +356,7 @@ comfort_button_text,
                         <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                         {discretion_title}
                       </h4>
-                      <Link href="#economy">
+                      <Link href="#discretion">
                                     <a className="link-before-translate link-before-translate--white" 
                                     style={{letterSpacing: "2px", whiteSpace:"nowrap"}}>
                                     {discretion_button_text}
@@ -375,7 +376,7 @@ comfort_button_text,
                       <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                       {certificate_title}
                     </h4>
-                    <Link href="#securite">
+                    <Link href="#certificate">
                                   <a className="link-before-translate link-before-translate--white" 
                                   style={{letterSpacing: "2px", fontSize:"1rem", whiteSpace:"nowrap"}}>
                                   {certificate_button_text}
@@ -395,7 +396,7 @@ comfort_button_text,
                       <h4 className="subtitle-argesta subtitle-argesta--white" style={{textAlign:"left"}}>                   
                       {comfort_title}
                     </h4>
-                    <Link href="#qualite">
+                    <Link href="#comfort">
                                   <a className="link-before-translate link-before-translate--white" 
                                   style={{letterSpacing: "2px", whiteSpace:"nowrap"}}>
                                   {comfort_button_text}
@@ -538,7 +539,7 @@ comfort_button_text,
       <div className="content">
        <div className="desktop-image">
       <Image
-          id={water_quality_image_2.id}
+          id={discretion_image_2}
           title="discretion image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />
@@ -549,7 +550,7 @@ comfort_button_text,
             </h2>
             <div className="mobile-image">
       <Image
-          id={water_quality_image_2.id}
+          id={discretion_image_2}
           title="discretion image"
           direction={AnimationDirection.LEFT_TO_RIGHT}
         />

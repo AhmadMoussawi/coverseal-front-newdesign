@@ -10,10 +10,14 @@ import { getLocale } from "../utils/locale";
 import { generateAchievementPath } from "../utils/paths";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-var URL = "https://coverseal-stage.com";
+var URL = "https://coverseal-stage.fr";
 
  const processUrls = async(urlObj)=>{
     var fetcher = new Fetcher();
+    if(!urlObj.locale.includes('-'))
+    {
+     urlObj.locale += "-FR" 
+    }
     var cmsLocale = getLocale(urlObj.locale);
     const achievementscategories = await fetcher.directus
     .items<string, AchievementsCategoryDirectus>("achievements_categories")
@@ -84,7 +88,11 @@ var URL = "https://coverseal-stage.com";
         urlObj.locale
       );
       
-      const [language, country] = urlObj.locale.split("-");
+      var [language, country] = urlObj.locale.split("-");
+      if(!country)
+        {
+          country = "FR";
+        }
       const countrydb = await fetcher.directus
         .items<string, CountriesDirectus>("countries")
         .readMany({
@@ -383,16 +391,36 @@ async function generateSiteMap(sitemapUrls) {
 }
  
 export async function getServerSideProps({ res, req }) {
-    const fetcher = new Fetcher();
+    //const fetcher = new Fetcher();
     const host = req.headers.host;
   console.log({ host });
   URL = "https://" + host;
-    const sitemapUrls = COUNTRIES.flatMap((country) =>
+  var countries = [
+    {
+      name: "France",
+      code: "FR",
+      languages: ["FR"],
+    }
+  ]
+    const sitemapUrls = countries.flatMap((country) =>
     
-    country.languages.map((language) => ({
-      url: `${URL}/${language.toLowerCase()}-${country.code}`,
-      locale:`${language.toLowerCase()}-${country.code}`
-    }))
+    country.languages.map((language) => {
+      var lowlang = language.toLowerCase()
+      if(language == country.code)
+        {
+          
+          return  ({
+            url: `${URL}`,
+            locale:`${lowlang}`
+          })
+        }
+        else{
+          return  ({
+            url: `${URL}/${lowlang}`,
+            locale:`${lowlang}`
+          })
+        }
+  })
   );
   // Generate the XML sitemap with the blog data
   const sitemap = await generateSiteMap(sitemapUrls);

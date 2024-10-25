@@ -234,6 +234,7 @@ li{
         align-items: center;
         justify-content: center;
         margin-left:0%;
+        margin-top:calc(100vw * 10px / 430px);
         .secondimg{
           margin-left:calc(100vw * 10px / 430px);
         }
@@ -480,11 +481,15 @@ h6{
   }
   .image-on-top:nth-of-type(2)
   {
-    margin-top:15px;
+    margin-top:18px;
     @media(max-width:1919px)
     {
-      margin-top:calc(100vw * 15px / 1920px)
+      margin-top:calc(100vw * 18px / 1920px)
     }
+  }
+  @media(max-width:768px)
+  {
+    display:none
   }
 }
 .section-model-content {
@@ -540,20 +545,23 @@ h6{
   display:block;
   background-color: var(--color-beige);
 
-  padding-top: 63px;
+  padding-top: 0px;
   padding-bottom: 198px;
   margin-bottom:-80px;
   .optionsimage{
     width:600px;
-    height:500px;
     padding:0px;
     .image-container{
-      height:100%;
+      height:auto;
+      
     }
     @media(max-width:1919px)
     {
     width:(100vw * 600px / 1920px);
-    height:(100vw * 500px / 1920px);
+    .image-container{
+      
+      min-height:(100vw * 400px / 1920px);
+    }
     }
   }
   .optionstext{
@@ -567,15 +575,12 @@ h6{
   }
   .dressingimage{
     width:920px;
-    height:240px;
     .image-container{
       height:100%;
     }
     @media(max-width:1919px)
     {
       width:calc(100vw * 920px / 1920px);
-      
-      height:calc(100vw * 240px / 1920px);
     }
   }
   .dressingtext{
@@ -640,6 +645,13 @@ h6{
   }
 }
 .technical-information {
+  .icon{
+    width:20px;
+    margin-left:10px
+  }
+  a{
+    cursor:pointer
+  }
   hr{
     background-color:black
   }

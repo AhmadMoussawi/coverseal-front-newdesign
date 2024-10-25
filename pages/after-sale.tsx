@@ -7,7 +7,8 @@ import {
   getAllPagePropsOnly,
   getPageContentProps,
 } from "../utils/fetchers";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 import { useRouter } from "next/router";
 
 export default function AfterSalePage({

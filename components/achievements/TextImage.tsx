@@ -2,7 +2,8 @@ import gsap from "gsap";
 import classNames from "classnames";
 import { useEffect, useRef } from "react";
 import { AnimationDirection } from "../../utils/constants";
-import { Image } from "../Image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../Image'));
 
 export function TextImage({
   image,

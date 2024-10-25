@@ -17,6 +17,6 @@ export default function initMiddleware(middleware: any) {
 
 export const cors = initMiddleware(
   Cors({
-    origin: ["https://coverseal-stage.com"],
+    origin: ["https://coverseal-stage.fr"],
   })
 );

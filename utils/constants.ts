@@ -1,4 +1,4 @@
-export const BASE_URL = "https://coverseal-stage.com";
+export const BASE_URL = "https://coverseal-stage.fr";
 
 export const API_ROOT = process.env.CMS_INTERNAL_URL;
 export const CMS_PUBLIC_URL = process.env.CMS_PUBLIC_URL;
@@ -36,7 +36,7 @@ export const COUNTRIES = [
   {
     name: "France",
     code: "FR",
-    languages: ["FR", "EN"],
+    languages: ["FR"],
   },
   {
     name: "The Netherlands",

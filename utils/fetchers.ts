@@ -17,6 +17,10 @@ export class Fetcher {
     this.directus.transport
       .get(`/items/${collection}?fields=*.*`)
       ?.then((res) => {
+        if(!locale.includes('-'))
+        {
+          locale += "-FR"
+        }
         return Object.entries(res.data).reduce(
           (acc: IAnyObject, [key, value]: any) => {
             if (key === "id") {
@@ -46,6 +50,10 @@ export async function getAllPagePropsOnly(
   fetcher: Fetcher,
   locale: string = "en-GB"
 ): Promise<AllPageProps> {
+  if(!locale.includes('-'))
+    {
+      locale += "-FR"
+    }
   const cmsLocale = getLocale(locale);
   
   const {
@@ -211,7 +219,11 @@ var canonicallocale = "";
       locale
     )
     try{
-    const [language, countryS] = locale.split("-");
+    var [language, countryS] = locale.split("-");
+    if(!countryS)
+      {
+        countryS = "FR";
+      }
     var hasblogs = false;
     const countrydb = await fetcher.directus
 .items<string, CountriesDirectus>("countries")
@@ -262,8 +274,11 @@ catch{}
     }
   )}`;
 
-  const [_language, country] = locale.split("-");
-
+  var [_language, country] = locale.split("-");
+  if(!country)
+  {
+    country = "FR";
+  }
   const hasSAV = (() => {
     switch (country) {
       case "BE":
@@ -530,11 +545,19 @@ export const getGuestSuiteContent = async(
   locale: string = "en-GB",
   page = 0
 ) =>{
+  if(!locale.includes('-'))
+    {
+      locale += "-FR"
+    }
   const cmsLocale = getLocale(locale);
 
   
   
-  const [_language, country] = locale.split("-");
+  var [_language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   var reviews = [];
   try{
   const res = await fetch("https://wire.guest-suite.com/rest/reviews.json?access_token=xlLQipaxg7aELTft&page=" + page);
@@ -550,6 +573,10 @@ export async function getPageContentProps<T extends AllPageContent>(
   collection: string,
   locale: string = "en-GB"
 ): Promise<PagePropsOnly<T>> {
+  if(!locale.includes('-'))
+    {
+      locale += "-FR"
+    }
   const cmsLocale = getLocale(locale);
 
   const collectionContent = await fetcher.fetchCollection<T>(

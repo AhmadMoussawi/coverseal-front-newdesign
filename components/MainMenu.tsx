@@ -21,8 +21,11 @@ export function MainMenu(props: Props) {
   const { overlayRef, handleMenuClose, faqPath, modelsPath, hasSAV, blogsPath, hasblogs } = props;
   const router = useRouter();
   const { locale, asPath, basePath } = router;
-  const [language, country] = locale.split("-");
-
+  var [language, country] = locale.split("-");
+  if(!country)
+  {
+    country = "FR"
+  }
   const [currentLanguage, setCurrentLanguage] = useState(language || "");
   const [currentLanguageList, setCurrentLanguageList] = useState(() => {
     if (locale === "default") {
@@ -127,12 +130,14 @@ export function MainMenu(props: Props) {
       ).languages;
       const locale = `${languages[0].toLocaleLowerCase()}-${c}`;
       document.cookie = `LOCALE=${locale};`;
-      if(c.toLowerCase()!=="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+      if(c.toLowerCase()!=="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal-stage.fr")))
       {
           window.location.href = "https://coverseal.com/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
       }
       else
-        window.location.href="/" + locale + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
+      {
+        window.location.href=(locale=="default" || locale=="fr"?"/" + locale:"") + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
+      }
       /*router.push(asPath, undefined, {
         locale,
         shallow:false
@@ -147,7 +152,7 @@ export function MainMenu(props: Props) {
         locale: `${l.toLocaleLowerCase()}-${currentCountry}`,
         shallow:false
       });*/
-      window.location.href="/" + `${l.toLocaleLowerCase()}-${currentCountry}` + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
+      window.location.href="/" + `${l.toLocaleLowerCase()}` + (asPath.lastIndexOf("?")>-1?asPath.substring(0,asPath.lastIndexOf("?")):asPath);
     },
     [asPath, currentCountry]
   );
@@ -157,9 +162,9 @@ export function MainMenu(props: Props) {
       <div className="wrapper" ref={overlayRef}>
       <div className="section-container">
           <div className="top">
-                <div  className="icon-container" style={{marginRight:"calc(60% - 80px)"}}>
+                <div  className="icon-container" style={{marginRight:"70%"}}>
                         <Link href="/" passHref>
-                          <a className="logo">         
+                          <a className="logo"  aria-label="logo">         
                           <LogoSymbol color={Color.TERRA_COTTA} />              
                           </a>
                         </Link>
@@ -174,7 +179,7 @@ export function MainMenu(props: Props) {
                       onChange={onCountryChange}
                     />
             </div>
-            <div>
+            {/*<div>
               
               <LanguageSwitcher
                       list={currentLanguageList.map((language) => ({
@@ -185,9 +190,9 @@ export function MainMenu(props: Props) {
                       onChange={onLanguageChange}
                     />         
               
-              </div>
+              </div>*/}
             <div>
-              <button className="close-menu-button" onClick={handleMenuClose}>
+              <button className="close-menu-button" title="close menu" onClick={handleMenuClose}>
                     <Cross color={Color.TERRA_COTTA} />
                   </button>
               </div>            
@@ -285,13 +290,13 @@ export function MainMenu(props: Props) {
           <div className="top">
                 <div  className="icon-container" style={{marginTop:"0px"}}>
                         <Link href="/" passHref>
-                          <a className="logo">         
+                          <a className="logo"  aria-label="logo">         
                           <LogoSymbol color={Color.TERRA_COTTA} />              
                           </a>
                         </Link>
                 </div> 
             <div>
-              <button className="close-menu-button" onClick={handleMenuClose}>
+              <button className="close-menu-button" title="close menu" onClick={handleMenuClose}>
                     <Cross color={Color.TERRA_COTTA} />
                   </button>
               </div>
@@ -374,7 +379,7 @@ export function MainMenu(props: Props) {
             </ul>
             
           </div>
-          <div className="bottom" style={{marginLeft:"10%", justifyContent:"space-between", width:"80%", display: "flex", marginTop:"0px"}}>
+          <div className="bottom" style={{marginLeft:"27%", justifyContent:"space-between", width:"45%", display: "flex", marginTop:"0px"}}>
           <div className="icon-container globe">
                      <Globe color={Color.TERRA_COTTA} />
             </div>               
@@ -385,8 +390,7 @@ export function MainMenu(props: Props) {
                       onChange={onCountryChange}
                     />
             </div>
-            <div>
-              <Link href="/after-sale" passHref>
+            {/*<div>
               <LanguageSwitcher
                       list={currentLanguageList.map((language) => ({
                         name: language,
@@ -394,9 +398,8 @@ export function MainMenu(props: Props) {
                       }))}
                       currentValue={currentLanguage.toUpperCase()}
                       onChange={onLanguageChange}
-                    />         
-              </Link>
-              </div>
+                    />  
+              </div>*/}
           </div>
         </div>
       </div>

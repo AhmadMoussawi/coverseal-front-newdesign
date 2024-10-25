@@ -13,7 +13,7 @@ header {
   &.translate-y-full{
     top:0px;
     padding-top:40px;
-    background-color:rgba(255,255,255,0.9);
+    background-color:rgba(255,255,255,1);
     a .text, a{
       color:var(--color-terra-cotta) !important;
     }
@@ -30,7 +30,7 @@ header {
   &.translate-y-0{
     top:0px;
     padding-top:40px;
-    background-color:rgba(255,255,255,0.9);
+    background-color:rgba(255,255,255,1);
     a .text, a{
       color:var(--color-terra-cotta) !important;
     }
@@ -78,7 +78,7 @@ header {
   }
 }
 .MuiPopover-root{
-  z-index:1600 !important;
+  z-index:999999999999 !important;
 }
 
 

@@ -4,8 +4,9 @@ import gsap from "gsap";
 import { CircleLink } from "../components/CircleLink";
 import { LineLink } from "../components/LineLink";
 import { VideoLink, YoutubePlayButton } from "../components/icons";
-import { Image } from "../components/Image";
-import { AnimationDirection, Color } from "../utils/constants";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
+import { AnimationDirection, Color, CMS_PUBLIC_URL } from "../utils/constants";
 import { generateMap } from "../utils/map";
 import {
   Fetcher,
@@ -16,7 +17,7 @@ import {
   translateInFromLeftToRight,
   translateInFromRightToLeft,
 } from "../animations/appearing/shared";
-import { CatalogueRequestHomeSection } from "../components/CatalogueRequestHomeSection";
+const CatalogueRequestHomeSection = dynamic(() => import('../components/CatalogueRequestHomeSection'));
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Masonry from "@mui/lab/Masonry";
@@ -25,7 +26,7 @@ import Box from "../components/Box";
 import VerticalBoxGroup from "../components/VerticalBoxGroup";
 import { useWindowSize } from "../components/useWindowSize";
 import { getLocale } from "../utils/locale";
-
+import NextImage from 'next/image';
 declare const YT: any;
 
 function appearingAnimations() {
@@ -78,9 +79,44 @@ export default function AboutUsPage({ globalSection, pageProps, home }: AboutUsP
     company_image_2,
     company_image_3,
     company_image_4,
-    video_mobile_image
+    company_image_5,
+    video_mobile_image,
+    banner_image_mobile,
+    banner_image_desktop,
+    banner_image_tablet,
+  banner_video_desktop,
+  banner_video_mobile,
+  banner_video_tablet,
+  banner_title,
+  show_video
   } = pageProps;
-
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  
+  const [imgSrc, setImgSrc] = useState("");
+  const [videoSrc, setVideoSrc] = useState("");
+  
+  const getImageSrc = () => {
+    if (windowSize.width < 768) {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${banner_image_mobile.filename_disk}?quality=40&format=webp`);
+    } else if (windowSize.width < 1024) {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${banner_image_tablet.filename_disk}?quality=40&format=webp`);
+    } else {
+      setImgSrc(`${CMS_PUBLIC_URL}/assets/${banner_image_desktop.filename_disk}?quality=40&format=webp`);
+    }
+    
+  };
+  const getVideoSrc = () => {
+    if (windowSize.width < 768) {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${banner_video_mobile.filename_disk}`);
+    } else if (windowSize.width < 1024) {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${banner_video_tablet.filename_disk}`);
+    } else {
+      setVideoSrc(`${CMS_PUBLIC_URL}/assets/${banner_video_desktop.filename_disk}`);
+    }
+  };
    const boxData = [
     { 
       text1: countries_number,
@@ -136,7 +172,6 @@ for (let i = 0; i < boxData.length; i += 3) {
   
   
   const { locale } = useRouter();
-
   const theme = useTheme();
   useEffect(() => {
     appearingAnimations();
@@ -204,7 +239,57 @@ for (let i = 0; i < boxData.length; i += 3) {
       setIsGenerated(true);
     }
   }, [isGenerated]);
+  useEffect(() => {
+    
+    // Function to update the window width state
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+      getImageSrc();
+      getVideoSrc();
+    };
+
+    // Call handler once to get the initial window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [imgSrc, videoSrc, windowSize]);
   return (
+    <>
+    <main className="home-template">
+      <section className="section first-section" data-color={Color.ANTHRACITE}> 
+       
+       <div className="background-overlay" />
+       
+       {show_video == true ? (
+         <video autoPlay muted loop id="myVideo" src={videoSrc}>
+           
+         </video>
+       ) : (
+         <NextImage
+           
+           src={imgSrc}
+           title="Placeholder mobile" priority layout="fill"
+         />
+       )}
+
+
+     
+      
+       <div className="text-container">
+         <h1 className="main-title">{banner_title}</h1>
+       </div>
+      
+     </section>
+    </main>
     <main className="about-us-template">
       <section className="section first-section" data-color="beige">
         <div className="section-container">
@@ -373,7 +458,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                   title="dressing image"
                   direction={AnimationDirection.BOTTOM_TO_TOP}
                 /> 
-                <Grid container spacing={2} style={{marginTop:"10px"}}>
+                <Grid container spacing={5} style={{marginTop:"10px"}}>
                         <Grid item xs={4} lg={4}>
                           <Image id={company_image_2} title="image" />
                           </Grid>
@@ -381,7 +466,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                           <Image id={company_image_3} title="image" />
                           </Grid>
                           <Grid item xs={4} lg={4}>
-                          <Image id={company_image_4.id} title="image" />
+                          <Image id={company_image_5.id} title="image" />
                           </Grid>
                   </Grid>
           </div>
@@ -401,7 +486,7 @@ for (let i = 0; i < boxData.length; i += 3) {
                 <h4 className="subtitle-argesta subtitle-argesta--white" >                   
                 {jobs_title}
               </h4><br/>
-              <Link href={`/price-request`} passHref>
+              <Link href={`/jobs`} passHref>
                             <a className="link-before-translate link-before-translate--white" style={{fontFamily:"Poppins"}}>
                             {jobs_link_text}
                             </a>
@@ -419,15 +504,16 @@ for (let i = 0; i < boxData.length; i += 3) {
             className="main-paragraph wysiwyg" style={{color:"var(--color-anthracite)"}}
             dangerouslySetInnerHTML={{ __html: network_paragraph }}
           />  
-          <Grid container spacing={2}>
-                    {network_partners.map(gal=>{
+          <Image id={company_image_4.id} title="image" />
+          {/*<Grid container spacing={2}>
+                    {network_partners && network_partners.length>0 ? <>{network_partners.map(gal=>{
                       return (
                         <Grid item xs={6} lg={2}>
                           <Image id={gal.directus_files_id} title="image" />
                           </Grid>
                       );
-                    })}
-                  </Grid>       
+                    })}</>:<></>}
+                  </Grid>*/}   
           </div>
           
           </section>
@@ -549,6 +635,7 @@ for (let i = 0; i < boxData.length; i += 3) {
           formsMessages={globalSection.formsMessages}
           locale={locale} newsletter_subscribe_link_text={globalSection.footer.newsletter_subscribe_link_text}/>
     </main>
+    </>
   );
 }
 

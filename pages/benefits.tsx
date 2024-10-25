@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import React, { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-import { Image } from "../components/Image";
-import { PriceRequestSection } from "../components/PriceRequestSection";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import('../components/Image'));
 import {
   Fetcher,
   getAllPagePropsOnly,
@@ -51,7 +51,11 @@ export default function BenefitsPage({
     water_quality_image
   } = pageProps;
   const { locale } = useRouter();
-  const [_language, country] = locale.split("-");
+  var [_language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   const modelsLink = layoutProps.topBarProps.mainMenuProps.modelsPath;
 
   useEffect(() => {

@@ -97,7 +97,11 @@ export function CatalogRequestSection(props: Props) {
   );
   if(locale!=null && locale!="")
   {
-    const [language, lcountry] = locale.split("-");
+    var [language, lcountry] = locale.split("-");
+    if(!lcountry)
+    {
+      lcountry = "FR"
+    }
     var countrieslist = 'BE,LU,FR,NL';
     // if(countrieslist.includes(lcountry))
     // {

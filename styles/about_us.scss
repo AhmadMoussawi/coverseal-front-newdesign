@@ -303,11 +303,12 @@
 
   .first-section {
     padding-bottom: 120px;
-
+    padding-top:120px;
 
 
     @media (max-width: 768px) {
       padding-bottom: 0px;
+      padding-top:30px;
       .main-title{
         font-size:calc(100vw * 44px / 430px);
       }

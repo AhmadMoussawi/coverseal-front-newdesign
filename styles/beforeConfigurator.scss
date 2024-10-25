@@ -2,6 +2,7 @@
 .before-configurator-template .main-title {
   em {
     display: block;
+    font-family:unset
   }
   h1{
     font-size:150px;
@@ -529,7 +530,7 @@ display:none;
   
     &[data-step="7"] {
       grid-area: 22/4/23/10;
-      padding-top: calc(100vw * 50px / 430px);
+      //padding-top: calc(100vw * 50px / 430px);
   
       // h2 {
       //   font-size: 2rem;

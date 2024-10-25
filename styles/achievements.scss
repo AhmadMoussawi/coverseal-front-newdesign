@@ -1,5 +1,12 @@
 .achievements-details-template,
 .achievements-category-template {
+  .first-section{
+    @media(max-width:768px)
+    {
+      padding-bottom:0px !important;
+      
+    }
+  }
   .section-container {
     width: 85% !important;
     margin: auto;
@@ -177,10 +184,14 @@
     }
   }
   .first-section{
-    padding-top:150px
+    padding-top:150px;
+    @media(max-width:768px)
+    {
+      padding-bottom:0px !important
+    }
   }
   .wysiwyg {
-    margin-bottom:80px;
+    
     h2 {
       font-family: "argesta_regular";
       margin-top:0px;
@@ -236,7 +247,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    margin-bottom:80px !important;
+    @media(max-width:768px)
+    {
+      margin-bottom:0px !important
+    }
     .image-container{
       width:40%
     }

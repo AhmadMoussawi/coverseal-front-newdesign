@@ -23,12 +23,13 @@ import {
 import { Color } from "../../../utils/constants";
 import { Arrow, Cross } from "../../../components/icons";
 import { useDebounce } from "../../../components/useDebounce";
-import { Loader } from "../../../components/Loader";
+import Loader from "../../../components/Loader";
 import { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../../utils/locale";
 import { COUNTRIES } from "../../../utils/constants";
 import StructuredData from "../../../components/StructuredData";
-import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
+import dynamic from "next/dynamic";
+const CatalogueRequestHomeSection = dynamic(() => import('../../../components/CatalogueRequestHomeSection'));
 
 function QuestionItem({ translations }: PartialItem<FAQQuestionDirectus>) {
   const [isOpen, setIsOpen] = useState(false);
@@ -398,12 +399,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fields: ["translations.name", "translations.languages_code", "id"],
     })
     .then((res) => res.data);
-
-  const paths = COUNTRIES.reduce((acc, country) => {
+    var countries = [{
+      name: "France",
+      code: "FR",
+      languages: ["FR"],
+    }]
+  const paths = countries.reduce((acc, country) => {
     const countryCode = country.code;
 
     country.languages.forEach((language) => {
-      const locale = `${language.toLowerCase()}-${countryCode}`;
+      const locale = `${language.toLowerCase()}`;
       const cmsLocale = getLocale(locale);
 
       categories.forEach((category) => {

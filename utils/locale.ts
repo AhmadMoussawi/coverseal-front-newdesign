@@ -1,9 +1,17 @@
 export const getLocale = (locale: string) => {
+  if(!locale.includes('-'))
+    {
+      locale += "-FR"
+    }
   if (locale === "default") {
     return "en-GB";
   }
 
-  const [language, country] = locale.split("-");
+  var [language, country] = locale.split("-");
+  if(!country)
+    {
+      country = "FR";
+    }
   switch (true) {
     case language === "de":
       return "de-DE";

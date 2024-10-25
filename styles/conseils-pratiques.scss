@@ -287,21 +287,36 @@ position: relative;
     background:unset;
   }
   .is-selected{
-    background-color:var(--color-beige);
+    background-color:var(--color-terra-cotta);
+    color:white !important;
+    &:hover{
+      background-color:var(--color-terra-cotta);
+    color:white ;
+    }
+    &:hover::before{
+      background-color:var(--color-terra-cotta)
+    }
   }
 }
 
 .pagescats{
   display:block;
+  margin-left:-10px !important;
+  margin-top:30px !important;
   li{
     float:left;
     background-color: var(--color-beige);
     margin: 0 10px;
-    padding: 10px;
+    padding: 0px !important;
     border-radius: 5px;
     a {
       color: var(--color-terra-cotta); /* Set the text color to terra-cotta */
       text-decoration: none; /* Remove underline from the link */
+      padding:10px 30px !important;
+      @media(max-width:768px)
+      {
+        padding:10px 20px !important
+      }
     }
   }
 }
@@ -316,7 +331,7 @@ position: relative;
   margin: 0 10px;
   display: block;
   color: var(--color-terra-cotta); /* Set the text color to terra-cotta */
-  background-color: var(--color-white); /* Set the background color to white */
+  /*background-color: var(--color-white); /* Set the background color to white */
   padding: 10px; /* Add padding for better user experience */
   border-radius: 5px; /* Add rounded corners for better aesthetics */
   text-decoration: none; /* Remove underline from the link */
@@ -395,12 +410,12 @@ position: relative;
 
 .MuiTabs-scrollButtons {
   color: var(--color-terra-cotta);
-  background-color: red;
+  background-color: transparent;
 }
 
 .MuiButtonBase-root {
   color: var(--color-terra-cotta); 
-  background-color: blue;
+  background-color: transparent;
 }
 
 

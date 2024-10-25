@@ -12,9 +12,6 @@ import { ArrowCustom } from "../../../components/icons";
 import { Color } from "../../../utils/constants";
 import type { PartialItem } from "@directus/sdk";
 import { getLocale } from "../../../utils/locale";
-import { COUNTRIES } from "../../../utils/constants";
-// import { CatalogueRequestHomeSection } from "../../../components/CatalogueRequestHomeSection";
-// import { useRouter } from "next/router";
 
 function appearingAnimations() {
   translateInFromRightToLeft(".first-section .main-title");
@@ -138,12 +135,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
       fields: ["translations.main_title", "translations.languages_code", "id"],
     })
     .then((res) => res.data);
-
-  const paths = COUNTRIES.reduce((acc, country) => {
+var countries = [{
+  name: "France",
+  code: "FR",
+  languages: ["FR"],
+}]
+  const paths = countries.reduce((acc, country) => {
     const countryCode = country.code;
 
     country.languages.forEach((language) => {
-      const locale = `${language.toLowerCase()}-${countryCode}`;
+      
+      const locale = `${language.toLowerCase()}`;
       const cmsLocale = getLocale(locale);
 
       jobs.forEach((job) => {

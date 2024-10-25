@@ -28,7 +28,7 @@ const handler = nextConnect<NextApiRequest, CustomNextApiResponse>()
   })
   .use(
     Cors({
-      origin: ["https://coverseal-stage.com"],
+      origin: ["https://coverseal-stage.fr"],
     })
   )
   .use(validateFormData(requiredFields))

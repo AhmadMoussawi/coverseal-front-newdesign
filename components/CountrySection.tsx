@@ -60,9 +60,9 @@ export function CountrySection({
     const languages = COUNTRIES.find(
       (country) => country.code === e.target.value
     ).languages;
-    if(e.target.value.toLowerCase()!=="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal.fr")))
+    if(e.target.value.toLowerCase()!=="fr" && (window.location.host.includes("coverseal-stage.fr")||window.location.host.includes("coverseal-stage.fr")))
     {
-        window.location.href = "https://coverseal.com/" + languages[0]+"-" + e.target.value
+        window.location.href = "https://www.coverseal.com/" + languages[0]+"-" + e.target.value
      
     }
     else{
@@ -94,7 +94,7 @@ export function CountrySection({
     <div
       className="country-section"
       style={{
-        backgroundImage: `url(${CMS_PUBLIC_URL}/assets/${country_image.id}?quality=60&format=webp)`,
+        backgroundImage: `url(${CMS_PUBLIC_URL}/assets/${country_image.id}?quality=40&format=webp)`,
       }}
     >
       <div className="overlay" />
